@@ -1,12 +1,12 @@
-import './personatitle.scss';
+import './personaTitle.scss';
 
-function Personatitle() {
+function PersonaTitle() {
 
     return (
         <div>
-            Personatitle
+            PersonaTitle
         </div>
     );
 }
   
-export default Personatitle;
+export default PersonaTitle;

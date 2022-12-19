@@ -1,12 +1,12 @@
-import './radiobutton.scss';
+import './radioButton.scss';
 
-function Radiobutton() {
+function RadioButton() {
 
     return (
         <div>
-            Radiobutton
+            RadioButton
         </div>
     );
 }
   
-export default Radiobutton;
+export default RadioButton;

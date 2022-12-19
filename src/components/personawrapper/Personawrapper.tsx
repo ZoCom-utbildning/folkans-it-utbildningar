@@ -1,12 +1,12 @@
-import './personawrapper.scss';
+import './personaWrapper.scss';
 
-function Personawrapper() {
+function PersonaWrapper() {
 
     return (
         <div>
-            Personawrapper
+            PersonaWrapper
         </div>
     );
 }
   
-export default Personawrapper;
+export default PersonaWrapper;

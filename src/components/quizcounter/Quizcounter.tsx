@@ -1,12 +1,12 @@
-import './quizcounter.scss';
+import './quizCounter.scss';
 
-function Quizcounter() {
+function QuizCounter() {
 
     return (
         <div>
-            Quizcounter
+            QuizCounter
         </div>
     );
 }
   
-export default Quizcounter;
+export default QuizCounter;

@@ -1,12 +1,12 @@
-import './quizwrapper.scss';
+import './quizWrapper.scss';
 
-function Quizwrapper() {
+function QuizWrapper() {
 
     return (
         <div>
-            Quizwrapper
+            QuizWrapper
         </div>
     );
 }
   
-export default Quizwrapper;
+export default QuizWrapper;
