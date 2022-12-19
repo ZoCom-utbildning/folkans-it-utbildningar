@@ -2,7 +2,7 @@
 
 Frontend for Folkan IT-utbildningar.
 
-## Git strategies
+## Git strategier
 
 - Bransch från issues
 - noga med labels på issues
