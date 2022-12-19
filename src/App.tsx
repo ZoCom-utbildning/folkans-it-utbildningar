@@ -1,9 +1,9 @@
-import About from './views/landing/About';
-import Error from './views/landing/Error';
-import Form from './views/landing/Form';
-import Home from './views/landing/Home';
+import About from './views/about/About';
+import Error from './views/error/Error';
+import Form from './views/form/Form';
+import Home from './views/home/Home';
 import Landing from './views/landing/Landing';
-import Personas from './views/landing/Personas';
+import Personas from './views/personas/Personas';
 
 import './scss/global.scss';
 import { Route, Routes } from 'react-router-dom';
