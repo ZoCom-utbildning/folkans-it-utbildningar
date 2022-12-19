@@ -22,3 +22,35 @@ Pull istället för push, d.v.s. vi assignar oss själva på en issue
 ## Figma link
 
 https://www.figma.com/file/ii1EZtO2bCHWOT9GsPfIjo/Style-guide?node-id=0%3A1&t=pIL8Eo4KOz7srez9-0
+
+## Filstruktur
+
+**assets**
+
+```
+*/assets/<viewfolder>/<file>
+```
+
+**SCSS**
+
+```
+*/scss/global.scss
+*/scss/_reset.scss
+*/scss/_layout.scss
+*/scss/_variables.scss
+*/scss/_motion.scss
+```
+
+**Component**
+
+```
+*/components/<component>/<component>.tsx
+*/components/<component>/<component>.scss
+```
+
+**Views**
+
+```
+*/views/<view>/<view>.tsx
+*/views/<view>/<view>.scss
+```
