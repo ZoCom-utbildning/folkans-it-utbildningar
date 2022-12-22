@@ -5,7 +5,6 @@ function Landing() {
     return (
         <div>
             Landing
-            <button className="introText">Nästa fråga</button>
         </div>
     );
 }
