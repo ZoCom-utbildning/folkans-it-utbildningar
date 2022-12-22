@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro&family=Roboto+Mono:wght@200&display=swap");
-$bg-image: url("../../assets/coderguy-image.jpg");
+$bg-image: url("../../assets/photos/manComputer.png");
 $fonts: "Maven Pro";
 
 .wrapper {
@@ -12,7 +12,8 @@ $fonts: "Maven Pro";
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 40%;
+    min-height: 40%;
+    height: 60%;
     width: 100%;
     background-blend-mode: multiply;
     background-size: cover;
@@ -24,12 +25,25 @@ $fonts: "Maven Pro";
       linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%),
       $bg-image;
     .title-h1 {
-      color: white;
+      color: rgb(246, 246, 246);
       font-family: $fonts;
       font-size: 2.5rem;
       margin-left: 1.5rem;
       margin-bottom: 1rem;
       font-weight: 500;
+      border-right: 0.15em solid #ffffff17;
+    }
+  }
+  .home-main {
+    background-color: #1d2025;
+    padding: 1rem;
+    .home-main__content {
+      background-color: #1d2025;
+      padding: 1rem;
+      border: solid 1px #ffffff16;
+      p {
+        margin-top: 1rem;
+      }
     }
   }
 }
