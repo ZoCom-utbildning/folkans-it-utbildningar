@@ -1,0 +1,79 @@
+body, #root, .App {
+    width: 100vw;
+    height: 100vh;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: 'Maven Pro';
+    font-style: normal;
+    font-weight: 523;
+    font-size: 60px;
+    line-height: 100%;
+    /* identical to box height, or 60px */
+    letter-spacing: 0.04em;
+}
+
+h2 {
+    font-family: 'Maven Pro';
+    font-style: normal;
+    font-weight: 523;
+    font-size: 49px;
+    line-height: 100%;
+    /* identical to box height, or 49px */
+    letter-spacing: 0.04em;
+}
+
+h3 {
+    font-family: 'Maven Pro';
+    font-style: normal;
+    font-weight: 523;
+    font-size: 40px;
+    line-height: 100%;
+    /* identical to box height, or 40px */
+    letter-spacing: 0.04em;
+}
+
+h4 {
+    font-family: 'Maven Pro';
+    font-style: normal;
+    font-weight: 523;
+    font-size: 33px;
+    line-height: 100%;
+    /* identical to box height, or 33px */
+    letter-spacing: 0.04em;
+}
+
+h5 {
+    font-family: 'Maven Pro';
+    font-style: normal;
+    font-weight: 523;
+    font-size: 27px;
+    line-height: 100%;
+    /* identical to box height, or 27px */
+    letter-spacing: 0.04em;
+}
+
+// (ingress) unsure if this should be here or somewhere else
+.introText {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 190%;
+    /* or 34px */
+}
+
+p {
+    font-family: 'Roboto Mono';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 190%;
+    /* or 30px */
+}
