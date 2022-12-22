@@ -1,4 +1,6 @@
+import { useEffect, useRef, useState } from 'react';
 import './landing.scss';
+import '../../scss/_variables.scss';
 
 
 class Vector {
@@ -53,7 +55,12 @@ class Vector {
 }
 
 function Landing(this: any) {
-    
+    const [canvasWidth, setCanvasWidth] = useState(1000);
+    const [canvasHeight, setCanvasHeight] = useState(1000);
+    const ref = useRef(null);
+    const FPS = 60;
+    let t = 0;
+
     let mousePosition =  new Vector({ x: -10000, y: -10000 });
     function setMousePosition(position: Vector) {
         mousePosition = position;
@@ -81,19 +88,22 @@ function Landing(this: any) {
         // var canvas = document.getElementById('canvas');
         const canvas: HTMLCanvasElement = document.getElementById('canvas')  as HTMLCanvasElement;
         if (canvas.getContext) {
-          var blob = canvas.getContext('2d');
-          if(blob) {
-            blob.beginPath();
-            blob.fillStyle = "#2573B5";
+          var ctx = canvas.getContext('2d');
+          if(ctx) {
+            ctx.beginPath();
+            ctx.fillStyle = "$darkTransparent";
+            ctx.filter = "multiply";
+            ctx.shadowColor = "black";
+            ctx.shadowBlur = 15;
             if (points.length > 0) {
-                blob.moveTo(points[0].x, points[0].y);
+                ctx.moveTo(points[0].x, points[0].y);
                 for (let point of points) {
-                    blob.lineTo(point.x, point.y);       
+                    ctx.lineTo(point.x, point.y);       
                 }
-                blob.lineTo(points[0].x, points[0].y);
+                ctx.lineTo(points[0].x, points[0].y);
             }
-            blob.fill();
-            // blob.imageSmoothingEnabled = false;
+            ctx.fill();
+            // ctx.imageSmoothingEnabled = false;
             }
         }
         drawPoint(mousePosition);
@@ -128,21 +138,20 @@ function Landing(this: any) {
             }
         }
     }
-      
+    
+    // Wobble the blob
     function wobble(t: number, point: { x: number; y: number; }) {
         return new Vector({
             x: 6*Math.sin((t/2 + point.x/4) / 10),
             y: 6*Math.sin((t/2 + point.y/4) / 10),
         });
     }
-      
-    const FPS = 60;
-    let t = 0;
     
     function force(point: any) {
         return point;
     }
-      
+    
+    // Shapes the blob
     function step(points: any[], originalPoints: string | any[]) {
         velocities = velocities.map(
           (v, i) => {
@@ -202,18 +211,18 @@ function Landing(this: any) {
     });
     // const wrapper = document.getElementsByClassName('landingPage');
     // console.log(wrapper);
-    const ref = useRef(null);
+
     useEffect(() => {
         if(ref.current) {
             setCanvasWidth(ref.current.offsetWidth);
             setCanvasHeight(ref.current.offsetHeight);
         }
     });
-    const [canvasWidth, setCanvasWidth] = useState(1000);
-    const [canvasHeight, setCanvasHeight] = useState(1000);
+    
+
     return (
         <div className="landingPage" ref={ref}>
-            <h1 className="landingTitle">Så du är nyfiken på att bli utvecklare?</h1>
+            <h1 className="landingTitle">Så du är nyfiken på att jobba inom IT?</h1>
             <canvas id="canvas" width={canvasWidth} height={canvasHeight} > </canvas>
         </div>
     );
