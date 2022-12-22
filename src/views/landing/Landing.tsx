@@ -1,4 +1,4 @@
-import './landig.scss';
+import './landing.scss';
 
 function Landing() {
 
