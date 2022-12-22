@@ -4,6 +4,14 @@
     align-items: center;
 }
 
+// Ersätta .viewWrapper med denna?
+@mixin flex($display: flex, $justify: center, $align: center, $direction: row) {
+    display: $display;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+
 .card {
     width: 90%;
     max-width: 50rem;

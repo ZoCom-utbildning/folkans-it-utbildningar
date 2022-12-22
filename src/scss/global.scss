@@ -6,7 +6,7 @@
     width: 100vw;
     height: 100vh;
     background-color: $dark;
-    background-image: url('../assets/photos/manComputer.png');
+    background-image: url('../assets/photos/manComputer.png'); //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
 * {
