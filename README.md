@@ -54,3 +54,24 @@ https://www.figma.com/file/ii1EZtO2bCHWOT9GsPfIjo/Style-guide?node-id=0%3A1&t=pI
 */views/<view>/<view>.tsx
 */views/<view>/<view>.scss
 ```
+
+
+## Modeller
+```json
+{
+"questions": [
+    {
+        "id" : "q1",
+        "text" : "Vad...",
+        "img" : "asfdfsdf",
+        "type": "range", // radios, checkboxes 
+        "options" : [
+            {
+                "id" : "1",
+                "text" : "jhdsjhjds fhj sdfhj"
+            }
+        ]
+    }
+]
+}
+```
