@@ -2,7 +2,7 @@
 @import '../../scss/layout.scss';
 
 .form_wrapper {
-    height: 100vh;
+    min-height: 100%;
     position: relative;
     background-color: $dark;
     padding: 1.5rem;
@@ -111,9 +111,9 @@
                 margin-left: 12.5%;
                 width: 75%;
                 border-radius: 4px;
+                cursor: pointer;
 
                 img {
-                    cursor: pointer;
                     width: 2.5rem;
                 }
 
@@ -131,6 +131,7 @@
             .quiz_nav {
                 @include flex($justify: space-evenly, $direction: row);
                 margin-top: 2rem;
+                margin-bottom: 1rem;
 
                 img {
                     cursor: pointer;
