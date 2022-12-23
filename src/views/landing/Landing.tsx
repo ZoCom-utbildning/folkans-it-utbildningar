@@ -55,18 +55,43 @@ class Vector {
 }
 
 function Landing(this: any) {
+    // === Defining data ===
     const [canvasWidth, setCanvasWidth] = useState(1000);
     const [canvasHeight, setCanvasHeight] = useState(1000);
-    const ref = useRef(null);
-    const FPS = 60;
+    const wrapper = useRef(null);
+    const FPS = 30;
     let t = 0;
+    const originalPoints = generateCircle();
+    let points = generateCircle();
+    let velocities = points.map(_ => new Vector({ x: 0, y: 0 }));
+
+    // TODO: Figure out a way to update this.
+    useEffect(() => {
+        if(wrapper.current) {
+            setCanvasWidth(wrapper.current.offsetWidth);
+            setCanvasHeight(wrapper.current.offsetHeight);
+
+            console.log(wrapper.current.offsetWidth);
+        }
+    }, );
+    
+    // === Defines canvas ===
+    // Note: not using useRef(); because I haven't figured out how
+    // to get it as the correct type, HTMLCanvasElement.
+    const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
+    let ctx: CanvasRenderingContext2D | null;
+    if (canvas && canvas.getContext) {
+        ctx = canvas.getContext('2d');
+    }
+    // console.log("canvas", canvas);
+    // console.log("ctx", ctx);
 
     let mousePosition =  new Vector({ x: -10000, y: -10000 });
     function setMousePosition(position: Vector) {
         mousePosition = position;
     }
       
-    // creates the blob
+    // ===creates the blob ===
     function generateCircle(r = 100, cx = 150, cy = 150, iterations = 200) {
         const points = [];
         for (let i = 0; i < 2 * Math.PI; i+= 2 * Math.PI / iterations) {
@@ -78,21 +103,12 @@ function Landing(this: any) {
         }
         return points;
     }
-    
-    const originalPoints = generateCircle();
-    let points = generateCircle();
-    let velocities = points.map(_ => new Vector({ x: 0, y: 0 }));
-    
 
-    function draw(points: string | any[]) {
-        // var canvas = document.getElementById('canvas');
-        const canvas: HTMLCanvasElement = document.getElementById('canvas')  as HTMLCanvasElement;
-        if (canvas.getContext) {
-          var ctx = canvas.getContext('2d');
-          if(ctx) {
+    // === Draws everything ===
+    function draw(points: string | any[], ctx: any) {
+        if(ctx) {
             ctx.beginPath();
             ctx.fillStyle = "$darkTransparent";
-            ctx.filter = "multiply";
             ctx.shadowColor = "black";
             ctx.shadowBlur = 15;
             if (points.length > 0) {
@@ -103,43 +119,30 @@ function Landing(this: any) {
                 ctx.lineTo(points[0].x, points[0].y);
             }
             ctx.fill();
-            // ctx.imageSmoothingEnabled = false;
-            }
         }
-        drawPoint(mousePosition);
+        drawPoint(mousePosition, ctx);
     }
       
-    // Draws the point that follows the cursor
-    function drawPoint(point: Vector) {
-        // var canvas = document.getElementById('canvas');
-        const canvas: HTMLCanvasElement = document.getElementById('canvas')  as HTMLCanvasElement;
-        if (canvas.getContext) {
-            var ctx = canvas.getContext('2d');
-            if(ctx) {
-                ctx.beginPath();
-                ctx.fillStyle = "rgba(0, 0, 0, .5)";
-                ctx.beginPath();
-                ctx.arc(point.x, point.y, 25, 0, 2*Math.PI);
-                ctx.stroke();
-                ctx.fill();
-                // ctx.imageSmoothingEnabled = false;
-            } 
-        }
+    // === Creates the point that follows the cursor ===
+    function drawPoint(point: Vector, ctx: any) {
+        if(ctx) {
+            ctx.beginPath();
+            ctx.fillStyle = "rgba(0, 0, 0, .5)";
+            ctx.beginPath();
+            ctx.arc(point.x, point.y, 25, 0, 2*Math.PI);
+            ctx.stroke();
+            ctx.fill();
+        } 
     }
       
-    function clear() {
-        // var canvas = document.getElementById('canvas');
-        const canvas: HTMLCanvasElement = document.getElementById('canvas')  as HTMLCanvasElement;
-        if (canvas.getContext) {
-            var ctx = canvas.getContext('2d');
-            if(ctx) {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                // ctx.imageSmoothingEnabled = false;
-            }
+    function clear(ctx: any) {
+        if(ctx) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
         }
+        
     }
     
-    // Wobble the blob
+    // === Wobble the blob ===
     function wobble(t: number, point: { x: number; y: number; }) {
         return new Vector({
             x: 6*Math.sin((t/2 + point.x/4) / 10),
@@ -151,7 +154,7 @@ function Landing(this: any) {
         return point;
     }
     
-    // Shapes the blob
+    // === Shapes the blob ===
     function step(points: any[], originalPoints: string | any[]) {
         velocities = velocities.map(
           (v, i) => {
@@ -183,45 +186,34 @@ function Landing(this: any) {
         return points.map((point, i) => point.add(velocities[i]));
     }
     
-    // How often to redraw the canvas
+    // === How often to redraw the canvas ===
     setInterval(() => {
-        clear();
+        clear(ctx);
         points = step(points, originalPoints);
-        draw(points);
+        draw(points, ctx);
         t++;
     }, Math.floor(1000 / FPS));
     
+    // === updated where the cursor circle will be ===
     window.addEventListener('mousemove', event => {
-        const canvas: HTMLCanvasElement = document.getElementById('canvas')  as HTMLCanvasElement;
+        // const canvas: HTMLCanvasElement = document.getElementById('canvas')  as HTMLCanvasElement;
         const { clientX, clientY } = event;
-        if(canvas) {
-            // console.log(canvas);
-            // console.log("canvas.getBoundingClientRect()",canvas.getBoundingClientRect());
-
-            const { left, top } = canvas.getBoundingClientRect();
+        // if(canvas) {
+        //     const { left, top } = canvas.getBoundingClientRect();
             setMousePosition(new Vector({
                 // x: clientX - left,
                 // y: clientY - top,
                 x: clientX,
                 y: clientY,
-                // x: event.clientX - bounding.left,
-                // y: event.clientY - bounding.top,
             }));
-        }
+        // }
     });
     // const wrapper = document.getElementsByClassName('landingPage');
     // console.log(wrapper);
 
-    useEffect(() => {
-        if(ref.current) {
-            setCanvasWidth(ref.current.offsetWidth);
-            setCanvasHeight(ref.current.offsetHeight);
-        }
-    });
-    
 
     return (
-        <div className="landingPage" ref={ref}>
+        <div className="landingPage" ref={wrapper}>
             <h1 className="landingTitle">Så du är nyfiken på att jobba inom IT?</h1>
             <canvas id="canvas" width={canvasWidth} height={canvasHeight} > </canvas>
         </div>
