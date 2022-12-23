@@ -110,6 +110,7 @@
                 margin-top: .5rem;
                 margin-left: 12.5%;
                 width: 75%;
+                border-radius: 4px;
 
                 img {
                     cursor: pointer;
@@ -117,7 +118,7 @@
                 }
 
                 p {
-                    width: 100%;
+                    width: calc(100% - 75px);
                     text-align: center;
                 }
 
