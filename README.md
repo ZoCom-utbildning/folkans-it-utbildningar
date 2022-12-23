@@ -79,7 +79,7 @@ https://www.figma.com/file/ii1EZtO2bCHWOT9GsPfIjo/Style-guide?node-id=0%3A1&t=pI
 ## Issue naming conventions
 ```
 
-"Component" : "funktion i component"?
-"Component" :"sub component" : "funktion i component"?
+"Component" : "funktion i component"
+"Component" : "sub component" : "funktion i component"
 
 ```
