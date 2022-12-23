@@ -71,3 +71,9 @@
     left: 50%;
   }
 }
+
+@media screen and (min-width: 768px) {
+  .burger-icon {
+    display: none;
+  }
+}

@@ -23,6 +23,7 @@ function Home() {
             }}
           />
         </h1>
+        <button className="homeButton">TILL TESTET</button>
       </header>
       <main className="home-main">
         <div className="home-main__content">
