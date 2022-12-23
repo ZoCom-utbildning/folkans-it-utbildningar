@@ -1,6 +1,6 @@
 import './form.scss';
 import tempMenu from './tempMenu.svg';
-import tempPicture from '../../assets/photos/tempPicture.svg';
+import threeFriends from '../../assets/photos/threeFriendsSVG.svg';
 import hexagonEmpty from '../../assets/icons/hexagonEmpty.svg';
 import arrowLeft from '../../assets/icons/arrowLeft.svg';
 import arrowRight from '../../assets/icons/arrowRight.svg';
@@ -18,11 +18,11 @@ function Form() {
             <section className="form_content">
 
                 <nav className="form_nav">
-                        <img className="temp_menu" src={ tempMenu } alt="" />
+                    <img className="temp_menu" src={tempMenu} alt="" />
                 </nav>
 
                 <figure className="form_image">
-                    <img src={ tempPicture } alt="" />
+                    <img src={threeFriends} alt="" />
                     <div className="gradient_overlay"></div>
                 </figure>
 
@@ -33,24 +33,24 @@ function Form() {
                     </article>
 
                     <section className="radio_quiz">
-                        <img src={ hexagonEmpty } alt="" />
-                        <p>hejje</p>
+                        <img src={hexagonEmpty} alt="" />
+                        <p>blå</p>
                     </section>
 
                     <section className="radio_quiz">
-                        <img src={ hexagonEmpty } alt="" />
-                        <p>hej</p>
+                        <img src={hexagonEmpty} alt="" />
+                        <p>grön</p>
                     </section>
 
                     <section className="radio_quiz">
-                        <img src={ hexagonEmpty } alt="" />
-                        <p>hejee</p>
+                        <img src={hexagonEmpty} alt="" />
+                        <p>röd</p>
                     </section>
 
                     <nav className="quiz_nav">
-                        <img src={ arrowLeft } alt="" />
+                        <img src={arrowLeft} alt="" />
                         <p> 1 / 10 </p>
-                        <img src={ arrowRight } alt="" />
+                        <img src={arrowRight} alt="" />
                     </nav>
 
                 </section>
@@ -60,5 +60,5 @@ function Form() {
         </div>
     );
 }
-  
+
 export default Form;
