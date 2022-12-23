@@ -196,17 +196,11 @@ function Landing(this: any) {
     
     // === updated where the cursor circle will be ===
     window.addEventListener('mousemove', event => {
-        // const canvas: HTMLCanvasElement = document.getElementById('canvas')  as HTMLCanvasElement;
         const { clientX, clientY } = event;
-        // if(canvas) {
-        //     const { left, top } = canvas.getBoundingClientRect();
             setMousePosition(new Vector({
-                // x: clientX - left,
-                // y: clientY - top,
                 x: clientX,
                 y: clientY,
             }));
-        // }
     });
     // const wrapper = document.getElementsByClassName('landingPage');
     // console.log(wrapper);
