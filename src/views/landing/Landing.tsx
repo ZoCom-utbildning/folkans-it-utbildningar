@@ -59,6 +59,8 @@ function Landing(this: any) {
     const [canvasWidth, setCanvasWidth] = useState(1000);
     const [canvasHeight, setCanvasHeight] = useState(1000);
     const wrapper = useRef(null);
+    const wrapperHeight = wrapper.current?.offsetHeight;
+    const wrapperWidth = wrapper.current?.offsetWidth;
     const FPS = 30;
     let t = 0;
     const originalPoints = generateCircle();
@@ -68,34 +70,35 @@ function Landing(this: any) {
     // TODO: Figure out a way to update this.
     useEffect(() => {
         if(wrapper.current) {
-            setCanvasWidth(wrapper.current.offsetWidth);
-            setCanvasHeight(wrapper.current.offsetHeight);
+            setCanvasWidth(wrapperWidth);
+            setCanvasHeight(wrapperHeight);
 
-            console.log(wrapper.current.offsetWidth);
+            console.log(wrapperWidth);
         }
     }, );
     
     // === Defines canvas ===
     // Note: not using useRef(); because I haven't figured out how
-    // to get it as the correct type, HTMLCanvasElement.
+    // to get it as the correct type; HTMLCanvasElement.
     const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
     let ctx: CanvasRenderingContext2D | null;
     if (canvas && canvas.getContext) {
         ctx = canvas.getContext('2d');
     }
-    // console.log("canvas", canvas);
-    // console.log("ctx", ctx);
 
+    // === get mouse position ===
     let mousePosition =  new Vector({ x: -10000, y: -10000 });
     function setMousePosition(position: Vector) {
         mousePosition = position;
     }
       
-    // ===creates the blob ===
-    function generateCircle(r = 100, cx = 150, cy = 150, iterations = 200) {
+    // === creates the blob ===
+    // size, x position, y position, how flexible the blob is
+    // function generateCircle(r = 100, cx = 150, cy = 150, iterations = 200) {
+    function generateCircle(r = 150, cx = wrapperWidth/2, cy = wrapperHeight/4, iterations = 400) {
         const points = [];
         for (let i = 0; i < 2 * Math.PI; i+= 2 * Math.PI / iterations) {
-            // Makes the blob more or less smooth
+            // Makes the blob more or less wobbly
             points.push(new Vector({
                 x: (5*Math.sin(i*10) + r) * Math.cos(i) + cx,
                 y: (5*Math.sin(i*10) + r) * Math.sin(i) + cy,
@@ -108,9 +111,9 @@ function Landing(this: any) {
     function draw(points: string | any[], ctx: any) {
         if(ctx) {
             ctx.beginPath();
-            ctx.fillStyle = "$darkTransparent";
-            ctx.shadowColor = "black";
-            ctx.shadowBlur = 15;
+            ctx.fillStyle = "rgba(0, 0, 0, .5)";
+            // ctx.shadowColor = "black";
+            // ctx.shadowBlur = 15;
             if (points.length > 0) {
                 ctx.moveTo(points[0].x, points[0].y);
                 for (let point of points) {
@@ -127,14 +130,15 @@ function Landing(this: any) {
     function drawPoint(point: Vector, ctx: any) {
         if(ctx) {
             ctx.beginPath();
-            ctx.fillStyle = "rgba(0, 0, 0, .5)";
-            ctx.beginPath();
+            // ctx.fillStyle = "rgba(0, 0, 0, .5)";
+            // ctx.beginPath();
             ctx.arc(point.x, point.y, 25, 0, 2*Math.PI);
             ctx.stroke();
             ctx.fill();
         } 
     }
       
+    // === clear the canvas ===
     function clear(ctx: any) {
         if(ctx) {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -186,15 +190,19 @@ function Landing(this: any) {
         return points.map((point, i) => point.add(velocities[i]));
     }
     
-    // === How often to redraw the canvas ===
-    setInterval(() => {
+
+    // === animate canvas ===
+    function animateIt() {
         clear(ctx);
         points = step(points, originalPoints);
         draw(points, ctx);
         t++;
-    }, Math.floor(1000 / FPS));
+        window.requestAnimationFrame(animateIt);
+    }
+    window.requestAnimationFrame(animateIt);
     
-    // === updated where the cursor circle will be ===
+    
+    // === update mouse position ===
     window.addEventListener('mousemove', event => {
         const { clientX, clientY } = event;
             setMousePosition(new Vector({
