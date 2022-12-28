@@ -61,7 +61,6 @@ function Landing(this: any) {
     const wrapper = useRef(null);
     const wrapperHeight = wrapper.current?.offsetHeight;
     const wrapperWidth = wrapper.current?.offsetWidth;
-    const FPS = 30;
     let t = 0;
     const originalPoints = generateCircle();
     let points = generateCircle();
@@ -78,8 +77,7 @@ function Landing(this: any) {
     }, );
     
     // === Defines canvas ===
-    // Note: not using useRef(); because I haven't figured out how
-    // to get it as the correct type; HTMLCanvasElement.
+    // Note: not using useRef(); because I haven't figured out how to get it as the correct type; HTMLCanvasElement.
     const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
     let ctx: CanvasRenderingContext2D | null;
     if (canvas && canvas.getContext) {
@@ -94,7 +92,6 @@ function Landing(this: any) {
       
     // === creates the blob ===
     // size, x position, y position, how many points the blob has
-    // function generateCircle(r = 100, cx = 150, cy = 150, iterations = 200) {
     function generateCircle(r = 150, cx = wrapperWidth/2, cy = wrapperHeight/4, iterations = 200) {
         const points = [];
         for (let i = 0; i < 2 * Math.PI; i+= 2 * Math.PI / iterations) {
@@ -130,8 +127,6 @@ function Landing(this: any) {
     function drawPoint(point: Vector, ctx: any) {
         if(ctx) {
             ctx.beginPath();
-            // ctx.fillStyle = "rgba(0, 0, 0, .5)";
-            // ctx.beginPath();
             ctx.arc(point.x, point.y, 25, 0, 2*Math.PI);
             ctx.stroke();
             ctx.fill();
