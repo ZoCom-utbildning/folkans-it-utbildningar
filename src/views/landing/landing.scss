@@ -6,22 +6,25 @@
     height: 100%;
     overflow: hidden;
     background: $gradient;
-    // Flex is messing with the canvas
-    // display: flex;
-    // align-items: center;
-    // justify-content: center;
-    .landingTitle {
+    cursor: crosshair;
+    .canvasOverlayWrapper {
         position: absolute;
-        top: 30%;
+        top: 25%;
         width: 100%;
         text-align: center;
         padding: 0 50px;
+        & .continueButton {
+            margin: 10vh auto;
+            padding: .75rem 1.5rem;
+            transition: 1s;
+            &:hover {
+                transform: translateY(10px);
+                cursor: pointer;
+            }
+        }
     }
 }
 
 #canvas {
-    // width: 50%;
-    // height: 50%;
     border: 1px solid gray;
-    // object-fit: scale-down;
 }

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './landing.scss';
 import '../../scss/_variables.scss';
-
+import arrow from '../../assets/icons/arrowDown.svg';
 
 class Vector {
     x: number;
@@ -93,9 +93,9 @@ function Landing(this: any) {
     }
       
     // === creates the blob ===
-    // size, x position, y position, how flexible the blob is
+    // size, x position, y position, how many points the blob has
     // function generateCircle(r = 100, cx = 150, cy = 150, iterations = 200) {
-    function generateCircle(r = 150, cx = wrapperWidth/2, cy = wrapperHeight/4, iterations = 400) {
+    function generateCircle(r = 150, cx = wrapperWidth/2, cy = wrapperHeight/4, iterations = 200) {
         const points = [];
         for (let i = 0; i < 2 * Math.PI; i+= 2 * Math.PI / iterations) {
             // Makes the blob more or less wobbly
@@ -107,7 +107,7 @@ function Landing(this: any) {
         return points;
     }
 
-    // === Draws everything ===
+    // === Draws everything & adds style ===
     function draw(points: string | any[], ctx: any) {
         if(ctx) {
             ctx.beginPath();
@@ -201,7 +201,6 @@ function Landing(this: any) {
     }
     window.requestAnimationFrame(animateIt);
     
-    
     // === update mouse position ===
     window.addEventListener('mousemove', event => {
         const { clientX, clientY } = event;
@@ -210,29 +209,19 @@ function Landing(this: any) {
                 y: clientY,
             }));
     });
-    // const wrapper = document.getElementsByClassName('landingPage');
-    // console.log(wrapper);
 
 
     return (
         <div className="landingPage" ref={wrapper}>
-            <h1 className="landingTitle">Så du är nyfiken på att jobba inom IT?</h1>
+            <div className="canvasOverlayWrapper">
+                <h1>Så du är nyfiken på att jobba inom IT?</h1>
+                {/* <button className="homeButton continueButton">Ja! Ta mig vidare</button> */}
+                <img src={arrow} className="continueButton" />
+            </div>
             <canvas id="canvas" width={canvasWidth} height={canvasHeight} > </canvas>
         </div>
     );
 }
 
-/*
-The displayed size of the canvas can be changed using CSS, 
-but if you do this the image is scaled during rendering to 
-fit the styled size, which can make the final graphics 
-rendering end up being distorted.
-
-It is better to specify your canvas dimensions by setting 
-the width and height attributes directly on the <canvas> 
-elements, either directly in the HTML or by using JavaScript.
-
-https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas
-*/
 
 export default Landing;
