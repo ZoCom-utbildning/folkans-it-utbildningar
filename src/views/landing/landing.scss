@@ -13,6 +13,7 @@
         width: 100%;
         text-align: center;
         padding: 0 50px;
+        user-select: none;
         & .continueButton {
             margin: 10vh auto;
             padding: .75rem 1.5rem;
