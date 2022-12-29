@@ -58,21 +58,19 @@ function Landing(this: any) {
     // === Defining data ===
     const [canvasWidth, setCanvasWidth] = useState(1000);
     const [canvasHeight, setCanvasHeight] = useState(1000);
-    const wrapper = useRef(null);
-    const wrapperHeight = wrapper.current?.offsetHeight;
-    const wrapperWidth = wrapper.current?.offsetWidth;
-    let t = 0;
-    const originalPoints = generateCircle();
-    let points = generateCircle();
-    let velocities = points.map(_ => new Vector({ x: 0, y: 0 }));
+    const wrapper: React.MutableRefObject<any> = useRef<any>(null);
+    const wrapperHeight: number = wrapper.current?.offsetHeight;
+    const wrapperWidth: number = wrapper.current?.offsetWidth;
+    let t: number = 0;
+    const originalPoints: Vector[] = generateCircle();
+    let points: Vector[] = generateCircle();
+    let velocities: Vector[] = points.map(_ => new Vector({ x: 0, y: 0 }));
 
     // TODO: Figure out a way to update this.
     useEffect(() => {
         if(wrapper.current) {
             setCanvasWidth(wrapperWidth);
             setCanvasHeight(wrapperHeight);
-
-            console.log(wrapperWidth);
         }
     }, );
     
@@ -88,20 +86,6 @@ function Landing(this: any) {
     let mousePosition =  new Vector({ x: -10000, y: -10000 });
     function setMousePosition(position: Vector) {
         mousePosition = position;
-    }
-      
-    // === creates the blob ===
-    // size, x position, y position, how many points the blob has
-    function generateCircle(r = 150, cx = wrapperWidth/2, cy = wrapperHeight/4, iterations = 200) {
-        const points = [];
-        for (let i = 0; i < 2 * Math.PI; i+= 2 * Math.PI / iterations) {
-            // Makes the blob more or less wobbly
-            points.push(new Vector({
-                x: (5*Math.sin(i*10) + r) * Math.cos(i) + cx,
-                y: (5*Math.sin(i*10) + r) * Math.sin(i) + cy,
-            }));
-        }
-        return points;
     }
 
     // === Draws everything & adds style ===
@@ -141,6 +125,20 @@ function Landing(this: any) {
         
     }
     
+    // === creates the blob ===
+    // size, x position, y position, how many points the blob has
+    function generateCircle(r = wrapperHeight/5, cx = wrapperWidth/2, cy = wrapperHeight/2, iterations = 200) {
+        const points = [];
+        for (let i = 0; i < 2 * Math.PI; i+= 2 * Math.PI / iterations) {
+            // Makes the blob more or less wobbly
+            points.push(new Vector({
+                x: (5*Math.sin(i*10) + r) * Math.cos(i) + cx,
+                y: (5*Math.sin(i*10) + r) * Math.sin(i) + cy,
+            }));
+        }
+        return points;
+    }
+
     // === Wobble the blob ===
     function wobble(t: number, point: { x: number; y: number; }) {
         return new Vector({
@@ -149,9 +147,9 @@ function Landing(this: any) {
         });
     }
     
-    function force(point: any) {
-        return point;
-    }
+    // function force(point: any) {
+    //     return point;
+    // }
     
     // === Shapes the blob ===
     function step(points: any[], originalPoints: string | any[]) {
@@ -210,7 +208,6 @@ function Landing(this: any) {
         <div className="landingPage" ref={wrapper}>
             <div className="canvasOverlayWrapper">
                 <h1>Så du är nyfiken på att jobba inom IT?</h1>
-                {/* <button className="homeButton continueButton">Ja! Ta mig vidare</button> */}
                 <img src={arrow} className="continueButton" />
             </div>
             <canvas id="canvas" width={canvasWidth} height={canvasHeight} > </canvas>
