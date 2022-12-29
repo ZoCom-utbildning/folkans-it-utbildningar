@@ -1,0 +1,32 @@
+@import '../../scss/_variables.scss';
+
+
+.landingPage {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: $gradient;
+    cursor: crosshair;
+    .canvasOverlayWrapper {
+        position: absolute;
+        top: 25%;
+        // bottom: 10%;
+        width: 100%;
+        text-align: center;
+        padding: 0 50px;
+        user-select: none;
+        & .continueButton {
+            margin: 10vh auto;
+            padding: .75rem 1.5rem;
+            transition: 1s;
+            &:hover {
+                transform: translateY(10px);
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+#canvas {
+    border: 1px solid gray;
+}

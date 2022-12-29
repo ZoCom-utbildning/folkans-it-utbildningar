@@ -10,18 +10,18 @@ import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
-  return (
-    <div className="App">
-		<Routes>
-			<Route path='/om' element={ < About /> } />
-			<Route path='/*' element={ < Error /> } />
-			<Route path='/fragor' element={ < Form /> } />
-			<Route path='/hem' element={ < Home /> } />
-			<Route path='/' element={ < Landing /> } />
-			<Route path='/personer' element={ < Personas /> } />
-		</Routes>
-    </div>
-  )
+  	return (
+		<div className="App">
+			<Routes>
+				<Route path='/om' element={ < About /> } />
+				<Route path='/*' element={ < Error /> } />
+				<Route path='/fragor' element={ < Form /> } />
+				<Route path='/hem' element={ < Home /> } />
+				<Route path='/' element={ < Landing /> } />
+				<Route path='/personer' element={ < Personas /> } />
+			</Routes>
+		</div>
+  	)
 }
 
 export default App;
