@@ -10,21 +10,20 @@ function Form() {
     return (
         <div className="form_wrapper">
 
-            <div className="spaceholder_upper__left"></div>
-            <div className="spaceholder_upper__right"></div>
-            <div className="spaceholder_lower__left"></div>
-            <div className="spaceholder_lower__right"></div>
-
             <section className="form_content">
+                
 
-                <nav className="form_nav">
-                    <img className="temp_menu" src={tempMenu} alt="" />
-                </nav>
+                <section className="top_section">
+                    <nav className="form_nav">
+                        <img className="temp_menu" src={tempMenu} alt="" />
+                    </nav>
 
-                <figure className="form_image">
-                    <img src={threeFriends} alt="" />
-                    <div className="gradient_overlay"></div>
-                </figure>
+                    <figure className="form_image">
+                        <img src={threeFriends} alt="" />
+                        <div className="gradient_overlay"></div>
+                    </figure>
+                </section>
+
 
                 <section className="quiz_section">
 
