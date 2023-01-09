@@ -1,0 +1,23 @@
+@import '../../scss/variables.scss';
+
+.gradientImageWrapper {
+    width: 500px;
+    height: 500px;
+    
+    .gradient {
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        left: 0;
+        top: 0;
+        background: $gradient;
+        opacity: .5;
+        border-radius: .2rem;
+    }
+    .image {
+        width: inherit;
+        height: inherit;
+        filter: grayscale(1);
+        border-radius: .2rem;
+    }
+}
