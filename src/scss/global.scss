@@ -69,17 +69,17 @@ p {
 }
 
 .formButton {
-  margin: 50px;
   padding: 0.25rem 1.5rem;
   border-radius: 50px;
   border: 1px solid $light;
   background: $gradient;
+  cursor: pointer;
 
   /* .introText */
   font-family: "Roboto Mono";
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  //font-size: 18px;
   line-height: 190%;
   color: $light;
 }
@@ -121,6 +121,7 @@ p {
     background-color: $dark;
     background-image: url("../assets/photos/manComputer.png");
   }
+
   .homeButton {
     margin: 50px;
     border-radius: 50px;
@@ -151,6 +152,7 @@ p {
       transform: rotateZ(-90deg);
       width: 25%;
     }
+
     &:hover {
       transform: scale(1.1);
       border-color: rgb(128, 49, 208);
