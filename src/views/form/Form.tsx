@@ -1,6 +1,7 @@
 import tempMenu from './tempMenu.svg';
 import threeFriends from '../../assets/photos/threeFriendsSVG.svg';
 import RadioButton from '../../components/radiobutton/Radiobutton';
+import RangeSlider from '../../components/range/Rangeslider';
 import arrowLeft from '../../assets/icons/arrowLeft.svg';
 import arrowRight from '../../assets/icons/arrowRight.svg';
 import './form.scss';
@@ -23,7 +24,7 @@ function Form() {
                     <article className="form_question">
                         <p>Hur skulle du beskriva din personlighet för en person som inte känner dig, Hur skulle du beskriva din personlighet för en person som inte känner dig?</p>
                     </article>
-                    <RadioButton />
+                    <RangeSlider />
                     <nav className="quiz_nav">
                         <img src={arrowLeft} alt="" />
                         <p> 1 / 10 </p>
