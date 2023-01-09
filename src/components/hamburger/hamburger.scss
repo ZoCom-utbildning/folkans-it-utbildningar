@@ -1,6 +1,8 @@
 .burger-icon {
-  margin-top: 1.2rem;
-  margin-left: 1.6rem;
+  z-index: 2;
+  position: fixed;
+  left: 1.5rem;
+  top: 1.5rem;
   .nav-icon {
     width: 60px;
     height: 45px;
@@ -20,8 +22,9 @@
     position: absolute;
     height: 0.4rem;
     width: 80%;
-    background: #f8f8f8;
+    background: #04ced599;
     opacity: 1;
+
     left: 0;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);

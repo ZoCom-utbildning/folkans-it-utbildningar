@@ -1,14 +1,21 @@
 import "./home.scss";
 import Hamburger from "../../components/hamburger/hamburger";
 import Typewriter from "typewriter-effect";
+import Header from "../../components/header/header";
 import { useState } from "react";
 function Home() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [navClass, setNavClass] = useState<string>("nav-icon");
   return (
     <div className="wrapper">
+      <Hamburger
+        navOpen={navOpen}
+        setNavOpen={setNavOpen}
+        navClass={navClass}
+        setNavClass={setNavClass}
+      />
       <header className="wrapper-header">
-        <Hamburger
+        <Header
           navOpen={navOpen}
           setNavOpen={setNavOpen}
           navClass={navClass}
