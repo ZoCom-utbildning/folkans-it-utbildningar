@@ -1,6 +1,7 @@
 import "./home.scss";
 import Hamburger from "../../components/hamburger/hamburger";
 import Typewriter from "typewriter-effect";
+import Header from "../../components/header/header";
 import { useState } from "react";
 
 import testPhoto from "../../assets/photos/gadgets.png";
@@ -13,7 +14,7 @@ function Home() {
     <div className="wrapper">
       <Image src={testPhoto} alt="hejsan hoppsan farelalela" />
       <header className="wrapper-header">
-        <Hamburger
+        <Header
           navOpen={navOpen}
           setNavOpen={setNavOpen}
           navClass={navClass}

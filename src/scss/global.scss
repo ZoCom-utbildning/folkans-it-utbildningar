@@ -3,10 +3,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@523&display=swap");
 
 .App {
-    width: 100vw; //bör ändras till 100%
-    height: 100vh;
-    background-color: $dark;
-    background-image: url('../assets/photos/manComputer.png'); //Bör flyttas, syns i bakgrunden för views beroende på height.
+  width: 100vw; //bör ändras till 100%
+  height: 100vh;
+  background-color: $dark;
+  background-image: url("../assets/photos/manComputer.png"); //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
 * {
@@ -19,7 +19,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+a {
   font-family: "Maven Pro";
   font-style: normal;
   font-weight: 523;
