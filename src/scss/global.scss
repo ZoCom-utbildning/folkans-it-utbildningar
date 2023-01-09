@@ -135,7 +135,9 @@ p {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    transition: transform-scale(1.1) 0.5s ease-in-out 100ms;
+    transition: transform-scale(1);
+    transition-duration: 100ms;
+    transition-timing-function: ease-in-out;
 
     /* h5 */
     font-size: 27px;
@@ -153,7 +155,7 @@ p {
 
     &:hover {
       transform: scale(1.1);
-      border-color: rebeccapurple;
+      border-color: rgb(128, 49, 208);
     }
   }
 }
