@@ -47,12 +47,12 @@
                 display: flex;
                 width: 100%;
                 height: 2rem;
-    
+
                 .temp_menu {
                     width: 2rem;
                     margin: .5rem 0 0 12.5%;
                 }
-    
+
             }
 
             .form_image {
@@ -62,12 +62,12 @@
                 width: 100%;
                 background-blend-mode: multiply;
                 background-size: cover;
-    
+
                 img {
                     width: 75%;
                     border-radius: 8px;
                 }
-    
+
                 .gradient_overlay {
                     position: absolute;
                     z-index: 1;
@@ -76,10 +76,9 @@
                     border-radius: 8px;
                     background-image: linear-gradient(360deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(137.33deg, #2573B5 0%, rgba(37, 115, 181, 0) 96.25%);
                 }
-    
+
             }
         }
-
 
         .quiz_section {
             position: relative;
@@ -92,31 +91,6 @@
 
                 p {
                     width: 75%;
-                }
-
-            }
-
-            .radio_quiz {
-
-                @include flex($justify: flex-start);
-                background-color: rgb(255, 255, 255, .03);
-                margin-top: .5rem;
-                margin-left: 12.5%;
-                width: 75%;
-                border-radius: 4px;
-                cursor: pointer;
-
-                img {
-                    width: 2.5rem;
-                }
-
-                p {
-                    width: calc(100% - 80px);
-                    text-align: center;
-                }
-
-                &:hover {
-                    background-color: rgb(255, 255, 255, .16);
                 }
 
             }
