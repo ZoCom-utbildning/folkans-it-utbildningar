@@ -1,18 +1,13 @@
 import "./home.scss";
-import Hamburger from "../../components/hamburger/hamburger";
 import Typewriter from "typewriter-effect";
 import Header from "../../components/header/header";
 import { useState } from "react";
-
-import testPhoto from "../../assets/photos/gadgets.png";
-import Image from "../../components/image/Image";
 
 function Home() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [navClass, setNavClass] = useState<string>("nav-icon");
   return (
     <div className="wrapper">
-      <Image src={testPhoto} alt="hejsan hoppsan farelalela" />
       <header className="wrapper-header">
         <Header
           navOpen={navOpen}
