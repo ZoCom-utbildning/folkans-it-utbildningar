@@ -3,10 +3,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@523&display=swap");
 
 .App {
-  width: 100vw;
-  height: 100vh;
-  background-color: $dark;
-  background-image: url("../assets/photos/manComputer.png");
+    width: 100vw; //bör ändras till 100%
+    height: 100vh;
+    background-color: $dark;
+    background-image: url('../assets/photos/manComputer.png'); //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
 * {
