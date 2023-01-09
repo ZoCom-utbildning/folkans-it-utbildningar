@@ -12,9 +12,6 @@ function Form() {
         <div className="form_wrapper">
             <section className="form_content">
                 <section className="top_section">
-                    <nav className="form_nav">
-                        <img className="temp_menu" src={tempMenu} alt="" />
-                    </nav>
                     <figure className="form_image">
                         <img src={threeFriends} alt="" />
                         <div className="gradient_overlay"></div>
