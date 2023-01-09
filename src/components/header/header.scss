@@ -9,8 +9,8 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    -webkit-box-shadow: 5px 5px 15px 5px #000000;
-    box-shadow: 5px 5px 15px 5px #000000;
+    -webkit-box-shadow: 5px 5px 15px 33px #000000;
+    box-shadow: 5px 5px 15px 33px #000000;
     z-index: 1;
     ul {
       list-style: none;
@@ -19,13 +19,13 @@
       justify-content: center;
       align-items: center;
       li {
-        margin: 1rem;
+        margin: 2rem;
         a {
-          color: #fff;
+          color: rgb(241, 241, 241);
           font-size: 1.5rem;
           font-weight: 500;
           text-decoration: none;
-          transition: all 0.3s ease-in-out;
+          transition: all 0.1s ease-in-out;
           &:active {
             color: #17559c;
           }
