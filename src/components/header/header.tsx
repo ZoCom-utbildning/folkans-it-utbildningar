@@ -11,6 +11,26 @@ type Props = {
 const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
   return (
     <header className="header">
+      <nav>
+        <ul>
+          <li>
+            <a href="HEM">HEM</a>
+          </li>
+          <li>
+            <a href="HEM">STUDERANDE</a>
+          </li>
+          <li>
+            <a href="HEM">TILL TESTET</a>
+          </li>
+
+          <li>
+            <a href="HEM">OM OSS</a>
+          </li>
+          <li>
+            <a href="HEM">KONTAKTA OSS</a>
+          </li>
+        </ul>
+      </nav>
       {navOpen ? (
         <div className="overlay">
           <nav>
