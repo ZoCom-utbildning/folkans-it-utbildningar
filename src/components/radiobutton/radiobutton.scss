@@ -1,0 +1,27 @@
+@import '../../scss/variables.scss';
+@import '../../scss/layout.scss';
+
+.radio_quiz {
+
+    @include flex($justify: flex-start);
+    background-color: rgb(255, 255, 255, .03);
+    margin-top: .5rem;
+    margin-left: 12.5%;
+    width: 75%;
+    border-radius: 4px;
+    cursor: pointer;
+
+    img {
+        width: 2.5rem;
+    }
+
+    p {
+        width: calc(100% - 80px);
+        text-align: center;
+    }
+
+    &:hover {
+        background-color: rgb(255, 255, 255, .16);
+    }
+
+}
