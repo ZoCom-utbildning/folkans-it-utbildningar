@@ -1,6 +1,7 @@
 import "./home.scss";
 import Typewriter from "typewriter-effect";
 import { useNavigate } from "react-router";
+import Loading from "../../components/loading/Loading";
 
 function Home() {
   const navigate = useNavigate();
@@ -9,6 +10,7 @@ function Home() {
   }
   return (
     <div className="wrapper">
+      <Loading />
       <header className="wrapper-header">
         <h1 className="title-h1">
           <Typewriter
