@@ -14,20 +14,17 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
       <nav>
         <ul>
           <li>
-            <a href="HEM">HEM</a>
+            <a href="/">HEM</a>
           </li>
           <li>
-            <a href="HEM">STUDERANDE</a>
+            <a href="/personer">STUDERANDE</a>
           </li>
           <li>
-            <a href="HEM">TILL TESTET</a>
+            <a href="/fragor">TILL TESTET</a>
           </li>
 
           <li>
-            <a href="HEM">OM OSS</a>
-          </li>
-          <li>
-            <a href="HEM">KONTAKTA OSS</a>
+            <a href="/om">OM OSS</a>
           </li>
         </ul>
       </nav>
@@ -36,19 +33,16 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
           <nav>
             <ul>
               <li>
-                <a href="#">HEM</a>
+                <a href="/">HEM</a>
               </li>
               <li>
-                <a href="#">STUDERANDE</a>
+                <a href="/personer">STUDERANDE</a>
               </li>
               <li>
-                <a href="#">TILL TESTET</a>
+                <a href="/fragor">TILL TESTET</a>
               </li>
               <li>
-                <a href="#">OM OSS</a>
-              </li>
-              <li>
-                <a href="#">KONTAKT</a>
+                <a href="/om">OM OSS</a>
               </li>
             </ul>
           </nav>

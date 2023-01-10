@@ -1,11 +1,16 @@
 import "./home.scss";
 import Typewriter from "typewriter-effect";
-import Header from "../../components/header/header";
-import { useState } from "react";
+import { useNavigate } from "react-router";
+import Loading from "../../components/loading/Loading";
 
 function Home() {
+  const navigate = useNavigate();
+  function navToTest() {
+    navigate("/fragor");
+  }
   return (
     <div className="wrapper">
+      <Loading />
       <header className="wrapper-header">
         <h1 className="title-h1">
           <Typewriter
@@ -16,7 +21,7 @@ function Home() {
             }}
           />
         </h1>
-        <button className="homeButton">TILL TESTET</button>
+        <button className="homeButton" onClick={navToTest}>TILL TESTET</button>
       </header>
       <main className="home-main">
         <div className="home-main__content">

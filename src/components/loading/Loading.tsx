@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import './landing.scss';
+import './loading.scss';
 import '../../scss/_variables.scss';
 import arrow from '../../assets/icons/arrowDown.svg';
 
@@ -54,8 +54,9 @@ class Vector {
     }
 }
 
-function Landing(this: any) {
+function Loading(this: any) {
     // === Defining data ===
+    const[overlayClasses, setOverlayClasses] = useState("loadingOverlay hidden");
     const [canvasWidth, setCanvasWidth] = useState(1000);
     const [canvasHeight, setCanvasHeight] = useState(1000);
     const wrapper: React.MutableRefObject<any> = useRef<any>(null);
@@ -65,7 +66,6 @@ function Landing(this: any) {
     const originalPoints: Vector[] = generateCircle();
     let points: Vector[] = generateCircle();
     let velocities: Vector[] = points.map(_ => new Vector({ x: 0, y: 0 }));
-
     // TODO: Figure out a way to update this.
     useEffect(() => {
         if(wrapper.current) {
@@ -203,12 +203,15 @@ function Landing(this: any) {
             }));
     });
 
+    function hideOverlay() {
+        setOverlayClasses(overlayClasses + " hidden");
+    }
 
     return (
-        <div className="landingPage" ref={wrapper}>
+        <div className={overlayClasses} ref={wrapper}>
             <div className="canvasOverlayWrapper">
                 <h1>Så du är nyfiken på att jobba inom IT?</h1>
-                <img src={arrow} className="continueButton" />
+                <img src={arrow} className="continueButton" onClick={hideOverlay} />
             </div>
             <canvas id="canvas" width={canvasWidth} height={canvasHeight} > </canvas>
         </div>
@@ -216,4 +219,4 @@ function Landing(this: any) {
 }
 
 
-export default Landing;
+export default Loading;
