@@ -1,9 +1,12 @@
 import "./home.scss";
 import Typewriter from "typewriter-effect";
-import Header from "../../components/header/header";
-import { useState } from "react";
+import { useNavigate } from "react-router";
 
 function Home() {
+  const navigate = useNavigate();
+  function navToTest() {
+    navigate("/fragor");
+  }
   return (
     <div className="wrapper">
       <header className="wrapper-header">
@@ -16,7 +19,7 @@ function Home() {
             }}
           />
         </h1>
-        <button className="homeButton">TILL TESTET</button>
+        <button className="homeButton" onClick={navToTest}>TILL TESTET</button>
       </header>
       <main className="home-main">
         <div className="home-main__content">
