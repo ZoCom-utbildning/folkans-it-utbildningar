@@ -1,8 +1,8 @@
 import "./home.scss";
-import Hamburger from "../../components/hamburger/hamburger";
 import Typewriter from "typewriter-effect";
 import Header from "../../components/header/header";
 import { useState } from "react";
+
 function Home() {
   return (
     <div className="wrapper">
