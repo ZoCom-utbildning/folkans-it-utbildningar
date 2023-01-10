@@ -1,50 +1,54 @@
 {
     "questions": [
         {
-            "id": "q1",
-            "text": "Detta är en fråga, vad tycker du om frågan? svara på denna frågans fråga du.",
+            "id": 1,
+            "text": "Hur gammal är du inte?",
             "img": "en bild ska egentligen refereras här.",
             "type": "radio",
             "options": [
                 {
-                    "id": "1",
+                    "id": 1,
                     "text": "det är en bra fråga."
                 }
             ]
         },
         {
-            "id": "q2",
-            "text": "Detta är en fråga, vad tycker du om frågan? svara på denna frågans fråga du.",
+            "id": 2,
+            "text": "Vilken vad?",
             "img": "en bild ska egentligen refereras här.",
             "type": "range",
             "options": [
                 {
-                    "id": "2",
-                    "text": "det är en bra fråga."
+                    "id": 2,
+                    "text": "hejsan svejsan."
                 }
             ]
         },
         {
-            "id": "q3",
-            "text": "Detta är en fråga, vad tycker du om frågan? svara på denna frågans fråga du.",
+            "id": 3,
+            "text": "Har du en apa?",
             "img": "en bild ska egentligen refereras här.",
             "type": "radio",
             "options": [
                 {
-                    "id": "3",
-                    "text": "det är en bra fråga."
+                    "id": 1,
+                    "text": "halloj."
+                },
+                {
+                    "id": 2,
+                    "text": "eeey"
                 }
             ]
         },
         {
-            "id": "q4",
-            "text": "Detta är en fråga, vad tycker du om frågan? svara på denna frågans fråga du.",
+            "id": 4,
+            "text": "Vad är ditt favorit djur?",
             "img": "en bild ska egentligen refereras här.",
             "type": "range",
             "options": [
                 {
-                    "id": "4",
-                    "text": "det är en bra fråga."
+                    "id": 4,
+                    "text": "det här är en range!."
                 }
             ]
         }
