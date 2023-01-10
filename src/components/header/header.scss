@@ -45,6 +45,8 @@
 @media (min-width: 768px) {
   .header {
     background-color: rgba(255, 255, 255, 0);
+    position: fixed;
+    width: 100%;
     .overlay {
       display: none;
       background-color: #1d2025;
