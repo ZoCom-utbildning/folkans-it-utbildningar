@@ -1,13 +1,20 @@
 import "./hamburger.scss";
-
+import anime from "animejs/lib/anime.es.js";
 type Props = {
   navOpen: boolean;
   setNavOpen: (navOpen: boolean) => void;
   navClass: string;
   setNavClass: (navClass: string) => void;
+  animateOverlay: () => void;
 };
 
-const Hamburger = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
+const Hamburger = ({
+  setNavClass,
+  navClass,
+  setNavOpen,
+  navOpen,
+  animateOverlay,
+}: Props) => {
   const toggleNav = () => {
     // om navOpen är false när funktionen körs
     if (!navOpen) {
@@ -18,16 +25,19 @@ const Hamburger = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
     } else {
       // annars betyder det att användaren vill stänga menyn,
       // tar bort klasser för öppen och ändrar tillbaka till hamburgaren
+      animateOverlay();
       setNavOpen(false);
       setNavClass("nav-icon");
     }
   };
+
   return (
     <div className="burger-icon">
       <div
         className={navClass}
         onClick={() => {
           toggleNav();
+          animateOverlay();
         }}
       >
         <span></span>
