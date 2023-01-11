@@ -75,20 +75,22 @@
     .form_wrapper {
 
         @include flex($align: center);
-    
+
         .form_content {
-            @include flex($justify: space-evenly);
-            flex-direction: row-reverse;
+            @include flex($direction: row-reverse);
+            width: 80%;
             border: none;
             border-left: 0.1rem solid rgb(255, 255, 255, 0.1);
             border-right: 0.1rem solid rgb(255, 255, 255, 0.1);
 
             .top_section {
-                max-width: 45%;
+                max-width: 50%;
+                margin: auto;
             }
 
             .quiz_section {
-                min-width: 45%;
+                min-width: 50%;
+                margin: auto;
             }
 
         }
