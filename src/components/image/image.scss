@@ -4,21 +4,21 @@
 .gradientImageWrapper {
     @include flex();
     position: relative;
-    width: 100%;
+    width: 40%;
     max-height: 100%;
     margin-top: .5rem;
     overflow: hidden;
     
     .gradient {
         position: absolute;
-        width: 75%;
+        width: 100%;
         height: 100%;
         background: $gradient;
         mix-blend-mode: multiply;
         border-radius: 8px;
     }
     .image {
-        width: 75%;
+        width: 100%;
         border-radius: 8px;
         height: 100%;
         filter: grayscale(1);
@@ -27,7 +27,7 @@
 }
 
 // Might need to be changed later for the desktop view
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 768px) {
     .gradientImageWrapper {
         position: relative;
         width: 100%;
