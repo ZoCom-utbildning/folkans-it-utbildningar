@@ -3,7 +3,8 @@
         {
             "id": 1,
             "text": "Hur gammal är du inte?",
-            "img": "en bild ska egentligen refereras här.",
+            "img": "./src/assets/photos/gadgets.png",
+            "alt": "gadgets",
             "type": "radio",
             "options": [
                 {
@@ -15,7 +16,8 @@
         {
             "id": 2,
             "text": "Vilken vad?",
-            "img": "en bild ska egentligen refereras här.",
+            "img": "./src/assets/photos/happyGuy.png",
+            "alt": "happy guy",
             "type": "range",
             "options": [
                 {
@@ -27,7 +29,8 @@
         {
             "id": 3,
             "text": "Har du en apa?",
-            "img": "en bild ska egentligen refereras här.",
+            "img": "./src/assets/photos/manComputer.png",
+            "alt": "man computer",
             "type": "radio",
             "options": [
                 {
@@ -43,7 +46,8 @@
         {
             "id": 4,
             "text": "Vad är ditt favorit djur?",
-            "img": "en bild ska egentligen refereras här.",
+            "img": "./src/assets/photos/threeFriends.png",
+            "alt": "three friends",
             "type": "range",
             "options": [
                 {
