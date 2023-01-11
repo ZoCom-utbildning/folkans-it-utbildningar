@@ -205,32 +205,42 @@ function Loading(this: any) {
     });
 
     function hideOverlay() {
-        // setTimeout(() => {
-        //     setOverlayClasses(overlayClasses + " hidden");
-        //     // setOverlayClasses("loadingOverlay");
-        // }, 5000);
+        setTimeout(() => {
+            setOverlayClasses(overlayClasses + " hidden");
+            // setOverlayClasses("loadingOverlay");
+        }, 5000);
 
         anime({
             targets: '.loadingOverlay',
-            duration: 5000,
-            // duration: 2000,
-            // easing: 'linear',
-            keyframes: [{
-                    scale: 0,
-                    rotateY: 30,
+            duration: 800,
+            // easing: 'easeInOutQuad',
+            // scale: 0,
+            // rotateY: 60,
+            // rotateX: 90,
+            // rotateZ: -40,
+            keyframes: [
+                {
+                    easing: 'easeInOutQuad',
+                    scale: 0.66,
+                    rotateY: 20,
+                    rotateX: 30,
+                    rotateZ: -10,
+                    translateX: 200,
+                    translateY: -200
+                },{
+                    easing: 'easeInOutQuad',
+                    scale: 0.33,
+                    rotateY: 40,
                     rotateX: 60,
                     rotateZ: -20,
-                    translateX: 0,
-                    translateY: .0
+                    translateX: -200,
+                    translateY: 200
                 },{
+                    easing: 'easeInOutQuad',
                     scale: 0,
-                    translateX: 0,
-                    translateY: 0
-                },{
-                    scale: 1,
-                    rotateX: 0,
-                    rotateY: 0,
-                    rotateZ: 0,
+                    rotateY: 60,
+                    rotateX: 90,
+                    rotateZ: -30,
                     translateX: 0,
                     translateY: 0
                 }
