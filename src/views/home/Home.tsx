@@ -13,7 +13,7 @@ function Home() {
           <Typewriter
             onInit={(typeWriter) => {
               typeWriter
-                .typeString("Så du är nyfiken på att jobba som utvecklare?")
+                .typeString("Är du nyfiken på att jobba inom IT-branschen?")
                 .start();
             }}
           />

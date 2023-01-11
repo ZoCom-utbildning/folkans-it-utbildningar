@@ -62,6 +62,14 @@
       transform: translateX(-1000px);
     }
     nav {
+      .glow {
+        font-size: 80px;
+        color: #fff;
+        text-align: center;
+        text-shadow: 5px 1px 20px #0a0a0a, 5px 1px 20px #0a0a0a,
+          5px 1px 20px #0a0a0a, #0a0a0a, 5px 1px 20px #0a0a0a;
+      }
+
       ul {
         width: 100%;
         display: flex;
@@ -83,7 +91,7 @@
             text-decoration: none;
             transition: all 0.1s ease-in-out;
             &:hover {
-              color: #5284bd;
+              font-size: 38%;
             }
           }
         }
