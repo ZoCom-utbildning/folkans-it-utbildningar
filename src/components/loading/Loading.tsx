@@ -205,25 +205,34 @@ function Loading(this: any) {
     });
 
     function hideOverlay() {
-        setTimeout(() => {
-            setOverlayClasses(overlayClasses + " hidden");
-            // setOverlayClasses("loadingOverlay");
-        }, 5000);
+        // setTimeout(() => {
+        //     setOverlayClasses(overlayClasses + " hidden");
+        //     // setOverlayClasses("loadingOverlay");
+        // }, 5000);
+
         anime({
             targets: '.loadingOverlay',
             duration: 5000,
-            keyframes: [
-                {
+            // duration: 2000,
+            // easing: 'linear',
+            keyframes: [{
                     scale: 0,
-                    // rotate: '1turn'
-                    rotateX: 80,
-                    rotateY: 40,
-                    rotateZ: -40
+                    rotateY: 30,
+                    rotateX: 60,
+                    rotateZ: -20,
+                    translateX: 0,
+                    translateY: .0
                 },{
-                    // scale: 1,
-                    // rotateX: 0,
-                    // rotateY: 0,
-                    // rotateZ: 0
+                    scale: 0,
+                    translateX: 0,
+                    translateY: 0
+                },{
+                    scale: 1,
+                    rotateX: 0,
+                    rotateY: 0,
+                    rotateZ: 0,
+                    translateX: 0,
+                    translateY: 0
                 }
             ]
         });
