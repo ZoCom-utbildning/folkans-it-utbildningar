@@ -4,7 +4,6 @@
 .form_wrapper::before {
     content: '';
     position: absolute;
-    z-index: -1; //fixa bug här
     width: calc(100% - 3.2rem);
     height: 100%;
     top: 0;
@@ -16,7 +15,6 @@
 .form_wrapper::after {
     content: '';
     position: absolute;
-    z-index: -1; //fixa bug här
     width: 100%;
     height: calc(100% - 3.2rem);
     top: 1.5rem;
@@ -114,6 +112,7 @@
     .quiz_section {
         position: relative;
         height: 100%;
+        z-index: 1;
 
         .form_question {
             @include flex();
