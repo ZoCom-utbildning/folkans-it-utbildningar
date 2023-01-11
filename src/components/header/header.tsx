@@ -51,20 +51,20 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
       <nav>
         <ul className="glow">
           <li>
-            <a href="HEM">HEM</a>
+            <a href="">HEM</a>
           </li>
           <li>
-            <a href="HEM">STUDERANDE</a>
+            <a href="studera">STUDERANDE</a>
           </li>
           <li>
-            <a href="HEM">TILL TESTET</a>
+            <a href="fragor">TILL TESTET</a>
           </li>
 
           <li>
-            <a href="HEM">OM OSS</a>
+            <a href="about">OM OSS</a>
           </li>
           <li>
-            <a href="HEM">KONTAKTA OSS</a>
+            <a href="contact">KONTAKTA OSS</a>
           </li>
         </ul>
       </nav>

@@ -1,14 +1,11 @@
 import "./home.scss";
-import Hamburger from "../../components/hamburger/hamburger";
 import Typewriter from "typewriter-effect";
-import Header from "../../components/header/header";
-import { useState } from "react";
 import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.jpg";
 function Home() {
   return (
     <div className="wrapper">
-      <header className="wrapper-header">
+      <section className="hero-content">
         <h1 className="title-h1">
           <Typewriter
             onInit={(typeWriter) => {
@@ -23,7 +20,7 @@ function Home() {
           <p>Mer info om testet</p>
           <img src={arrowDown} alt="" className="arrowDown" />
         </section>
-      </header>
+      </section>
       <main className="home-main">
         <div className="home-main__content">
           <section className="text-content">
@@ -78,7 +75,6 @@ function Home() {
           </section>
         </div>
       </main>
-      <footer></footer>
     </div>
   );
 }
