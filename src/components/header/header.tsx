@@ -44,7 +44,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
     scrollFunction();
   };
   function scrollFunction() {
-    if (window.scrollY > 250) {
+    if (window.scrollY > 150) {
       setHeaderBackground("header background");
     } else {
       setHeaderBackground("header");

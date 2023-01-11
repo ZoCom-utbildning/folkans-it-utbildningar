@@ -18,6 +18,7 @@ $bg-image: url("../../assets/photos/manComputer.png");
     linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image;
 
   .hero-content {
+    padding-top: 4rem;
     display: flex;
     flex-direction: column;
     min-height: 55vh;
