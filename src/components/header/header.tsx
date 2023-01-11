@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./header.scss";
 import Hamburger from "../../components/hamburger/hamburger";
 import anime from "animejs/lib/anime.es.js";
@@ -10,6 +10,7 @@ type Props = {
   setNavClass: (navClass: string) => void;
 };
 const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
+  const [headerBackground, setHeaderBackground] = useState<string>("header");
   function animateOverlay() {
     if (!navOpen) {
       anime({
@@ -39,8 +40,19 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
       });
     }
   }
+  window.onscroll = function () {
+    scrollFunction();
+  };
+  function scrollFunction() {
+    if (window.scrollY > 250) {
+      setHeaderBackground("header background");
+    } else {
+      setHeaderBackground("header");
+    }
+  }
+
   return (
-    <header className="header">
+    <header className={headerBackground}>
       <Hamburger
         navOpen={navOpen}
         setNavOpen={setNavOpen}
@@ -51,7 +63,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
       <nav>
         <ul className="glow">
           <li>
-            <a href="">HEM</a>
+            <a href="/">HEM</a>
           </li>
           <li>
             <a href="studera">STUDERANDE</a>

@@ -2,7 +2,7 @@
 $bg-image: url("../../assets/photos/manComputer.png");
 @import url("../../scss/_variables.scss");
 
-.wrapper {
+.home-wrapper {
   width: 100%;
   height: 100%;
   display: flex;
@@ -20,13 +20,12 @@ $bg-image: url("../../assets/photos/manComputer.png");
   .hero-content {
     display: flex;
     flex-direction: column;
-    min-height: 40vh;
-    height: 100vh;
+    min-height: 55vh;
+    height: 70vh;
     width: 100%;
 
     .arrow-container {
       display: none;
-      padding-top: 6rem;
       justify-content: center;
       flex-direction: column;
       align-items: center;
@@ -36,6 +35,7 @@ $bg-image: url("../../assets/photos/manComputer.png");
 
       font-size: 2.5rem;
       margin-top: 8rem;
+      margin-right: 1.2rem;
       margin-left: 1.2rem;
       margin-bottom: 1rem;
       font-weight: 500;
@@ -66,10 +66,26 @@ $bg-image: url("../../assets/photos/manComputer.png");
   }
 }
 
-@media (min-width: 768px) {
-  .wrapper {
+.home-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #9f9f9f;
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-image: linear-gradient(
+      360deg,
+      rgba(18, 123, 0, 0.31) 0%,
+      rgba(0, 255, 51, 0.397) 100%
+    ),
+    linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image;
+}
+
+@media (min-width: 820px) {
+  .home-wrapper {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -119,9 +135,9 @@ $bg-image: url("../../assets/photos/manComputer.png");
     }
     .hero-content {
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
       align-items: center;
-      height: 100%;
+      min-height: 100vh;
 
       .arrow-container {
         display: flex;

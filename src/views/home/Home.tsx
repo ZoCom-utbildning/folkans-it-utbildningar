@@ -4,7 +4,7 @@ import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.jpg";
 function Home() {
   return (
-    <div className="wrapper">
+    <div className="home-wrapper">
       <section className="hero-content">
         <h1 className="title-h1">
           <Typewriter
