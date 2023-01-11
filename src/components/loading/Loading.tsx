@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import anime from 'animejs';
 import './loading.scss';
 import '../../scss/_variables.scss';
 import arrow from '../../assets/icons/arrowDown.svg';
@@ -56,7 +57,7 @@ class Vector {
 
 function Loading(this: any) {
     // === Defining data ===
-    const[overlayClasses, setOverlayClasses] = useState("loadingOverlay hidden");
+    const[overlayClasses, setOverlayClasses] = useState("loadingOverlay");
     const [canvasWidth, setCanvasWidth] = useState(1000);
     const [canvasHeight, setCanvasHeight] = useState(1000);
     const wrapper: React.MutableRefObject<any> = useRef<any>(null);
@@ -204,13 +205,34 @@ function Loading(this: any) {
     });
 
     function hideOverlay() {
-        setOverlayClasses(overlayClasses + " hidden");
+        setTimeout(() => {
+            setOverlayClasses(overlayClasses + " hidden");
+            // setOverlayClasses("loadingOverlay");
+        }, 5000);
+        anime({
+            targets: '.loadingOverlay',
+            duration: 5000,
+            keyframes: [
+                {
+                    scale: 0,
+                    // rotate: '1turn'
+                    rotateX: 80,
+                    rotateY: 40,
+                    rotateZ: -40
+                },{
+                    // scale: 1,
+                    // rotateX: 0,
+                    // rotateY: 0,
+                    // rotateZ: 0
+                }
+            ]
+        });
     }
+
 
     return (
         <div className={overlayClasses} ref={wrapper}>
             <div className="canvasOverlayWrapper">
-                <h1>Så du är nyfiken på att jobba inom IT?</h1>
                 <img src={arrow} className="continueButton" onClick={hideOverlay} />
             </div>
             <canvas id="canvas" width={canvasWidth} height={canvasHeight} > </canvas>
