@@ -1,27 +1,27 @@
 @import '../../scss/variables.scss';
+@import "../../scss/layout.scss";
 
 .gradientImageWrapper {
+    @include flex();
     position: relative;
-    width: 75%;
+    width: 100%;
     height: 100%;
-    margin: 1rem auto;
+    margin-top: .5rem;
     overflow: hidden;
     
     .gradient {
         position: absolute;
-        width: 100%;
+        width: 75%;
         height: 100%;
-        left: 0;
-        top: 0;
         background: $gradient;
         mix-blend-mode: multiply;
-        border-radius: .5rem;
+        border-radius: 8px;
     }
     .image {
-        width: 100%;
+        width: 75%;
+        border-radius: 8px;
         height: 100%;
         filter: grayscale(1);
-        border-radius: .5rem;
         object-fit: cover;
     }
 }
