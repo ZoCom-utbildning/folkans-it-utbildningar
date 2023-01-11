@@ -1,5 +1,3 @@
-import tempMenu from './tempMenu.svg';
-import threeFriends from '../../assets/photos/threeFriendsSVG.svg';
 import RadioButton from '../../components/radiobutton/Radiobutton';
 import RangeSlider from '../../components/range/Rangeslider';
 import arrowLeft from '../../assets/icons/arrowLeft.svg';
@@ -27,36 +25,30 @@ function Form() {
     useEffect(() => {
 
         questions.map((question) => {
+
             if (questionId === question.id) {
                 setFormText(question.text);
             }
-        });
 
-        questions.map((question) => {
             if (questionId === question.id) {
                 question.options.map((option) => {
                     setOptionText(option.text);
-                })
+                });
             }
-        });
 
-        questions.map((question) => {
             if (questionId === question.id) {
                 setFormImage(question.img);
             }
-        });
 
-        questions.map((question) => {
             if (questionId === question.id) {
                 setAltImage(question.alt);
             }
+
         });
 
         if (questions[questionId - 1].type === 'radio') {
             setFormType('radio');
-        }
-
-        if (questions[questionId - 1].type === 'range') {
+        } else if (questions[questionId - 1].type === 'range') {
             setFormType('range');
         }
 
