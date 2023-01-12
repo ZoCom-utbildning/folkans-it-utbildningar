@@ -67,11 +67,16 @@ function FormComponent() {
     }
 
     return (
-        <section className="form_content">
-            <ImageComponent formImage={formImage} altImage={altImage} />
-            <ContentComponent formText={formText} formType={formType}
-                optionText={optionText} questionId={questionId} increaseQuestion={increaseQuestion}
-                decreaseQuestion={decreaseQuestion} />
+        < section className="card_content" >
+            {window.location.href.includes("fragor") ? (
+                <>
+                    <ImageComponent formImage={formImage} altImage={altImage} />
+                    <ContentComponent formText={formText} formType={formType}
+                        optionText={optionText} questionId={questionId} increaseQuestion={increaseQuestion}
+                        decreaseQuestion={decreaseQuestion} />
+                </>
+            ) : ("")
+            }
         </section>
     )
 }
