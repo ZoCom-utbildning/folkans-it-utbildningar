@@ -1,11 +1,17 @@
 import './image.scss';
 
-function Image() {
+interface Props {
+    src: string;
+    alt: string;
+}
+
+function Image({src, alt}: Props) {
 
     return (
-        <div>
-            Image
-        </div>
+        <figure className="gradientImageWrapper">
+            <img className="image" src={src} alt={alt} />
+            <div className="gradient"> </div>
+        </figure>
     );
 }
   
