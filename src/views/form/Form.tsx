@@ -12,12 +12,12 @@ function Form() {
     const questions = forminfo.questions;
     const questionNmbrs: Array<number> = [];
 
-    const [ questionId, setQuestionId] = useState<number>(1);
-    const [ formText, setFormText ] = useState<string>();
-    const [ formType, setFormType ] = useState<string>();
-    const [ optionText, setOptionText ] = useState<string>('');
-    const [ formImage, setFormImage ] = useState<string>('');
-    const [ altImage, setAltImage ] = useState<string>('');
+    const [questionId, setQuestionId] = useState<number>(1);
+    const [formText, setFormText] = useState<string>();
+    const [formType, setFormType] = useState<string>();
+    const [optionText, setOptionText] = useState<string>('');
+    const [formImage, setFormImage] = useState<string>('');
+    const [altImage, setAltImage] = useState<string>('');
 
 
     //Changing the question depending on questionNmbr
@@ -53,7 +53,7 @@ function Form() {
         }
 
     }, [questionId]);
-    
+
 
     // Storing array length to display maxValue of pages.
 
@@ -78,23 +78,25 @@ function Form() {
 
 
     return (
-        <div className="form_wrapper">
-            <section className="form_content">
-                <section className="top_section">
-                    < FormImage src={formImage} alt={altImage}/>
+        <div className='desktop_wrapper'>
+            <div className="form_wrapper">
+                <section className="form_content">
+                    <section className="top_section">
+                        < FormImage src={formImage} alt={altImage} />
+                    </section>
+                    <section className="quiz_section">
+                        <article className="form_question">
+                            <p>{formText}</p>
+                        </article>
+                        {formType === 'range' ? <RangeSlider optionText={optionText} /> : < RadioButton optionText={optionText} />}
+                        <nav className="quiz_nav">
+                            <img src={arrowLeft} alt="" onClick={decreaseQuestion} />
+                            <p> {questionId} / {questionNmbrs.length} </p>
+                            <img src={arrowRight} alt="" onClick={increaseQuestion} />
+                        </nav>
+                    </section>
                 </section>
-                <section className="quiz_section">
-                    <article className="form_question">
-                        <p>{ formText }</p>
-                    </article>
-                    { formType === 'range' ? <RangeSlider optionText={optionText}/> : < RadioButton optionText={optionText}/> }
-                    <nav className="quiz_nav">
-                        <img src={arrowLeft} alt="" onClick={decreaseQuestion}/>
-                        <p> { questionId } / { questionNmbrs.length } </p>
-                        <img src={arrowRight} alt="" onClick={increaseQuestion}/>
-                    </nav>
-                </section>
-            </section>
+            </div>
         </div>
     )
 }
