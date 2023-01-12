@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import anime from 'animejs';
 import './loading.scss';
 import '../../scss/_variables.scss';
 import arrow from '../../assets/icons/arrowDown.svg';
@@ -56,9 +57,10 @@ class Vector {
 
 function Loading(this: any) {
     // === Defining data ===
-    const[overlayClasses, setOverlayClasses] = useState("loadingOverlay hidden");
+    const [overlayClasses, setOverlayClasses] = useState("loadingOverlay");
     const [canvasWidth, setCanvasWidth] = useState(1000);
     const [canvasHeight, setCanvasHeight] = useState(1000);
+    const [bodyStyle, setBodyStyle] = useState("fixed");
     const wrapper: React.MutableRefObject<any> = useRef<any>(null);
     const wrapperHeight: number = wrapper.current?.offsetHeight;
     const wrapperWidth: number = wrapper.current?.offsetWidth;
@@ -66,6 +68,7 @@ function Loading(this: any) {
     const originalPoints: Vector[] = generateCircle();
     let points: Vector[] = generateCircle();
     let velocities: Vector[] = points.map(_ => new Vector({ x: 0, y: 0 }));
+
     // TODO: Figure out a way to update this.
     useEffect(() => {
         if(wrapper.current) {
@@ -203,14 +206,80 @@ function Loading(this: any) {
             }));
     });
 
+    
+    document.body.style.position = bodyStyle;
     function hideOverlay() {
-        setOverlayClasses(overlayClasses + " hidden");
+        setBodyStyle("");
+        setTimeout(() => {
+            setOverlayClasses(overlayClasses + " hidden");
+        }, 700);
+
+        anime({
+            targets: '.loadingOverlay',
+            duration: 700,
+            easing: 'easeOutSine',
+            keyframes: [
+                {
+                    easing: 'linear',
+                    scale: 0.66,
+                    rotateY: 20,
+                    rotateX: 30,
+                    rotateZ: -10,
+                    translateX: -200,
+                    translateY: 200
+                },{
+                    scale: 0.33,
+                    rotateY: 40,
+                    rotateX: 60,
+                    rotateZ: -20,
+                    translateX: 400,
+                    translateY: -400
+                },{
+                    scale: 0,
+                    rotateY: 60,
+                    rotateX: 90,
+                    rotateZ: -30,
+                },{
+                    delay: 1000,
+                    scale: 1,
+                    rotateY: 0,
+                    rotateX: 0,
+                    rotateZ: 0,
+                    translateX: 0,
+                    translateY: 0
+                }
+            ]
+        });
     }
+
+    anime({
+        targets: '.continueButton',
+        duration: 800,
+        loop: true,
+        easing: 'linear',
+        delay: 5000,
+        keyframes: [
+            { 
+                rotate: '0.2turn',
+                translateX: 100,
+                translateY: 0, 
+            },
+            { 
+                rotate: '-0.4turn',
+                translateX: -100,
+                translateY: 0, 
+            },
+            { 
+                rotate: '0.2turn',
+                translateX: 0 
+            }
+        ]
+    });
+
 
     return (
         <div className={overlayClasses} ref={wrapper}>
             <div className="canvasOverlayWrapper">
-                <h1>Så du är nyfiken på att jobba inom IT?</h1>
                 <img src={arrow} className="continueButton" onClick={hideOverlay} />
             </div>
             <canvas id="canvas" width={canvasWidth} height={canvasHeight} > </canvas>
