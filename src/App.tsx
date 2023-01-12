@@ -7,19 +7,12 @@ import Header from "./components/header/header";
 import { useState } from "react";
 import "./scss/global.scss";
 import { Route, Routes } from "react-router-dom";
-import Hamburger from "./components/hamburger/hamburger";
 
 function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [navClass, setNavClass] = useState<string>("nav-icon");
   return (
     <div className="App">
-      <Hamburger
-        navOpen={navOpen}
-        setNavOpen={setNavOpen}
-        navClass={navClass}
-        setNavClass={setNavClass}
-      />
       <Header
         navOpen={navOpen}
         setNavOpen={setNavOpen}

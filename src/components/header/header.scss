@@ -5,6 +5,7 @@
       display: none;
     }
   }
+
   .overlay {
     background-color: #1d2025;
     height: 100vh;
@@ -16,7 +17,8 @@
     position: fixed;
     -webkit-box-shadow: 5px 5px 15px 33px #000000;
     box-shadow: 5px 5px 15px 33px #000000;
-    z-index: 2;
+    z-index: 1;
+    transform: translateX(-1000px);
     ul {
       list-style: none;
       display: flex;
@@ -40,36 +42,69 @@
   }
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 820px) {
   .header {
     background-color: rgba(255, 255, 255, 0);
+    position: fixed;
+    transition: 0.4s;
+    width: 100%;
+    height: 10vh;
+
+    .overlay {
+      display: none;
+      background-color: #1d2025;
+      height: 100vh;
+      width: 95vw;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      -webkit-box-shadow: 5px 5px 15px 33px #000000;
+      box-shadow: 5px 5px 15px 33px #000000;
+      z-index: 1;
+      transform: translateX(-1000px);
+    }
     nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      .glow {
+        color: #fff;
+        text-align: center;
+        text-shadow: 5px 1px 20px #0a0a0a, 5px 1px 20px #0a0a0a,
+          5px 1px 20px #0a0a0a, #0a0a0a, 5px 1px 20px #0a0a0a;
+      }
+
       ul {
         width: 100%;
+        height: 10vh;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         align-items: center;
-        position: absolute;
-        right: 0rem;
-        top: 2rem;
         list-style: none;
         z-index: 1;
 
         li {
-          margin: 0 1rem;
           a {
+            display: block;
+            width: 100%;
             color: rgb(241, 241, 241);
             font-size: 1.5rem;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.1s ease-in-out;
             &:hover {
-              color: #5284bd;
+              transform: scale(1.2);
             }
           }
         }
       }
     }
+  }
+  .background {
+    background-color: #1d2025;
+    z-index: 5;
   }
 }
