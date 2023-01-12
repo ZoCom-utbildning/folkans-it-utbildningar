@@ -2,97 +2,147 @@
 @import "../../scss/layout.scss";
 
 .form_wrapper::before {
-    content: '';
-    position: absolute;
-    width: calc(100% - 3.2rem);
-    height: 100%;
-    top: 0;
-    left: 1.5rem;
-    border-left: .1rem solid rgb(255, 255, 255, .1);
-    border-right: .1rem solid rgb(255, 255, 255, .1);
+  content: "";
+  position: absolute;
+  z-index: -1; //fixa bug här
+  width: calc(100% - 3.2rem);
+  height: 100%;
+  top: 0;
+  left: 1.5rem;
+  border-left: 0.1rem solid rgb(255, 255, 255, 0.1);
+  border-right: 0.1rem solid rgb(255, 255, 255, 0.1);
 }
 
 .form_wrapper::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: calc(100% - 3.2rem);
-    top: 1.5rem;
-    left: 0;
-    border-top: .1rem solid rgb(255, 255, 255, .1);
-    border-bottom: .1rem solid rgb(255, 255, 255, .1);
+  content: "";
+  position: absolute;
+  z-index: -1; //fixa bug här
+  width: 100%;
+  height: calc(100% - 3.2rem);
+  top: 1.5rem;
+  left: 0;
+  border-top: 0.1rem solid rgb(255, 255, 255, 0.1);
+  border-bottom: 0.1rem solid rgb(255, 255, 255, 0.1);
 }
 
 .form_wrapper {
-    min-height: 100%;
+  min-height: 100%;
+  position: relative;
+  background-color: $dark;
+  padding: 1.5rem;
+
+  .form_content {
     position: relative;
+    height: 100%;
     background-color: $dark;
-    padding: 1.5rem;
+    border-left: 0.1rem solid rgb(255, 255, 255, 0.1);
+    border-right: 0.1rem solid rgb(255, 255, 255, 0.1);
 
-    .form_content {
-        position: relative;
+    .top_section {
+      height: 100%;
+
+      .form_nav {
+        display: flex;
+        width: 100%;
+        height: 2rem;
+
         height: 100%;
-        background-color: $dark;
-        border-left: 0.1rem solid rgb(255, 255, 255, 0.1);
-        border-right: 0.1rem solid rgb(255, 255, 255, 0.1);
 
-        .top_section {
-            @include flex($justify: center);
-            max-height: 25%;
-            margin-top: 3rem;
+        .form_nav {
+          display: flex;
+          width: 100%;
+          height: 2rem;
+
+          .temp_menu {
+            width: 2rem;
+            margin: 0.5rem 0 0 12.5%;
+          }
         }
+
+        .form_image {
+          @include flex();
+          position: relative;
+          margin-top: 0.5rem;
+          width: 100%;
+          background-blend-mode: multiply;
+          background-size: cover;
+
+          img {
+            width: 75%;
+            border-radius: 8px;
+          }
+
+          .gradient_overlay {
+            position: absolute;
+            width: 75%;
+            height: 100%;
+            border-radius: 8px;
+            background-image: linear-gradient(
+                360deg,
+                rgba(0, 0, 0, 0.3) 0%,
+                rgba(0, 0, 0, 0) 100%
+              ),
+              linear-gradient(
+                137.33deg,
+                #2573b5 0%,
+                rgba(37, 115, 181, 0) 96.25%
+              );
+          }
+        }
+      }
     }
 
-    .quiz_section {
-        position: relative;
-        height: 100%;
+    .form_image {
+      @include flex();
+      position: relative;
+      margin-top: 0.5rem;
+      width: 100%;
+      background-blend-mode: multiply;
+      background-size: cover;
+
+      & img {
+        width: 75%;
+        border-radius: 8px;
+      }
+
+      .gradient_overlay {
+        position: absolute;
         z-index: 1;
-
-        .form_question {
-            @include flex();
-            margin-top: 1.5rem;
-            width: 100%;
-
-            p {
-                width: 75%;
-            }
-        }
-
-        .quiz_nav {
-            @include flex($justify: space-evenly, $direction: row);
-            margin-top: 2rem;
-            padding-bottom: 1rem;
-
-            img {
-                cursor: pointer;
-            }
-        }
+        width: 75%;
+        height: 100%;
+        border-radius: 8px;
+        background-image: linear-gradient(
+            360deg,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0) 100%
+          ),
+          linear-gradient(137.33deg, #2573b5 0%, rgba(37, 115, 181, 0) 96.25%);
+      }
     }
-}
+  }
 
-@media screen and (min-width: 768px) {
+  .quiz_section {
+    position: relative;
+    height: 100%;
 
-    .form_wrapper {
+    .form_question {
+      @include flex();
+      margin-top: 1.5rem;
+      width: 100%;
 
-        @include flex($align: center);
-    
-        .form_content {
-            @include flex($justify: space-evenly);
-            flex-direction: row-reverse;
-            border: none;
-            border-left: 0.1rem solid rgb(255, 255, 255, 0.1);
-            border-right: 0.1rem solid rgb(255, 255, 255, 0.1);
-
-            .top_section {
-                max-width: 45%;
-            }
-
-            .quiz_section {
-                min-width: 45%;
-            }
-
-        }
-
+      p {
+        width: 75%;
+      }
     }
 
+    .quiz_nav {
+      @include flex($justify: space-evenly, $direction: row);
+      margin-top: 2rem;
+      padding-bottom: 1rem;
+
+      img {
+        cursor: pointer;
+      }
+    }
+  }
 }
