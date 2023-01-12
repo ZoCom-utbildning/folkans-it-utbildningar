@@ -15,7 +15,7 @@
     cursor: crosshair;
     .canvasOverlayWrapper {
         position: absolute;
-        bottom: 20%;
+        bottom: 25%;
         width: 100%;
         text-align: center;
         padding: 0 50px;
@@ -25,7 +25,6 @@
             padding: .75rem 1.5rem;
             transition: 1s;
             &:hover {
-                transform: translateY(10px);
                 cursor: pointer;
             }
         }
