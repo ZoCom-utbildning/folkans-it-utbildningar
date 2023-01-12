@@ -3,6 +3,8 @@ import Typewriter from "typewriter-effect";
 import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.jpg";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/loading/Loading";
+
 function Home() {
   const navigate = useNavigate();
   function navToTest() {
@@ -10,6 +12,7 @@ function Home() {
   }
   return (
     <div className="home-wrapper">
+      <Loading />
       <section className="hero-content">
         <h1 className="title-h1">
           <Typewriter
