@@ -205,48 +205,75 @@ function Loading(this: any) {
     });
 
     function hideOverlay() {
-        setTimeout(() => {
-            setOverlayClasses(overlayClasses + " hidden");
-            // setOverlayClasses("loadingOverlay");
-        }, 5000);
+        // setTimeout(() => {
+        //     setOverlayClasses(overlayClasses + " hidden");
+        // }, 5000);
 
         anime({
             targets: '.loadingOverlay',
-            duration: 800,
-            // easing: 'easeInOutQuad',
-            // scale: 0,
-            // rotateY: 60,
-            // rotateX: 90,
-            // rotateZ: -40,
+            duration: 700,
+            easing: 'easeOutSine',
             keyframes: [
                 {
-                    easing: 'easeInOutQuad',
+                    easing: 'linear',
                     scale: 0.66,
                     rotateY: 20,
                     rotateX: 30,
                     rotateZ: -10,
-                    translateX: 200,
-                    translateY: -200
+                    translateX: -200,
+                    translateY: 200
                 },{
-                    easing: 'easeInOutQuad',
+                    // easing: 'linear',
                     scale: 0.33,
                     rotateY: 40,
                     rotateX: 60,
                     rotateZ: -20,
-                    translateX: -200,
-                    translateY: 200
+                    translateX: 400,
+                    translateY: -400
                 },{
-                    easing: 'easeInOutQuad',
                     scale: 0,
                     rotateY: 60,
                     rotateX: 90,
                     rotateZ: -30,
+                    // translateX: 0,
+                    // translateY: 0
+                },{
+                    // easing: 'easeInOutQuad',
+                    delay: 1000,
+                    scale: 1,
+                    rotateY: 0,
+                    rotateX: 0,
+                    rotateZ: 0,
                     translateX: 0,
                     translateY: 0
                 }
             ]
         });
     }
+
+    anime({
+        targets: '.continueButton',
+        duration: 800,
+        loop: true,
+        easing: 'linear',
+        delay: 5000,
+        keyframes: [
+            { 
+                rotate: '0.2turn',
+                translateX: 100,
+                translateY: 0, 
+            },
+            { 
+                rotate: '-0.4turn',
+                translateX: -100,
+                translateY: 0, 
+            },
+            { 
+                rotate: '0.2turn',
+                translateX: 0 
+            }
+        ]
+    });
 
 
     return (
