@@ -205,9 +205,10 @@ function Loading(this: any) {
     });
 
     function hideOverlay() {
-        // setTimeout(() => {
-        //     setOverlayClasses(overlayClasses + " hidden");
-        // }, 5000);
+        
+        setTimeout(() => {
+            setOverlayClasses(overlayClasses + " hidden");
+        }, 700);
 
         anime({
             targets: '.loadingOverlay',
@@ -223,7 +224,6 @@ function Loading(this: any) {
                     translateX: -200,
                     translateY: 200
                 },{
-                    // easing: 'linear',
                     scale: 0.33,
                     rotateY: 40,
                     rotateX: 60,
@@ -235,10 +235,7 @@ function Loading(this: any) {
                     rotateY: 60,
                     rotateX: 90,
                     rotateZ: -30,
-                    // translateX: 0,
-                    // translateY: 0
                 },{
-                    // easing: 'easeInOutQuad',
                     delay: 1000,
                     scale: 1,
                     rotateY: 0,
