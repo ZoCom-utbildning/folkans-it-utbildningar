@@ -2,6 +2,7 @@ import "./home.scss";
 import Typewriter from "typewriter-effect";
 import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.jpg";
+import { useNavigate } from "react-router-dom";
 function Home() {
   const navigate = useNavigate();
   function navToTest() {
@@ -19,7 +20,9 @@ function Home() {
             }}
           />
         </h1>
-        <button className="homeButton">TILL TESTET</button>
+        <button className="homeButton" onClick={() => navToTest()}>
+          TILL TESTET
+        </button>
         <section className="arrow-container">
           <p>Mer info om testet</p>
           <img src={arrowDown} alt="" className="arrowDown" />
