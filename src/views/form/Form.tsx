@@ -1,10 +1,9 @@
-import tempMenu from './tempMenu.svg';
-import threeFriends from '../../assets/photos/threeFriendsSVG.svg';
 import RadioButton from '../../components/radiobutton/Radiobutton';
 import RangeSlider from '../../components/range/Rangeslider';
 import arrowLeft from '../../assets/icons/arrowLeft.svg';
 import arrowRight from '../../assets/icons/arrowRight.svg';
 import forminfo from '../../../forminfo.json';
+import FormImage from '../../components/image/Image';
 import { useEffect, useState } from 'react';
 import './form.scss';
 
@@ -17,6 +16,8 @@ function Form() {
     const [ formText, setFormText ] = useState<string>();
     const [ formType, setFormType ] = useState<string>();
     const [ optionText, setOptionText ] = useState<string>('');
+    const [ formImage, setFormImage ] = useState<string>('');
+    const [ altImage, setAltImage ] = useState<string>('');
 
 
     //Changing the question depending on questionNmbr
@@ -24,24 +25,30 @@ function Form() {
     useEffect(() => {
 
         questions.map((question) => {
+
             if (questionId === question.id) {
                 setFormText(question.text);
             }
-        });
 
-        questions.map((question) => {
             if (questionId === question.id) {
                 question.options.map((option) => {
                     setOptionText(option.text);
-                })
+                });
             }
+
+            if (questionId === question.id) {
+                setFormImage(question.img);
+            }
+
+            if (questionId === question.id) {
+                setAltImage(question.alt);
+            }
+
         });
 
         if (questions[questionId - 1].type === 'radio') {
             setFormType('radio');
-        }
-
-        if (questions[questionId - 1].type === 'range') {
+        } else if (questions[questionId - 1].type === 'range') {
             setFormType('range');
         }
 
@@ -74,10 +81,7 @@ function Form() {
         <div className="form_wrapper">
             <section className="form_content">
                 <section className="top_section">
-                    <figure className="form_image">
-                        <img src={threeFriends} alt="" />
-                        <div className="gradient_overlay"></div>
-                    </figure>
+                    < FormImage src={formImage} alt={altImage}/>
                 </section>
                 <section className="quiz_section">
                     <article className="form_question">
