@@ -1,0 +1,36 @@
+@import '../../scss/variables.scss';
+@import "../../scss/layout.scss";
+
+.gradientImageWrapper {
+    @include flex();
+    position: relative;
+    width: 40%;
+    max-height: 100%;
+    margin-top: .5rem;
+    overflow: hidden;
+    
+    .gradient {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: $gradient;
+        mix-blend-mode: multiply;
+        border-radius: 8px;
+    }
+    .image {
+        width: 100%;
+        border-radius: 8px;
+        height: 100%;
+        filter: grayscale(1);
+        object-fit: cover;
+    }
+}
+
+// Might need to be changed later for the desktop view
+@media screen and (min-width: 768px) {
+    .gradientImageWrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+  }

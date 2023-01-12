@@ -3,6 +3,10 @@ import Typewriter from "typewriter-effect";
 import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.jpg";
 function Home() {
+  const navigate = useNavigate();
+  function navToTest() {
+    navigate("/fragor");
+  }
   return (
     <div className="home-wrapper">
       <section className="hero-content">

@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import './rangeslider.scss';
 
-const RangeSlider = () => {
+type Props = {
+    optionText: string;
+}
+
+const RangeSlider = ({ optionText }: Props) => {
     const [value, setValue] = useState<number>(0)
 
     const minValue = 0
@@ -17,6 +21,7 @@ const RangeSlider = () => {
 
     return (
         <section className='range_component'>
+            <p>{optionText}</p>
             <p>{value}</p>
             <input className='range' type="range" min={minValue} max={maxValue} value={value} onChange={handleChange} />
             <button className='formButton' onClick={handleClick}>Gå vidare</button>
