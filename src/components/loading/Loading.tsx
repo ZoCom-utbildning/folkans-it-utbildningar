@@ -57,9 +57,10 @@ class Vector {
 
 function Loading(this: any) {
     // === Defining data ===
-    const[overlayClasses, setOverlayClasses] = useState("loadingOverlay");
+    const [overlayClasses, setOverlayClasses] = useState("loadingOverlay");
     const [canvasWidth, setCanvasWidth] = useState(1000);
     const [canvasHeight, setCanvasHeight] = useState(1000);
+    const [bodyStyle, setBodyStyle] = useState("fixed");
     const wrapper: React.MutableRefObject<any> = useRef<any>(null);
     const wrapperHeight: number = wrapper.current?.offsetHeight;
     const wrapperWidth: number = wrapper.current?.offsetWidth;
@@ -67,6 +68,7 @@ function Loading(this: any) {
     const originalPoints: Vector[] = generateCircle();
     let points: Vector[] = generateCircle();
     let velocities: Vector[] = points.map(_ => new Vector({ x: 0, y: 0 }));
+
     // TODO: Figure out a way to update this.
     useEffect(() => {
         if(wrapper.current) {
@@ -204,8 +206,10 @@ function Loading(this: any) {
             }));
     });
 
+    
+    document.body.style.position = bodyStyle;
     function hideOverlay() {
-        
+        setBodyStyle("");
         setTimeout(() => {
             setOverlayClasses(overlayClasses + " hidden");
         }, 700);
