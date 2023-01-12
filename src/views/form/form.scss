@@ -2,7 +2,7 @@
 @import "../../scss/layout.scss";
 
 .form_wrapper::before {
-    content: '';
+    content: "";
     position: absolute;
     width: calc(100% - 3.2rem);
     height: 100%;
@@ -13,14 +13,14 @@
 }
 
 .form_wrapper::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 100%;
     height: calc(100% - 3.2rem);
     top: 1.5rem;
     left: 0;
-    border-top: .1rem solid rgb(255, 255, 255, .1);
-    border-bottom: .1rem solid rgb(255, 255, 255, .1);
+    border-top: 0.1rem solid rgb(255, 255, 255, 0.1);
+    border-bottom: 0.1rem solid rgb(255, 255, 255, 0.1);
 }
 
 .form_wrapper {
@@ -65,6 +65,7 @@
 
             img {
                 cursor: pointer;
+
             }
         }
     }
@@ -129,8 +130,15 @@
                 margin: auto;
             }
 
+            .quiz_nav {
+                @include flex($justify: space-evenly, $direction: row);
+                margin-top: 2rem;
+                padding-bottom: 1rem;
+
+                img {
+                    cursor: pointer;
+                }
+            }
         }
-
     }
-
 }
