@@ -96,6 +96,19 @@
                     "text": "eeey"
                 }
             ]
+        },
+        {
+            "id": 6,
+            "text": "Vad är ditt favorit djur?",
+            "img": "./src/assets/photos/threeFriends.png",
+            "alt": "three friends",
+            "type": "range",
+            "options": [
+                {
+                    "id": 4,
+                    "text": "det här är en range!."
+                }
+            ]
         }
     ]
 }
