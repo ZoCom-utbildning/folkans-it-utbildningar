@@ -17,7 +17,7 @@ Pull istället för push, d.v.s. vi assignar oss själva på en issue
 
 ---- team code review ----
 
-- Main push ca 1 ggn/veckan
+- Main push varje fredag före retrospective
 
 ## Figma link
 
