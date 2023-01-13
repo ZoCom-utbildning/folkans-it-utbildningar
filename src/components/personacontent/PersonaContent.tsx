@@ -1,15 +1,16 @@
 import { useState } from "react";
 import "./personacontent.scss";
+type PersonaContentProps = {
+  personaTitle: string;
+  personaIngress: string;
+  personaText: string;
+};
 
-function PersonaTitle() {
-  const [personaTitle, setPersonaTitle] = useState<string>("Adam, 20");
-  const [personaIngress, setPersonaIngress] = useState<string>(
-    "Adam är en av de personer som startat sin utbildning hos Folkuniversitetet."
-  );
-  const [personaText, setPersonaText] = useState<string>(
-    "Här är en text som beskriver Adam och hur han kom in på utbildningensom förändrade hans liv till det bättre."
-  );
-
+function PersonaContent({
+  personaTitle,
+  personaIngress,
+  personaText,
+}: PersonaContentProps) {
   return (
     <section className="persona-content">
       <header className="persona-header">
@@ -23,4 +24,4 @@ function PersonaTitle() {
   );
 }
 
-export default PersonaTitle;
+export default PersonaContent;

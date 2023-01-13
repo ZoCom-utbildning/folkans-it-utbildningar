@@ -5,8 +5,13 @@ import { useEffect, useState } from "react";
 import PersonaContent from "../personacontent/PersonaContent";
 import happyGuy from "../../assets/photos/happyGuy.png";
 import ResultsComponent from "../resultscomponent/resultsComponent";
+type Props = {
+  personaTitle: string;
+  personaIngress: string;
+  personaText: string;
+};
 
-function FormComponent() {
+function FormComponent({ personaIngress, personaText, personaTitle }: Props) {
   const questions = forminfo.questions;
   const questionNmbrs: Array<number> = [];
 
@@ -49,10 +54,9 @@ function FormComponent() {
       setFormImage(happyGuy);
     }
 
-    if (questionId === (questionNmbrs[questionNmbrs.length - 1])) {
-        setLastPage(true);
+    if (questionId === questionNmbrs[questionNmbrs.length - 1]) {
+      setLastPage(true);
     }
-
   }, [questionId]);
 
   // Storing array length to display maxValue of pages.
@@ -87,17 +91,22 @@ function FormComponent() {
             decreaseQuestion={decreaseQuestion}
           />
         </>
-          ) : window.location.href.includes("fragor") && lastPage ? (
-            <>
-                < ResultsComponent />
-            </>
-          )
-       : window.location.href.includes("") ? (
+      ) : window.location.href.includes("fragor") && lastPage ? (
+        <>
+          <ResultsComponent />
+        </>
+      ) : window.location.href.includes("") ? (
         <>
           <ImageComponent formImage={formImage} altImage={altImage} />
-          <PersonaContent />
+          <PersonaContent
+            personaIngress={personaIngress}
+            personaTitle={personaTitle}
+            personaText={personaText}
+          />
         </>
-        ) : ('')}
+      ) : (
+        ""
+      )}
     </section>
   );
 }

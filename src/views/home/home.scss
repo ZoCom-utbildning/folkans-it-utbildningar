@@ -163,7 +163,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       justify-content: center;
       align-items: center;
       gap: 1rem;
-      .galleryButton {
+      .gallery-btn {
         background-color: #515151;
         border: solid 1px #ffffff16;
         padding: 0.5rem;
@@ -173,9 +173,9 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
         &:hover {
           background-color: #ffffff16;
         }
-        &:active {
-          background-color: #ffffff16;
-        }
+      }
+      .galleryButton.active {
+        background-color: #ededed;
       }
     }
   }
