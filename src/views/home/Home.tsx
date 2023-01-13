@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../../components/loading/Loading";
 import Personas from "../../views/personas/Personas";
 import FormComponent from "../../components/formcomponent/formComponent";
+import TestButton from "../../components/testbutton/testButton";
 
 function Home() {
   const navigate = useNavigate();
@@ -25,9 +26,7 @@ function Home() {
             }}
           />
         </h1>
-        <button className="homeButton" onClick={() => navToTest()}>
-          TILL TESTET
-        </button>
+        < TestButton buttonText={'TILL TESTET'}/>
         <section className="arrow-container">
           <p>Mer info om testet</p>
           <img src={arrowDown} alt="" className="arrowDown" />
