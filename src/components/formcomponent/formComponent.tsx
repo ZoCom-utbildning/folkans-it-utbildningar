@@ -4,6 +4,7 @@ import ContentComponent from "../contentcomponent/contentComponent";
 import { useEffect, useState } from "react";
 import PersonaContent from "../personacontent/PersonaContent";
 import happyGuy from "../../assets/photos/happyGuy.png";
+import ResultsComponent from "../resultscomponent/resultsComponent";
 
 function FormComponent() {
   const questions = forminfo.questions;
@@ -15,6 +16,7 @@ function FormComponent() {
   const [optionText, setOptionText] = useState<string>("");
   const [formImage, setFormImage] = useState<string>("");
   const [altImage, setAltImage] = useState<string>("");
+  const [lastPage, setLastPage] = useState<boolean>(false);
 
   //Changing the question depending on questionNmbr
   useEffect(() => {
@@ -46,6 +48,11 @@ function FormComponent() {
     if (!window.location.href.includes("fragor")) {
       setFormImage(happyGuy);
     }
+
+    if (questionId === (questionNmbrs[questionNmbrs.length - 1])) {
+        setLastPage(true);
+    }
+
   }, [questionId]);
 
   // Storing array length to display maxValue of pages.
@@ -68,7 +75,7 @@ function FormComponent() {
 
   return (
     <section className="card_content">
-      {window.location.href.includes("fragor") ? (
+      {window.location.href.includes("fragor") && !lastPage ? (
         <>
           <ImageComponent formImage={formImage} altImage={altImage} />
           <ContentComponent
@@ -80,12 +87,17 @@ function FormComponent() {
             decreaseQuestion={decreaseQuestion}
           />
         </>
-      ) : (
+          ) : window.location.href.includes("fragor") && lastPage ? (
+            <>
+                < ResultsComponent />
+            </>
+          )
+       : window.location.href.includes("") ? (
         <>
           <ImageComponent formImage={formImage} altImage={altImage} />
           <PersonaContent />
         </>
-      )}
+        ) : ('')}
     </section>
   );
 }

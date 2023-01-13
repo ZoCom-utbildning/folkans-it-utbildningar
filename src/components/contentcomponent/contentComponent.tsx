@@ -55,7 +55,7 @@ function ContentComponent({ formText, formType, optionText, questionId, decrease
             { buttonArray }
             <nav className="quiz_nav">
                 <img src={arrowLeft} alt="" onClick={decreaseQuestion} />
-                <p> {questionId} / {questionNmbrs.length} </p>
+                <p> {questionId} / {questionNmbrs.length - 1} </p>
                 <img src={arrowRight} alt="" onClick={increaseQuestion} />
             </nav>
         </section>
