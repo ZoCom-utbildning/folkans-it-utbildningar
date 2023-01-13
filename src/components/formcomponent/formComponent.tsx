@@ -4,6 +4,7 @@ import ContentComponent from "../contentcomponent/contentComponent";
 import { useEffect, useState } from "react";
 import PersonaContent from "../personacontent/PersonaContent";
 import happyGuy from "../../assets/photos/happyGuy.png";
+import ResultsComponent from "../resultscomponent/resultsComponent";
 
 function FormComponent() {
   const questions = forminfo.questions;
@@ -88,9 +89,7 @@ function FormComponent() {
         </>
           ) : window.location.href.includes("fragor") && lastPage ? (
             <>
-                <section>
-                    <article>HEJ</article>
-                </section>
+                < ResultsComponent />
             </>
           )
        : window.location.href.includes("") ? (
