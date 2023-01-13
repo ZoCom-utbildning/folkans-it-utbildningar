@@ -8,8 +8,8 @@ type Props = {
 }
 
 function RadioButton({ optionText }: Props) {
-    const [toggle, setToggle] = useState<boolean>(true);
-    const [radio, setRadio] = useState<boolean>(false);
+    const [toggle, setToggle] = useState<boolean>(false);
+    const [radio, setRadio] = useState<boolean>(true);
 
     const radioClicked = () => {
         setToggle(!toggle);
