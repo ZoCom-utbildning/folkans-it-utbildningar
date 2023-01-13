@@ -3,6 +3,7 @@ import RangeSlider from '../../components/range/Rangeslider';
 import arrowLeft from '../../assets/icons/arrowLeft.svg';
 import arrowRight from '../../assets/icons/arrowRight.svg';
 import forminfo from '../../../forminfo.json';
+import { useEffect, useState } from 'react';
 
 type Props = {
     formText: string;
@@ -18,9 +19,32 @@ function ContentComponent({ formText, formType, optionText, questionId, decrease
     const questions = forminfo.questions;
     const questionNmbrs: Array<number> = [];
 
+    const [ buttonAmount, setButtonAmount ] = useState<Array<object>>([]);
+
+    useEffect(() => {
+        forminfo.questions.map((question) => {
+            const allOptions = question.options?.filter((option) => {
+                if ( questionId === question.id ) {
+                    return option
+                }
+            });
+            if ( questionId === question.id ) {
+                setButtonAmount(allOptions);
+            }
+        });
+    }, [questionId]);
+
     // Storing array length to display maxValue of pages.
     questions.map(question => {
         questionNmbrs.push(question.id);  // [1, 2, 3, 4]
+    });
+
+    const buttonArray = buttonAmount?.map((button, index) => {
+        if (formType === 'range') {
+            return <RangeSlider optionText={optionText} key={index}/>
+        } else if (formType === 'radio') {
+            return < RadioButton optionText={optionText} key={index}/>
+        }
     });
 
     return (
@@ -28,7 +52,7 @@ function ContentComponent({ formText, formType, optionText, questionId, decrease
             <article className="form_question">
                 <p>{formText}</p>
             </article>
-            {formType === 'range' ? <RangeSlider optionText={optionText} /> : < RadioButton optionText={optionText} />}
+            { buttonArray }
             <nav className="quiz_nav">
                 <img src={arrowLeft} alt="" onClick={decreaseQuestion} />
                 <p> {questionId} / {questionNmbrs.length} </p>
