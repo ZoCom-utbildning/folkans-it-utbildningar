@@ -66,41 +66,35 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
             <a href="/">HEM</a>
           </li>
           <li>
-            <a href="studera">STUDERANDE</a>
+            <a href="/personer">STUDERANDE</a>
           </li>
           <li>
-            <a href="fragor">TILL TESTET</a>
+            <a href="/fragor">TILL TESTET</a>
           </li>
 
           <li>
-            <a href="about">OM OSS</a>
-          </li>
-          <li>
-            <a href="contact">KONTAKTA OSS</a>
+            <a href="/om">OM OSS</a>
           </li>
         </ul>
       </nav>
       <div className="overlay">
-        <nav>
-          <ul>
-            <li>
-              <a href="#">HEM</a>
-            </li>
-            <li>
-              <a href="#">STUDERANDE</a>
-            </li>
-            <li>
-              <a href="#">TILL TESTET</a>
-            </li>
-            <li>
-              <a href="#">OM OSS</a>
-            </li>
-            <li>
-              <a href="#">KONTAKT</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+          <nav>
+            <ul>
+              <li>
+                <a href="/">HEM</a>
+              </li>
+              <li>
+                <a href="/personer">STUDERANDE</a>
+              </li>
+              <li>
+                <a href="/fragor">TILL TESTET</a>
+              </li>
+              <li>
+                <a href="/om">OM OSS</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
     </header>
   );
 };
