@@ -8,15 +8,17 @@ type Props = {
 }
 
 function RadioButton({ optionText }: Props) {
-    const [toggle, setToggle] = useState<boolean>(true)
+    const [toggle, setToggle] = useState<boolean>(true);
+    const [radio, setRadio] = useState<boolean>(false);
 
     const radioClicked = () => {
-        setToggle(!toggle)
+        setToggle(!toggle);
+        setRadio(!radio);
     }
 
     return (
         <section className='radio_component'>
-            <section className="radio_quiz" onClick={radioClicked}>
+            <section className={`radio_${radio ? "quiz" : "filled"}`} onClick={radioClicked}>
                 {toggle ? <img src={hexagonFilled} /> : <img src={hexagonEmpty} alt="" />}
                 <p>{optionText}</p>
             </section>
