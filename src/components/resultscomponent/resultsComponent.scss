@@ -1,0 +1,42 @@
+@import "../../scss/layout.scss";
+
+.results_wrapper {
+    z-index: 3;
+    min-height: 25rem;
+    @include flex();
+
+    .results_section {
+        width: 50%;
+
+        .results_text {
+            text-align: center;
+            @include flex($direction: column, $justify: space-evenly, $align: center);
+
+            h2 {
+                margin-bottom: 1rem;
+            }
+
+        }
+    }
+
+    .results_points {
+        text-align: center;
+        @include flex($direction: column, $justify: space-evenly);
+        width: 50%;
+
+        p {
+            margin-top: .5rem;
+        }
+
+        li {
+
+            @include flex($direction: column, $justify: space-evenly);
+
+            span {
+                margin-top: 1rem;
+            }
+
+        }
+    }
+
+}
