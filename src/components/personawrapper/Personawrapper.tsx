@@ -1,5 +1,5 @@
 import "./personaWrapper.scss";
-import PersonaTitle from "../personatitle/Personatitle";
+import PersonaTitle from "../personacontent/PersonaContent";
 function PersonaWrapper() {
   return (
     <div className="persona-wrapper">

@@ -5,6 +5,7 @@ import vscodecomputer from "../../assets/photos/vscodecomputer.jpg";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../components/loading/Loading";
 import Personas from "../../views/personas/Personas";
+import FormComponent from "../../components/formcomponent/formComponent";
 
 function Home() {
   const navigate = useNavigate();
@@ -87,7 +88,16 @@ function Home() {
         </div>
       </main>
       <section className="home-personas-wrapper">
-        <Personas />
+        <div className="form_wrapper">
+          <FormComponent />
+        </div>
+        <div className="galleryButtons">
+          <button className="galleryButton"></button>
+          <button className="galleryButton"></button>
+          <button className="galleryButton"></button>
+          <button className="galleryButton"></button>
+          <button className="galleryButton"></button>
+        </div>
       </section>
     </div>
   );

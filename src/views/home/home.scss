@@ -153,6 +153,31 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       ),
       linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%),
       $bg-imageWoman; //Bör flyttas, syns i bakgrunden för views beroende på height.
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    .galleryButtons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      .galleryButton {
+        background-color: #515151;
+        border: solid 1px #ffffff16;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          background-color: #ffffff16;
+        }
+        &:active {
+          background-color: #ffffff16;
+        }
+      }
+    }
   }
 }
 
