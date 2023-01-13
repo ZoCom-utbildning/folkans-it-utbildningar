@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import './testButton.scss';
 
 type Props = {
@@ -6,9 +7,13 @@ type Props = {
 
 function TestButton({ buttonText }: Props) {
 
+    const navigate = useNavigate();
+
     function navToTest() {
         if ( window.location.href.includes("fragor") ) {
             window.location.reload();
+        } else if (window.location.href.includes("") ) {
+            navigate("/fragor");
         }
     }
 

@@ -10,9 +10,7 @@ import TestButton from "../../components/testbutton/testButton";
 
 function Home() {
   const navigate = useNavigate();
-  function navToTest() {
-    navigate("/fragor");
-  }
+
   return (
     <div className="home-wrapper">
       <Loading />

@@ -11,6 +11,11 @@
         .results_text {
             text-align: center;
             @include flex($direction: column, $justify: space-evenly, $align: center);
+
+            h2 {
+                margin-bottom: 1rem;
+            }
+
         }
     }
 
@@ -19,9 +24,18 @@
         @include flex($direction: column, $justify: space-evenly);
         width: 50%;
 
+        p {
+            margin-top: .5rem;
+        }
+
         li {
+
             @include flex($direction: column, $justify: space-evenly);
-            flex-wrap: wrap;
+
+            span {
+                margin-top: 1rem;
+            }
+
         }
     }
 
