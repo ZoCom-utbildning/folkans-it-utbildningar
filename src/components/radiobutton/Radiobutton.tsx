@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import hexagonEmpty from '../../assets/icons/hexagonEmpty.svg';
 import hexagonFilled from '../../assets/icons/hexagonFilled.svg';
 import './radioButton.scss';
@@ -8,15 +8,20 @@ type Props = {
 }
 
 function RadioButton({ optionText }: Props) {
-    const [toggle, setToggle] = useState<boolean>(true)
+    const [toggle, setToggle] = useState<boolean>(true);
+    const [filled, setFilled] = useState<string>('filled');
+
+    useEffect(() => {
+        toggle ? setFilled('filled') : setFilled('');
+    }, []);
 
     const radioClicked = () => {
-        setToggle(!toggle)
+        setToggle(!toggle);
     }
 
     return (
         <section className='radio_component'>
-            <section className="radio_quiz" onClick={radioClicked}>
+            <section className={`radio_quiz ${filled}`} onClick={radioClicked}>
                 {toggle ? <img src={hexagonFilled} /> : <img src={hexagonEmpty} alt="" />}
                 <p>{optionText}</p>
             </section>
