@@ -10,6 +10,14 @@
                 {
                     "id": 1,
                     "text": "det är en bra fråga."
+                },
+                {
+                    "id": 1,
+                    "text": "halloj."
+                },
+                {
+                    "id": 2,
+                    "text": "eeey"
                 }
             ]
         },
@@ -53,6 +61,39 @@
                 {
                     "id": 4,
                     "text": "det här är en range!."
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "Hur gammal är du inte?",
+            "img": "./src/assets/photos/gadgets.png",
+            "alt": "gadgets",
+            "type": "radio",
+            "options": [
+                {
+                    "id": 1,
+                    "text": "det är en bra fråga."
+                },
+                {
+                    "id": 1,
+                    "text": "halloj."
+                },
+                {
+                    "id": 2,
+                    "text": "eeey"
+                },
+                {
+                    "id": 1,
+                    "text": "det är en bra fråga."
+                },
+                {
+                    "id": 1,
+                    "text": "halloj."
+                },
+                {
+                    "id": 2,
+                    "text": "eeey"
                 }
             ]
         }
