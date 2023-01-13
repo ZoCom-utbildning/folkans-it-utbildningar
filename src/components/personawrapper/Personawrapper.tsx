@@ -1,12 +1,11 @@
-import './personaWrapper.scss';
-
+import "./personaWrapper.scss";
+import PersonaTitle from "../personatitle/Personatitle";
 function PersonaWrapper() {
-
-    return (
-        <div>
-            PersonaWrapper
-        </div>
-    );
+  return (
+    <div className="persona-wrapper">
+      <PersonaTitle />
+    </div>
+  );
 }
-  
+
 export default PersonaWrapper;
