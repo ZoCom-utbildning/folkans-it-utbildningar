@@ -17,7 +17,8 @@
     max-width: 50rem;
 }
 
-.lines {
+// Don't forget to add 'position: relative;' to your element.
+@mixin lines {
     &::before {
         content: "";
         position: absolute;
