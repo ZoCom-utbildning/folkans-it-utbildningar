@@ -13,24 +13,29 @@ function About() {
     });
 
     return (
-        <div className="about-view lines">
-            <section className="textWrapper">
-                <h1>YH-utbildningar</h1>
-                <p className="introText">Gå en yrkeshögskoleutbildning inom IT på Folkuniversitetet som leder till jobb. Du kan till exempel utbilda dig till apputvecklare eller frontendutvecklare.</p>
-                <p>Alla YH-utbildningar är avgiftsfria, berättigar till studiemedel och sker i nära samverkan med arbetslivet. Utbildningarna innehåller en kvalificerad praktikperiod, LIA - lärande i arbete.</p>
-            </section>
+        <div className="aboutView">
+            <h1 className="lines">YH-utbildningar</h1>
 
-            <section className="coursesWrapper">
+            <form className="contactForm">
+                <h5>Kontakta oss direkt</h5>
+                <input type="email" className="formText" placeholder="pelle.pahittad@emailadress.com" />
+                <textarea className="formText" rows={5} placeholder="Hej! Jag undrar ..." />
+                <button className="formButton">Skicka!</button>
+            </form>
+
+            <p className="introText">Gå en yrkeshögskoleutbildning inom IT på Folkuniversitetet som leder till jobb. Du kan till exempel utbilda dig till apputvecklare eller frontendutvecklare.</p>
+            <p>Alla YH-utbildningar är avgiftsfria, berättigar till studiemedel och sker i nära samverkan med arbetslivet. Utbildningarna innehåller en kvalificerad praktikperiod, LIA - lärande i arbete.</p>
+            <h4>Mål</h4>
+            <p>Målen med utbildningarna är att ge dig som studerande en yrkeskompetens som leder till arbete. Du får ett examensbevis när du genomgått utbildningen. När du är färdig med utbildningen har du mycket goda möjligheter till att få omedelbar anställning. Inte sällan på det företag där du genomfört din LIA-period.</p>
+
+            <h4>Innehåll</h4>
+            <p>Utbildningens innehåll består av både praktiska och teoretiska delar. Kursplaner och studieplaner tas fram tillsammans med näringslivets representanter. Under utbildningen har du utvecklingssamtal med dina lärare för att du ska få den feed-back du behöver för att utvecklas i din kommande yrkesroll.</p>
+
+            <section className="coursesWrapper lines">
                 <h2>Våra utbildningar</h2>
                 {courses}
             </section>
             
-            <form className="contactForm">
-                <h5>Kontakta oss direkt</h5>
-                <input type="email" className="formText" placeholder="din@email.com" />
-                <textarea className="formText" placeholder="Hej! Jag funderar på..." />
-                <button className="formButton">Skicka!</button>
-            </form>
         </div>
     );
 }
