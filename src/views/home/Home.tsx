@@ -2,10 +2,12 @@ import "./home.scss";
 import Typewriter from "typewriter-effect";
 import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.jpg";
-import { useNavigate } from "react-router-dom";
 import Loading from "../../components/loading/Loading";
 import FormComponent from "../../components/formcomponent/formComponent";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import TestButton from "../../components/testbutton/testButton";
+
 type Props = {
   activePersona: number;
   setActivePersona: (activePersona: number) => void;
@@ -47,9 +49,7 @@ function Home({ activePersona, setActivePersona }: Props) {
             }}
           />
         </h1>
-        <button className="homeButton" onClick={() => navToTest()}>
-          TILL TESTET
-        </button>
+        <TestButton buttonText={"TILL TESTET"} />
         <section className="arrow-container">
           <p>Mer info om testet</p>
           <img src={arrowDown} alt="" className="arrowDown" />

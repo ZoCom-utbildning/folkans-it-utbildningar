@@ -1,0 +1,64 @@
+@import "../../scss/variables.scss";
+
+.homeButton {
+    margin: 50px;
+    z-index: 3;
+    border-radius: 50px;
+    padding: 1rem;
+    border: 1px solid $light;
+    box-shadow: 0 8px 32px 0 $dark;
+    background: $darkTransparent;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform-scale(1.1) 0.5s ease-in-out 100ms;
+  
+    /* h5 */
+    font-size: 27px;
+    font-family: "Maven Pro";
+    font-style: normal;
+    font-weight: 523;
+    line-height: 100%;
+    letter-spacing: 0.04em;
+    color: $light;
+}
+
+@media (min-width: 820px) {
+
+    .homeButton {
+        z-index: 3;
+        margin: 50px;
+        border-radius: 50px;
+        padding: 1rem;
+        border: 1px solid $light;
+        box-shadow: 0 8px 32px 0 $dark;
+        background: $darkTransparent;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform-scale(1);
+        transition-duration: 100ms;
+        transition-timing-function: ease-in-out;
+
+        /* h5 */
+        font-size: 27px;
+        font-family: "Maven Pro";
+        font-style: normal;
+        font-weight: 523;
+        line-height: 100%;
+        letter-spacing: 0.04em;
+        color: $light;
+
+        &:hover {
+        transform: scale(1.1);
+        border-color: rgb(128, 49, 208);
+        }
+    }
+}
+

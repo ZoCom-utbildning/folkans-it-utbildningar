@@ -1,4 +1,5 @@
-//import './resultsComponent.scss';
+import './resultsComponent.scss';
+import TestButton from "../testbutton/testButton";
 
 const ResultsComponent = () => {
 
@@ -14,7 +15,7 @@ const ResultsComponent = () => {
                     <h2>Ditt test resultat blev: </h2>
                     <p> { courseResult } </p>
                     <p>länkar till utbildningen</p>
-                    <button>Ta testet igen</button>
+                    < TestButton buttonText={'ta testet igen'} />
                 </section>
             </section>
             <section className="results_points">

@@ -2,111 +2,111 @@
     "questions": [
         {
             "id": 1,
-            "text": "Hur gammal är du inte?",
+            "text": "Vilket är ditt favorit operativsystem?",
             "img": "./src/assets/photos/gadgets.png",
             "alt": "gadgets",
             "type": "radio",
             "options": [
                 {
                     "id": 1,
-                    "text": "det är en bra fråga."
+                    "text": "Windows"
                 },
                 {
                     "id": 1,
-                    "text": "halloj."
+                    "text": "Mac"
                 },
                 {
                     "id": 2,
-                    "text": "eeey"
+                    "text": "Linux"
                 }
             ]
         },
         {
             "id": 2,
-            "text": "Vilken vad?",
+            "text": "Hur gammal är du?",
             "img": "./src/assets/photos/happyGuy.png",
             "alt": "happy guy",
             "type": "range",
             "options": [
                 {
                     "id": 2,
-                    "text": "hejsan svejsan."
+                    "text": ""
                 }
             ]
         },
         {
             "id": 3,
-            "text": "Har du en apa?",
+            "text": "Har du något husdjur?",
             "img": "./src/assets/photos/manComputer.png",
             "alt": "man computer",
             "type": "radio",
             "options": [
                 {
                     "id": 1,
-                    "text": "halloj."
+                    "text": "Ja"
                 },
                 {
                     "id": 2,
-                    "text": "eeey"
+                    "text": "Nej"
                 }
             ]
         },
         {
             "id": 4,
-            "text": "Vad är ditt favorit djur?",
+            "text": "Vilken är din favorit siffra?",
             "img": "./src/assets/photos/threeFriends.png",
             "alt": "three friends",
             "type": "range",
             "options": [
                 {
                     "id": 4,
-                    "text": "det här är en range!."
+                    "text": ""
                 }
             ]
         },
         {
             "id": 5,
-            "text": "Hur gammal är du inte?",
+            "text": "Här kommer en fråga du inte kan svara på, eller?",
             "img": "./src/assets/photos/gadgets.png",
             "alt": "gadgets",
             "type": "radio",
             "options": [
                 {
                     "id": 1,
-                    "text": "det är en bra fråga."
-                },
-                {
-                    "id": 1,
-                    "text": "halloj."
+                    "text": "Det här svaret fungerar inte som tänkt."
                 },
                 {
                     "id": 2,
-                    "text": "eeey"
+                    "text": "Det här svaret fungerar inte som tänkt."
                 },
                 {
-                    "id": 1,
-                    "text": "det är en bra fråga."
+                    "id": 3,
+                    "text": "Det här svaret fungerar inte som tänkt."
                 },
                 {
-                    "id": 1,
-                    "text": "halloj."
+                    "id": 4,
+                    "text": "Det här svaret fungerar inte som tänkt."
                 },
                 {
-                    "id": 2,
-                    "text": "eeey"
+                    "id": 5,
+                    "text": "Det här svaret fungerar inte som tänkt."
+                },
+                {
+                    "id": 6,
+                    "text": "Det här svaret fungerar inte som tänkt."
                 }
             ]
         },
         {
             "id": 6,
-            "text": "Vad är ditt favorit djur?",
-            "img": "./src/assets/photos/threeFriends.png",
-            "alt": "three friends",
-            "type": "range",
+            "text": "",
+            "img": "",
+            "alt": "",
+            "type": "",
             "options": [
                 {
-                    "id": 4,
-                    "text": "det här är en range!."
+                    "id": 1,
+                    "text": ""
                 }
             ]
         }

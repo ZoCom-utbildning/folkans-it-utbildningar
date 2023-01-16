@@ -8,6 +8,7 @@ type Props = {
 const RangeSlider = ({ optionText }: Props) => {
     const [value, setValue] = useState<number>(0)
 
+    //ta värden från databas beroende på fråga
     const minValue = 0
     const maxValue = 100
 
@@ -19,6 +20,7 @@ const RangeSlider = ({ optionText }: Props) => {
         //
     }
 
+    //value är värdet som ska skickas som svar
     return (
         <section className='range_component'>
             <p>{optionText}</p>

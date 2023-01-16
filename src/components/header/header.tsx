@@ -44,6 +44,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
     scrollFunction();
   };
   function scrollFunction() {
+    //byt 150 till ett mindre värde så att den går over texten tidigare
     if (window.scrollY > 150) {
       setHeaderBackground("header background");
     } else {

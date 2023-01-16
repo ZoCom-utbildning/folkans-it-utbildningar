@@ -14,6 +14,7 @@ function App() {
   const [activePersona, setActivePersona] = useState<number>(0);
   return (
     <div className="App">
+      {/**bryt ut <Header/> till egen komponent som vi använder där den behövs och inte på alla sidor, väldigt mycket problem med z-index osv pga detta}*/}
       <Header
         navOpen={navOpen}
         setNavOpen={setNavOpen}

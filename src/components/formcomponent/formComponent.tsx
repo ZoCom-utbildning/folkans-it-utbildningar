@@ -30,6 +30,7 @@ function FormComponent({ activePersona }: Props) {
 
       if (questionId === question.id) {
         question.options.map((option) => {
+          //fixa bug här
           setOptionText(option.text);
         });
       }
@@ -63,6 +64,7 @@ function FormComponent({ activePersona }: Props) {
   });
 
   // Changes pagenmbrs depending on click.
+  //framåt knapp syns inte om du inte svarat på frågan
   const increaseQuestion = () => {
     if (questionId < questionNmbrs.length) {
       setQuestionId(questionId + 1);
