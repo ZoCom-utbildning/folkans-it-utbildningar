@@ -35,6 +35,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
     background-color: #1d2025;
     padding: 1.5rem;
     @include lines;
+
     .home-main__content {
       background-color: #1d2025;
       padding: 1rem;
@@ -86,7 +87,6 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       .home-main__content {
         background-color: #1d2025;
         padding: 1rem;
-        border: solid 1px #ffffff16;
         display: flex;
         flex-direction: row;
 
