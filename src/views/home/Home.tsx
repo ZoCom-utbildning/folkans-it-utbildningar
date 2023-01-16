@@ -7,77 +7,31 @@ import Loading from "../../components/loading/Loading";
 import FormComponent from "../../components/formcomponent/formComponent";
 import { useState } from "react";
 type Props = {
-  personaTitle: string;
-  personaIngress: string;
-  personaText: string;
-  setPersonaTitle: (personaTitle: string) => void;
-  setPersonaIngress: (personaIngress: string) => void;
-  setPersonaText: (personaText: string) => void;
+  activePersona: number;
+  setActivePersona: (activePersona: number) => void;
 };
-
-function Home({
-  personaTitle,
-  personaIngress,
-  personaText,
-  setPersonaIngress,
-  setPersonaText,
-  setPersonaTitle,
-}: Props) {
+function Home({ activePersona, setActivePersona }: Props) {
   const navigate = useNavigate();
   function navToTest() {
     navigate("/fragor");
   }
 
-  const [activePersona, setActivePersona] = useState<number>(1);
   const [galleryBtnClass, setGalleryBtnClass] = useState<string>("gallery-btn");
+
+  // recreate these useStates as 6 objects in an array
+
   const changePersona = (e: any) => {
     if (e.target.id === "btn1") {
-      setPersonaTitle("Adam, 20");
-      setPersonaIngress(
-        "Adam är en av de personer som startat sin utbildning hos Folkuniversitetet."
-      );
-      setPersonaText(
-        "Här är en text som beskriver Adam och hur han kom in på utbildningensom förändrade hans liv till det bättre."
-      );
-      setActivePersona(1);
+      setActivePersona(0);
     } else if (e.target.id === "btn2") {
-      setPersonaTitle("Bertil, 30");
-      setPersonaIngress(
-        "Bertil är en av de personer som startat sin utbildning hos Folkuniversitetet."
-      );
-      setPersonaText(
-        "Här är en text som beskriver Bertil och hur han kom in på utbildningensom förändrade hans liv till det bättre."
-      );
-      setActivePersona(2);
+      setActivePersona(1);
     } else if (e.target.id === "btn3") {
-      setPersonaTitle("Ahmed, 32");
-      setPersonaIngress(
-        "Ahmed är en av de personer som startat sin utbildning hos Folkuniversitetet."
-      );
-      setPersonaText(
-        "Här är en text som beskriver Ahmed och hur hon kom in på utbildningensom förändrade hennes liv till det bättre."
-      );
-      setActivePersona(3);
+      setActivePersona(2);
     } else if (e.target.id === "btn4") {
-      setPersonaTitle("Anja, 23");
-      setPersonaIngress(
-        "Anja är en av de personer som startat sin utbildning hos Folkuniversitetet."
-      );
-      setPersonaText(
-        "Här är en text som beskriver Anja och hur hon kom in på utbildningensom förändrade hennes liv till det bättre."
-      );
-      setActivePersona(4);
+      setActivePersona(3);
     } else if (e.target.id === "btn5") {
-      setPersonaTitle("Amina, 38");
-      setPersonaIngress(
-        "Amina är en av de personer som startat sin utbildning hos Folkuniversitetet."
-      );
-      setPersonaText(
-        "Här är en text som beskriver Amina och hur hon kom in på utbildningensom förändrade hennes liv till det bättre."
-      );
-      setActivePersona(5);
+      setActivePersona(4);
     }
-    // loop through all buttons with ID btn1-5 and remove the active class with typescript
   };
 
   return (
@@ -157,11 +111,7 @@ function Home({
       </main>
       <section className="home-personas-wrapper">
         <div className="form_wrapper">
-          <FormComponent
-            personaTitle={personaTitle}
-            personaIngress={personaIngress}
-            personaText={personaText}
-          />
+          <FormComponent activePersona={activePersona} />
         </div>
 
         <ul className="galleryButtons">

@@ -1,19 +1,13 @@
 import FormComponent from "../../components/formcomponent/formComponent";
 import "./form.scss";
 type Props = {
-  personaTitle: string;
-  personaIngress: string;
-  personaText: string;
+  activePersona: number;
 };
-function Form({ personaTitle, personaIngress, personaText }: Props) {
+function Form({ activePersona }: Props) {
   return (
     <div className="desktop_wrapper">
       <div className="form_wrapper">
-        <FormComponent
-          personaIngress={personaIngress}
-          personaTitle={personaTitle}
-          personaText={personaText}
-        />
+        <FormComponent activePersona={activePersona} />
       </div>
     </div>
   );

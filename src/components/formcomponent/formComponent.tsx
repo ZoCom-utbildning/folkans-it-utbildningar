@@ -5,13 +5,11 @@ import { useEffect, useState } from "react";
 import PersonaContent from "../personacontent/PersonaContent";
 import happyGuy from "../../assets/photos/happyGuy.png";
 import ResultsComponent from "../resultscomponent/resultsComponent";
-type Props = {
-  personaTitle: string;
-  personaIngress: string;
-  personaText: string;
-};
 
-function FormComponent({ personaIngress, personaText, personaTitle }: Props) {
+type Props = {
+  activePersona: number;
+};
+function FormComponent({ activePersona }: Props) {
   const questions = forminfo.questions;
   const questionNmbrs: Array<number> = [];
 
@@ -98,11 +96,7 @@ function FormComponent({ personaIngress, personaText, personaTitle }: Props) {
       ) : window.location.href.includes("") ? (
         <>
           <ImageComponent formImage={formImage} altImage={altImage} />
-          <PersonaContent
-            personaIngress={personaIngress}
-            personaTitle={personaTitle}
-            personaText={personaText}
-          />
+          <PersonaContent activePersona={activePersona} />
         </>
       ) : (
         ""

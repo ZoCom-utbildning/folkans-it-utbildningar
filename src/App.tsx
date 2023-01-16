@@ -11,13 +11,7 @@ import { Route, Routes } from "react-router-dom";
 function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [navClass, setNavClass] = useState<string>("nav-icon");
-  const [personaTitle, setPersonaTitle] = useState<string>("Adam, 20");
-  const [personaIngress, setPersonaIngress] = useState<string>(
-    "Adam är en av de personer som startat sin utbildning hos Folkuniversitetet."
-  );
-  const [personaText, setPersonaText] = useState<string>(
-    "Här är en text som beskriver Adam och hur han kom in på utbildningensom förändrade hans liv till det bättre."
-  );
+  const [activePersona, setActivePersona] = useState<number>(0);
   return (
     <div className="App">
       <Header
@@ -31,24 +25,14 @@ function App() {
         <Route path="/*" element={<Error />} />
         <Route
           path="/fragor"
-          element={
-            <Form
-              personaTitle={personaTitle}
-              personaIngress={personaIngress}
-              personaText={personaText}
-            />
-          }
+          element={<Form activePersona={activePersona} />}
         />
         <Route
           path="/"
           element={
             <Home
-              personaTitle={personaTitle}
-              personaIngress={personaIngress}
-              personaText={personaText}
-              setPersonaTitle={setPersonaTitle}
-              setPersonaIngress={setPersonaIngress}
-              setPersonaText={setPersonaText}
+              activePersona={activePersona}
+              setActivePersona={setActivePersona}
             />
           }
         />
