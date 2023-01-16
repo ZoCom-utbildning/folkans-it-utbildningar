@@ -39,7 +39,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
     });
 
     const buttonArray = buttonAmount?.map((button, index) => {
-        // Fixa button.text buggen!?!? kanske behöver type?? {id: number, text: string}
+        // Fixa button.text buggen!?!? kanske behöver type??? {id: number, text: string}
         if (formType === 'range') {
             return <RangeSlider optionText={button.text} key={index}/>
         } else if (formType === 'radio') {
