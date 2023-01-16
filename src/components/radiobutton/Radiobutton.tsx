@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import hexagonEmpty from '../../assets/icons/hexagonEmpty.svg';
 import hexagonFilled from '../../assets/icons/hexagonFilled.svg';
 import './radioButton.scss';
