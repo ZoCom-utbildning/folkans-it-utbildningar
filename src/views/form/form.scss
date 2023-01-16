@@ -1,33 +1,13 @@
 @import "../../scss/variables.scss";
 @import "../../scss/layout.scss";
 
-.form_wrapper::before {
-  content: "";
-  position: absolute;
-  width: calc(100% - 3.2rem);
-  height: 100%;
-  top: 0;
-  left: 1.5rem;
-  border-left: 0.1rem solid rgb(255, 255, 255, 0.1);
-  border-right: 0.1rem solid rgb(255, 255, 255, 0.1);
-}
-
-.form_wrapper::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: calc(100% - 3.2rem);
-  top: 1.5rem;
-  left: 0;
-  border-top: 0.1rem solid rgb(255, 255, 255, 0.1);
-  border-bottom: 0.1rem solid rgb(255, 255, 255, 0.1);
-}
 
 .form_wrapper {
   min-height: 100vh;
   position: relative;
   background-color: $dark;
   padding: 1.5rem;
+  @include lines;
 
   .card_content {
     position: relative;

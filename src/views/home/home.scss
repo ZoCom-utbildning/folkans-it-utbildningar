@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro&family=Roboto+Mono:wght@200&display=swap");
 $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
 @import url("../../scss/_variables.scss");
+@import "../../scss/layout";
 
 .home-wrapper {
   height: 100vh;
@@ -33,11 +34,11 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
   }
   .home-main {
     background-color: #1d2025;
-    padding: 1rem;
+    padding: 1.5rem;
+    @include lines;
     .home-main__content {
       background-color: #1d2025;
       padding: 1rem;
-      border: solid 1px #ffffff16;
 
       p {
         margin-top: 1rem;
