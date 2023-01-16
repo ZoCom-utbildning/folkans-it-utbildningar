@@ -12,6 +12,11 @@ function About() {
         );
     });
 
+    function sendEmail(event) {
+        event.preventDefault();
+        // Send email
+    }
+
     return (
         <div className="aboutView">
             <h1 className="line">YH-utbildningar</h1>
@@ -20,7 +25,7 @@ function About() {
                 <h5>Kontakta oss direkt</h5>
                 <input type="email" className="formText" placeholder="pelle@example.com" />
                 <textarea className="formText" rows={5} placeholder="Hej! Jag undrar ..." />
-                <button className="formButton">Skicka!</button>
+                <button className="formButton" onClick={sendEmail}>Skicka!</button>
             </form>
 
             <p className="introText">Gå en yrkeshögskoleutbildning inom IT på Folkuniversitetet som leder till jobb. Du kan till exempel utbilda dig till apputvecklare eller frontendutvecklare.</p>
