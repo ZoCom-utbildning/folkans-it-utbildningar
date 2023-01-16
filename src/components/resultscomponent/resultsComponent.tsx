@@ -11,12 +11,10 @@ const ResultsComponent = () => {
     return(
         <div className="results_wrapper">
             <section className="results_section">
-                <section className="results_text">
-                    <h2>Ditt test resultat blev: </h2>
-                    <p> { courseResult } </p>
-                    <p>länkar till utbildningen</p>
-                    < TestButton buttonText={'ta testet igen'} />
-                </section>
+                <h2>Ditt test resultat blev: </h2>
+                <p> { courseResult } </p>
+                <p>länkar till utbildningen</p>
+                < TestButton buttonText={'ta testet igen'} />
             </section>
             <section className="results_points">
                 <h2>Alternativa utbildningar </h2>

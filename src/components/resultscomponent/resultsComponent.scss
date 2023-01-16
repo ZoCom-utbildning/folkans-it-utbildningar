@@ -1,28 +1,24 @@
 @import "../../scss/layout.scss";
 
 .results_wrapper {
-    z-index: 3;
-    min-height: 25rem;
-    @include flex();
+    
+    @include flex($direction: column);
+
+    h2 {
+        padding: 0 10%;
+    }
 
     .results_section {
-        width: 50%;
 
-        .results_text {
-            text-align: center;
-            @include flex($direction: column, $justify: space-evenly, $align: center);
+        text-align: center;
+        @include flex($direction: column);
+        margin-top: 3.8rem;
 
-            h2 {
-                margin-bottom: 1rem;
-            }
-
-        }
     }
 
     .results_points {
         text-align: center;
         @include flex($direction: column, $justify: space-evenly);
-        width: 50%;
 
         p {
             margin-top: .5rem;
@@ -32,6 +28,10 @@
 
             @include flex($direction: column, $justify: space-evenly);
 
+            a {
+                text-decoration: none;
+            }
+
             span {
                 margin-top: 1rem;
             }
@@ -39,4 +39,48 @@
         }
     }
 
+}
+
+
+@media screen and (min-width: 820px) {
+    .results_wrapper {
+        z-index: 3;
+        min-height: 25rem;
+        @include flex();
+    
+        .results_section {
+            width: 50%;
+    
+            .results_text {
+                text-align: center;
+                @include flex($direction: column, $justify: space-evenly, $align: center);
+    
+                h2 {
+                    margin-bottom: 1rem;
+                }
+    
+            }
+        }
+    
+        .results_points {
+            text-align: center;
+            @include flex($direction: column, $justify: space-evenly);
+            width: 50%;
+    
+            p {
+                margin-top: .5rem;
+            }
+    
+            li {
+    
+                @include flex($direction: column, $justify: space-evenly);
+    
+                span {
+                    margin-top: 1rem;
+                }
+    
+            }
+        }
+    
+    }
 }
