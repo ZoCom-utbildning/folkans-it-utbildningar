@@ -1,4 +1,3 @@
-import "./personaWrapper.scss";
 import PersonaTitle from "../personacontent/PersonaContent";
 function PersonaWrapper() {
   return (

@@ -2,14 +2,12 @@ import "./home.scss";
 import Typewriter from "typewriter-effect";
 import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.jpg";
-import { useNavigate } from "react-router-dom";
 import Loading from "../../components/loading/Loading";
 import Personas from "../../views/personas/Personas";
 import FormComponent from "../../components/formcomponent/formComponent";
 import TestButton from "../../components/testbutton/testButton";
 
 function Home() {
-  const navigate = useNavigate();
 
   return (
     <div className="home-wrapper">
