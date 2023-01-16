@@ -6,7 +6,10 @@ import PersonaContent from "../personacontent/PersonaContent";
 import happyGuy from "../../assets/photos/happyGuy.png";
 import ResultsComponent from "../resultscomponent/resultsComponent";
 
-function FormComponent() {
+type Props = {
+  activePersona: number;
+};
+function FormComponent({ activePersona }: Props) {
   const questions = forminfo.questions;
   const questionNmbrs: Array<number> = [];
 
@@ -42,11 +45,9 @@ function FormComponent() {
       setFormImage(happyGuy);
     }
 
-    if (questionId === (questionNmbrs[questionNmbrs.length - 1])) {
-      //if id är lastpage = setLastPage (så slipper vi byta id på lastpage så att det alltid är sist)
+    if (questionId === questionNmbrs[questionNmbrs.length - 1]) {
       setLastPage(true);
     }
-
   }, [questionId]);
 
   // Storing array length to display maxValue of pages.
@@ -83,15 +84,16 @@ function FormComponent() {
         </>
       ) : window.location.href.includes("fragor") && lastPage ? (
         <>
-          < ResultsComponent />
+          <ResultsComponent />
         </>
-      )
-        : window.location.href.includes("") ? (
-          <>
-            <ImageComponent formImage={formImage} altImage={altImage} />
-            <PersonaContent />
-          </>
-        ) : ('')}
+      ) : window.location.href.includes("") ? (
+        <>
+          <ImageComponent formImage={formImage} altImage={altImage} />
+          <PersonaContent activePersona={activePersona} />
+        </>
+      ) : (
+        ""
+      )}
     </section>
   );
 }

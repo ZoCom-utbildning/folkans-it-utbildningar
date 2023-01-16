@@ -1,20 +1,19 @@
 @import "../../scss/variables.scss";
 @import "../../scss/layout.scss";
 
-
 .form_wrapper {
   min-height: 100vh;
   position: relative;
-  background-color: $dark;
+  // background-color: $dark;
   padding: 1.5rem;
-  @include lines;
-  
+  // @include lines;
+
   .card_content {
-    
     background-color: $dark;
 
     .image_section {
       height: 100%;
+      padding-top: 0.5rem;
       z-index: 0;
     }
   }
@@ -63,7 +62,7 @@
     border-radius: 8px;
     padding: 0;
     min-height: 0%;
-    
+
     .card_content {
       @include lines;
       @include flex($direction: row-reverse);
@@ -75,6 +74,7 @@
       .image_section {
         width: 50%;
         margin: auto;
+        padding: 0;
       }
 
       // .image_section::before {
