@@ -1,10 +1,11 @@
 @import "../../scss/layout.scss";
+@import "../../scss/variables.scss";
 
 .results_wrapper {
     
     @include flex($direction: column);
 
-    h2 {
+    h3 {
         padding: 0 10%;
     }
 
@@ -14,6 +15,17 @@
         @include flex($direction: column);
         margin-top: 3.8rem;
 
+        button {
+            width: 9rem;
+            height: 2.4rem;
+            font-size: 1rem;
+            box-shadow: none;
+        }
+
+        p {
+            margin-top: 1rem;
+        }
+
     }
 
     .results_points {
@@ -21,19 +33,30 @@
         @include flex($direction: column, $justify: space-evenly);
 
         p {
-            margin-top: .5rem;
+            margin-top: 1.5rem;
         }
 
         li {
 
             @include flex($direction: column, $justify: space-evenly);
 
-            a {
-                text-decoration: none;
-            }
-
             span {
-                margin-top: 1rem;
+                margin-top: 1.5rem;
+                color: $light;
+
+                .form_link {
+
+                    text-decoration: none;
+                    margin-left: .5rem;
+
+                  &:hover {
+                    color: #418BC2;
+                  }
+                  
+
+                }
+
+
             }
 
         }
@@ -55,21 +78,24 @@
                 text-align: center;
                 @include flex($direction: column, $justify: space-evenly, $align: center);
     
-                h2 {
+                h3 {
                     margin-bottom: 1rem;
                 }
     
             }
+
+            button {
+                width: 10rem;
+                height: 2.5rem;
+                font-size: 1rem;
+            }
+
         }
     
         .results_points {
             text-align: center;
             @include flex($direction: column, $justify: space-evenly);
             width: 50%;
-    
-            p {
-                margin-top: .5rem;
-            }
     
             li {
     

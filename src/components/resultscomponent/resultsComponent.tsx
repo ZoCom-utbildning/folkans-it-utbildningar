@@ -11,19 +11,19 @@ const ResultsComponent = () => {
     return(
         <div className="results_wrapper">
             <section className="results_section">
-                <h2>Ditt test resultat blev: </h2>
+                <h3>Ditt test resultat blev: </h3>
                 <p> { courseResult } </p>
                 <p>länkar till utbildningen</p>
                 < TestButton buttonText={'ta testet igen'} />
             </section>
             <section className="results_points">
-                <h2>Alternativa utbildningar </h2>
+                <h3>Alternativa utbildningar </h3>
                 <p>Länkar till utbildningarna: </p>
                 <li>
-                    <span>{ points }: </span><a href="">frontend-utvecklare</a>
-                    <span>12P: </span><a href="">Backend-utvecklare</a>
-                    <span>10P: </span><a href="">Fullstack-utvecklare</a>
-                    <span>7P: </span><a href="">Mjukvaru-utvecklare</a>
+                    <span>{ points }P: <a href="" className="form_link">Frontend-utvecklare</a></span>
+                    <span>12P: <a href="" className="form_link">Backend-utvecklare</a></span>
+                    <span>10P: <a href="" className="form_link">Fullstack-utvecklare</a></span>
+                    <span>7P: <a href="" className="form_link">Mjukvaru-utvecklare</a></span>
                 </li>
             </section>
         </div>
