@@ -27,6 +27,7 @@ function FormComponent() {
 
       if (questionId === question.id) {
         question.options.map((option) => {
+          //fixa bug här
           setOptionText(option.text);
         });
       }
@@ -50,7 +51,8 @@ function FormComponent() {
     }
 
     if (questionId === (questionNmbrs[questionNmbrs.length - 1])) {
-        setLastPage(true);
+      //if id är lastpage = setLastPage (så slipper vi byta id på lastpage så att det alltid är sist)
+      setLastPage(true);
     }
 
   }, [questionId]);
@@ -61,6 +63,7 @@ function FormComponent() {
   });
 
   // Changes pagenmbrs depending on click.
+  //framåt knapp syns inte om du inte svarat på frågan
   const increaseQuestion = () => {
     if (questionId < questionNmbrs.length) {
       setQuestionId(questionId + 1);
@@ -87,16 +90,16 @@ function FormComponent() {
             decreaseQuestion={decreaseQuestion}
           />
         </>
-          ) : window.location.href.includes("fragor") && lastPage ? (
-            <>
-                < ResultsComponent />
-            </>
-          )
-       : window.location.href.includes("") ? (
+      ) : window.location.href.includes("fragor") && lastPage ? (
         <>
-          <ImageComponent formImage={formImage} altImage={altImage} />
-          <PersonaContent />
+          < ResultsComponent />
         </>
+      )
+        : window.location.href.includes("") ? (
+          <>
+            <ImageComponent formImage={formImage} altImage={altImage} />
+            <PersonaContent />
+          </>
         ) : ('')}
     </section>
   );

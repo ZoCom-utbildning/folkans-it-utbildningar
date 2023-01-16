@@ -13,6 +13,7 @@ function App() {
   const [navClass, setNavClass] = useState<string>("nav-icon");
   return (
     <div className="App">
+      {/**bryt ut <Header/> till egen komponent som vi använder där den behövs och inte på alla sidor, väldigt mycket problem med z-index osv pga detta}*/}
       <Header
         navOpen={navOpen}
         setNavOpen={setNavOpen}
