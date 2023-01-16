@@ -1,0 +1,15 @@
+@import url("../../scss/_variables.scss");
+@import "../../scss/layout";
+
+.errorView {
+    height: 100%;
+    min-height: 100vh;
+    @include lines;
+    background-color: $dark;
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
