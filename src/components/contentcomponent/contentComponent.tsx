@@ -8,13 +8,12 @@ import { useEffect, useState } from 'react';
 type Props = {
     formText: string;
     formType: string;
-    optionText: string;
     questionId: number;
     decreaseQuestion: () => void;
     increaseQuestion: () => void;
 }
 
-function ContentComponent({ formText, formType, optionText, questionId, decreaseQuestion, increaseQuestion }: Props) {
+function ContentComponent({ formText, formType, questionId, decreaseQuestion, increaseQuestion }: Props) {
 
     const questions = forminfo.questions;
     const questionNmbrs: Array<number> = [];
@@ -40,10 +39,11 @@ function ContentComponent({ formText, formType, optionText, questionId, decrease
     });
 
     const buttonArray = buttonAmount?.map((button, index) => {
+        // Fixa button.text buggen!?!? kanske behöver type?? {id: number, text: string}
         if (formType === 'range') {
-            return <RangeSlider optionText={optionText} key={index}/>
+            return <RangeSlider optionText={button.text} key={index}/>
         } else if (formType === 'radio') {
-            return < RadioButton optionText={optionText} key={index}/>
+            return < RadioButton optionText={button.text} key={index}/>
         }
     });
 
