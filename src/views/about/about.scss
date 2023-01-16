@@ -2,7 +2,6 @@
 @import "../../scss/layout";
 
 .aboutView {
-    // position: relative;
     @include lines;
 
     width: 100%; 
@@ -15,14 +14,11 @@
     }
 
     .line {
-        // padding: 1rem 2rem;
         margin: auto -1.5rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .coursesWrapper {
-        // margin: 3rem -1.5rem;
-        // margin: 3rem 1rem;
         padding: 1rem 2rem;
         
         display: flex;
