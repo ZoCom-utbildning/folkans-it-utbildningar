@@ -4,7 +4,7 @@ import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.jpg";
 import Loading from "../../components/loading/Loading";
 import FormComponent from "../../components/formcomponent/formComponent";
-import { useState } from "react";
+import { InputHTMLAttributes, useState } from "react";
 import TestButton from "../../components/testbutton/testButton";
 
 type Props = {
@@ -12,10 +12,6 @@ type Props = {
   setActivePersona: (activePersona: number) => void;
 };
 function Home({ activePersona, setActivePersona }: Props) {
-  const [galleryBtnClass, setGalleryBtnClass] = useState<string>("gallery-btn");
-
-  // recreate these useStates as 6 objects in an array
-
   const changePersona = (e: any) => {
     if (e.target.id === "btn1") {
       setActivePersona(0);
@@ -29,6 +25,56 @@ function Home({ activePersona, setActivePersona }: Props) {
       setActivePersona(4);
     }
   };
+
+  const buttonElements = (
+    <ul className="galleryButtons">
+      <input
+        type="radio"
+        name="radio-btn"
+        className="gallery-btn"
+        id="btn1"
+        onClick={(e) => {
+          changePersona(e);
+        }}
+      />
+      <input
+        type="radio"
+        name="radio-btn"
+        className="gallery-btn"
+        id="btn2"
+        onClick={(e) => {
+          changePersona(e);
+        }}
+      />
+      <input
+        type="radio"
+        name="radio-btn"
+        className="gallery-btn"
+        id="btn3"
+        onClick={(e) => {
+          changePersona(e);
+        }}
+      />
+      <input
+        type="radio"
+        name="radio-btn"
+        className="gallery-btn"
+        id="btn4"
+        onClick={(e) => {
+          changePersona(e);
+        }}
+      />
+      <input
+        type="radio"
+        name="radio-btn"
+        className="gallery-btn"
+        onClick={(e) => {
+          changePersona(e);
+        }}
+        id="btn5"
+      />
+    </ul>
+  );
 
   return (
     <div className="home-wrapper">
@@ -52,7 +98,7 @@ function Home({ activePersona, setActivePersona }: Props) {
       <main className="home-main">
         <div className="home-main__content">
           <section className="text-content">
-            <h4 className="title-h2">Vad är det som gör dig nyfiken?</h4>
+            <h2 className="title-h2">Vad är det som gör dig nyfiken?</h2>
             <p className="home-main__content__text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
               voluptas, quod, quia, voluptates quae voluptatibus quibusdam
@@ -107,34 +153,7 @@ function Home({ activePersona, setActivePersona }: Props) {
         <div className="form_wrapper">
           <FormComponent activePersona={activePersona} />
         </div>
-
-        <ul className="galleryButtons">
-          <button
-            className={galleryBtnClass}
-            id="btn1"
-            onClick={changePersona}
-          ></button>
-          <button
-            className={galleryBtnClass}
-            id="btn2"
-            onClick={changePersona}
-          ></button>
-          <button
-            className={galleryBtnClass}
-            id="btn3"
-            onClick={changePersona}
-          ></button>
-          <button
-            className={galleryBtnClass}
-            id="btn4"
-            onClick={changePersona}
-          ></button>
-          <button
-            className={galleryBtnClass}
-            id="btn5"
-            onClick={changePersona}
-          ></button>
-        </ul>
+        {buttonElements}
       </section>
     </div>
   );

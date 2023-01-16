@@ -11,6 +11,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
     display: flex;
     flex-direction: column;
     min-height: 55vh;
+    align-items: center;
     height: 70vh;
     width: 100%;
 
@@ -34,7 +35,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
   .home-main {
     background-color: #1d2025;
     padding: 1.5rem;
-    @include lines;
+    // @include lines;
 
     .home-main__content {
       background-color: #1d2025;
@@ -158,23 +159,69 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
     flex-direction: column;
     gap: 2rem;
     .galleryButtons {
+      position: absolute;
+      width: 50%;
+      margin-top: 43rem;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 1rem;
+      justify-content: space-evenly;
+      input[type="radio"] {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: rgb(25, 134, 158);
+        margin: 0;
+        font: inherit;
+        color: currentColor;
+        width: 1.15em;
+        height: 1.15em;
+        border: 0.15em solid currentColor;
+        border-radius: 50%;
+        transform: translateY(-0.075em);
+        display: grid;
+        place-content: center;
+      }
+
+      input[type="radio"]::before {
+        content: "";
+        width: 0.65em;
+        height: 0.65em;
+        border-radius: 50%;
+        transform: scale(0);
+        box-shadow: inset 1em 1em #40d3dc;
+      }
+      input[type="radio"]:checked::before {
+        transform: scale(2);
+      }
+
       .gallery-btn {
-        background-color: #515151;
-        border: solid 1px #ffffff16;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
+        border: 2px solid #40d3dc;
+        padding: 5px;
+        border-radius: 10px;
         cursor: pointer;
-        transition: all 0.2s ease-in-out;
+
         &:hover {
-          background-color: #ffffff16;
+          background-color: #40d3dc;
+        }
+        &:not(:last-child) {
+          margin-right: 50px;
         }
       }
-      .active {
-        background-color: #ededed;
+      #radio1:checked ~ .form_wrapper {
+        background: #ffffff16;
+      }
+      #radio2:checked ~ .form_wrapper {
+        background: #ffffff16;
+      }
+      #radio3:checked ~ .form_wrapper {
+        background: #ffffff16;
+      }
+      #radio4:checked ~ .form_wrapper {
+        background: #ffffff16;
+      }
+      #radio5:checked ~ .form_wrapper {
+        background: #ffffff16;
+      }
+      .display-none {
+        display: none;
       }
     }
   }
