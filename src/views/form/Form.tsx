@@ -4,8 +4,10 @@ import './form.scss';
 function Form() {
 
     return (
-        <div className="form_wrapper">
-            <FormComponent/>
+        <div className="desktop_wrapper">
+            <div className="form_wrapper">
+                <FormComponent/>
+            </div>
         </div>
     )
 }
