@@ -16,7 +16,6 @@ function FormComponent({ activePersona }: Props) {
   const [questionId, setQuestionId] = useState<number>(1);
   const [formText, setFormText] = useState<string>("");
   const [formType, setFormType] = useState<string>("");
-  const [optionText, setOptionText] = useState<string>("");
   const [formImage, setFormImage] = useState<string>("");
   const [altImage, setAltImage] = useState<string>("");
   const [lastPage, setLastPage] = useState<boolean>(false);
@@ -26,13 +25,6 @@ function FormComponent({ activePersona }: Props) {
     questions.map((question) => {
       if (questionId === question.id) {
         setFormText(question.text);
-      }
-
-      if (questionId === question.id) {
-        question.options.map((option) => {
-          //fixa bug här
-          setOptionText(option.text);
-        });
       }
 
       if (questionId === question.id) {
@@ -85,7 +77,6 @@ function FormComponent({ activePersona }: Props) {
           <ContentComponent
             formText={formText}
             formType={formType}
-            optionText={optionText}
             questionId={questionId}
             increaseQuestion={increaseQuestion}
             decreaseQuestion={decreaseQuestion}
