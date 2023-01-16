@@ -1,3 +1,5 @@
+@import "./variables";
+
 .viewWrapper {
     display: flex;
     justify-content: center;
@@ -15,4 +17,31 @@
 .card {
     width: 90%;
     max-width: 50rem;
+}
+
+
+@mixin lines {
+    position: relative;
+    & * { z-index: 2; }
+    
+    &::before {
+        content: "";
+        position: absolute;
+        width: calc(100% - 3.2rem);
+        height: 100%;
+        top: 0;
+        left: 1.5rem;
+        border-left: 0.1rem solid $borderColor;
+        border-right: 0.1rem solid $borderColor;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: calc(100% - 3.2rem);
+        top: 1.5rem;
+        left: 0;
+        border-top: 0.1rem solid $borderColor;
+        border-bottom: 0.1rem solid $borderColor;
+    }
 }
