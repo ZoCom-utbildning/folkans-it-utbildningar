@@ -4,9 +4,9 @@
 .form_wrapper {
   min-height: 100vh;
   position: relative;
-  // background-color: $dark;
+  background-color: $dark;
   padding: 1.5rem;
-  // @include lines;
+  @include lines;
 
   .card_content {
     background-color: $dark;
