@@ -27,7 +27,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
   .home-main {
     background-color: #1d2025;
     padding: 1.5rem;
-    // @include lines;
+    @include lines;
 
     .home-main__content {
       background-color: #1d2025;
