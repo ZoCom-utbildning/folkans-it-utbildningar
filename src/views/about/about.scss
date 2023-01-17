@@ -51,8 +51,7 @@
         border-left: 0.1rem solid $borderColor;
         border-bottom: 0.1rem solid $borderColor;
 
-        display: flex;
-        flex-direction: column;
+        @include flex($justify: none, $align: none, $direction: column);
         gap: 1rem;
         background-color: $gradient;
 
@@ -68,8 +67,8 @@
 
 @media screen and (max-width: 820px) {
     .aboutView {
-        display: flex;
-        flex-direction: column;
+        @include flex($justify: none, $align: none, $direction: column);
+        
         .contactForm {
             order: 10;
             width: 100%;
