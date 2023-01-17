@@ -83,8 +83,6 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
         background-color: $dark;
         padding: 1rem;
         @include flex($justify: none, $align: none);
-        display: flex;
-        flex-direction: row;
 
         .text-content {
           @include flex($justify: none, $align: none, $direction: column);
@@ -107,11 +105,11 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       }
     }
     .hero-content {
-      @include flex($justify: space-evenly, $wrap: nowrap);
+      @include flex($justify: space-evenly, $direction: column, $wrap: nowrap);
       min-height: 100vh;
 
       .arrow-container {
-        @include flex($justify: none, $align: none);
+        @include flex($justify: none, $align: center, $direction: column);
 
         .arrowDown {
           animation: float 2s ease-in-out infinite;
