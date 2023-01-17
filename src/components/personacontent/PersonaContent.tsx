@@ -49,14 +49,12 @@ function PersonaContent({ activePersona }: Props) {
   return (
     <section className="persona-content">
       <header className="persona-header">
-        <h1 className="persona-title">
+        <h2 className="persona-title">
           {personas[activePersona].personaTitle}
-        </h1>
+        </h2>
       </header>
       <main className="persona-text-container">
-        <p className="persona-ingress">
-          {personas[activePersona].personaIngress}
-        </p>
+        <p className="introText">{personas[activePersona].personaIngress}</p>
         <p className="persona-text">{personas[activePersona].personaText}</p>
       </main>
     </section>
