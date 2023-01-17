@@ -1,25 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro&family=Roboto+Mono:wght@200&display=swap");
 $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
 @import url("../../scss/_variables.scss");
-@import "../../scss/layout";
+@import "../../scss/layout.scss";
 
 .home-wrapper {
-  height: 100vh;
+  @include maxSize;
 
   .hero-content {
+    @include flex($direction: column);
     padding-top: 4rem;
-    display: flex;
-    flex-direction: column;
     min-height: 55vh;
-    align-items: center;
     height: 70vh;
     width: 100%;
 
     .arrow-container {
-      display: none;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
+      @include flex($display: none, $direction: column);
     }
     .title-h1 {
       color: rgb(246, 246, 246);
@@ -45,8 +40,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
         margin-top: 1rem;
       }
       .img-with-text {
-        display: flex;
-        flex-direction: column;
+        @include flex($justify: none, $align: none, $direction: column);
         width: 90%;
         margin: 1rem;
         img {
@@ -195,7 +189,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       .gallery-btn {
         border: 2px solid #40d3dc;
         padding: 5px;
-        border-radius: 10px;
+        border-radius: $borderRadius;
         cursor: pointer;
 
         &:hover {

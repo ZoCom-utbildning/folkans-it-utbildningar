@@ -1,4 +1,5 @@
 @import "../../scss/variables.scss";
+@import "../../scss/layout.scss";
 
 .homeButton {
     margin: 50px;
@@ -11,9 +12,7 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     transition: transform-scale(1.1) 0.5s ease-in-out 100ms;
   
     /* h5 */
@@ -39,9 +38,7 @@
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
         cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex;
         transition: transform-scale(1);
         transition-duration: 100ms;
         transition-timing-function: ease-in-out;

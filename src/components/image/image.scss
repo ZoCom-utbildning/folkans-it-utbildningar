@@ -7,7 +7,7 @@
   width: 80%;
   max-height: 280px;
   margin: 3rem auto;
-  border-radius: 8px;
+  border-radius: $borderRadius;
   overflow: hidden;
 
   .gradient {
@@ -35,7 +35,7 @@
     max-height: 600px;
     min-height: 433px;
     margin: 0;
-    border-radius: 0 8px 8px 0;
+    border-radius: 0 $borderRadius $borderRadius 0;
 
     .image {
       border-radius: 0;
