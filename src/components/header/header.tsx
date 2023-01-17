@@ -62,7 +62,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
         animateOverlay={animateOverlay}
       />
       <nav>
-        <ul className="glow">
+        <ul>
           <li>
             <a href="/">HEM</a>
           </li>

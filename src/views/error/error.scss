@@ -2,14 +2,10 @@
 @import "../../scss/layout";
 
 .errorView {
-    height: 100%;
-    min-height: 100vh;
+    @include maxSize;
     @include lines;
     background-color: $dark;
     padding: 2rem;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex($direction: column);
 }

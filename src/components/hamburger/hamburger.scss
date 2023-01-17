@@ -1,3 +1,6 @@
+@import '../../scss/variables.scss';
+@import '../../scss/layout.scss';
+
 .burger-icon {
   z-index: 4;
   position: fixed;
@@ -20,7 +23,7 @@
   .nav-icon span {
     display: block;
     position: absolute;
-    height: 0.4rem;
+    height: 0.5rem;
     width: 80%;
     background: #04ced599;
     opacity: 1;
@@ -36,7 +39,7 @@
     transition: 0.25s ease-in-out;
   }
   .nav-icon span:nth-child(1) {
-    top: 0px;
+    top: 0;
   }
 
   .nav-icon span:nth-child(2),
@@ -75,7 +78,7 @@
   }
 }
 
-@media screen and (min-width: 820px) {
+@media screen and (min-width: $breakpointDesktop) {
   .burger-icon {
     display: none;
   }

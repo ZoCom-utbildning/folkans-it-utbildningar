@@ -4,11 +4,10 @@
 .radio_quiz {
 
     @include flex($justify: flex-start);
+    @include radioMargin;
     background-color: rgb(255, 255, 255, .03);
-    margin-top: .5rem;
-    margin-left: 12.5%;
     width: 75%;
-    border-radius: 4px;
+    border-radius: $borderRadius;
     cursor: pointer;
 
     img {
@@ -16,7 +15,7 @@
     }
 
     p {
-        width: calc(100% - 80px);
+        width: calc(100% - 5rem);
         text-align: center;
     }
 
@@ -29,10 +28,9 @@
 
     @include flex($justify: flex-start);
     background-color: rgb(255, 255, 255, .16);
-    margin-top: .5rem;
-    margin-left: 12.5%;
+    @include radioMargin;
     width: 75%;
-    border-radius: 4px;
+    border-radius: $borderRadius;
     cursor: pointer;
 
     img {
@@ -40,7 +38,7 @@
     }
 
     p {
-        width: calc(100% - 80px);
+        width: calc(100% - 5rem);
         text-align: center;
     }
 }
