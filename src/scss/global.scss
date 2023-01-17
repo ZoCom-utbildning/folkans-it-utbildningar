@@ -26,12 +26,7 @@ $bg-image: url("../assets/photos/manComputer.png");
   padding: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-a {
+h1, h2, h3, a {
   font-family: "Maven Pro";
   font-style: normal;
   font-weight: 523;
@@ -45,18 +40,10 @@ h1 {
 }
 
 h2 {
-  font-size: 49px;
-}
-
-h3 {
   font-size: 40px;
 }
 
-h4 {
-  font-size: 33px;
-}
-
-h5 {
+h3 {
   font-size: 27px;
 }
 
