@@ -45,7 +45,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
   };
   function scrollFunction() {
     //byt 150 till ett mindre värde så att den går over texten tidigare
-    if (window.scrollY > 150) {
+    if (window.scrollY > 5) {
       setHeaderBackground("header background");
     } else {
       setHeaderBackground("header");
@@ -79,23 +79,23 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
         </ul>
       </nav>
       <div className="overlay">
-          <nav>
-            <ul>
-              <li>
-                <a href="/">HEM</a>
-              </li>
-              <li>
-                <a href="/personer">STUDERANDE</a>
-              </li>
-              <li>
-                <a href="/fragor">TILL TESTET</a>
-              </li>
-              <li>
-                <a href="/om">OM OSS</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="/">HEM</a>
+            </li>
+            <li>
+              <a href="/personer">STUDERANDE</a>
+            </li>
+            <li>
+              <a href="/fragor">TILL TESTET</a>
+            </li>
+            <li>
+              <a href="/om">OM OSS</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 };
