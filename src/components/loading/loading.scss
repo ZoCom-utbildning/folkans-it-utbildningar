@@ -1,5 +1,5 @@
-@import '../../scss/_variables.scss';
-
+@import '../../scss/variables.scss';
+@import '../../scss/layout.scss';
 
 .hidden {
     display: none;
@@ -16,18 +16,12 @@
     cursor: crosshair;
     .canvasOverlayWrapper {
         position: absolute;
-        bottom: 25%;
+        bottom: 30%;
         width: 100%;
         text-align: center;
-        padding: 0 50px;
         user-select: none;
-        & .continueButton {
-            margin: 10vh auto;
-            padding: .75rem 1.5rem;
-            transition: 1s;
-            &:hover {
-                cursor: pointer;
-            }
+        & .continueButton:hover {
+            cursor: pointer;
         }
     }
 }

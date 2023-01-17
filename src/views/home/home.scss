@@ -1,41 +1,33 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro&family=Roboto+Mono:wght@200&display=swap");
 $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
 @import url("../../scss/_variables.scss");
-@import "../../scss/layout";
+@import "../../scss/layout.scss";
 
 .home-wrapper {
-  height: 100vh;
+  @include maxSize;
 
   .hero-content {
+    @include flex($direction: column);
     padding-top: 4rem;
-    display: flex;
-    flex-direction: column;
     min-height: 55vh;
-    align-items: center;
     height: 70vh;
     width: 100%;
 
     .arrow-container {
-      display: none;
-      justify-content: center;
-      flex-direction: column;
-      align-items: center;
+      @include flex($display: none, $direction: column);
     }
     .title-h1 {
       color: rgb(246, 246, 246);
       z-index: 2;
       font-size: 2.5rem;
-      margin-top: 8rem;
-      margin-right: 1.2rem;
-      margin-left: 1.2rem;
-      margin-bottom: 1rem;
+      margin: 8rem 1.5rem 1rem;
       font-weight: 500;
     }
   }
   .home-main {
     background-color: #1d2025;
     padding: 1.5rem;
-    // @include lines;
+    @include lines;
 
     .home-main__content {
       background-color: #1d2025;
@@ -45,8 +37,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
         margin-top: 1rem;
       }
       .img-with-text {
-        display: flex;
-        flex-direction: column;
+        @include flex($justify: none, $align: none, $direction: column);
         width: 90%;
         margin: 1rem;
         img {
@@ -79,21 +70,19 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
   }
 }
 
-@media screen and (min-width: 820px) {
+@media screen and (min-width: $breakpointDesktop) {
   .home-wrapper {
     .home-main {
-      background-color: #1d2025;
+      background-color: $dark;
       padding: 1rem;
       flex: 1;
       .home-main__content {
-        background-color: #1d2025;
+        background-color: $dark;
         padding: 1rem;
-        display: flex;
-        flex-direction: row;
+        @include flex($justify: none, $align: none);
 
         .text-content {
-          display: flex;
-          flex-direction: column;
+          @include flex($justify: none, $align: none, $direction: column);
           width: 50%;
           margin: 1rem;
 
@@ -103,8 +92,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
           }
         }
         .img-with-text {
-          display: flex;
-          flex-direction: column;
+          @include flex($justify: none, $align: none, $direction: column);
           width: 50%;
           margin: 1rem;
           img {
@@ -114,13 +102,11 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       }
     }
     .hero-content {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
+      @include flex($justify: space-evenly, $direction: column, $wrap: nowrap);
       min-height: 100vh;
 
       .arrow-container {
-        display: flex;
+        @include flex($justify: none, $align: center, $direction: column);
 
         .arrowDown {
           animation: float 2s ease-in-out infinite;
@@ -128,7 +114,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       }
       .title-h1 {
         width: 50%;
-        height: 112px;
+        height: 7rem;
         font-size: 3.5rem;
         margin-top: 0rem;
         margin-left: 0rem;
@@ -167,7 +153,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       input[type="radio"] {
         -webkit-appearance: none;
         appearance: none;
-        background-color: rgb(25, 134, 158);
+        background-color: $lightBlue;
         margin: 0;
         font: inherit;
         color: currentColor;
@@ -186,20 +172,20 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
         height: 0.65em;
         border-radius: 50%;
         transform: scale(0);
-        box-shadow: inset 1em 1em #40d3dc;
+        box-shadow: inset 1em 1em $lightBlue;
       }
       input[type="radio"]:checked::before {
         transform: scale(2);
       }
 
       .gallery-btn {
-        border: 2px solid #40d3dc;
+        border: 2px solid $lightBlue;
         padding: 5px;
-        border-radius: 10px;
+        border-radius: $borderRadius;
         cursor: pointer;
 
         &:hover {
-          background-color: #40d3dc;
+          background-color: $lightBlue;
         }
       }
     }
