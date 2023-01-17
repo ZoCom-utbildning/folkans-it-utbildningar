@@ -20,9 +20,7 @@
     .coursesWrapper {
         padding: 1rem 2rem;
         
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        @include flex($display: flex, $justify: none, $align: none, $wrap: wrap);
 
         h2 { width: 100%; }
         .course {
