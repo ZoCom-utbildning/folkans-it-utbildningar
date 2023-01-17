@@ -13,11 +13,11 @@
 
         text-align: center;
         @include flex($direction: column);
-        margin-top: 3.8rem;
+        margin-top: 4rem;
 
         button {
             width: 9rem;
-            height: 2.4rem;
+            height: 2.5rem;
             font-size: 1rem;
             box-shadow: none;
         }
@@ -65,7 +65,7 @@
 }
 
 
-@media screen and (min-width: 820px) {
+@media screen and (min-width: $breakpointDesktop) {
     .results_wrapper {
         z-index: 3;
         min-height: 25rem;

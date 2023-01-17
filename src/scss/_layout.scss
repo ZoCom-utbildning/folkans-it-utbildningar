@@ -26,6 +26,10 @@
     min-height: 100vh;
 }
 
+@mixin radioMargin {
+    margin-top: .5rem;
+    margin-left: 12.5%;
+}
 
 @mixin lines {
     position: relative;

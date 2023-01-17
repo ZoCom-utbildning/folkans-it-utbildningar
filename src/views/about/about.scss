@@ -14,7 +14,7 @@
 
     .line {
         margin: auto -1.5rem;
-        border-bottom: 1px solid $borderColor;
+        border-bottom: .1rem solid $borderColor;
     }
 
     .coursesWrapper {
@@ -25,7 +25,7 @@
         h2 { width: 100%; }
         .course {
             flex-grow: 1;
-            min-width: 300px;
+            min-width: 19rem;
 
             margin: 1%;
             border: 0.1rem solid $borderColor;
@@ -43,9 +43,10 @@
     .contactForm {
         float: right;
         margin-right: 2px;
+        margin-left: .5rem;
         width: 40%;
-        min-width: 300px;
-        max-width: 500px;
+        min-width: 19rem;
+        max-width: 31rem;
         padding: 2rem;
         
         border-left: 0.1rem solid $borderColor;
@@ -58,17 +59,17 @@
         .formText {
             padding: .5rem 1rem;
             border-radius: .1rem;
-            border: 1px solid $light;
+            border: .1rem solid $light;
             color: $dark;
             font-size: 1rem;
         }
     }
 }
 
-@media screen and (max-width: 820px) {
+@media screen and (max-width: $breakpointDesktop) {
     .aboutView {
         @include flex($justify: none, $align: none, $direction: column);
-        
+
         .contactForm {
             order: 10;
             width: 100%;
