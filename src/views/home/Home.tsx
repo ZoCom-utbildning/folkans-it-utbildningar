@@ -3,11 +3,78 @@ import Typewriter from "typewriter-effect";
 import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.jpg";
 import Loading from "../../components/loading/Loading";
-import Personas from "../../views/personas/Personas";
 import FormComponent from "../../components/formcomponent/formComponent";
+import { InputHTMLAttributes, useState } from "react";
 import TestButton from "../../components/testbutton/testButton";
 
-function Home() {
+type Props = {
+  activePersona: number;
+  setActivePersona: (activePersona: number) => void;
+};
+function Home({ activePersona, setActivePersona }: Props) {
+  const changePersona = (e: any) => {
+    if (e.target.id === "btn1") {
+      setActivePersona(0);
+    } else if (e.target.id === "btn2") {
+      setActivePersona(1);
+    } else if (e.target.id === "btn3") {
+      setActivePersona(2);
+    } else if (e.target.id === "btn4") {
+      setActivePersona(3);
+    } else if (e.target.id === "btn5") {
+      setActivePersona(4);
+    }
+  };
+
+  const buttonElements = (
+    <ul className="galleryButtons">
+      <input
+        type="radio"
+        name="radio-btn"
+        className="gallery-btn"
+        id="btn1"
+        onClick={(e) => {
+          changePersona(e);
+        }}
+      />
+      <input
+        type="radio"
+        name="radio-btn"
+        className="gallery-btn"
+        id="btn2"
+        onClick={(e) => {
+          changePersona(e);
+        }}
+      />
+      <input
+        type="radio"
+        name="radio-btn"
+        className="gallery-btn"
+        id="btn3"
+        onClick={(e) => {
+          changePersona(e);
+        }}
+      />
+      <input
+        type="radio"
+        name="radio-btn"
+        className="gallery-btn"
+        id="btn4"
+        onClick={(e) => {
+          changePersona(e);
+        }}
+      />
+      <input
+        type="radio"
+        name="radio-btn"
+        className="gallery-btn"
+        onClick={(e) => {
+          changePersona(e);
+        }}
+        id="btn5"
+      />
+    </ul>
+  );
 
   return (
     <div className="home-wrapper">
@@ -22,7 +89,7 @@ function Home() {
             }}
           />
         </h1>
-        < TestButton buttonText={'TILL TESTET'}/>
+        <TestButton buttonText={"TILL TESTET"} />
         <section className="arrow-container">
           <p>Mer info om testet</p>
           <img src={arrowDown} alt="" className="arrowDown" />
@@ -31,7 +98,7 @@ function Home() {
       <main className="home-main">
         <div className="home-main__content">
           <section className="text-content">
-            <h4 className="title-h2">Vad är det som gör dig nyfiken?</h4>
+            <h2 className="title-h2">Vad är det som gör dig nyfiken?</h2>
             <p className="home-main__content__text">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
               voluptas, quod, quia, voluptates quae voluptatibus quibusdam
@@ -84,15 +151,9 @@ function Home() {
       </main>
       <section className="home-personas-wrapper">
         <div className="form_wrapper">
-          <FormComponent />
+          <FormComponent activePersona={activePersona} />
         </div>
-        <div className="galleryButtons">
-          <button className="galleryButton"></button>
-          <button className="galleryButton"></button>
-          <button className="galleryButton"></button>
-          <button className="galleryButton"></button>
-          <button className="galleryButton"></button>
-        </div>
+        {buttonElements}
       </section>
     </div>
   );

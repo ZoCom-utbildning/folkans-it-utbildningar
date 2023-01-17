@@ -1,50 +1,50 @@
-@import '../../scss/variables.scss';
+@import "../../scss/variables.scss";
 @import "../../scss/layout.scss";
 
 .gradientImageWrapper {
-    @include flex();
-    position: relative;
-    width: 80%;
-    max-height: 280px;
-    margin: 3rem auto;
-    border-radius: 8px;
-    overflow: hidden;
+  @include flex();
+  position: relative;
+  width: 80%;
+  max-height: 280px;
+  margin: 3rem auto;
+  border-radius: 8px;
+  overflow: hidden;
 
-    .gradient {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background: $gradient;
-        mix-blend-mode: multiply;
-    }
+  .gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $gradient;
+    mix-blend-mode: multiply;
+  }
 
-    .image {
-        width: 100%;
-        height: 100%;
-        filter: grayscale(1);
-        object-fit: cover;
-    }
+  .image {
+    width: 100%;
+    height: 100%;
+    filter: grayscale(1);
+    object-fit: cover;
+  }
 }
 
 // Might need to be changed later for the desktop view
-@media screen and (min-width: 768px) {
-    .gradientImageWrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        max-height: 600px;
-        min-height: 433px;
-        margin: 0;
-        border-radius: 0 8px 8px 0;
+@media screen and (min-width: 820px) {
+  .gradientImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    min-height: 433px;
+    margin: 0;
+    border-radius: 0 8px 8px 0;
 
-        .image {
-            border-radius: 0;
-            max-height: 600px;
-            min-height: 433px;
-        }
-
-        .gradient {
-            border-radius: 0;
-        }
+    .image {
+      border-radius: 0;
+      max-height: 600px;
+      min-height: 433px;
     }
+
+    .gradient {
+      border-radius: 0;
+    }
+  }
 }
