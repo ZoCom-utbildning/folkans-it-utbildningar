@@ -1,11 +1,20 @@
 @import "./_variables.scss";
+@import "./_layout.scss";
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@523&display=swap");
 $bg-image: url("../assets/photos/manComputer.png");
 
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
-  width: 100%;
-  height: 100%;
+  overflow-wrap: break-word;
+  hyphenate-character: '-';
+  @include maxSize;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -20,18 +29,7 @@ $bg-image: url("../assets/photos/manComputer.png");
     linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image; //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-a {
+h1, h2, h3, a {
   font-family: "Maven Pro";
   font-style: normal;
   font-weight: 523;
@@ -40,25 +38,19 @@ a {
   color: $light;
 }
 
+
 h1 {
-  font-size: 60px;
+  font-size: 50px;
 }
 
 h2 {
-  font-size: 49px;
+  font-size: 30px;
 }
 
 h3 {
-  font-size: 40px;
+  font-size: 20px;
 }
 
-h4 {
-  font-size: 33px;
-}
-
-h5 {
-  font-size: 27px;
-}
 
 // (ingress) unsure if this should be here or somewhere else
 .introText {
@@ -70,7 +62,7 @@ h5 {
   color: $light;
 }
 
-p {
+p, a, input, textarea {
   font-family: "Roboto Mono";
   font-style: normal;
   font-weight: 400;
@@ -79,9 +71,9 @@ p {
 }
 
 .formButton {
-  padding: 0.25rem 1.5rem;
-  border-radius: 50px;
-  border: 1px solid $light;
+  padding: 0.5rem 1.5rem;
+  border-radius: 3rem;
+  border: .1rem solid $light;
   background: $gradient;
   cursor: pointer;
 
@@ -95,23 +87,18 @@ p {
 }
 
 
-@media (min-width: 820px) {
-  .App {
-    width: 100%;
-    min-height: 100vh;
-    height: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #9f9f9f;
-    background-blend-mode: multiply;
-    background-size: cover;
-    background-image: linear-gradient(
-        360deg,
-        rgba(18, 123, 0, 0.713) 0%,
-        rgba(0, 255, 51, 0.397) 100%
-      ),
-      linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%),
-      $bg-image;
+@media (min-width: $breakpointDesktop) {
+  
+  h1 {
+    font-size: 60px;
   }
+  
+  h2 {
+    font-size: 40px;
+  }
+  
+  h3 {
+    font-size: 27px;
+  }
+
 }
