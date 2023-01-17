@@ -3,7 +3,7 @@
 
 .aboutView {
     @include lines;
-    @extend .maxSize;
+    @include maxSize;
 
     padding: 6rem 1.5rem;
     background-color: $dark;
