@@ -38,17 +38,19 @@ h1, h2, h3, a {
   color: $light;
 }
 
+
 h1 {
-  font-size: 60px;
+  font-size: 50px;
 }
 
 h2 {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 h3 {
-  font-size: 27px;
+  font-size: 20px;
 }
+
 
 // (ingress) unsure if this should be here or somewhere else
 .introText {
@@ -60,7 +62,7 @@ h3 {
   color: $light;
 }
 
-p, a {
+p, a, input, textarea {
   font-family: "Roboto Mono";
   font-style: normal;
   font-weight: 400;
@@ -87,4 +89,16 @@ p, a {
 
 @media (min-width: $breakpointDesktop) {
   
+  h1 {
+    font-size: 60px;
+  }
+  
+  h2 {
+    font-size: 40px;
+  }
+  
+  h3 {
+    font-size: 27px;
+  }
+
 }
