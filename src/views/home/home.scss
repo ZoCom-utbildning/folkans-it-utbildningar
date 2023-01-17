@@ -182,8 +182,8 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
 
       input[type="radio"]::before {
         content: "";
-        width: 0.65em;
-        height: 0.65em;
+        width: 0.5rem;
+        height: 0.5rem;
         border-radius: 50%;
         transform: scale(0);
         box-shadow: inset 1em 1em #40d3dc;
@@ -201,27 +201,6 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
         &:hover {
           background-color: #40d3dc;
         }
-        &:not(:last-child) {
-          margin-right: 50px;
-        }
-      }
-      #radio1:checked ~ .form_wrapper {
-        background: #ffffff16;
-      }
-      #radio2:checked ~ .form_wrapper {
-        background: #ffffff16;
-      }
-      #radio3:checked ~ .form_wrapper {
-        background: #ffffff16;
-      }
-      #radio4:checked ~ .form_wrapper {
-        background: #ffffff16;
-      }
-      #radio5:checked ~ .form_wrapper {
-        background: #ffffff16;
-      }
-      .display-none {
-        display: none;
       }
     }
   }

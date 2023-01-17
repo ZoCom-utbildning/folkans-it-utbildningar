@@ -26,7 +26,7 @@ function PersonaContent({ activePersona }: Props) {
       personaIngress:
         "Ahmed är en av de personer som startat sin utbildning hos Folkuniversitetet.",
       personaText:
-        "Här är en text som beskriver Ahmed och hur hon kom in på utbildningensom förändrade hennes liv till det bättre.",
+        "Här är en text som beskriver Ahmed och hur han kom in på utbildningensom förändrade hans liv till det bättre.",
     },
     {
       id: 3,
