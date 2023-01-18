@@ -17,7 +17,7 @@ const ResultsComponent = () => {
                 <h3>Ditt test resultat blev: </h3>
                 <p> { courseResult } </p>
                 <p>länkar till utbildningen</p>
-                < TestButton buttonText={'ta testet igen'} />
+                < TestButton buttonText={'ta testet igen'} /> {/** rensa localstorage här? */}
             </section>
             <section className="results_points">
                 <h3>Alternativa utbildningar </h3>

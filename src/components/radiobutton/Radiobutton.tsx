@@ -18,28 +18,25 @@ function RadioButton({ optionText, id, questionId }: Props) {
     const [toggle, setToggle] = useState<boolean>(false);
     const [radio, setRadio] = useState<boolean>(false);
 
+    const [resultsArray, setResultsArray] = useState([]) //ladda för att kolla om localstorage redan finns
+
     const resultsValue: ResultsType = {
         question: `${questionId}`,
         button: `${id}`
+        //lägga in poäng här
     }
 
-    //-> props button.id -> kör funktion
-    //ladda här load.localstorage()
-
-    //funktion om localstorage finns (button.id == frågan vi är på) kör funktion radioClicked()
+    //funktion om localstorage finns (button.id == frågan vi är på)
+    //kör funktion radioClicked() enbart toggle/radio inte localstorage delen
 
     //fixa funktion så att enbart en knapp kan vara aktiv
 
     const radioClicked = () => {
         setToggle(!toggle);
         setRadio(!radio);
-        localStorage.setItem("resultsValue", JSON.stringify(resultsValue))
-
-        //localstorage: object med question.id för button.key
-        // "storage" {
-        //    "question.id": id
-        //    "button.key": key
-        //}
+        //om id finns = push resultsValue -> resultsArray
+        //annars byt ut (questionId) resultsValue i resultsArray
+        localStorage.setItem("resultsValue", JSON.stringify(resultsValue)) //ta array state här?
     }
 
     return (
