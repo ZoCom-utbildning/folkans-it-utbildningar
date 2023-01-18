@@ -187,27 +187,6 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
         &:hover {
           background-color: $lightBlue;
         }
-        &:not(:last-child) {
-          margin-right: 50px;
-        }
-      }
-      #radio1:checked ~ .form_wrapper {
-        background: borderColor;
-      }
-      #radio2:checked ~ .form_wrapper {
-        background: borderColor;
-      }
-      #radio3:checked ~ .form_wrapper {
-        background: borderColor;
-      }
-      #radio4:checked ~ .form_wrapper {
-        background: borderColor;
-      }
-      #radio5:checked ~ .form_wrapper {
-        background: borderColor;
-      }
-      .display-none {
-        display: none;
       }
     }
   }
