@@ -9,14 +9,24 @@
             "options": [
                 {
                     "id": 1,
+                    "value": [
+                        "frontend",
+                        "backend"
+                    ],
                     "text": "Windows"
                 },
                 {
-                    "id": 1,
+                    "id": 2,
+                    "value": [
+                        "backend"
+                    ],
                     "text": "Mac"
                 },
                 {
-                    "id": 2,
+                    "id": 3,
+                    "value": [
+                        "backend"
+                    ],
                     "text": "Linux"
                 }
             ]
@@ -43,10 +53,16 @@
             "options": [
                 {
                     "id": 1,
+                    "value": [
+                        "frontend"
+                    ],
                     "text": "Ja"
                 },
                 {
                     "id": 2,
+                    "value": [
+                        "backend"
+                    ],
                     "text": "Nej"
                 }
             ]
@@ -73,26 +89,23 @@
             "options": [
                 {
                     "id": 1,
+                    "value": [
+                        "backend"
+                    ],
                     "text": "Det här svaret fungerar inte som tänkt."
                 },
                 {
                     "id": 2,
+                    "value": [
+                        "backend"
+                    ],
                     "text": "Det här svaret fungerar inte som tänkt."
                 },
                 {
                     "id": 3,
-                    "text": "Det här svaret fungerar inte som tänkt."
-                },
-                {
-                    "id": 4,
-                    "text": "Det här svaret fungerar inte som tänkt."
-                },
-                {
-                    "id": 5,
-                    "text": "Det här svaret fungerar inte som tänkt."
-                },
-                {
-                    "id": 6,
+                    "value": [
+                        "backend"
+                    ],
                     "text": "Det här svaret fungerar inte som tänkt."
                 }
             ]
@@ -106,6 +119,7 @@
             "options": [
                 {
                     "id": 1,
+                    "value": [""],
                     "text": ""
                 }
             ]

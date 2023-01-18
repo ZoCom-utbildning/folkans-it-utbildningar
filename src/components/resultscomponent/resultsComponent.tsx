@@ -5,10 +5,13 @@ const ResultsComponent = () => {
 
     const points = 8;
     const courseResult = 'frontend-utvecklare!';
+    //const localValues = load.localstorage()
 
-    //byt ut button till button-component från 'home'
+    //funktion för att räkna ut svar/summa
 
-    return(
+    //mappa ut data för utbildning + länk till utbildning
+
+    return (
         <div className="results_wrapper">
             <section className="results_section">
                 <h3>Ditt test resultat blev: </h3>

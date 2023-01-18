@@ -41,6 +41,9 @@ function FormComponent({ activePersona }: Props) {
     } else if (questions[questionId - 1].type === "range") {
       setFormType("range");
     }
+
+    //ladda localstorage här
+
     if (!window.location.href.includes("fragor")) {
       setFormImage(happyGuy);
     }
@@ -59,12 +62,20 @@ function FormComponent({ activePersona }: Props) {
   //framåt knapp syns inte om du inte svarat på frågan
   const increaseQuestion = () => {
     if (questionId < questionNmbrs.length) {
+      //spara värde/spara över värde
       setQuestionId(questionId + 1);
     }
   };
 
+  //funktion som sparar värde i localstorage
+  //spara värde i ny funktion som körs i increase och decrese
+  //jämför question.id med localstorage värdet "question"
+
+
+  //spara valt alternativ i state?
   const decreaseQuestion = () => {
     if (questionId > 1) {
+      //
       setQuestionId(questionId - 1);
     }
   };
