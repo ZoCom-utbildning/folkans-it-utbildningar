@@ -10,22 +10,34 @@
                 {
                     "id": 1,
                     "value": [
-                        "frontend",
-                        "backend"
+                        {
+                            "course": "frontend",
+                            "points": 5
+                        },
+                        {
+                            "course": "backend",
+                            "points": 3
+                        }
                     ],
                     "text": "Windows"
                 },
                 {
                     "id": 2,
                     "value": [
-                        "backend"
+                        {
+                            "course": "backend",
+                            "points": 5
+                        }
                     ],
                     "text": "Mac"
                 },
                 {
                     "id": 3,
                     "value": [
-                        "backend"
+                        {
+                            "course": "frontend",
+                            "points": 1
+                        }
                     ],
                     "text": "Linux"
                 }
@@ -54,14 +66,20 @@
                 {
                     "id": 1,
                     "value": [
-                        "frontend"
+                        {
+                            "course": "frontend",
+                            "points": 3
+                        }
                     ],
                     "text": "Ja"
                 },
                 {
                     "id": 2,
                     "value": [
-                        "backend"
+                        {
+                            "course": "backend",
+                            "points": 5
+                        }
                     ],
                     "text": "Nej"
                 }
@@ -90,23 +108,44 @@
                 {
                     "id": 1,
                     "value": [
-                        "backend"
+                        {
+                            "course": "frontend",
+                            "points": 1
+                        },
+                        {
+                            "course": "backend",
+                            "points": 1
+                        }
                     ],
-                    "text": "Det här svaret fungerar inte som tänkt."
+                    "text": "Det här svaret ger 1 poäng."
                 },
                 {
                     "id": 2,
                     "value": [
-                        "backend"
+                        {
+                            "course": "frontend",
+                            "points": 2
+                        },
+                        {
+                            "course": "backend",
+                            "points": 2
+                        }
                     ],
-                    "text": "Det här svaret fungerar inte som tänkt."
+                    "text": "Det här svaret ger 2 poäng."
                 },
                 {
                     "id": 3,
                     "value": [
-                        "backend"
+                        {
+                            "course": "frontend",
+                            "points": 3
+                        },
+                        {
+                            "course": "backend",
+                            "points": 3
+                        }
                     ],
-                    "text": "Det här svaret fungerar inte som tänkt."
+                    "text": "Det här svaret ger 3 poäng."
                 }
             ]
         },
@@ -119,7 +158,9 @@
             "options": [
                 {
                     "id": 1,
-                    "value": [""],
+                    "value": [
+                        ""
+                    ],
                     "text": ""
                 }
             ]
