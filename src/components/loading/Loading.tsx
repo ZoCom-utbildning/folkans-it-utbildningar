@@ -260,17 +260,17 @@ function Loading(this: any) {
         delay: 5000,
         keyframes: [
             { 
-                rotate: '0.2turn',
-                translateX: 100,
+                rotate: '0.02turn',
+                translateX: 10,
                 translateY: 0, 
             },
             { 
-                rotate: '-0.4turn',
-                translateX: -100,
+                rotate: '-0.04turn',
+                translateX: -10,
                 translateY: 0, 
             },
             { 
-                rotate: '0.2turn',
+                rotate: '0.02turn',
                 translateX: 0 
             }
         ]
