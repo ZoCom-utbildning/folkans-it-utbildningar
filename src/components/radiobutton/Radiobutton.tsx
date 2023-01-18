@@ -5,11 +5,23 @@ import './radioButton.scss';
 
 type Props = {
     optionText: string;
+    id: number;
+    questionId: number;
 }
 
-function RadioButton({ optionText }: Props) {
+type ResultsType = {
+    question: string;
+    button: string;
+}
+
+function RadioButton({ optionText, id, questionId }: Props) {
     const [toggle, setToggle] = useState<boolean>(false);
     const [radio, setRadio] = useState<boolean>(false);
+
+    const resultsValue: ResultsType = {
+        question: `${questionId}`,
+        button: `${id}`
+    }
 
     //-> props button.id -> kör funktion
     //ladda här load.localstorage()
@@ -21,6 +33,8 @@ function RadioButton({ optionText }: Props) {
     const radioClicked = () => {
         setToggle(!toggle);
         setRadio(!radio);
+        localStorage.setItem("resultsValue", JSON.stringify(resultsValue))
+
         //localstorage: object med question.id för button.key
         // "storage" {
         //    "question.id": id

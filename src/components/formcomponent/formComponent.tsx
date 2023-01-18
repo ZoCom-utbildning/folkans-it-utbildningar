@@ -70,7 +70,9 @@ function FormComponent({ activePersona }: Props) {
   //funktion som sparar värde i localstorage
   //spara värde i ny funktion som körs i increase och decrese
   //jämför question.id med localstorage värdet "question"
-
+  const saveQuestion = () => {
+    //localStorage.setItem(`${questionId}`, "")
+  }
 
   //spara valt alternativ i state?
   const decreaseQuestion = () => {
