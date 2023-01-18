@@ -45,19 +45,25 @@ function PersonaContent({ activePersona }: Props) {
         "Här är en text som beskriver Amina och hur hon kom in på utbildningensom förändrade hennes liv till det bättre.",
     },
   ];
-
+  // map out the personas with key={persona.id} and return the active persona
   return (
-    <section className="persona-content">
-      <header className="persona-header">
-        <h2 className="persona-title">
-          {personas[activePersona].personaTitle}
-        </h2>
-      </header>
-      <main className="persona-text-container">
-        <p className="introText">{personas[activePersona].personaIngress}</p>
-        <p className="persona-text">{personas[activePersona].personaText}</p>
-      </main>
-    </section>
+    <div className="persona-content">
+      {personas.map((persona) => {
+        if (persona.id === activePersona) {
+          return (
+            <div key={persona.id}>
+              <header className="persona-header">
+                <h1 className="persona-title">{persona.personaTitle}</h1>
+              </header>
+              <main className="persona-text-container">
+                <p className="persona-ingress">{persona.personaIngress}</p>
+                <p className="persona-text">{persona.personaText}</p>
+              </main>
+            </div>
+          );
+        }
+      })}
+    </div>
   );
 }
 
