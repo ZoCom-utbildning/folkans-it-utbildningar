@@ -13,12 +13,18 @@ type Props = {
     increaseQuestion: () => void;
 }
 
+type ButtonAmountType = {
+    id: number;
+    text: string;
+}
+
+
 function ContentComponent({ formText, formType, questionId, decreaseQuestion, increaseQuestion }: Props) {
 
     const questions = forminfo.questions;
     const questionNmbrs: Array<number> = [];
 
-    const [buttonAmount, setButtonAmount] = useState<Array<object>>([]);
+    const [buttonAmount, setButtonAmount] = useState<ButtonAmountType[]>([]);
 
     //usat '!' som lifehack eftersom typescript krånglar, höra med Johan???
     //const [loadStorage, setLoadStorage] = useState<string>(JSON.parse(localStorage.getItem("resultsArray")!));
