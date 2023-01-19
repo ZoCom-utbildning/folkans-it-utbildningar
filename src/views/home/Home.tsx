@@ -90,6 +90,15 @@ function Home({ activePersona, setActivePersona }: Props) {
     trackMouse: true,
   });
   const swipeRight = () => {
+    anime({
+      targets: ".card_content",
+      keyframes: [
+        { translateX: "200%", duration: 250 },
+        { translateX: "0", duration: 250 },
+      ],
+      duration: 500,
+      easing: "easeInOutQuad",
+    });
     if (activePersona === 0) {
       setActivePersona(4);
     } else {
@@ -97,6 +106,17 @@ function Home({ activePersona, setActivePersona }: Props) {
     }
   };
   const swipeLeft = () => {
+    anime({
+      targets: ".card_content",
+
+      keyframes: [
+        { translateX: "-200%", duration: 250 },
+        { translateX: "0", duration: 250 },
+      ],
+      duration: 500,
+      easing: "easeInOutQuad",
+    });
+
     if (activePersona === 4) {
       setActivePersona(0);
     } else {

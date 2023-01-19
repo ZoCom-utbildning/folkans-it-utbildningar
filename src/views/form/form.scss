@@ -10,6 +10,7 @@
 
   .card_content {
     background-color: $dark;
+    overflow-x: hidden;
 
     .image_section {
       height: 100%;

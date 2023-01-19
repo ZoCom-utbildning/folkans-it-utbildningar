@@ -1,5 +1,5 @@
-@import '../../scss/variables.scss';
-@import '../../scss/layout.scss';
+@import "../../scss/variables.scss";
+@import "../../scss/layout.scss";
 
 .persona-content {
   max-width: 100%;
@@ -12,6 +12,10 @@
   }
 }
 @media screen and (min-width: $breakpointDesktop) {
+  .persona-cards {
+    width: 100%;
+    display: flex;
+  }
   .persona-content {
     max-width: 50%;
     padding: 4rem;
