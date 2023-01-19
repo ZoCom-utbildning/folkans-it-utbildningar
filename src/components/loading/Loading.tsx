@@ -214,7 +214,7 @@ function Loading(this: any) {
     function hideOverlay() {
         setBodyStyle("");
         document.querySelector('.header')?.classList.remove("hidden");
-
+        
         setTimeout(() => {
             setOverlayClasses(overlayClasses + " hidden");
         }, 700);
