@@ -18,19 +18,19 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
     }
     .title-h1 {
       color: rgb(246, 246, 246);
-      z-index: 2;
+      z-index: 3;
+      // z-index: 2;
       font-size: 2.5rem;
       margin: 8rem 1.5rem 1rem;
       font-weight: 500;
     }
   }
   .home-main {
-    background-color: #1d2025;
+    background-color: $dark;
     padding: 1.5rem;
     @include lines;
 
     .home-main__content {
-      background-color: #1d2025;
       padding: 1rem;
 
       p {
@@ -121,7 +121,6 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       padding: 1rem;
       flex: 1;
       .home-main__content {
-        background-color: $dark;
         padding: 1rem;
         @include flex($justify: none, $align: none);
 
