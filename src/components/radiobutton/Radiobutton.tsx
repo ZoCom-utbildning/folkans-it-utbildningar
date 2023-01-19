@@ -17,8 +17,6 @@ type ResultsType = {
 function RadioButton({ optionText, id, questionId }: Props) {
     const [toggle, setToggle] = useState<boolean>(false);
     const [radio, setRadio] = useState<boolean>(false);
-
-    //const [resultsArray, setResultsArray] = useState<ResultsType[]>([]) //ladda för att kolla om localstorage redan finns
     const [resultsArray, setResultsArray] = useState<ResultsType[]>(JSON.parse(localStorage.getItem("resultsArray")!) || []);
 
     const resultsValue: ResultsType = {
@@ -41,12 +39,6 @@ function RadioButton({ optionText, id, questionId }: Props) {
         setResultsArray(updatedArray);
         localStorage.setItem("resultsArray", JSON.stringify(updatedArray)) //ta array state här?
         //sätt enbart localstorage om toggle är falskt!
-        /*
-        const updatedArray = [...existingArray, objectetsomvivillsparahär];
-        setExistingArray(updatedArray);
-
-        localStorage.setItem("namnpåarrayhär", JSON.stringify(updatedArray));
-        */
     }
 
     console.log(resultsArray)
