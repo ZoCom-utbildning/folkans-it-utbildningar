@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { ResultType } from '@remix-run/router/dist/utils';
+import { useEffect, useState } from 'react';
 import hexagonEmpty from '../../assets/icons/hexagonEmpty.svg';
 import hexagonFilled from '../../assets/icons/hexagonFilled.svg';
 import './radioButton.scss';
@@ -7,6 +8,7 @@ type Props = {
     optionText: string;
     id: number;
     questionId: number;
+    loadStorage: string;
 }
 
 type ResultsType = {
@@ -14,11 +16,12 @@ type ResultsType = {
     button: string;
 }
 
-function RadioButton({ optionText, id, questionId }: Props) {
+
+function RadioButton({ optionText, id, questionId, loadStorage }: Props) {
     const [toggle, setToggle] = useState<boolean>(false);
     const [radio, setRadio] = useState<boolean>(false);
 
-    const [resultsArray, setResultsArray] = useState([]) //ladda för att kolla om localstorage redan finns
+    const [resultsArray, setResultsArray] = useState<ResultsType[]>([]) //ladda för att kolla om localstorage redan finns
 
     const resultsValue: ResultsType = {
         question: `${questionId}`,
@@ -36,9 +39,22 @@ function RadioButton({ optionText, id, questionId }: Props) {
         setRadio(!radio);
         //om id finns = push resultsValue -> resultsArray
         //annars byt ut (questionId) resultsValue i resultsArray
-        localStorage.setItem("resultsValue", JSON.stringify(resultsValue)) //ta array state här?
+        const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
+        setResultsArray(updatedArray);
         //sätt enbart localstorage om toggle är falskt!
+        /*
+        const updatedArray = [...existingArray, objectetsomvivillsparahär];
+        setExistingArray(updatedArray);
+
+        localStorage.setItem("namnpåarrayhär", JSON.stringify(updatedArray));
+        */
     }
+
+    useEffect(() => {
+        localStorage.setItem("resultsArray", JSON.stringify(resultsArray)) //ta array state här?
+    }, [resultsArray])
+
+    console.log(loadStorage);
 
     return (
         <section className='radio_component'>

@@ -20,6 +20,14 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
 
     const [buttonAmount, setButtonAmount] = useState<Array<object>>([]);
 
+    //usat '!' som lifehack eftersom typescript krånglar, höra med Johan???
+    const [loadStorage, setLoadStorage] = useState<string>(`${localStorage.getItem("resultsArray")}`);
+
+    useEffect(() => {
+        setLoadStorage(`${localStorage.getItem("resultsArray")}`);
+    }, [])
+
+
     useEffect(() => {
         forminfo.questions.map((question) => {
             const allOptions = question.options?.filter((option) => {
@@ -41,9 +49,9 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
     const buttonArray = buttonAmount?.map((button, index) => {
         // Fixa button.text buggen!?!? kanske behöver type??? {id: number, text: string}
         if (formType === 'radio') {
-            return < RadioButton optionText={button.text} key={index} id={index} questionId={questionId} />
+            return < RadioButton optionText={button.text} key={index} id={index} questionId={questionId} loadStorage={loadStorage} />
         } else if (formType === 'range') {
-            return <RangeSlider optionText={button.text} key={index} id={index} questionId={questionId} />
+            return <RangeSlider optionText={button.text} key={index} id={index} questionId={questionId} loadStorage={loadStorage}/>
         }
     });
 
