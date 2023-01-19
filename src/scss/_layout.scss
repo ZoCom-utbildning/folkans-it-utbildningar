@@ -32,11 +32,8 @@
 }
 
 @mixin lines {
-    position: relative; 
-    & * { 
-        z-index: 2; 
-        position: relative; 
-    }
+    position: relative;
+    & * { z-index: 2; }
     
     &::before {
         content: "";
