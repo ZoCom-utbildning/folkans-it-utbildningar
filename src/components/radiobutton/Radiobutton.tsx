@@ -1,5 +1,4 @@
-import { ResultType } from '@remix-run/router/dist/utils';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import hexagonEmpty from '../../assets/icons/hexagonEmpty.svg';
 import hexagonFilled from '../../assets/icons/hexagonFilled.svg';
 import './radioButton.scss';
@@ -8,7 +7,6 @@ type Props = {
     optionText: string;
     id: number;
     questionId: number;
-    loadStorage: string;
 }
 
 type ResultsType = {
@@ -16,12 +14,12 @@ type ResultsType = {
     button: string;
 }
 
-
-function RadioButton({ optionText, id, questionId, loadStorage }: Props) {
+function RadioButton({ optionText, id, questionId }: Props) {
     const [toggle, setToggle] = useState<boolean>(false);
     const [radio, setRadio] = useState<boolean>(false);
 
-    const [resultsArray, setResultsArray] = useState<ResultsType[]>([]) //ladda för att kolla om localstorage redan finns
+    //const [resultsArray, setResultsArray] = useState<ResultsType[]>([]) //ladda för att kolla om localstorage redan finns
+    const [resultsArray, setResultsArray] = useState<ResultsType[]>(JSON.parse(localStorage.getItem("resultsArray")!) || []);
 
     const resultsValue: ResultsType = {
         question: `${questionId}`,
@@ -41,6 +39,7 @@ function RadioButton({ optionText, id, questionId, loadStorage }: Props) {
         //annars byt ut (questionId) resultsValue i resultsArray
         const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
         setResultsArray(updatedArray);
+        localStorage.setItem("resultsArray", JSON.stringify(updatedArray)) //ta array state här?
         //sätt enbart localstorage om toggle är falskt!
         /*
         const updatedArray = [...existingArray, objectetsomvivillsparahär];
@@ -50,11 +49,7 @@ function RadioButton({ optionText, id, questionId, loadStorage }: Props) {
         */
     }
 
-    useEffect(() => {
-        localStorage.setItem("resultsArray", JSON.stringify(resultsArray)) //ta array state här?
-    }, [resultsArray])
-
-    console.log(loadStorage);
+    console.log(resultsArray)
 
     return (
         <section className='radio_component'>
