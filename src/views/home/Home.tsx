@@ -15,7 +15,6 @@ type Props = {
 };
 function Home({ activePersona, setActivePersona }: Props) {
   const [isMobile, setIsMobile] = useState<boolean>();
-  const mediaQuery = window.matchMedia("(min-width: 820px)");
   function checkMediaQuery() {
     // Check if the media query is true
     if (window.innerWidth > 768) {
