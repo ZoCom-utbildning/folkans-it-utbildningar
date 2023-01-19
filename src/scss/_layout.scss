@@ -32,8 +32,11 @@
 }
 
 @mixin lines {
-    position: relative;
-    & * { z-index: 2; }
+    // positioning solves the text-selection issue BUT the element appears over the loading. 
+    // make a new issue? The blob needs some work to be "stopped" when clicking the arrow. 
+    // It would be suitable to work on that function in one issue, I think.
+    // I'll try to solve it with z-index first. 
+    & * { z-index: 2; position: relative; }
     
     &::before {
         content: "";
