@@ -186,6 +186,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
         $bg-imageWoman; //Bör flyttas, syns i bakgrunden för views beroende på height.
 
       .galleryButtons {
+        width: 50%;
         display: flex;
         justify-content: space-evenly;
         align-items: center;

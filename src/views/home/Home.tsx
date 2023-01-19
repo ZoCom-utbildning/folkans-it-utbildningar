@@ -7,12 +7,29 @@ import FormComponent from "../../components/formcomponent/formComponent";
 import TestButton from "../../components/testbutton/testButton";
 import anime from "animejs/lib/anime.es.js";
 import { useSwipeable } from "react-swipeable";
+import { useState } from "react";
 
 type Props = {
   activePersona: number;
   setActivePersona: (activePersona: number) => void;
 };
 function Home({ activePersona, setActivePersona }: Props) {
+  const [isMobile, setIsMobile] = useState<boolean>();
+  const mediaQuery = window.matchMedia("(min-width: 820px)");
+  function checkMediaQuery() {
+    // Check if the media query is true
+    if (window.innerWidth > 768) {
+      // Then log the following message to the console
+      console.log("Media Query Matched!");
+      setIsMobile(false);
+    } else {
+      console.log("Media Query Not Matched!");
+      setIsMobile(true);
+    }
+  }
+
+  window.addEventListener("resize", checkMediaQuery);
+
   const changePersona = (e: any) => {
     if (e.target.id === "btn1") {
       setActivePersona(0);
@@ -82,45 +99,51 @@ function Home({ activePersona, setActivePersona }: Props) {
       />
     </ul>
   );
+
   const handlers = useSwipeable({
     onSwiped: (eventData) => console.log("User Swiped!", eventData),
     onSwipedLeft: () => swipeLeft(),
     onSwipedRight: () => swipeRight(),
-
     trackMouse: true,
   });
+
+  //if window width is smaller than 820px
   const swipeRight = () => {
-    anime({
-      targets: ".card_content",
-      keyframes: [
-        { translateX: "200%", duration: 250 },
-        { translateX: "0", duration: 250 },
-      ],
-      duration: 500,
-      easing: "easeInOutQuad",
-    });
-    if (activePersona === 0) {
-      setActivePersona(4);
-    } else {
-      setActivePersona(activePersona - 1);
+    if (isMobile) {
+      anime({
+        targets: ".card_content",
+        keyframes: [
+          { translateX: "200%", duration: 250 },
+          { translateX: "0", duration: 250 },
+        ],
+        duration: 500,
+        easing: "easeInOutQuad",
+      });
+      if (activePersona === 0) {
+        setActivePersona(4);
+      } else {
+        setActivePersona(activePersona - 1);
+      }
     }
   };
   const swipeLeft = () => {
-    anime({
-      targets: ".card_content",
+    if (isMobile) {
+      anime({
+        targets: ".card_content",
 
-      keyframes: [
-        { translateX: "-200%", duration: 250 },
-        { translateX: "0", duration: 250 },
-      ],
-      duration: 500,
-      easing: "easeInOutQuad",
-    });
+        keyframes: [
+          { translateX: "-200%", duration: 250 },
+          { translateX: "0", duration: 250 },
+        ],
+        duration: 500,
+        easing: "easeInOutQuad",
+      });
 
-    if (activePersona === 4) {
-      setActivePersona(0);
-    } else {
-      setActivePersona(activePersona + 1);
+      if (activePersona === 4) {
+        setActivePersona(0);
+      } else {
+        setActivePersona(activePersona + 1);
+      }
     }
   };
 
