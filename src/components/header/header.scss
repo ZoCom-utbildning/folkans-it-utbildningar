@@ -19,7 +19,8 @@
     position: fixed;
     -webkit-box-shadow: .5rem .5rem 1rem 2rem #0000009f;
     box-shadow: .5rem .5rem 1rem 2rem #0000009f;
-    z-index: 3;
+    z-index: 4;
+    // z-index: 4;
     transform: translateX(-1000px);
     ul {
       list-style: none;
