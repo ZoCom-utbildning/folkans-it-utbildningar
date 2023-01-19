@@ -75,7 +75,7 @@ function Loading(this: any) {
             setCanvasWidth(wrapperWidth);
             setCanvasHeight(wrapperHeight);
         }
-    }, );
+    },[] );
     
     // === Defines canvas ===
     // Note: not using useRef(); because I haven't figured out how to get it as the correct type; HTMLCanvasElement.
@@ -205,11 +205,16 @@ function Loading(this: any) {
                 y: clientY,
             }));
     });
-
+    
+    useEffect(() => {
+        document.querySelector('.header')?.classList.add("hidden");
+    },[] );
     
     document.body.style.position = bodyStyle;
     function hideOverlay() {
         setBodyStyle("");
+        document.querySelector('.header')?.classList.remove("hidden");
+
         setTimeout(() => {
             setOverlayClasses(overlayClasses + " hidden");
         }, 700);
