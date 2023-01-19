@@ -37,6 +37,7 @@ function RadioButton({ optionText, id, questionId }: Props) {
         //om id finns = push resultsValue -> resultsArray
         //annars byt ut (questionId) resultsValue i resultsArray
         localStorage.setItem("resultsValue", JSON.stringify(resultsValue)) //ta array state här?
+        //sätt enbart localstorage om toggle är falskt!
     }
 
     return (
