@@ -31,7 +31,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
 
     const [resultsArray, setResultsArray] = useState<ResultsType[]>(JSON.parse(localStorage.getItem("resultsArray")!) || []);
     const [optionText, setOptionText] = useState<string[]>([])
-    const [buttonId, setButtonId] = useState<number>() //få in rätt knapp tryck här
+    const [buttonId, setButtonId] = useState<string>() //få in rätt knapp tryck här
     const [toggle, setToggle] = useState<boolean>(false)
 
     const resultsValue: ResultsType = {
@@ -57,17 +57,21 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
 
     //kör funktion radioClicked() enbart toggle/radio inte localstorage delen
 
-    const radioClicked = () => {
+    const radioClicked = (number: any) => {
         //om id finns = push resultsValue -> resultsArray
         //annars byt ut (questionId) resultsValue i resultsArray
-        setButtonId(0) //välj rätt id här beroende på vilken knapp som clickas
+        setButtonId(number) //välj rätt id här beroende på vilken knapp som clickas
+
         setToggle(!toggle)
 
+        //sätt enbart localstorage om toggle är falskt!
+    }
+
+    useEffect(() => {
         if (!toggle) {
             questionStorage();
         }
-        //sätt enbart localstorage om toggle är falskt!
-    }
+    }, [buttonId, toggle])
 
     const questionStorage = () => {
         const index = resultsArray.findIndex(obj => obj.question === resultsValue.question);
@@ -115,15 +119,15 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
                 <p>{formText}</p>
             </article>
             <section className='radio_wrapper'>
-                <section className='radio_component' onClick={radioClicked}>
+                <section className='radio_component' onClick={() => radioClicked(0)}>
                     <input type='radio' name='radio'></input>
                     <p>{optionText[0]}</p>
                 </section>
-                <section className='radio_component' onClick={radioClicked}>
+                <section className='radio_component' onClick={() => radioClicked(1)}>
                     <input type='radio' name='radio'></input>
                     <p>{optionText[1]}</p>
                 </section>
-                <section className='radio_component' onClick={radioClicked}>
+                <section className='radio_component' onClick={() => radioClicked(2)}>
                     <input type='radio' name='radio'></input>
                     <p>{optionText[2]}</p>
                 </section>
