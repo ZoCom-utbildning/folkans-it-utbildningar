@@ -205,16 +205,11 @@ function Loading(this: any) {
                 y: clientY,
             }));
     });
-    
-    useEffect(() => {
-        document.querySelector('.header')?.classList.add("hidden");
-    },[] );
+
     
     document.body.style.position = bodyStyle;
     function hideOverlay() {
         setBodyStyle("");
-        document.querySelector('.header')?.classList.remove("hidden");
-        
         setTimeout(() => {
             setOverlayClasses(overlayClasses + " hidden");
         }, 700);

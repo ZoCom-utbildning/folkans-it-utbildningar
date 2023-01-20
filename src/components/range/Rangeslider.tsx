@@ -3,9 +3,12 @@ import './rangeslider.scss';
 
 type Props = {
     optionText: string;
+    id: number;
+    questionId: number;
+    loadStorage: string;
 }
 
-const RangeSlider = ({ optionText }: Props) => {
+const RangeSlider = ({ optionText, id, questionId, loadStorage }: Props) => {
     const [value, setValue] = useState<number>(0)
 
     //ta värden från databas beroende på fråga

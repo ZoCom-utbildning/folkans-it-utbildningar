@@ -1,9 +1,8 @@
-@import "./_variables.scss";
-@import "./_layout.scss";
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@523&display=swap");
-$bg-image: url("../assets/photos/manComputer.png");
+@import "variables";
+@import "layout";
+@import "typography";
 
+$bg-image: url("../assets/photos/manComputer.png");
 
 * {
   box-sizing: border-box;
@@ -11,9 +10,13 @@ $bg-image: url("../assets/photos/manComputer.png");
   padding: 0;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .App {
   overflow-wrap: break-word;
-  hyphenate-character: '-';
+  hyphenate-character: "-";
   @include maxSize;
   background-attachment: fixed;
   background-position: center;
@@ -29,29 +32,6 @@ $bg-image: url("../assets/photos/manComputer.png");
     linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image; //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
-h1, h2, h3, a {
-  font-family: "Maven Pro";
-  font-style: normal;
-  font-weight: 523;
-  line-height: 100%;
-  letter-spacing: 0.04em;
-  color: $light;
-}
-
-
-h1 {
-  font-size: 50px;
-}
-
-h2 {
-  font-size: 30px;
-}
-
-h3 {
-  font-size: 20px;
-}
-
-
 // (ingress) unsure if this should be here or somewhere else
 .introText {
   font-family: "Roboto Mono";
@@ -62,7 +42,8 @@ h3 {
   color: $light;
 }
 
-p, a, input, textarea {
+input,
+textarea {
   font-family: "Roboto Mono";
   font-style: normal;
   font-weight: 400;
@@ -73,7 +54,7 @@ p, a, input, textarea {
 .formButton {
   padding: 0.5rem 1.5rem;
   border-radius: 3rem;
-  border: .1rem solid $light;
+  border: 0.1rem solid $light;
   background: $gradient;
   cursor: pointer;
 
@@ -85,20 +66,18 @@ p, a, input, textarea {
   line-height: 190%;
   color: $light;
 }
-
-
+/*
 @media (min-width: $breakpointDesktop) {
-  
   h1 {
     font-size: 60px;
   }
-  
+
   h2 {
     font-size: 40px;
   }
-  
+
   h3 {
     font-size: 27px;
   }
-
 }
+*/

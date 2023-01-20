@@ -13,21 +13,26 @@ type Props = {
     increaseQuestion: () => void;
 }
 
+type ButtonAmountType = {
+    id: number;
+    text: string;
+}
+
 function ContentComponent({ formText, formType, questionId, decreaseQuestion, increaseQuestion }: Props) {
 
     const questions = forminfo.questions;
     const questionNmbrs: Array<number> = [];
 
-    const [ buttonAmount, setButtonAmount ] = useState<Array<object>>([]);
+    const [buttonAmount, setButtonAmount] = useState<ButtonAmountType[]>([]);
 
     useEffect(() => {
         forminfo.questions.map((question) => {
             const allOptions = question.options?.filter((option) => {
-                if ( questionId === question.id ) {
+                if (questionId === question.id) {
                     return option
                 }
             });
-            if ( questionId === question.id ) {
+            if (questionId === question.id) {
                 setButtonAmount(allOptions);
             }
         });
@@ -39,11 +44,10 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
     });
 
     const buttonArray = buttonAmount?.map((button, index) => {
-        // Fixa button.text buggen!?!? kanske behöver type??? {id: number, text: string}
-        if (formType === 'range') {
-            return <RangeSlider optionText={button.text} key={index}/>
-        } else if (formType === 'radio') {
-            return < RadioButton optionText={button.text} key={index}/>
+        if (formType === 'radio') {
+            return < RadioButton optionText={button.text} key={index} id={index} questionId={questionId} />
+        } else if (formType === 'range') {
+            //return <RangeSlider optionText={button.text} key={index} id={index} questionId={questionId} />
         }
     });
 
@@ -52,7 +56,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
             <article className="form_question">
                 <p>{formText}</p>
             </article>
-            { buttonArray }
+            {buttonArray}
             <nav className="quiz_nav">
                 <img src={arrowLeft} alt="" onClick={decreaseQuestion} />
                 <p> {questionId} / {questionNmbrs.length - 1} </p>

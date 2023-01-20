@@ -34,10 +34,7 @@
 // Might need to add 'position: relative;' to child elements.
 @mixin lines {
     position: relative;
-    & * { 
-        z-index: 2; 
-        // position: relative; 
-    }
+    & * { z-index: 2; }
     
     &::before {
         content: "";

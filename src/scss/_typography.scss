@@ -1,0 +1,60 @@
+@import 'variables';
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@523&display=swap");
+
+:root {
+    font-family: "Roboto Mono";
+    font-style: normal;
+    font-weight: 400;
+    font-size: $baseline;
+    color: $primaryTextColor;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Maven Pro";
+  font-style: normal;
+  font-weight: 523;
+  line-height: 110%;
+  letter-spacing: 0.04em;
+  color: $primaryTextColor;
+}
+
+p {
+  font-size: $baseline;
+  line-height: 180%;
+  padding: $padding-sml 0;
+
+  &.ingress {
+    font-size: calc($baseline * 1.2);
+
+  }
+}
+
+a {
+    font-family: "Maven Pro";
+    font-style: normal;
+    font-weight: 523;
+    line-height: 110%;
+    letter-spacing: 0.04em;
+
+}
+
+h1 {
+  font-size: calc($baseline * 2.5);
+  font-weight: 900;
+  padding: $padding-sml 0;
+  margin: $margin-large 0 $margin-sml 0;
+}
+
+h2 {
+  font-size: calc($baseline * 2.1);
+  font-weight: 600;
+  margin: $margin-large 0 $margin-sml 0;
+}
+
+h3 {
+  font-size: calc($baseline * 1.6);
+}

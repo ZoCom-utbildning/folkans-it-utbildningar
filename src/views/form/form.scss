@@ -61,10 +61,21 @@
     .card_content {
       @include lines;
       @include flex($direction: row-reverse);
+      box-shadow: $shadow;
+
       width: 100%;
       max-height: 38rem;
       border: none;
       border-radius: $borderRadius;
+      .persona-card-content {
+        @include lines;
+        @include flex($direction: row-reverse);
+
+        width: 100%;
+        max-height: 38rem;
+        border: none;
+        border-radius: $borderRadius;
+      }
 
       .image_section {
         width: 50%;

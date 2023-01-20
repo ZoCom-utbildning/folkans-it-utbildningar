@@ -41,6 +41,9 @@ function FormComponent({ activePersona }: Props) {
     } else if (questions[questionId - 1].type === "range") {
       setFormType("range");
     }
+
+    //ladda localstorage här
+
     if (!window.location.href.includes("fragor")) {
       setFormImage(happyGuy);
     }
@@ -59,15 +62,68 @@ function FormComponent({ activePersona }: Props) {
   //framåt knapp syns inte om du inte svarat på frågan
   const increaseQuestion = () => {
     if (questionId < questionNmbrs.length) {
+      //spara värde/spara över värde
       setQuestionId(questionId + 1);
     }
   };
 
+  //funktion som sparar värde i localstorage
+  //spara värde i ny funktion som körs i increase och decrese
+  //jämför question.id med localstorage värdet "question"
+  const saveQuestion = () => {
+    //localStorage.setItem(`${questionId}`, "")
+  }
+
+  //spara valt alternativ i state?
   const decreaseQuestion = () => {
     if (questionId > 1) {
+      //
       setQuestionId(questionId - 1);
     }
   };
+
+  const personas = [
+    {
+      id: 0,
+      personaTitle: "Adam, 20",
+      personaIngress:
+        "Adam är en av de personer som startat sin utbildning hos Folkuniversitetet.",
+      personaText:
+        "Här är en text som beskriver Adam och hur han kom in på utbildningensom förändrade hans liv till det bättre.",
+    },
+    {
+      id: 1,
+      personaTitle: "Bertil, 30",
+      personaIngress:
+        "Bertil är en av de personer som startat sin utbildning hos Folkuniversitetet.",
+      personaText:
+        "Här är en text som beskriver Bertil och hur han kom in på utbildningensom förändrade hans liv till det bättre.",
+    },
+    {
+      id: 2,
+      personaTitle: "Ahmed, 32",
+      personaIngress:
+        "Ahmed är en av de personer som startat sin utbildning hos Folkuniversitetet.",
+      personaText:
+        "Här är en text som beskriver Ahmed och hur han kom in på utbildningensom förändrade hans liv till det bättre.",
+    },
+    {
+      id: 3,
+      personaTitle: "Anja, 23",
+      personaIngress:
+        "Anja är en av de personer som startat sin utbildning hos Folkuniversitetet.",
+      personaText:
+        "Här är en text som beskriver Anja och hur hon kom in på utbildningensom förändrade hennes liv till det bättre.",
+    },
+    {
+      id: 4,
+      personaTitle: "Amina, 38",
+      personaIngress:
+        "Amina är en av de personer som startat sin utbildning hos Folkuniversitetet.",
+      personaText:
+        "Här är en text som beskriver Amina och hur hon kom in på utbildningensom förändrade hennes liv till det bättre.",
+    },
+  ];
 
   return (
     <section className="card_content">
@@ -87,13 +143,11 @@ function FormComponent({ activePersona }: Props) {
           <ResultsComponent />
         </>
       ) : window.location.href.includes("") ? (
-        <>
+        <section className="persona-card-content">
           <ImageComponent formImage={formImage} altImage={altImage} />
           <PersonaContent activePersona={activePersona} />
-        </>
-      ) : (
-        ""
-      )}
+        </section>
+      ) : null}
     </section>
   );
 }

@@ -4,14 +4,31 @@ import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.jpg";
 import Loading from "../../components/loading/Loading";
 import FormComponent from "../../components/formcomponent/formComponent";
-import { InputHTMLAttributes, useState } from "react";
 import TestButton from "../../components/testbutton/testButton";
+import anime from "animejs/lib/anime.es.js";
+import { useSwipeable } from "react-swipeable";
+import { useState } from "react";
 
 type Props = {
   activePersona: number;
   setActivePersona: (activePersona: number) => void;
 };
 function Home({ activePersona, setActivePersona }: Props) {
+  const [isMobile, setIsMobile] = useState<boolean>();
+  function checkMediaQuery() {
+    // Check if the media query is true
+    if (window.innerWidth > 768) {
+      // Then log the following message to the console
+      console.log("Media Query Matched!");
+      setIsMobile(false);
+    } else {
+      console.log("Media Query Not Matched!");
+      setIsMobile(true);
+    }
+  }
+
+  window.addEventListener("resize", checkMediaQuery);
+
   const changePersona = (e: any) => {
     if (e.target.id === "btn1") {
       setActivePersona(0);
@@ -25,6 +42,7 @@ function Home({ activePersona, setActivePersona }: Props) {
       setActivePersona(4);
     }
   };
+  // swiping animation between personas
 
   const buttonElements = (
     <ul className="galleryButtons">
@@ -33,25 +51,28 @@ function Home({ activePersona, setActivePersona }: Props) {
         name="radio-btn"
         className="gallery-btn"
         id="btn1"
-        onClick={(e) => {
+        checked={activePersona === 0}
+        onChange={(e) => {
           changePersona(e);
         }}
       />
       <input
         type="radio"
         name="radio-btn"
+        checked={activePersona === 1}
         className="gallery-btn"
         id="btn2"
-        onClick={(e) => {
+        onChange={(e) => {
           changePersona(e);
         }}
       />
       <input
         type="radio"
         name="radio-btn"
+        checked={activePersona === 2}
         className="gallery-btn"
         id="btn3"
-        onClick={(e) => {
+        onChange={(e) => {
           changePersona(e);
         }}
       />
@@ -59,8 +80,9 @@ function Home({ activePersona, setActivePersona }: Props) {
         type="radio"
         name="radio-btn"
         className="gallery-btn"
+        checked={activePersona === 3}
         id="btn4"
-        onClick={(e) => {
+        onChange={(e) => {
           changePersona(e);
         }}
       />
@@ -68,13 +90,61 @@ function Home({ activePersona, setActivePersona }: Props) {
         type="radio"
         name="radio-btn"
         className="gallery-btn"
-        onClick={(e) => {
+        checked={activePersona === 4}
+        onChange={(e) => {
           changePersona(e);
         }}
         id="btn5"
       />
     </ul>
   );
+
+  const handlers = useSwipeable({
+    onSwiped: (eventData) => console.log("User Swiped!", eventData),
+    onSwipedLeft: () => swipeLeft(),
+    onSwipedRight: () => swipeRight(),
+    trackMouse: true,
+  });
+
+  //if window width is smaller than 820px
+  const swipeRight = () => {
+    if (isMobile) {
+      anime({
+        targets: ".card_content",
+        keyframes: [
+          { translateX: "200%", duration: 250 },
+          { translateX: "0", duration: 250 },
+        ],
+        duration: 500,
+        easing: "easeInOutQuad",
+      });
+      if (activePersona === 0) {
+        setActivePersona(4);
+      } else {
+        setActivePersona(activePersona - 1);
+      }
+    }
+  };
+  const swipeLeft = () => {
+    if (isMobile) {
+      anime({
+        targets: ".card_content",
+
+        keyframes: [
+          { translateX: "-200%", duration: 250 },
+          { translateX: "0", duration: 250 },
+        ],
+        duration: 500,
+        easing: "easeInOutQuad",
+      });
+
+      if (activePersona === 4) {
+        setActivePersona(0);
+      } else {
+        setActivePersona(activePersona + 1);
+      }
+    }
+  };
 
   return (
     <div className="home-wrapper">
@@ -150,7 +220,7 @@ function Home({ activePersona, setActivePersona }: Props) {
         </div>
       </main>
       <section className="home-personas-wrapper">
-        <div className="form_wrapper">
+        <div className="form_wrapper" {...handlers}>
           <FormComponent activePersona={activePersona} />
         </div>
         {buttonElements}
