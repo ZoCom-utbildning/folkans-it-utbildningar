@@ -21,7 +21,7 @@ type ButtonAmountType = {
 
 type ResultsType = {
     question: string;
-    button: string;
+    buttonId: string;
 }
 
 function ContentComponent({ formText, formType, questionId, decreaseQuestion, increaseQuestion }: Props) {
@@ -30,29 +30,64 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
     const questionNmbrs: Array<number> = [];
 
     const [resultsArray, setResultsArray] = useState<ResultsType[]>(JSON.parse(localStorage.getItem("resultsArray")!) || []);
+    const [optionText, setOptionText] = useState<string[]>([])
+    const [buttonId, setButtonId] = useState<number>() //få in rätt knapp tryck här
+    const [toggle, setToggle] = useState<boolean>(false)
 
-    //const resultsValue: ResultsType = {
-    //question: `${questionId}`,
-    //button: `${id}`
-    //id ska bytas ut som state i vår radio section beroende på knappen tryckd
-    //lägga in poäng här
-    //}
+    const resultsValue: ResultsType = {
+        question: `${questionId}`,
+        buttonId: `${buttonId}`
+        //id ska bytas ut som state i vår radio section beroende på knappen tryckd
+        //lägga in poäng här
+    }
+
+    useEffect(() => {
+        questions.map(question => {
+            if (questionId === question.id) {
+                const tempText: SetStateAction<string[]> = []
+                question.options.map(option => {
+                    tempText.push(option.text)
+                })
+                setOptionText(tempText)
+            }
+        })
+    }, [questionId])
 
     //funktion om localstorage finns (button.id == frågan vi är på)
-    //kör funktion radioClicked() enbart toggle/radio inte localstorage delen
 
-    //fixa funktion så att enbart en knapp kan vara aktiv
+    //kör funktion radioClicked() enbart toggle/radio inte localstorage delen
 
     const radioClicked = () => {
         //om id finns = push resultsValue -> resultsArray
         //annars byt ut (questionId) resultsValue i resultsArray
-        //const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
-        //setResultsArray(updatedArray);
-        //localStorage.setItem("resultsArray", JSON.stringify(updatedArray)) //ta array state här?
+        setButtonId(0) //välj rätt id här beroende på vilken knapp som clickas
+        setToggle(!toggle)
+
+        if (!toggle) {
+            questionStorage();
+        }
         //sätt enbart localstorage om toggle är falskt!
     }
 
-    //console.log(resultsArray)
+    const questionStorage = () => {
+        const index = resultsArray.findIndex(obj => obj.question === resultsValue.question);
+
+        if (index === -1) {
+            // lägg till nytt objekt
+            const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
+            setResultsArray(updatedArray);
+            localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
+        } else {
+            // uppdatera arrayen med nytt objekt-värde
+            const updatedArray = [
+                ...resultsArray.slice(0, index),
+                resultsValue,
+                ...resultsArray.slice(index + 1)
+            ];
+            setResultsArray(updatedArray);
+            localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
+        }
+    }
 
     //const [buttonAmount, setButtonAmount] = useState<ButtonAmountType[]>([]);
 
@@ -69,43 +104,16 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
         });
     }, [questionId]);*/
 
-
-    /*const optionText = buttonAmount?.map((button, index) => {
-        if (questionId === question.id) {
-            setButtonAmount(allOptions);
-        }
-    });*/
-
     // Storing array length to display maxValue of pages.
     questions.map(question => {
         questionNmbrs.push(question.id);  // [1, 2, 3, 4]
     });
-
-    const [optionText, setOptionText] = useState<string[]>([])
-
-
-    useEffect(() => {
-        questions.map(question => {
-            if (questionId === question.id) {
-                const tempText: SetStateAction<string[]> = []
-                console.log(question.options)
-                question.options.map(option => {
-                    console.log(option.text)
-                    tempText.push(option.text)
-                })
-                setOptionText(tempText)
-            }
-        })
-    }, [questionId])
-
-    console.log(optionText)
 
     return (
         <section className="quiz_section">
             <article className="form_question">
                 <p>{formText}</p>
             </article>
-            {/*buttonArray*/}
             <section className='radio_wrapper'>
                 <section className='radio_component' onClick={radioClicked}>
                     <input type='radio' name='radio'></input>
