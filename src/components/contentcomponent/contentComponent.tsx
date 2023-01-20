@@ -68,30 +68,28 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
     }
 
     useEffect(() => {
-        if (!toggle) {
-            questionStorage();
+        if (toggle) {
+            const index = resultsArray.findIndex(obj => obj.question === resultsValue.question);
+
+            if (index === -1) {
+                // lägg till nytt objekt
+                const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
+                setResultsArray(updatedArray);
+                localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
+            } else {
+                // uppdatera arrayen med nytt objekt-värde
+                const updatedArray = [
+                    ...resultsArray.slice(0, index),
+                    resultsValue,
+                    ...resultsArray.slice(index + 1)
+                ];
+                setResultsArray(updatedArray);
+                localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
+            }
+            setToggle(!toggle)
         }
     }, [buttonId, toggle])
 
-    const questionStorage = () => {
-        const index = resultsArray.findIndex(obj => obj.question === resultsValue.question);
-
-        if (index === -1) {
-            // lägg till nytt objekt
-            const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
-            setResultsArray(updatedArray);
-            localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
-        } else {
-            // uppdatera arrayen med nytt objekt-värde
-            const updatedArray = [
-                ...resultsArray.slice(0, index),
-                resultsValue,
-                ...resultsArray.slice(index + 1)
-            ];
-            setResultsArray(updatedArray);
-            localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
-        }
-    }
 
     //const [buttonAmount, setButtonAmount] = useState<ButtonAmountType[]>([]);
 
