@@ -1,5 +1,5 @@
+//import RangeSlider from '../../components/range/Rangeslider';
 import RadioButton from '../../components/radiobutton/Radiobutton';
-import RangeSlider from '../../components/range/Rangeslider';
 import arrowLeft from '../../assets/icons/arrowLeft.svg';
 import arrowRight from '../../assets/icons/arrowRight.svg';
 import forminfo from '../../../forminfo.json';
@@ -27,7 +27,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
 
     useEffect(() => {
         forminfo.questions.map((question) => {
-            const allOptions = question.options?.filter((option) => {
+            const allOptions = question.options?.filter((option: any) => {
                 if (questionId === question.id) {
                     return option
                 }
@@ -57,6 +57,19 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
                 <p>{formText}</p>
             </article>
             {buttonArray}
+            {/*
+            section
+                button key 1
+            section
+
+            section
+                button key 2
+            section
+
+            section
+                button key 3
+            section
+            */}
             <nav className="quiz_nav">
                 <img src={arrowLeft} alt="" onClick={decreaseQuestion} />
                 <p> {questionId} / {questionNmbrs.length - 1} </p>
