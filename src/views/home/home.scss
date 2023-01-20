@@ -35,6 +35,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
 
       p {
         margin-top: 1rem;
+        position: relative;
       }
       .img-with-text {
         @include flex($justify: none, $align: none, $direction: column);
