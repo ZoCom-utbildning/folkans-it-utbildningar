@@ -61,6 +61,7 @@
     .card_content {
       @include lines;
       @include flex($direction: row-reverse);
+      box-shadow: $shadow;
 
       width: 100%;
       max-height: 38rem;

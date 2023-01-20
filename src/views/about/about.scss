@@ -6,19 +6,10 @@
     @include lines;
     @include maxSize;
     @include flex($justify: none, $align: none, $direction: column);
-
-    padding: 6rem 1.5rem;
     background-color: $dark;
-
-    h1 {
-        padding: 2rem 1% 1rem;
-    } 
-    h2, h3 { 
-        padding: 1rem .5rem .5rem;
-    }
-    p { 
-        padding: .5rem;
-    }
+    
+    main {
+        padding: $padding-large;
 
     .line {
         margin: auto -1.5rem;
@@ -26,19 +17,20 @@
     }
 
     .coursesWrapper {
-        @include flex($display: flex, $justify: none, $align: none, $wrap: wrap);
-        padding: 1rem 0rem;
+        
 
-        h2 { width: 100%; }
         .course {
-            flex-grow: 1;
-            min-width: 18rem;
-
-            margin: 8px 4px;
-            border: 0.1rem solid $borderColor;
+            padding: $padding;
+            border: 1px solid $borderColor;
+            border-bottom: none;
             background-color: $dark;
+
+            &:last-child {
+                border-bottom: 1px solid $borderColor;
+            }
             
             transition: .5s;
+
             &:hover {
                 box-shadow: 0 0 1rem 0 $lightBlue;
                 transform: scale(0.95, 1.01);
@@ -48,6 +40,10 @@
                 background: linear-gradient(-45deg, $dark, $dark, $lightBlue, $dark, $dark);
                 background-size: 400% 400%;
                 animation: gradient 15s ease infinite;
+            }
+
+            p {
+                opacity: .5;
             }
         }
     }
@@ -73,6 +69,7 @@
             font-size: 1rem;
         }
     }
+    }
 }
 
 
@@ -80,28 +77,31 @@
     .aboutView {
         display: block;
         
-        h1, h2, h3, p { 
-            padding: 1rem 2rem;
-        }
-        .coursesWrapper {
-            padding: 1rem 2rem;
-            .course:hover {
-                    box-shadow: 0 0 1rem 0 $lightBlue;
-                    transform: scale(1.01);
-                }
-        }
-        .contactForm {
-            float: right;
-            margin-right: 2px;
-            margin-left: .5rem;
-            width: 40%;
-            min-width: 21rem;
-            max-width: 31rem;
-            border-left: 0.1rem solid $borderColor;
-            border-bottom: 0.1rem solid $borderColor;
-        }
-        .formButton {
+        main {
+            padding: $padding-large;
+            max-width: 50rem;
             margin: 0 auto;
+ 
+            .coursesWrapper {
+                padding: $padding;
+                .course:hover {
+                        box-shadow: 0 0 1rem 0 $lightBlue;
+                        transform: scale(1.01);
+                    }
+            }
+            .contactForm {
+                float: right;
+                margin-right: 2px;
+                margin-left: .5rem;
+                width: 40%;
+                min-width: 21rem;
+                max-width: 31rem;
+                border-left: 0.1rem solid $borderColor;
+                border-bottom: 0.1rem solid $borderColor;
+            }
+            .formButton {
+                margin: 0 auto;
+            }
         }
     }
 } 

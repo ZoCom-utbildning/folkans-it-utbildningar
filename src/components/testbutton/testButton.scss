@@ -4,8 +4,8 @@
 .homeButton {
     margin: 3rem;
     z-index: 3;
-    border-radius: 3rem;
-    padding: 1rem;
+    border-radius: .5rem;
+    padding: $padding $padding-large;
     border: .1rem solid $light;
     box-shadow: 0 .5rem 2rem 0 $dark;
     background: $darkTransparent;

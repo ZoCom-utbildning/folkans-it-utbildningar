@@ -42,8 +42,6 @@ body {
   color: $light;
 }
 
-p,
-a,
 input,
 textarea {
   font-family: "Roboto Mono";
@@ -68,7 +66,7 @@ textarea {
   line-height: 190%;
   color: $light;
 }
-
+/*
 @media (min-width: $breakpointDesktop) {
   h1 {
     font-size: 60px;
@@ -82,3 +80,4 @@ textarea {
     font-size: 27px;
   }
 }
+*/
