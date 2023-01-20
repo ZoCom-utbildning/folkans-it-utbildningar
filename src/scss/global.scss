@@ -1,7 +1,7 @@
-@import "./_variables.scss";
-@import "./_layout.scss";
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@523&display=swap");
+@import "variables";
+@import "layout";
+@import "typography";
+
 $bg-image: url("../assets/photos/manComputer.png");
 
 * {
@@ -30,30 +30,6 @@ body {
       rgba(0, 255, 51, 0.397) 100%
     ),
     linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image; //Bör flyttas, syns i bakgrunden för views beroende på height.
-}
-
-h1,
-h2,
-h3,
-a {
-  font-family: "Maven Pro";
-  font-style: normal;
-  font-weight: 523;
-  line-height: 100%;
-  letter-spacing: 0.04em;
-  color: $light;
-}
-
-h1 {
-  font-size: 50px;
-}
-
-h2 {
-  font-size: 30px;
-}
-
-h3 {
-  font-size: 20px;
 }
 
 // (ingress) unsure if this should be here or somewhere else
