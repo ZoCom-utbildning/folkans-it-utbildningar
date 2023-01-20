@@ -75,7 +75,7 @@ function Loading(this: any) {
             setCanvasWidth(wrapperWidth);
             setCanvasHeight(wrapperHeight);
         }
-    },[] );
+    }, );
     
     // === Defines canvas ===
     // Note: not using useRef(); because I haven't figured out how to get it as the correct type; HTMLCanvasElement.
