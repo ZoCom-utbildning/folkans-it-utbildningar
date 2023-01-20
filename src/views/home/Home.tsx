@@ -7,7 +7,7 @@ import FormComponent from "../../components/formcomponent/formComponent";
 import TestButton from "../../components/testbutton/testButton";
 import anime from "animejs/lib/anime.es.js";
 import { useSwipeable } from "react-swipeable";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Props = {
   activePersona: number;
@@ -19,15 +19,17 @@ function Home({ activePersona, setActivePersona }: Props) {
     // Check if the media query is true
     if (window.innerWidth > 768) {
       // Then log the following message to the console
-      console.log("Media Query Matched!");
+
       setIsMobile(false);
     } else {
-      console.log("Media Query Not Matched!");
       setIsMobile(true);
     }
   }
 
   window.addEventListener("resize", checkMediaQuery);
+  useEffect(() => {
+    checkMediaQuery();
+  }, []);
 
   const changePersona = (e: any) => {
     if (e.target.id === "btn1") {

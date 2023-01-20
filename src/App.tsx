@@ -2,7 +2,7 @@ import About from "./views/about/About";
 import Error from "./views/error/Error";
 import Form from "./views/form/Form";
 import Home from "./views/home/Home";
-
+import Personas from "./views/personas/Personas";
 import Header from "./components/header/header";
 import { useState } from "react";
 import "./scss/global.scss";
@@ -37,7 +37,7 @@ function App() {
             />
           }
         />
-        {/* <Route path="/personer" element={<Personas />} /> */}
+        <Route path="/personer" element={<Personas />} />
       </Routes>
     </div>
   );
