@@ -14,11 +14,6 @@ type Props = {
     increaseQuestion: () => void;
 }
 
-type ButtonAmountType = {
-    id: number;
-    text: string;
-}
-
 type ResultsType = {
     question: string;
     buttonId: string;
@@ -31,13 +26,13 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
 
     const [resultsArray, setResultsArray] = useState<ResultsType[]>(JSON.parse(localStorage.getItem("resultsArray")!) || []);
     const [optionText, setOptionText] = useState<string[]>([])
-    const [buttonId, setButtonId] = useState<string>() //få in rätt knapp tryck här
+    const [buttonId, setButtonId] = useState<string>() //kolla localstorage eller om den är tom
+    //const true setTrue state
     const [toggle, setToggle] = useState<boolean>(false)
 
     const resultsValue: ResultsType = {
         question: `${questionId}`,
         buttonId: `${buttonId}`
-        //id ska bytas ut som state i vår radio section beroende på knappen tryckd
         //lägga in poäng här
     }
 
@@ -54,17 +49,33 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
     }, [questionId])
 
     //funktion om localstorage finns (button.id == frågan vi är på)
+    useEffect(() => {
+        const answers = JSON.parse(localStorage.getItem("resultsArray")!)
+        const allAnswers = answers.map((answer: { buttonId: any; }) => {
+            return answer.buttonId
+        })
 
-    //kör funktion radioClicked() enbart toggle/radio inte localstorage delen
+        console.log(allAnswers)
+        if (answers[questionId - 1].question.includes(questionId)) {
+            console.log(allAnswers[questionId - 1].buttonId)
+            setButtonId(allAnswers[questionId - 1].buttonId)
+            //setTrue kolla om radio är ifylld istället för att skicka nummer
+        }
+
+        //beroende på question så ska button id stämma
+
+        //if answer = questionId
+        //hämta localstorage
+        //jämför question id
+        //returnera localstorage
+        //skicka till variabel skicka till state setButtonId
+    }, [])
+
+    //const [answer, setAnswer] = useState(localstorage || number)
 
     const radioClicked = (number: any) => {
-        //om id finns = push resultsValue -> resultsArray
-        //annars byt ut (questionId) resultsValue i resultsArray
-        setButtonId(number) //välj rätt id här beroende på vilken knapp som clickas
-
+        setButtonId(number)
         setToggle(!toggle)
-
-        //sätt enbart localstorage om toggle är falskt!
     }
 
     useEffect(() => {
@@ -90,22 +101,6 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
         }
     }, [buttonId, toggle])
 
-
-    //const [buttonAmount, setButtonAmount] = useState<ButtonAmountType[]>([]);
-
-    /*useEffect(() => {
-        forminfo.questions.map((question) => {
-            const allOptions = question.options?.filter((option: any) => {
-                if (questionId === question.id) {
-                    return option
-                }
-            });
-            if (questionId === question.id) {
-                setButtonAmount(allOptions);
-            }
-        });
-    }, [questionId]);*/
-
     // Storing array length to display maxValue of pages.
     questions.map(question => {
         questionNmbrs.push(question.id);  // [1, 2, 3, 4]
@@ -118,7 +113,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
             </article>
             <section className='radio_wrapper'>
                 <section className='radio_component' onClick={() => radioClicked(0)}>
-                    <input type='radio' name='radio'></input>
+                    <input type='radio' name='radio'></input> {/* checked state här*/}
                     <p>{optionText[0]}</p>
                 </section>
                 <section className='radio_component' onClick={() => radioClicked(1)}>
