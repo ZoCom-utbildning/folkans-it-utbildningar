@@ -60,8 +60,8 @@ function FormComponent({ activePersona }: Props) {
 
   // Changes pagenmbrs depending on click.
   //framåt knapp syns inte om du inte svarat på frågan
-  const increaseQuestion = (buttonCheck: boolean) => {
-    if (questionId < questionNmbrs.length && buttonCheck) {
+  const increaseQuestion = (toggle: boolean) => {
+    if (questionId < questionNmbrs.length && toggle) {
       //spara värde/spara över värde
       setQuestionId(questionId + 1);
     }
