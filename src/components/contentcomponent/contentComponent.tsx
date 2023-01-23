@@ -6,7 +6,6 @@ import "./contentcomponent.scss"
 
 type Props = {
     formText: string;
-    formType: string;
     questionId: number;
     decreaseQuestion: () => void;
     increaseQuestion: (toggle: boolean) => void;
@@ -14,7 +13,7 @@ type Props = {
 
 type ResultsType = {
     question: string;
-    buttonId: string;
+    button: string;
 }
 
 function ContentComponent({ formText, questionId, decreaseQuestion, increaseQuestion }: Props) {
@@ -31,7 +30,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
 
     const resultsValue: ResultsType = {
         question: `${questionId}`,
-        buttonId: `${buttonId}`
+        button: `${buttonId}`
         //lägga in poäng här
     }
 
@@ -46,7 +45,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
 
     useEffect(() => {
         if (!resultsArray[questionId - 1]) {
-            const updatedArray: ResultsType[] = [...resultsArray, { question: "", buttonId: "" }];
+            const updatedArray: ResultsType[] = [...resultsArray, { question: "", button: "" }];
             setResultsArray(updatedArray);
             localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
         }
@@ -95,7 +94,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
 
     useEffect(() => {
         if (resultsArray.length > 0 && resultsArray[questionId]) {
-            setSelectedOption(resultsArray[questionId].buttonId)
+            setSelectedOption(resultsArray[questionId].button)
             setButtonCheck(true);
         } else {
             setSelectedOption("")
