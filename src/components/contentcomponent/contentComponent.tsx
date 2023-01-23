@@ -11,7 +11,7 @@ type Props = {
     formType: string;
     questionId: number;
     decreaseQuestion: () => void;
-    increaseQuestion: () => void;
+    increaseQuestion: (toggle: boolean) => void;
 }
 
 type ResultsType = {
@@ -27,6 +27,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
     const [resultsArray, setResultsArray] = useState<ResultsType[]>(JSON.parse(localStorage.getItem("resultsArray")!) || []);
     const [optionText, setOptionText] = useState<string[]>([])
     const [buttonId, setButtonId] = useState<string>("0") //kolla localstorage eller om den är tom
+    const [ buttonCheck, setButtonCheck ] = useState<boolean>(false);
     //const true setTrue state
     const [toggle, setToggle] = useState<boolean>(false)
 
@@ -47,6 +48,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
                 setOptionText(tempText)
             }
         })
+        setButtonCheck(false);
     }, [questionId])
 
     //funktion om localstorage finns (button.id == frågan vi är på)
@@ -83,6 +85,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
     const radioClicked = (number: any) => {
         setButtonId(number)
         setToggle(!toggle)
+        setButtonCheck(true);
         //remove localstorage om den är tom
     }
 
@@ -123,7 +126,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
     useEffect(() => {
         if (resultsArray.length > 0 && resultsArray[questionId]) {
             setSelectedOption(resultsArray[questionId].buttonId)
-            console.log(resultsArray[questionId].buttonId)
+            setButtonCheck(true);
 
             //om resultsArray.buttonId finns läs in questionId+1 finns det så +1 question
             //extra check för att kolla vilken sida vi är på
@@ -160,7 +163,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
             <nav className="quiz_nav">
                 <img src={arrowLeft} alt="" onClick={decreaseQuestion} />
                 <p> {questionId} / {questionNmbrs.length - 1} </p>
-                <img src={arrowRight} alt="" onClick={increaseQuestion} />
+                <img src={arrowRight} alt="" onClick={() => increaseQuestion(buttonCheck)} />
             </nav>
         </section >
     )
