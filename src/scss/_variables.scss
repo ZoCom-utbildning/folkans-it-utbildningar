@@ -1,4 +1,5 @@
 
+$baseline: 1rem; 
 $breakpointDesktop: 820px;
 
 $dark: #1D2025;
@@ -9,7 +10,7 @@ $lightTransparent: #dddddd79;
 
 $borderColor: #ffffff1f;
 $borderStyle: 1px solid $borderColor;
-$borderRadius: 0.5rem;
+$borderRadius: $baseline*.5;
 
 $lightGreen: #86E062;
 $darkGreen: #27860B;
@@ -23,7 +24,6 @@ $gradientGray: radial-gradient(circle, #3d3d3d, #353537, #2d2e31, #25272b, #1d20
 
 $primaryTextColor: #dddddd;
 
-$baseline: 1rem; 
 
 $content-maxWith: calc($baseline*50);
 

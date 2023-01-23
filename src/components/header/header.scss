@@ -17,6 +17,7 @@
     @include flex($direction: column);
     position: fixed;
 
+    // TODO: Shadow
     -webkit-box-shadow: .5rem .5rem 1rem 2rem #0000009f;
     box-shadow: .5rem .5rem 1rem 2rem #0000009f;
     z-index: 4;
@@ -26,10 +27,9 @@
       list-style: none;
       @include flex($direction: column);
       li {
-        margin: 2rem;
-        a {
-          color: rgb(241, 241, 241);
-          font-size: 1.5rem;
+        margin: $margin-large;
+        a { // TODO: Create a class for nav links/text?
+          font-size: $baseline*1.5;
           font-weight: 500;
           text-decoration: none;
           transition: all 0.1s ease-in-out;
@@ -44,7 +44,7 @@
 
 @media screen and (min-width: $breakpointDesktop) {
   .header {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0); // TODO: is this still needed?
     position: fixed;
     transition: 0.4s;
     width: 100%;
@@ -67,11 +67,10 @@
         list-style: none;
 
         li {
-          a {
+          a { // TODO: Create a class for nav links/text?
             display: block;
             width: 100%;
-            color: rgb(241, 241, 241);
-            font-size: 1.5rem;
+            font-size: $baseline*1.5;
             font-weight: 500;
             text-decoration: none;
             transition: all 0.1s ease-in-out;

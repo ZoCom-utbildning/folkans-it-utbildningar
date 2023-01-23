@@ -34,8 +34,8 @@ body {
 
 .formButton {
   padding: $padding-sml $padding-large;
-  border-radius: 2px;
-  border: 0.1rem solid $light;
+  border-radius: $borderRadius;
+  border: 1px solid $light;
   background: $gradient;
   cursor: pointer;
   color: $light;
