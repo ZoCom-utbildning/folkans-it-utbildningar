@@ -26,7 +26,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
 
     const [resultsArray, setResultsArray] = useState<ResultsType[]>(JSON.parse(localStorage.getItem("resultsArray")!) || []);
     const [optionText, setOptionText] = useState<string[]>([])
-    const [buttonId, setButtonId] = useState<string>() //kolla localstorage eller om den är tom
+    const [buttonId, setButtonId] = useState<string>("0") //kolla localstorage eller om den är tom
     //const true setTrue state
     const [toggle, setToggle] = useState<boolean>(false)
 
@@ -121,9 +121,9 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
     const [selectedOption, setSelectedOption] = useState("")
 
     useEffect(() => {
-        if (resultsArray.length > 0) {
-            setSelectedOption(resultsArray[questionId - 1].buttonId)
-            console.log(resultsArray[questionId - 1].buttonId)
+        if (resultsArray.length > 0 && resultsArray[questionId]) {
+            setSelectedOption(resultsArray[questionId].buttonId)
+            console.log(resultsArray[questionId].buttonId)
 
             //om resultsArray.buttonId finns läs in questionId+1 finns det så +1 question
             //extra check för att kolla vilken sida vi är på
