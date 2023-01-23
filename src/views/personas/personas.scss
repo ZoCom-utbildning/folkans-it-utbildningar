@@ -1,0 +1,163 @@
+@import url("../../scss/_variables.scss");
+@import "../../scss/layout.scss";
+
+.personasView-container {
+  width: 100%;
+  background-color: $dark;
+  height: 100vh;
+  display: flex;
+
+  flex-direction: column;
+
+  @include lines;
+  background-color: $dark;
+  .personasView {
+    width: 100%;
+    height: 400%;
+    @include lines;
+    background-color: $dark;
+    .title-h1 {
+      color: $light;
+      font-size: calc($baseline * 2);
+      text-align: center;
+      margin-top: $margin-large * 3;
+    }
+    .personas-main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: $margin-large;
+
+      .personas-card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 2.5rem;
+        margin-bottom: $margin-large;
+        border: 2px solid rgb(54, 54, 54);
+        .personas-card-header {
+          margin-top: 1rem;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          .personas-card-img {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+        .personas-card-title {
+          color: $light;
+          font-size: calc($baseline * 1.5);
+          text-align: center;
+        }
+        .personas-card-text {
+          color: $light;
+          font-size: calc($baseline * 1.2);
+          text-align: left;
+          margin: $margin-sml;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .personasView-container {
+    width: 100%;
+    background-color: $dark;
+    height: 100vh;
+    display: flex;
+    margin-top: 0;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    @include lines;
+    background-color: $dark;
+    .personasView {
+      width: 100%;
+      height: 400%;
+      @include lines;
+      background-color: $dark;
+      .title-h1 {
+        color: $light;
+        font-size: calc($baseline * 2);
+        text-align: center;
+        margin-top: $margin-large * 3;
+      }
+      .personas-main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: $margin-large;
+
+        .personas-card {
+          max-width: 50%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+          gap: $margin-large;
+          border: 2px solid rgb(39, 39, 39);
+          margin: $margin-large;
+          .personas-card-header {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: $margin-sml;
+            .personas-card-img {
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              }
+            }
+          }
+          .personas-card-title {
+            color: $light;
+            font-size: calc($baseline * 1.5);
+            text-align: center;
+          }
+          .personas-card-text {
+            color: $light;
+            font-size: calc($baseline * 1.2);
+          }
+        }
+      }
+    }
+  }
+} ;
