@@ -30,12 +30,15 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
     //const true setTrue state
     const [toggle, setToggle] = useState<boolean>(false)
 
+
+
+    
     const resultsValue: ResultsType = {
         question: `${questionId}`,
         buttonId: `${buttonId}`
         //lägga in poäng här
     }
-
+    
     useEffect(() => {
         questions.map(question => {
             if (questionId === question.id) {
@@ -47,41 +50,42 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
             }
         })
     }, [questionId])
-
+    
     //funktion om localstorage finns (button.id == frågan vi är på)
     useEffect(() => {
         const answers = JSON.parse(localStorage.getItem("resultsArray")!)
-        const allAnswers = answers.map((answer: { buttonId: any; }) => {
-            return answer.buttonId
-        })
-
-        console.log(allAnswers)
-        if (answers[questionId - 1].question.includes(questionId)) {
-            console.log(allAnswers[questionId - 1].buttonId)
-            setButtonId(allAnswers[questionId - 1].buttonId)
-            //setTrue kolla om radio är ifylld istället för att skicka nummer
-        }
-
-        //beroende på question så ska button id stämma
-
-        //if answer = questionId
-        //hämta localstorage
-        //jämför question id
-        //returnera localstorage
-        //skicka till variabel skicka till state setButtonId
-    }, [])
-
-    //const [answer, setAnswer] = useState(localstorage || number)
-
-    const radioClicked = (number: any) => {
-        setButtonId(number)
-        setToggle(!toggle)
+        //const allAnswers = answers.map((answer: { buttonId: any; }) => {
+            //return answer.buttonId
+            //})
+            
+            //* console.log(allAnswers)
+            //if (answers[questionId - 1].question.includes(questionId)) {
+                //console.log(allAnswers[questionId - 1].buttonId)
+                //setButtonId(allAnswers[questionId - 1].buttonId)
+                //setTrue kolla om radio är ifylld istället för att skicka nummer
+                //}
+                
+                //beroende på question så ska button id stämma
+                
+                //if answer = questionId
+                //hämta localstorage
+                //jämför question id
+                //returnera localstorage
+                //skicka till variabel skicka till state setButtonId
+            }, [])
+            
+            //const [answer, setAnswer] = useState(localstorage || number)
+            
+            const radioClicked = (number: any) => {
+                setButtonId(number)
+                setToggle(!toggle)
     }
 
+    
     useEffect(() => {
         if (toggle) {
             const index = resultsArray.findIndex(obj => obj.question === resultsValue.question);
-
+            
             if (index === -1) {
                 // lägg till nytt objekt
                 const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
@@ -100,12 +104,21 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
             setToggle(!toggle)
         }
     }, [buttonId, toggle])
-
+    
     // Storing array length to display maxValue of pages.
     questions.map(question => {
         questionNmbrs.push(question.id);  // [1, 2, 3, 4]
     });
-
+    
+    
+    const [selectedOption, setSelectedOption] = useState(localStorage.getItem("selectedOption") || "")
+    //funktion eller useEffect här för att jämföra vilken sida man är på och ladda buttonId beroende på i selectedOption
+    
+    const handleOption = (event: any) => {
+        setSelectedOption(event.target.value);
+        localStorage.setItem("selectedOption", event.target.value);
+    }
+    
     return (
         <section className="quiz_section">
             <article className="form_question">
@@ -113,15 +126,15 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
             </article>
             <section className='radio_wrapper'>
                 <section className='radio_component' onClick={() => radioClicked(0)}>
-                    <input type='radio' name='radio'></input> {/* checked state här*/}
+                    <input type='radio' name='radio' value="option1" checked={selectedOption === "option1"} onChange={handleOption}></input> {/* checked state här*/}
                     <p>{optionText[0]}</p>
                 </section>
                 <section className='radio_component' onClick={() => radioClicked(1)}>
-                    <input type='radio' name='radio'></input>
+                    <input type='radio' name='radio' value="option2" checked={selectedOption === "option2"} onChange={handleOption}></input>
                     <p>{optionText[1]}</p>
                 </section>
                 <section className='radio_component' onClick={() => radioClicked(2)}>
-                    <input type='radio' name='radio'></input>
+                    <input type='radio' name='radio' value="option3" checked={selectedOption === "option3"} onChange={handleOption}></input>
                     <p>{optionText[2]}</p>
                 </section>
             </section>
