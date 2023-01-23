@@ -31,6 +31,7 @@
     margin-left: 12.5%;
 }
 
+// Might need to add 'position: relative;' to child elements.
 @mixin lines {
     position: relative;
     & * { z-index: 2; }

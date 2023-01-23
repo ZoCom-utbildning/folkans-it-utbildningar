@@ -3,7 +3,6 @@
 @import "../../scss/motion";
 
 .aboutView {
-    @include lines;
     @include maxSize;
     @include flex($justify: none, $align: none, $direction: column);
     background-color: $dark;
