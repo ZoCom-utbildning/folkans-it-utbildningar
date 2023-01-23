@@ -53,7 +53,7 @@ function PersonaContent({ activePersona }: Props) {
           return (
             <div key={persona.id}>
               <header className="persona-header">
-                <h1 className="persona-title">{persona.personaTitle}</h1>
+                <h2 className="persona-title">{persona.personaTitle}</h2>
               </header>
               <main className="persona-text-container">
                 <p className="persona-ingress">{persona.personaIngress}</p>
