@@ -48,11 +48,49 @@
             "text": "Hur gammal är du?",
             "img": "./src/assets/photos/happyGuy.png",
             "alt": "happy guy",
-            "type": "range",
+            "type": "radio",
             "options": [
                 {
+                    "id": 1,
+                    "value": [
+                        {
+                            "course": "frontend",
+                            "points": 1
+                        },
+                        {
+                            "course": "backend",
+                            "points": 1
+                        }
+                    ],
+                    "text": "Det här svaret ger 1 poäng."
+                },
+                {
                     "id": 2,
-                    "text": ""
+                    "value": [
+                        {
+                            "course": "frontend",
+                            "points": 2
+                        },
+                        {
+                            "course": "backend",
+                            "points": 2
+                        }
+                    ],
+                    "text": "Det här svaret ger 2 poäng."
+                },
+                {
+                    "id": 3,
+                    "value": [
+                        {
+                            "course": "frontend",
+                            "points": 3
+                        },
+                        {
+                            "course": "backend",
+                            "points": 3
+                        }
+                    ],
+                    "text": "Det här svaret ger 3 poäng."
                 }
             ]
         },
@@ -68,20 +106,42 @@
                     "value": [
                         {
                             "course": "frontend",
-                            "points": 3
+                            "points": 1
+                        },
+                        {
+                            "course": "backend",
+                            "points": 1
                         }
                     ],
-                    "text": "Ja"
+                    "text": "Det här svaret ger 1 poäng."
                 },
                 {
                     "id": 2,
                     "value": [
                         {
+                            "course": "frontend",
+                            "points": 2
+                        },
+                        {
                             "course": "backend",
-                            "points": 5
+                            "points": 2
                         }
                     ],
-                    "text": "Nej"
+                    "text": "Det här svaret ger 2 poäng."
+                },
+                {
+                    "id": 3,
+                    "value": [
+                        {
+                            "course": "frontend",
+                            "points": 3
+                        },
+                        {
+                            "course": "backend",
+                            "points": 3
+                        }
+                    ],
+                    "text": "Det här svaret ger 3 poäng."
                 }
             ]
         },
@@ -90,11 +150,49 @@
             "text": "Vilken är din favorit siffra?",
             "img": "./src/assets/photos/threeFriends.png",
             "alt": "three friends",
-            "type": "range",
+            "type": "radio",
             "options": [
                 {
-                    "id": 4,
-                    "text": ""
+                    "id": 1,
+                    "value": [
+                        {
+                            "course": "frontend",
+                            "points": 1
+                        },
+                        {
+                            "course": "backend",
+                            "points": 1
+                        }
+                    ],
+                    "text": "Det här svaret ger 1 poäng."
+                },
+                {
+                    "id": 2,
+                    "value": [
+                        {
+                            "course": "frontend",
+                            "points": 2
+                        },
+                        {
+                            "course": "backend",
+                            "points": 2
+                        }
+                    ],
+                    "text": "Det här svaret ger 2 poäng."
+                },
+                {
+                    "id": 3,
+                    "value": [
+                        {
+                            "course": "frontend",
+                            "points": 3
+                        },
+                        {
+                            "course": "backend",
+                            "points": 3
+                        }
+                    ],
+                    "text": "Det här svaret ger 3 poäng."
                 }
             ]
         },
