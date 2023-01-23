@@ -1,3 +1,5 @@
+//import RangeSlider from '../../components/range/Rangeslider';
+//import RadioButton from '../../components/radiobutton/Radiobutton';
 import arrowLeft from '../../assets/icons/arrowLeft.svg';
 import arrowRight from '../../assets/icons/arrowRight.svg';
 import forminfo from '../../../forminfo.json';
@@ -24,9 +26,11 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
 
     const [resultsArray, setResultsArray] = useState<ResultsType[]>(JSON.parse(localStorage.getItem("resultsArray")!) || []);
     const [optionText, setOptionText] = useState<string[]>([])
-    const [selectedOption, setSelectedOption] = useState("")
-    const [buttonId, setButtonId] = useState<string>("0")
+    const [buttonId, setButtonId] = useState<string>("0") //kolla localstorage eller om den är tom
+    const [ buttonCheck, setButtonCheck ] = useState<boolean>(false);
+    //const true setTrue state
     const [toggle, setToggle] = useState<boolean>(false)
+
 
     const resultsValue: ResultsType = {
         question: `${questionId}`,
@@ -34,7 +38,6 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
         //lägga in poäng här
     }
 
-    //mappa ut text vid sidbyte och återställ toggle state
     useEffect(() => {
         questions.map(question => {
             if (questionId === question.id) {
@@ -45,21 +48,44 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
                 setOptionText(tempText)
             }
         })
-        setToggle(false);
+        setButtonCheck(false);
     }, [questionId])
 
     //funktion om localstorage finns (button.id == frågan vi är på)
     useEffect(() => {
+        //const answers = JSON.parse(localStorage.getItem("resultsArray")!)
+
         if (!resultsArray[questionId - 1]) {
-            const updatedArray: ResultsType[] = [...resultsArray, { question: "", buttonId: "" }];
+            const updatedArray: ResultsType[] = [...resultsArray, {question: "", buttonId: ""}];
             setResultsArray(updatedArray);
             localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
         }
+        //const allAnswers = answers.map((answer: { buttonId: any; }) => {
+        //return answer.buttonId
+        //})
+
+        //* console.log(allAnswers)
+        //if (answers[questionId - 1].question.includes(questionId)) {
+        //console.log(allAnswers[questionId - 1].buttonId)
+        //setButtonId(allAnswers[questionId - 1].buttonId)
+        //setTrue kolla om radio är ifylld istället för att skicka nummer
+        //}
+
+        //beroende på question så ska button id stämma
+
+        //if answer = questionId
+        //hämta localstorage
+        //jämför question id
+        //returnera localstorage
+        //skicka till variabel skicka till state setButtonId
     }, [])
+
+    //const [answer, setAnswer] = useState(localstorage || number)
 
     const radioClicked = (number: any) => {
         setButtonId(number)
         setToggle(!toggle)
+        setButtonCheck(true);
         //remove localstorage om den är tom
     }
 
@@ -82,6 +108,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
                 setResultsArray(updatedArray);
                 localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
             }
+            setToggle(!toggle)
         }
     }, [buttonId, toggle])
 
@@ -90,14 +117,25 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
         questionNmbrs.push(question.id);  // [1, 2, 3, 4]
     });
 
+
+    //console.log(answers[questionId - 1].buttonId)
+    //const answers = JSON.parse(localStorage.getItem("resultsArray")!)
+
+    const [selectedOption, setSelectedOption] = useState("")
+
     useEffect(() => {
         if (resultsArray.length > 0 && resultsArray[questionId]) {
             setSelectedOption(resultsArray[questionId].buttonId)
-            setToggle(true)
+            setButtonCheck(true);
+
+            //om resultsArray.buttonId finns läs in questionId+1 finns det så +1 question
+            //extra check för att kolla vilken sida vi är på
         } else {
             setSelectedOption("")
         }
     }, [questionId])
+    //console.log(questionId)
+    //console.log(buttonId)
 
     const handleOption = (event: any) => {
         setSelectedOption(event.target.value);
@@ -125,7 +163,7 @@ function ContentComponent({ formText, formType, questionId, decreaseQuestion, in
             <nav className="quiz_nav">
                 <img src={arrowLeft} alt="" onClick={decreaseQuestion} />
                 <p> {questionId} / {questionNmbrs.length - 1} </p>
-                <img src={arrowRight} alt="" onClick={() => increaseQuestion(toggle)} />
+                <img src={arrowRight} alt="" onClick={() => increaseQuestion(buttonCheck)} />
             </nav>
         </section >
     )
