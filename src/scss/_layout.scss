@@ -39,23 +39,23 @@
     &::before {
         content: "";
         position: absolute;
-        width: calc(100% - 3.2rem);
+        width: calc(100% - $baseline*2.2);
         height: 100%;
         top: 0;
-        left: 1.5rem;
-        border-left: 0.1rem solid $borderColor;
-        border-right: 0.1rem solid $borderColor;
+        left: $baseline;
+        border-left: 1px solid $borderColor;
+        border-right: 1px solid $borderColor;
         z-index: 1;
     }
     &::after {
         content: "";
         position: absolute;
         width: 100%;
-        height: calc(100% - 3.2rem);
-        top: 1.5rem;
+        height: calc(100% - $baseline*2.2);
+        top: $baseline;
         left: 0;
-        border-top: 0.1rem solid $borderColor;
-        border-bottom: 0.1rem solid $borderColor;
+        border-top: 1px solid $borderColor;
+        border-bottom: 1px solid $borderColor;
         z-index: 1;
     }
 }
