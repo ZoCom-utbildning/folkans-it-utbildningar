@@ -28,9 +28,12 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
     const [buttonCheck, setButtonCheck] = useState<boolean>(false)
     const [toggle, setToggle] = useState<boolean>(false)
 
+    const [pointsId, setPointsId] = useState<number>("")
+
     const resultsValue: ResultsType = {
         question: `${questionId}`,
-        button: `${buttonId}`
+        button: `${buttonId}`,
+        points: `${pointsId}`
         //lägga in poäng här
     }
 
@@ -63,6 +66,22 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
         })
         setButtonCheck(false);
     }, [questionId])
+
+    useEffect(() => {
+        questions.map(question => {
+            if (questionId === question.id) {
+                const tempPoints: SetStateAction<number[]> = []
+                question.options.map(option => {
+                    if (option.id.toString() === buttonId) {
+                        option.value.map((value, index) => {
+                            tempPoints.push(value.points)
+                        })
+                    }
+                })
+                setPointsId(tempPoints)
+            }
+        })
+    }, [buttonId])
 
     const radioClicked = (number: any) => {
         setButtonId(number)
