@@ -3,7 +3,6 @@
 
 .range_component {
     @include flex($justify: flex-start, $direction: column);
-    @include radioMargin;
     width: 75%;
     gap: 2rem;
 

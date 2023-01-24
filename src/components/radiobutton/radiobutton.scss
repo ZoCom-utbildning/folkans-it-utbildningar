@@ -4,7 +4,6 @@
 .radio_quiz {
 
     @include flex($justify: flex-start);
-    @include radioMargin;
     background-color: rgb(255, 255, 255, .03);
     width: 75%;
     border-radius: $borderRadius;
@@ -28,7 +27,6 @@
 
     @include flex($justify: flex-start);
     background-color: rgb(255, 255, 255, .16);
-    @include radioMargin;
     width: 75%;
     border-radius: $borderRadius;
     cursor: pointer;
