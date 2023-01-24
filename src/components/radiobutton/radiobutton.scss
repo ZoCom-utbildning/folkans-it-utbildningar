@@ -10,11 +10,11 @@
     cursor: pointer;
 
     img {
-        width: 2.5rem;
+        width: calc($baseline*2.5);
     }
 
     p {
-        width: calc(100% - 5rem);
+        width: calc(100% - ($baseline*5));
         text-align: center;
     }
 
@@ -32,11 +32,11 @@
     cursor: pointer;
 
     img {
-        width: 2.5rem;
+        width: calc($baseline*2.5);
     }
 
     p {
-        width: calc(100% - 5rem);
+        width: calc(100% - ($baseline*5));
         text-align: center;
     }
 }

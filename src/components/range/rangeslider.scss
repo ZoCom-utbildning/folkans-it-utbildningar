@@ -4,7 +4,7 @@
 .range_component {
     @include flex($justify: flex-start, $direction: column);
     width: 75%;
-    gap: 2rem;
+    gap: $margin-large;
 
     .range {
         -webkit-appearance: none;
@@ -20,8 +20,8 @@
         &::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 34px;
-            height: 34px;
+            width: calc($baseline*2);
+            height: calc($baseline*2);
             background-image: url(../../assets/icons/hexagonRange.svg);
             background-repeat: no-repeat;
             cursor: pointer;

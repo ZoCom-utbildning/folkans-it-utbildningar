@@ -1,5 +1,6 @@
 
 $baseline: 1rem; 
+$content-maxWith: calc($baseline*50);
 $breakpointDesktop: 820px;
 $primaryTextColor: #dddddd;
 
@@ -25,7 +26,6 @@ $gradientGray: radial-gradient(circle, #3d3d3d, #353537, #2d2e31, #25272b, #1d20
 
 
 
-$content-maxWith: calc($baseline*50);
 
 $margin: $baseline;
 $margin-sml: calc($baseline / 2);

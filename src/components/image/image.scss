@@ -5,7 +5,7 @@
   @include flex();
   position: relative;
   width: 80%;
-  max-height: 17.5rem;
+  max-height: calc($baseline*17.5);
   margin: $margin-large auto;
   border-radius: $borderRadius;
   overflow: hidden;

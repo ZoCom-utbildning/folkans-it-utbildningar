@@ -3,12 +3,12 @@
 
 .persona-content {
   max-width: 100%;
-  padding: 2rem;
+  padding: $padding;
   @include flex($align: none, $direction: column);
-  gap: 1rem;
+  gap: 1rem; // TODO: Is this unused?
   .persona-text-container {
     @include flex($align: none, $direction: column);
-    gap: 4rem;
+    gap: $margin;
   }
 }
 @media screen and (min-width: $breakpointDesktop) {
@@ -18,13 +18,13 @@
   }
   .persona-content {
     max-width: 50%;
-    padding: 4rem;
+    padding: $padding-large;
     @include flex($align: flex-start, $direction: column);
-    gap: 4rem;
+    gap: 4rem; // TODO: Is this unused?
 
     .persona-text-container {
       @include flex($justify: none, $align: none, $direction: column);
-      gap: 6rem;
+      gap: $margin-large; 
     }
   }
 }

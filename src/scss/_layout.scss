@@ -1,12 +1,6 @@
 @import "./variables";
 
-.viewWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-// Ersätta .viewWrapper med denna?
 @mixin flex($display: flex, $justify: center, $align: center, $direction: row, $wrap: nowrap) {
     display: $display;
     justify-content: $justify;
