@@ -73,17 +73,20 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
             if (questionId === question.id) {
                 const tempPoints: SetStateAction<string[]> = []
                 question.options.map(option => {
-                    if (option.id.toString() == buttonId + 1) {
+                    if (option.id == Number(buttonId) + 1) {
                         option.value.map((value) => {
                             tempPoints.push(`${value.points}`);
+                            console.log(tempPoints)
                         })
                     }
                 })
-                console.log(tempPoints)
-                setPointsId(tempPoints)
+                if (tempPoints.length > 0) {
+                    setPointsId(tempPoints)
+                }
             }
         })
     }, [buttonId])
+
     
     const radioClicked = (number: any) => {
         setButtonId(number)
