@@ -1,6 +1,22 @@
 import "./personas.scss";
+import anime from "animejs";
 
 function Personas() {
+  function animateCards() {
+    // animera korten i typ en "pariserhjul-aktig effekt?" där dem i bakgrunde krymper och den aktiva
+    // växer i storlek och flyttar sig framåt.
+  }
+
+  window.onscroll = function () {
+    scrollFunction();
+  };
+  function scrollFunction() {
+    if (window.scrollY > 100) {
+      animateCards();
+    } else {
+    }
+  }
+
   return (
     <div className="personasView-container">
       <section className="personasView">
