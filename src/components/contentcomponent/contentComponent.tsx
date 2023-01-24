@@ -83,8 +83,6 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
             }
         })
     }, [buttonId])
-
-
     
     const radioClicked = (number: any) => {
         setButtonId(number)
