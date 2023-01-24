@@ -26,12 +26,12 @@
     }
 }
 
-.radio_quiz {
+.radio_component {
 
     @include flex($justify: flex-start);
-    @include radioMargin;
+    margin: 0.5rem auto;
+    width: 80%;
     background-color: rgb(255, 255, 255, .03);
-    width: 75%;
     border-radius: $borderRadius;
     cursor: pointer;
 
