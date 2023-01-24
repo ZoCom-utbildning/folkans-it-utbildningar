@@ -21,7 +21,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #9f9f9f;
+  background-color: $gray;
   background-blend-mode: multiply;
   background-size: cover;
   background-image: linear-gradient(
@@ -32,52 +32,11 @@ body {
     linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image; //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
-// (ingress) unsure if this should be here or somewhere else
-.introText {
-  font-family: "Roboto Mono";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 190%;
-  color: $light;
-}
-
-input,
-textarea {
-  font-family: "Roboto Mono";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  color: $light;
-}
-
 .formButton {
-  padding: 0.5rem 1.5rem;
-  border-radius: 3rem;
-  border: 0.1rem solid $light;
+  padding: $padding-sml $padding-large;
+  border-radius: $borderRadius;
+  border: 1px solid $light;
   background: $gradient;
   cursor: pointer;
-
-  /* .introText */
-  font-family: "Roboto Mono";
-  font-style: normal;
-  font-weight: 500;
-  //font-size: 18px;
-  line-height: 190%;
   color: $light;
 }
-/*
-@media (min-width: $breakpointDesktop) {
-  h1 {
-    font-size: 60px;
-  }
-
-  h2 {
-    font-size: 40px;
-  }
-
-  h3 {
-    font-size: 27px;
-  }
-}
-*/

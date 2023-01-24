@@ -5,6 +5,8 @@
 .aboutView {
     @include maxSize;
     @include flex($justify: none, $align: none, $direction: column);
+    @include lines;
+    &* { position: relative; }
     background-color: $dark;
     
     main {
