@@ -1,10 +1,11 @@
-import './resultsComponent.scss';
 import TestButton from "../testbutton/testButton";
+import './resultsComponent.scss';
 
 const ResultsComponent = () => {
 
     const points = 8;
-    const courseResult = 'frontend-utvecklare!';
+    const courseResult = 'frontend-utvecklare!'
+    const coursePercentage = '99%'
     //const localValues = load.localstorage()
 
     //funktion för att räkna ut svar/summa
@@ -14,13 +15,23 @@ const ResultsComponent = () => {
     return (
         <div className="results_wrapper">
             <section className="results_section">
-                <h3>Ditt test resultat blev: </h3>
-                <p> {courseResult} </p>
-                <p>länkar till utbildningen</p>
-                < TestButton buttonText={'ta testet igen'} /> {/** rensa localstorage här? */}
+                <h2>Ditt test resultat blev: </h2>
+                <ul className="results_list">
+                    <li className='results_item'>
+                        1 {courseResult}{coursePercentage}
+                    </li>
+                    <li className='results_item'>
+                        2 {courseResult}
+                    </li>
+                    <li className='results_item'>
+                        3 {courseResult}
+                    </li>
+                </ul>
+                <TestButton buttonText={'ansök här'} />
+                <TestButton buttonText={'ta testet igen'} />
             </section>
             <section className="results_points">
-                <h3>Alternativa utbildningar </h3>
+                <h2>Alternativa utbildningar </h2>
                 <p>Länkar till utbildningarna: </p>
                 <li>
                     <span>{points}P: <a href="" className="form_link">Frontend-utvecklare</a></span>

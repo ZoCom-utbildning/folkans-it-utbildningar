@@ -2,7 +2,7 @@
 @import "../../scss/variables.scss";
 
 .results_wrapper {
-    
+
     @include flex($direction: column);
 
     h3 {
@@ -10,10 +10,9 @@
     }
 
     .results_section {
-
         text-align: center;
         @include flex($direction: column);
-        margin-top: 4rem;
+        margin-top: calc($margin-large * 2);
 
         button {
             width: 9rem;
@@ -23,9 +22,19 @@
         }
 
         p {
-            margin-top: 1rem;
+            margin-top: $margin;
         }
 
+        .results_list {
+            list-style: none;
+            margin: $margin;
+
+            .results_item {
+                margin: $margin;
+                padding: $padding;
+                border: 2px solid grey;
+            }
+        }
     }
 
     .results_points {
@@ -33,55 +42,46 @@
         @include flex($direction: column, $justify: space-evenly);
 
         p {
-            margin-top: 1.5rem;
+            margin-top: calc($margin * 1.5);
         }
 
         li {
-
             @include flex($direction: column, $justify: space-evenly);
 
             span {
-                margin-top: 1.5rem;
+                margin-top: calc($margin * 1.5);
                 color: $light;
 
                 .form_link {
-
                     text-decoration: none;
-                    margin-left: .5rem;
+                    margin-left: $margin-sml;
 
-                  &:hover {
-                    color: $lightBlue;
-                  }
-                  
-
+                    &:hover {
+                        color: $lightBlue;
+                    }
                 }
-
-
             }
-
         }
     }
-
 }
-
 
 @media screen and (min-width: $breakpointDesktop) {
     .results_wrapper {
         z-index: 3;
         min-height: 25rem;
         @include flex();
-    
+
         .results_section {
             width: 50%;
-    
+            margin: calc($margin-large * 2) calc($margin * 1.5);
+
             .results_text {
                 text-align: center;
                 @include flex($direction: column, $justify: space-evenly, $align: center);
-    
+
                 h3 {
-                    margin-bottom: 1rem;
+                    margin-bottom: $margin;
                 }
-    
             }
 
             button {
@@ -89,24 +89,20 @@
                 height: 2.5rem;
                 font-size: 1rem;
             }
-
         }
-    
+
         .results_points {
             text-align: center;
             @include flex($direction: column, $justify: space-evenly);
             width: 50%;
-    
+
             li {
-    
                 @include flex($direction: column, $justify: space-evenly);
-    
+
                 span {
-                    margin-top: 1rem;
+                    margin-top: $margin;
                 }
-    
             }
         }
-    
     }
 }

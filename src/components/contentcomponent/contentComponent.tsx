@@ -123,7 +123,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
             <nav className="quiz_nav">
                 <img src={arrowLeft} alt="" onClick={decreaseQuestion} />
                 <p> {questionId} / {questionNmbrs.length - 1} </p>
-                <img src={arrowRight} alt="" onClick={() => increaseQuestion(buttonCheck)} />
+                <img className={`transparent_${buttonCheck ? "false" : "true"}`} src={arrowRight} alt="" onClick={() => increaseQuestion(buttonCheck)} />
             </nav>
         </section >
     )
