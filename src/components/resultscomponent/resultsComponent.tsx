@@ -8,6 +8,26 @@ const ResultsComponent = () => {
     const coursePercentage = '99%'
     //const localValues = load.localstorage()
 
+    /*
+
+const loadResults = JSON.parse(localStorage.getItem("resultsArray")!);
+
+const allResults = loadResults.map((result: any) => {
+    return result.points
+})
+
+const frontend = allResults.map((result: any) => {
+    return result[0];
+})
+
+const hej = frontend.reduce((current: number, prev: number, index: number) => {
+    if (index !== 0) {
+        return Number(prev) + Number(current);
+    }
+})
+console.log(hej);
+*/
+
     //funktion för att räkna ut svar/summa
 
     //mappa ut data för utbildning + länk till utbildning

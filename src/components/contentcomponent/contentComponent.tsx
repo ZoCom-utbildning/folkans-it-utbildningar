@@ -79,6 +79,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
                         })
                     }
                 })
+                console.log(tempPoints)
                 setPointsId(tempPoints)
             }
         })
