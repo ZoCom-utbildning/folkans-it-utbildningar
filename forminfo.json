@@ -2,7 +2,7 @@
     "questions": [
         {
             "id": 1,
-            "text": "Vilket är ditt favorit operativsystem?",
+            "text": "Vad är viktigast för dig när du fyller en diskmaskin?",
             "img": "./src/assets/photos/gadgets.png",
             "alt": "gadgets",
             "type": "radio",
@@ -11,54 +11,172 @@
                     "id": 1,
                     "value": [
                         {
-                            "course": "frontend",
+                            "course": "FE Karlstad",
                             "points": 5
                         },
                         {
-                            "course": "backend",
-                            "points": 3
+                            "course": "FE Distans",
+                            "points": 5
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 1
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 2
                         }
                     ],
-                    "text": "Windows"
+                    "text": "Att jag kan sätta igång den så att jag känner att jag är klar med uppgiften att fylla den."
                 },
                 {
                     "id": 2,
                     "value": [
                         {
-                            "course": "backend",
+                            "course": "FE Karlstad",
                             "points": 5
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 5
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 1
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 2
                         }
                     ],
-                    "text": "Mac"
+                    "text": "Att jag ställer in allt på ett bra sätt så att det blir rent."
                 },
                 {
                     "id": 3,
                     "value": [
                         {
-                            "course": "frontend",
+                            "course": "FE Karlstad",
+                            "points": 5
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 5
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mobilapp",
                             "points": 1
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 2
                         }
                     ],
-                    "text": "Linux"
+                    "text": "Att jag får plats med så mycket som möjligt."
                 }
             ]
         },
         {
             "id": 2,
-            "text": "Hur gammal är du?",
+            "text": "Vad är viktigast för dig när du använder en produkt?",
             "img": "./src/assets/photos/happyGuy.png",
             "alt": "happy guy",
-            "type": "range",
+            "type": "radio",
             "options": [
                 {
+                    "id": 1,
+                    "value": [
+                        {
+                            "course": "FE Karlstad",
+                            "points": 2
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 2
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 2
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 2
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 2
+                        }
+                    ],
+                    "text": "Att den fungerar."
+                },
+                {
                     "id": 2,
-                    "text": ""
+                    "value": [
+                        {
+                            "course": "FE Karlstad",
+                            "points": 0
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 0
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 2
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 2
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 3
+                        }
+                    ],
+                    "text": "Att den är snyggt designad."
+                },
+                {
+                    "id": 3,
+                    "value": [
+                        {
+                            "course": "FE Karlstad",
+                            "points": 5
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 5
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 2
+                        }
+                    ],
+                    "text": "Att den är lätt att använda."
                 }
             ]
         },
         {
             "id": 3,
-            "text": "Har du något husdjur?",
+            "text": "När du studerar, vad värdesätter du mest av nedanstående alternativ?",
             "img": "./src/assets/photos/manComputer.png",
             "alt": "man computer",
             "type": "radio",
@@ -67,40 +185,172 @@
                     "id": 1,
                     "value": [
                         {
-                            "course": "frontend",
-                            "points": 3
+                            "course": "FE Karlstad",
+                            "points": 2
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 2
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 5
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 0
                         }
                     ],
-                    "text": "Ja"
+                    "text": "Struktur och tydlighet så att jag alltid känner att jag har koll och vet vad som förväntas av mig."
                 },
                 {
                     "id": 2,
                     "value": [
                         {
-                            "course": "backend",
-                            "points": 5
+                            "course": "FE Karlstad",
+                            "points": 0
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 1
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 4
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 4
                         }
                     ],
-                    "text": "Nej"
+                    "text": "Att jag får stor frihet i att organisera mina studier utifrån min livssituation."
+                },
+                {
+                    "id": 3,
+                    "value": [
+                        {
+                            "course": "FE Karlstad",
+                            "points": 3
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 3
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 3
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 0
+                        }
+                    ],
+                    "text": "Att jag får plats med så mycket som möjligt."
                 }
             ]
         },
         {
             "id": 4,
-            "text": "Vilken är din favorit siffra?",
+            "text": "När du lär dig något, vill du helst lära dig lite om mycket, eller mycket om lite?",
             "img": "./src/assets/photos/threeFriends.png",
             "alt": "three friends",
-            "type": "range",
+            "type": "radio",
             "options": [
                 {
-                    "id": 4,
-                    "text": ""
+                    "id": 1,
+                    "value": [
+                        {
+                            "course": "FE Karlstad",
+                            "points": 0
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 0
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 4
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 5
+                        }
+                    ],
+                    "text": "Lite om mycket - bredd är viktigare än spets."
+                },
+                {
+                    "id": 2,
+                    "value": [
+                        {
+                            "course": "FE Karlstad",
+                            "points": 5
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 5
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 3
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 0
+                        }
+                    ],
+                    "text": "Mycket om lite - spets är viktigare än bredd."
+                },
+                {
+                    "id": 3,
+                    "value": [
+                        {
+                            "course": "FE Karlstad",
+                            "points": 3
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 3
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 3
+                        }
+                    ],
+                    "text": "Det spelar ingen roll egentligen, bara jag får lära mig nya saker."
                 }
             ]
         },
         {
             "id": 5,
-            "text": "Här kommer en fråga du inte kan svara på, eller?",
+            "text": "Vilket av nedanstående alternativ känns mest rätt för dig, givet att vi pratar om programmering?",
             "img": "./src/assets/photos/gadgets.png",
             "alt": "gadgets",
             "type": "radio",
@@ -109,43 +359,79 @@
                     "id": 1,
                     "value": [
                         {
-                            "course": "frontend",
-                            "points": 1
+                            "course": "FE Karlstad",
+                            "points": 3
                         },
                         {
-                            "course": "backend",
+                            "course": "FE Distans",
+                            "points": 3
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 3
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 0
+                        },
+                        {
+                            "course": "Mjukvaruutv",
                             "points": 1
                         }
                     ],
-                    "text": "Det här svaret ger 1 poäng."
+                    "text": "Designen är minst lika viktig som koden."
                 },
                 {
                     "id": 2,
                     "value": [
                         {
-                            "course": "frontend",
+                            "course": "FE Karlstad",
+                            "points": 0
+                        },
+                        {
+                            "course": "FE Distans",
+                            "points": 0
+                        },
+                        {
+                            "course": "JS Distans",
                             "points": 2
                         },
                         {
-                            "course": "backend",
+                            "course": "Mobilapp",
                             "points": 2
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 3
                         }
                     ],
-                    "text": "Det här svaret ger 2 poäng."
+                    "text": "Koden är mycket viktigare än designen, det är det som är riktig mjukvaruutveckling."
                 },
                 {
                     "id": 3,
                     "value": [
                         {
-                            "course": "frontend",
-                            "points": 3
+                            "course": "FE Karlstad",
+                            "points": 0
                         },
                         {
-                            "course": "backend",
-                            "points": 3
+                            "course": "FE Distans",
+                            "points": 0
+                        },
+                        {
+                            "course": "JS Distans",
+                            "points": 2
+                        },
+                        {
+                            "course": "Mobilapp",
+                            "points": 5
+                        },
+                        {
+                            "course": "Mjukvaruutv",
+                            "points": 5
                         }
                     ],
-                    "text": "Det här svaret ger 3 poäng."
+                    "text": "Jag tycker att design och kod är lika viktiga för att skapa en bra produkt."
                 }
             ]
         },

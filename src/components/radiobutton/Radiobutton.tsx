@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import hexagonEmpty from '../../assets/icons/hexagonEmpty.svg';
 import hexagonFilled from '../../assets/icons/hexagonFilled.svg';
-import './radioButton.scss';
+//import './radioButton.scss';
 
-
+/*
 type Props = {
     optionText: string;
     id: number;
@@ -20,46 +20,29 @@ function RadioButton({ optionText, id, questionId }: Props) {
     const [radio, setRadio] = useState<boolean>(false);
     const [resultsArray, setResultsArray] = useState<ResultsType[]>(JSON.parse(localStorage.getItem("resultsArray")!) || []);
 
-
     const resultsValue: ResultsType = {
         question: `${questionId}`,
         button: `${id}`
+        //lägga in poäng här
     }
 
+    //funktion om localstorage finns (button.id == frågan vi är på)
+    //kör funktion radioClicked() enbart toggle/radio inte localstorage delen
 
     //fixa funktion så att enbart en knapp kan vara aktiv
 
     const radioClicked = () => {
         setToggle(!toggle);
         setRadio(!radio);
-
-        if (!toggle) {
-            questionStorage();
-        }
-    }
-
-    const questionStorage = () => {
+        //om id finns = push resultsValue -> resultsArray
+        //annars byt ut (questionId) resultsValue i resultsArray
         const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
-        const index = resultsArray.findIndex(obj => obj.question === resultsValue.question);
-
-        if (index === -1) {
-            // lägg till nytt objekt
-            const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
-            setResultsArray(updatedArray);
-            localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
-        } else {
-            // uppdatera arrayen med nytt objekt-värde
-            const updatedArray = [
-                ...resultsArray.slice(0, index),
-                resultsValue,
-                ...resultsArray.slice(index + 1)
-            ];
-            setResultsArray(updatedArray);
-            localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
-        }
-
+        setResultsArray(updatedArray);
+        localStorage.setItem("resultsArray", JSON.stringify(updatedArray)) //ta array state här?
+        //sätt enbart localstorage om toggle är falskt!
     }
 
+    console.log(resultsArray)
 
     return (
         <section className='radio_component'>
@@ -71,4 +54,4 @@ function RadioButton({ optionText, id, questionId }: Props) {
     )
 }
 
-export default RadioButton
+export default RadioButton*/

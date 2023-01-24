@@ -1,8 +1,10 @@
-import FormComponent from "../../components/formcomponent/formComponent";
-import "./form.scss";
+import FormComponent from "../../components/formcomponent/formComponent"
+import "./form.scss"
+
 type Props = {
   activePersona: number;
-};
+}
+
 function Form({ activePersona }: Props) {
   return (
     <div className="desktop_wrapper">
@@ -10,7 +12,7 @@ function Form({ activePersona }: Props) {
         <FormComponent activePersona={activePersona} />
       </div>
     </div>
-  );
+  )
 }
 
-export default Form;
+export default Form
