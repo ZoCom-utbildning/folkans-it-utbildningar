@@ -1,6 +1,7 @@
 
 $baseline: 1rem; 
 $breakpointDesktop: 820px;
+$primaryTextColor: #dddddd;
 
 $dark: #1D2025;
 $darkTransparent: #1d202579;
@@ -22,7 +23,6 @@ $gradientLight: linear-gradient(360deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 
 $gradientGray: radial-gradient(circle, #3d3d3d, #353537, #2d2e31, #25272b, #1d2025);
 
 
-$primaryTextColor: #dddddd;
 
 
 $content-maxWith: calc($baseline*50);

@@ -44,7 +44,6 @@
 
 @media screen and (min-width: $breakpointDesktop) {
   .header {
-    background-color: rgba(255, 255, 255, 0); // TODO: is this still needed?
     position: fixed;
     transition: 0.4s;
     width: 100%;
