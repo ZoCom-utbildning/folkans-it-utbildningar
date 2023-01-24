@@ -14,7 +14,6 @@ type Props = {
 type ResultsType = {
     question: string;
     button: string;
-    points: string[];
 }
 
 function ContentComponent({ formText, questionId, decreaseQuestion, increaseQuestion }: Props) {
@@ -29,12 +28,12 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
     const [buttonCheck, setButtonCheck] = useState<boolean>(false)
     const [toggle, setToggle] = useState<boolean>(false)
 
-    const [pointsId, setPointsId] = useState<string[]>([])
+    const [pointsId, setPointsId] = useState<number>("")
 
     const resultsValue: ResultsType = {
         question: `${questionId}`,
         button: `${buttonId}`,
-        points: pointsId
+        points: `${pointsId}`
         //lägga in poäng här
     }
 
@@ -49,7 +48,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
 
     useEffect(() => {
         if (!resultsArray[questionId - 1]) {
-            const updatedArray: ResultsType[] = [...resultsArray, { question: "", button: "", points: [] }];
+            const updatedArray: ResultsType[] = [...resultsArray, { question: "", button: "" }];
             setResultsArray(updatedArray);
             localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
         }
@@ -71,11 +70,11 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
     useEffect(() => {
         questions.map(question => {
             if (questionId === question.id) {
-                const tempPoints: SetStateAction<string[]> = []
+                const tempPoints: SetStateAction<number[]> = []
                 question.options.map(option => {
-                    if (option.id.toString() == buttonId + 1) {
-                        option.value.map((value) => {
-                            tempPoints.push(`${value.points}`);
+                    if (option.id.toString() === buttonId) {
+                        option.value.map((value, index) => {
+                            tempPoints.push(value.points)
                         })
                     }
                 })
@@ -83,7 +82,6 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
             }
         })
     }, [buttonId])
-
 
     const radioClicked = (number: any) => {
         setButtonId(number)
