@@ -1,3 +1,4 @@
+import Footer from "../../components/footer/footer";
 import "./personas.scss";
 
 function Personas() {
@@ -77,6 +78,7 @@ function Personas() {
           </article>
         </main>
       </section>
+      <Footer />
     </div>
   );
 }
