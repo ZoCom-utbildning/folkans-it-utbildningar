@@ -1,3 +1,4 @@
+import Footer from '../../components/footer/footer';
 import './about.scss';
 import courseData from './tempInfoCourses.json';
 
@@ -41,6 +42,7 @@ function About() {
                     <button className="formButton" onClick={sendEmail}>Skicka!</button>
                 </form>
             </main>
+            <Footer />
         </div>
     );
 }
