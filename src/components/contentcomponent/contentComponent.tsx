@@ -68,7 +68,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
         setButtonCheck(false);
     }, [questionId])
 
-    useEffect(() => {
+    const temporaryPoints = (buttonId: any) => {
         questions.map(question => {
             if (questionId === question.id) {
                 const tempPoints: SetStateAction<string[]> = []
@@ -76,20 +76,21 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
                     if (option.id == Number(buttonId) + 1) {
                         option.value.map((value) => {
                             tempPoints.push(`${value.points}`);
-                            console.log(tempPoints)
                         })
                     }
                 })
-                if (tempPoints.length > 0) {
+                if (resultsArray.length > 0) {
+                    console.log(tempPoints, "det här ska hända först")
                     setPointsId(tempPoints)
                 }
             }
         })
-    }, [buttonId])
+    }
 
-    
     const radioClicked = (number: any) => {
         setButtonId(number)
+        //hämta tempPoints här
+        temporaryPoints(buttonId) //fix här
         setToggle(!toggle)
         setButtonCheck(true)
     }
@@ -98,11 +99,13 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
         if (toggle) {
             const index = resultsArray.findIndex(obj => obj.question === resultsValue.question);
             if (index === -1) {
+                console.log("det här ska hända sist + lägger till nytt")
                 // lägg till nytt objekt
                 const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
                 setResultsArray(updatedArray);
                 localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
             } else {
+                console.log("det här ska hända sist + uppdaterar array")
                 // uppdatera arrayen med nytt objekt-värde
                 const updatedArray = [
                     ...resultsArray.slice(0, index),
@@ -114,7 +117,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
             }
             setToggle(!toggle)
         }
-    }, [buttonId, toggle])
+    }, [pointsId, buttonId, toggle])
 
     useEffect(() => {
         if (resultsArray.length > 0 && resultsArray[questionId]) {
