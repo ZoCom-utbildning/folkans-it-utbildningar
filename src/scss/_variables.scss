@@ -1,10 +1,8 @@
-
-$baseline: 1rem; 
-$content-maxWith: calc($baseline*50);
+$content-maxWith: calc($baseline * 50);
 $breakpointDesktop: 820px;
 $primaryTextColor: #dddddd;
 
-$dark: #1D2025;
+$dark: #1d2025;
 $darkTransparent: #1d202579;
 $gray: #9f9f9f;
 $light: #dddddd;
@@ -12,20 +10,31 @@ $lightTransparent: #dddddd79;
 
 $borderColor: #ffffff1f;
 $borderStyle: 1px solid $borderColor;
-$borderRadius: $baseline*.5;
+$borderRadius: $baseline * 0.5;
 
-$lightGreen: #86E062;
-$darkGreen: #27860B;
-$lightBlue: #418BC2;
+$lightGreen: #86e062;
+$darkGreen: #27860b;
+$lightBlue: #418bc2;
 $darkBlue: #074481;
 
-$gradient: linear-gradient(360deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(137.33deg, #2573B5 0%, rgba(37, 115, 181, 0) 96.25%), #25B567;
-$gradientLight: linear-gradient(360deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(137.33deg, #064F4F 0%, rgba(37, 115, 181, 0) 96.25%), #9A9A9A;
-$gradientGray: radial-gradient(circle, #3d3d3d, #353537, #2d2e31, #25272b, #1d2025);
+$gradient: linear-gradient(360deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%),
+  linear-gradient(137.33deg, #2573b5 0%, rgba(37, 115, 181, 0) 96.25%), #25b567;
+$gradientLight: linear-gradient(
+    360deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(0, 0, 0, 0) 100%
+  ),
+  linear-gradient(137.33deg, #064f4f 0%, rgba(37, 115, 181, 0) 96.25%), #9a9a9a;
+$gradientGray: radial-gradient(
+  circle,
+  #3d3d3d,
+  #353537,
+  #2d2e31,
+  #25272b,
+  #1d2025
+);
 
-
-
-
+$baseline: 1rem;
 
 $margin: $baseline;
 $margin-sml: calc($baseline / 2);
@@ -35,4 +44,24 @@ $padding: $baseline;
 $padding-sml: calc($baseline / 2);
 $padding-large: calc($baseline * 2);
 
-$shadow: 0 0 3rem rgba(0,0,0,.4);
+$shadow: 0 0 3rem rgba(0, 0, 0, 0.4);
+
+$vertPad: 80px;
+$sidePad: 70px;
+
+$numOfEls: 5;
+$elMrg: 1%;
+
+$initAT: 1s;
+$initDelayStep: 0.1s;
+$fullInitAT: calc($initAT + $initDelayStep * ($numOfEls - 1));
+$moveAT: 0.6s;
+$expandAT: 0.7s;
+$expandDelay: 0.1s;
+$bgScaleAT: 0.8s;
+$fadeoutAT: calc($moveAT + $expandAT/2);
+$indexHoverAT: 0.5s;
+$closeBtnAT: 0.3s;
+$closeBtnLineDelay: 0.15s;
+$fullExpandAT: calc($moveAT + $expandDelay + $expandAT);
+$contentFadeinAT: 0.5s;
