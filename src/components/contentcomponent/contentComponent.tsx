@@ -102,7 +102,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
                     }
                 })
                 if (resultsArray.length > 0) {
-                    console.log(tempPoints, "det här ska hända först")
+                    //console.log(tempPoints, "det här ska hända först")
                     setPointsId(tempPoints)
                 }
             }
