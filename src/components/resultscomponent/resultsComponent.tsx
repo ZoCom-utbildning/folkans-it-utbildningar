@@ -2,14 +2,6 @@ import TestButton from "../testbutton/testButton";
 import './resultsComponent.scss';
 
 
-type Course = {
-    frontend: number;
-    frontend_distans: number;
-    javascript_distans: number;
-    mobil_app: number;
-    mjukvaru_utveckling: number;
-}
-
 
 const ResultsComponent = () => {
 
