@@ -7,7 +7,7 @@
 
     .form_question {
         @include flex();
-        margin-top: 1.5rem;
+        margin-top: $margin-large;
         width: 100%;
 
         p {
@@ -17,8 +17,8 @@
 
     .quiz_nav {
         @include flex($justify: space-evenly, $direction: row);
-        margin-top: 2rem;
-        padding-bottom: 1rem;
+        margin-top: $margin-large;
+        padding-bottom: $padding;
 
         img {
             cursor: pointer;
@@ -37,14 +37,14 @@
 .radio_component {
 
     @include flex($justify: flex-start);
-    margin: 0.5rem auto;
+    margin: $margin-sml auto;
     width: 80%;
     background-color: rgb(255, 255, 255, .03);
     border-radius: $borderRadius;
     cursor: pointer;
 
     p {
-        width: calc(100% - 5rem);
+        width: calc(100% - ($baseline*5));
         text-align: center;
     }
 
@@ -62,8 +62,8 @@
 
     .quiz_nav {
         @include flex($justify: space-evenly);
-        margin-top: 2rem;
-        padding-bottom: 1rem;
+        margin-top: $margin-large;
+        padding-bottom: $padding;
 
         img {
             cursor: pointer;

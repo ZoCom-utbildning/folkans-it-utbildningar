@@ -5,102 +5,76 @@
 .aboutView {
     @include maxSize;
     @include flex($justify: none, $align: none, $direction: column);
+    @include lines;
+    overflow-x: hidden;
+
+    &* { position: relative; }
     background-color: $dark;
     
     main {
+        margin-top: $margin*8;
         padding: $padding-large;
 
-    .line {
-        margin: auto -1.5rem;
-        border-bottom: .1rem solid $borderColor;
-    }
+        .line {
+            margin: auto -1.5rem;
+            border-bottom: .1rem solid $borderColor;
+        }
 
-    .coursesWrapper {
-        
+        .coursesWrapper {
+            margin: 0 $margin*-3;
+            // margin: 0 $margin*-2.5;
+            .course {
+                margin: $margin;
+                padding: $padding;
+                border: 1px solid $borderColor;
+                background-color: $dark;
+                
+                transition: .5s;
+                &:hover, &:active {
+                    box-shadow: 0 0 1rem 0 $lightBlue;
+                    transform: scale(0.95, 1.01);
+                // }
+                // &:active {
+                    // box-shadow: inset 0 0 1rem 0 $lightBlue;
+                    background: linear-gradient(-45deg, $dark, $dark, $lightBlue, $dark, $dark);
+                    background-size: 400% 400%;
+                    animation: gradient 15s ease infinite;
+                }
 
-        .course {
-            padding: $padding;
-            border: 1px solid $borderColor;
-            border-bottom: none;
-            background-color: $dark;
-
-            &:last-child {
-                border-bottom: 1px solid $borderColor;
-            }
-            
-            transition: .5s;
-
-            &:hover {
-                box-shadow: 0 0 1rem 0 $lightBlue;
-                transform: scale(0.95, 1.01);
-            }
-            &:active {
-                // box-shadow: inset 0 0 1rem 0 $lightBlue;
-                background: linear-gradient(-45deg, $dark, $dark, $lightBlue, $dark, $dark);
-                background-size: 400% 400%;
-                animation: gradient 15s ease infinite;
-            }
-
-            p {
-                opacity: .5;
+                p {
+                    opacity: .5;
+                }
             }
         }
-    }
-
-
-    .contactForm {
-        @include flex($justify: normal, $align: center, $direction: column);
-        order: 10;
-        width: 100%;
-        min-width: 10rem;
-        margin: 0 auto;
-        border: none;
-        padding: 1rem;
-        gap: 1rem;
-        background-color: $gradient;
-
-        .formText {
-            width: 100%;
-            padding: .5rem 1rem;
-            border-radius: .1rem;
-            border: .1rem solid $light;
-            color: $dark;
-            font-size: 1rem;
-        }
-    }
     }
 }
 
 
 @media screen and (min-width: $breakpointDesktop) {
     .aboutView {
-        display: block;
-        
         main {
             padding: $padding-large;
             max-width: 50rem;
-            margin: 0 auto;
+            margin: $margin*8 auto 0;
  
             .coursesWrapper {
                 padding: $padding;
-                .course:hover {
+
+                .course {
+                    &:hover {
                         box-shadow: 0 0 1rem 0 $lightBlue;
                         transform: scale(1.01);
+                        background: $dark;
+                        animation: none;
                     }
-            }
-            .contactForm {
-                float: right;
-                margin-right: 2px;
-                margin-left: .5rem;
-                width: 40%;
-                min-width: 21rem;
-                max-width: 31rem;
-                border-left: 0.1rem solid $borderColor;
-                border-bottom: 0.1rem solid $borderColor;
-            }
-            .formButton {
-                margin: 0 auto;
+                    &:active {
+                        background: linear-gradient(-45deg, $dark, $dark, $lightBlue, $dark, $dark);
+                        background-size: 400% 400%;
+                        animation: gradient 15s ease infinite;
+                    }
+                }
             }
         }
     }
+
 } 

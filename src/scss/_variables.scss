@@ -1,13 +1,18 @@
 
+$baseline: 1rem; 
+$content-maxWith: calc($baseline*50);
 $breakpointDesktop: 820px;
+$primaryTextColor: #dddddd;
 
 $dark: #1D2025;
 $darkTransparent: #1d202579;
+$gray: #9f9f9f;
 $light: #dddddd;
 $lightTransparent: #dddddd79;
 
 $borderColor: #ffffff1f;
-$borderRadius: 0.5rem;
+$borderStyle: 1px solid $borderColor;
+$borderRadius: $baseline*.5;
 
 $lightGreen: #86E062;
 $darkGreen: #27860B;
@@ -18,16 +23,16 @@ $gradient: linear-gradient(360deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%)
 $gradientLight: linear-gradient(360deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(137.33deg, #064F4F 0%, rgba(37, 115, 181, 0) 96.25%), #9A9A9A;
 $gradientGray: radial-gradient(circle, #3d3d3d, #353537, #2d2e31, #25272b, #1d2025);
 
-$primaryTextColor: #dddddd;
 
-$baseline: 1rem; 
+
+
 
 $margin: $baseline;
 $margin-sml: calc($baseline / 2);
 $margin-large: calc($baseline * 2);
 
-$padding-sml: calc($baseline / 2);
 $padding: $baseline;
+$padding-sml: calc($baseline / 2);
 $padding-large: calc($baseline * 2);
 
 $shadow: 0 0 3rem rgba(0,0,0,.4);
