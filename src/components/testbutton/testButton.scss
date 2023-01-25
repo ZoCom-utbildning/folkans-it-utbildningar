@@ -2,7 +2,8 @@
 @import "../../scss/layout.scss";
 
 .homeButton {
-    margin: $margin-large;
+    margin: 3rem; //ta bort margin här? ser bättre ut utan
+
     z-index: 3;
     border-radius: $borderRadius;
     padding: $padding $padding-large;

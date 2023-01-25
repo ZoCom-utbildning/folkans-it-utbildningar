@@ -14,6 +14,7 @@ type Props = {
 type ResultsType = {
     question: string;
     button: string;
+    points: string[];
 }
 
 function ContentComponent({ formText, questionId, decreaseQuestion, increaseQuestion }: Props) {
@@ -24,28 +25,20 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
     const [resultsArray, setResultsArray] = useState<ResultsType[]>(JSON.parse(localStorage.getItem("resultsArray")!) || []);
     const [optionText, setOptionText] = useState<string[]>([])
     const [buttonId, setButtonId] = useState<string>("0")
+    const [pointsId, setPointsId] = useState<string[]>([])
     const [selectedOption, setSelectedOption] = useState("")
     const [buttonCheck, setButtonCheck] = useState<boolean>(false)
     const [toggle, setToggle] = useState<boolean>(false)
 
     const resultsValue: ResultsType = {
         question: `${questionId}`,
-        button: `${buttonId}`
-        //lägga in poäng här
+        button: `${buttonId}`,
+        points: pointsId
     }
-
-    const handleOption = (event: any) => {
-        setSelectedOption(event.target.value);
-    }
-
-    // Storing array length to display maxValue of pages.
-    questions.map(question => {
-        questionNmbrs.push(question.id);  // [1, 2, 3, 4]
-    })
 
     useEffect(() => {
         if (!resultsArray[questionId - 1]) {
-            const updatedArray: ResultsType[] = [...resultsArray, { question: "", button: "" }];
+            const updatedArray: ResultsType[] = [...resultsArray, { question: "", button: "", points: [] }];
             setResultsArray(updatedArray);
             localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
         }
@@ -64,11 +57,14 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
         setButtonCheck(false);
     }, [questionId])
 
-    const radioClicked = (number: any) => {
-        setButtonId(number)
-        setToggle(!toggle)
-        setButtonCheck(true)
-    }
+    useEffect(() => {
+        if (resultsArray.length > 0 && resultsArray[questionId]) {
+            setSelectedOption(resultsArray[questionId].button)
+            setButtonCheck(true);
+        } else {
+            setSelectedOption("")
+        }
+    }, [questionId])
 
     useEffect(() => {
         if (toggle) {
@@ -90,16 +86,44 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
             }
             setToggle(!toggle)
         }
-    }, [buttonId, toggle])
+    }, [pointsId])
 
-    useEffect(() => {
-        if (resultsArray.length > 0 && resultsArray[questionId]) {
-            setSelectedOption(resultsArray[questionId].button)
-            setButtonCheck(true);
-        } else {
-            setSelectedOption("")
-        }
-    }, [questionId])
+    const temporaryPoints = async (buttonId: any) => {
+        const id = await buttonId
+        console.log(id)
+        questions.map(question => {
+            if (questionId === question.id) {
+                const tempPoints: SetStateAction<string[]> = []
+                question.options.map(option => {
+                    if (option.id == Number(id) + 1) {
+                        option.value.map((value) => {
+                            tempPoints.push(`${value.points}`);
+                        })
+                    }
+                })
+                if (resultsArray.length > 0) {
+                    //console.log(tempPoints, "det här ska hända först")
+                    setPointsId(tempPoints)
+                }
+            }
+        })
+    }
+
+    const radioClicked = (number: any) => {
+        setButtonId(number)
+        temporaryPoints(number)
+        setToggle(!toggle)
+        setButtonCheck(true)
+    }
+
+    const handleOption = (event: any) => {
+        setSelectedOption(event.target.value);
+    }
+
+    // Storing array length to display maxValue of pages.
+    questions.map(question => {
+        questionNmbrs.push(question.id);  // [1, 2, 3, 4]
+    })
 
     return (
         <section className="quiz_section">
@@ -123,7 +147,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
             <nav className="quiz_nav">
                 <img src={arrowLeft} alt="" onClick={decreaseQuestion} />
                 <p> {questionId} / {questionNmbrs.length - 1} </p>
-                <img src={arrowRight} alt="" onClick={() => increaseQuestion(buttonCheck)} />
+                <img className={`transparent_${buttonCheck ? "false" : "true"}`} src={arrowRight} alt="" onClick={() => increaseQuestion(buttonCheck)} />
             </nav>
         </section >
     )
