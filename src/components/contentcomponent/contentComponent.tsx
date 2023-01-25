@@ -25,27 +25,16 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
     const [resultsArray, setResultsArray] = useState<ResultsType[]>(JSON.parse(localStorage.getItem("resultsArray")!) || []);
     const [optionText, setOptionText] = useState<string[]>([])
     const [buttonId, setButtonId] = useState<string>("0")
+    const [pointsId, setPointsId] = useState<string[]>([])
     const [selectedOption, setSelectedOption] = useState("")
     const [buttonCheck, setButtonCheck] = useState<boolean>(false)
     const [toggle, setToggle] = useState<boolean>(false)
-
-    const [pointsId, setPointsId] = useState<string[]>([])
 
     const resultsValue: ResultsType = {
         question: `${questionId}`,
         button: `${buttonId}`,
         points: pointsId
-        //lägga in poäng här
     }
-
-    const handleOption = (event: any) => {
-        setSelectedOption(event.target.value);
-    }
-
-    // Storing array length to display maxValue of pages.
-    questions.map(question => {
-        questionNmbrs.push(question.id);  // [1, 2, 3, 4]
-    })
 
     useEffect(() => {
         if (!resultsArray[questionId - 1]) {
@@ -68,12 +57,45 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
         setButtonCheck(false);
     }, [questionId])
 
-    const temporaryPoints = (buttonId: any) => {
+    useEffect(() => {
+        if (resultsArray.length > 0 && resultsArray[questionId]) {
+            setSelectedOption(resultsArray[questionId].button)
+            setButtonCheck(true);
+        } else {
+            setSelectedOption("")
+        }
+    }, [questionId])
+
+    useEffect(() => {
+        if (toggle) {
+            const index = resultsArray.findIndex(obj => obj.question === resultsValue.question);
+            if (index === -1) {
+                // lägg till nytt objekt
+                const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
+                setResultsArray(updatedArray);
+                localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
+            } else {
+                // uppdatera arrayen med nytt objekt-värde
+                const updatedArray = [
+                    ...resultsArray.slice(0, index),
+                    resultsValue,
+                    ...resultsArray.slice(index + 1)
+                ];
+                setResultsArray(updatedArray);
+                localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
+            }
+            setToggle(!toggle)
+        }
+    }, [pointsId])
+
+    const temporaryPoints = async (buttonId: any) => {
+        const id = await buttonId
+        console.log(id)
         questions.map(question => {
             if (questionId === question.id) {
                 const tempPoints: SetStateAction<string[]> = []
                 question.options.map(option => {
-                    if (option.id == Number(buttonId) + 1) {
+                    if (option.id == Number(id) + 1) {
                         option.value.map((value) => {
                             tempPoints.push(`${value.points}`);
                         })
@@ -89,44 +111,19 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
 
     const radioClicked = (number: any) => {
         setButtonId(number)
-        //hämta tempPoints här
-        temporaryPoints(buttonId) //fix här
+        temporaryPoints(number)
         setToggle(!toggle)
         setButtonCheck(true)
     }
 
-    useEffect(() => {
-        if (toggle) {
-            const index = resultsArray.findIndex(obj => obj.question === resultsValue.question);
-            if (index === -1) {
-                console.log("det här ska hända sist + lägger till nytt")
-                // lägg till nytt objekt
-                const updatedArray: ResultsType[] = [...resultsArray, resultsValue];
-                setResultsArray(updatedArray);
-                localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
-            } else {
-                console.log("det här ska hända sist + uppdaterar array")
-                // uppdatera arrayen med nytt objekt-värde
-                const updatedArray = [
-                    ...resultsArray.slice(0, index),
-                    resultsValue,
-                    ...resultsArray.slice(index + 1)
-                ];
-                setResultsArray(updatedArray);
-                localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
-            }
-            setToggle(!toggle)
-        }
-    }, [pointsId, buttonId, toggle])
+    const handleOption = (event: any) => {
+        setSelectedOption(event.target.value);
+    }
 
-    useEffect(() => {
-        if (resultsArray.length > 0 && resultsArray[questionId]) {
-            setSelectedOption(resultsArray[questionId].button)
-            setButtonCheck(true);
-        } else {
-            setSelectedOption("")
-        }
-    }, [questionId])
+    // Storing array length to display maxValue of pages.
+    questions.map(question => {
+        questionNmbrs.push(question.id);  // [1, 2, 3, 4]
+    })
 
     return (
         <section className="quiz_section">
