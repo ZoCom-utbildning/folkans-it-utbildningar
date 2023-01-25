@@ -66,3 +66,27 @@
     z-index: 1;
   }
 }
+
+@mixin elHover {
+  .el:hover & {
+    @content;
+  }
+}
+
+@mixin elActive {
+  .el.s--active & {
+    @content;
+  }
+}
+
+@mixin contInactive {
+  .cont.s--inactive & {
+    @content;
+  }
+}
+
+@mixin contElActive {
+  .cont.s--el-active & {
+    @content;
+  }
+}
