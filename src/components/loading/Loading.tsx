@@ -200,15 +200,26 @@ function Loading(this: any) {
     // === update mouse position ===
     window.addEventListener('mousemove', event => {
         const { clientX, clientY } = event;
-            setMousePosition(new Vector({
-                x: clientX,
-                y: clientY,
-            }));
+        setMousePosition(new Vector({
+            x: clientX,
+            y: clientY,
+        }));
     });
+
+    window.addEventListener('touchmove', event => {
+        let touchX = event.touches[0].clientX;
+        let touchY = event.touches[0].clientY;
+        setMousePosition(new Vector({
+            x: touchX,
+            y: touchY,
+        }));
+    });
+    
 
     useEffect(() => {
         document.querySelector('header')?.classList.add("hidden");
     }, []);
+    
     document.body.style.position = bodyStyle;
     function hideOverlay() {
         setBodyStyle("");
