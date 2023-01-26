@@ -7,8 +7,9 @@ import "./contentcomponent.scss"
 type Props = {
     formText: string;
     questionId: number;
-    decreaseQuestion: () => void;
-    increaseQuestion: (toggle: boolean) => void;
+    firstQuestion: boolean;
+    decreaseQuestion: () => void
+    increaseQuestion: (toggle: boolean) => void
 }
 
 type ResultsType = {
@@ -17,7 +18,7 @@ type ResultsType = {
     points: string[];
 }
 
-function ContentComponent({ formText, questionId, decreaseQuestion, increaseQuestion }: Props) {
+function ContentComponent({ formText, questionId, decreaseQuestion, increaseQuestion, firstQuestion }: Props) {
 
     const questions = forminfo.questions;
     const questionNmbrs: Array<number> = [];
@@ -102,7 +103,6 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
                     }
                 })
                 if (resultsArray.length > 0) {
-                    //console.log(tempPoints, "det här ska hända först")
                     setPointsId(tempPoints)
                 }
             }
@@ -145,7 +145,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
                 </label>
             </section>
             <nav className="quiz_nav">
-                <img src={arrowLeft} alt="" onClick={decreaseQuestion} />
+                <img className={`hidden_${firstQuestion ? "true" : "false"}`} src={arrowLeft} alt="" onClick={() => decreaseQuestion()} />
                 <p> {questionId} / {questionNmbrs.length - 1} </p>
                 <img className={`transparent_${buttonCheck ? "false" : "true"}`} src={arrowRight} alt="" onClick={() => increaseQuestion(buttonCheck)} />
             </nav>
