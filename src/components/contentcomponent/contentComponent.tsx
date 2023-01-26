@@ -38,7 +38,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
     }
 
     useEffect(() => {
-        if (!resultsArray[questionId - 1]) {
+        if (!resultsArray[questionId - 1] && questionId !== 0) {
             const updatedArray: ResultsType[] = [...resultsArray, { question: "", button: "", points: [] }];
             setResultsArray(updatedArray);
             localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
