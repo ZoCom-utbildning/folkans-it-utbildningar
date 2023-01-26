@@ -11,7 +11,7 @@ const OnboardingComponent = ({ startTest }: Props) => {
             <section className="results_section">
                 <h2>Här är vår onboarding heading</h2>
                 <p>här är vår onboarding text</p>
-                <button onClick={() => startTest()}>
+                <button className='start_button' onClick={() => startTest()}>
                     Starta testet
                 </button>
             </section>

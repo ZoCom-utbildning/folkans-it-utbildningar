@@ -4,6 +4,7 @@
 .results_wrapper {
 
     @include flex($direction: column);
+    width: 100%;
 
     h2 {
         padding: 0 10%;
@@ -14,12 +15,26 @@
         @include flex($direction: column);
         margin-top: calc($margin-large * 2);
 
-        button {
-            width: 9rem;
+        .start_button {
+            @include flex;
+            z-index: 3;
             height: 2.5rem;
             font-size: $baseline;
             box-shadow: none;
             padding: $padding;
+            margin: 1rem;
+            width: 12rem;
+            border-radius: $borderRadius;
+            border: 1px solid $light;
+            background: $darkTransparent;
+            color: $primaryTextColor;
+
+            font-size: $baseline;
+            font-weight: 523;
+            font-family: "Maven Pro";
+            font-style: normal;
+            line-height: 110%;
+            letter-spacing: 0.04em;
         }
 
         p {
@@ -68,9 +83,11 @@
 
 @media screen and (min-width: $breakpointDesktop) {
     .results_wrapper {
+        @include flex();
+        width: 80%;
+        height: 70%;
         z-index: 3;
         min-height: calc($baseline*25);
-        @include flex();
 
         .results_section {
             width: 50%;
@@ -85,22 +102,46 @@
                 }
             }
 
-            button {
-                width: 10rem;
-            }
-        }
+            .start_button {
+                @include flex;
+                z-index: 3;
+                margin: 1rem;
+                width: 12rem;
+                border-radius: $borderRadius;
+                padding: $padding $padding-large;
+                border: 1px solid $light;
+                background: $darkTransparent;
+                color: $primaryTextColor;
 
-        .results_points {
-            text-align: center;
-            @include flex($direction: column, $justify: space-evenly);
-            width: 50%;
+                font-size: $baseline;
+                font-weight: 523;
+                font-family: "Maven Pro";
+                font-style: normal;
+                line-height: 110%;
+                letter-spacing: 0.04em;
+                cursor: pointer;
+                transition: transform-scale(1.1) 0.5s ease-in-out 100ms;
+                transition: .5s;
 
-            li {
-                @include flex($direction: column, $justify: space-evenly);
-
-                span {
-                    margin-top: $margin;
+                &:hover {
+                    transform: scale(1.1);
+                    border-color: $lightBlue;
                 }
+            }
+
+        }
+    }
+
+    .results_points {
+        text-align: center;
+        @include flex($direction: column, $justify: space-evenly);
+        width: 50%;
+
+        li {
+            @include flex($direction: column, $justify: space-evenly);
+
+            span {
+                margin-top: $margin;
             }
         }
     }

@@ -21,10 +21,13 @@
 }
 
 // Might need to add 'position: relative;' to child elements.
-@mixin lines {
+@mixin lines($z-index: 1) {
     position: relative;
-    & * { z-index: 2; }
-    
+
+    & * {
+        z-index: 2;
+    }
+
     &::before {
         content: "";
         position: absolute;
@@ -34,8 +37,9 @@
         left: $baseline;
         border-left: 1px solid $borderColor;
         border-right: 1px solid $borderColor;
-        z-index: 1;
+        z-index: $z-index;
     }
+
     &::after {
         content: "";
         position: absolute;
@@ -45,6 +49,6 @@
         left: 0;
         border-top: 1px solid $borderColor;
         border-bottom: 1px solid $borderColor;
-        z-index: 1;
+        z-index: $z-index;
     }
 }
