@@ -46,7 +46,7 @@
       border-radius: $borderRadius;
 
       .persona-card-content {
-        @include lines;
+        @include lines; //ta bort lines här då dem ligger på en annan klass
         @include flex($direction: row-reverse);
 
         width: 100%;
