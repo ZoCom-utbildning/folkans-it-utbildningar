@@ -61,6 +61,7 @@ function Loading(this: any) {
     const [canvasWidth, setCanvasWidth] = useState(1000);
     const [canvasHeight, setCanvasHeight] = useState(1000);
     const [bodyStyle, setBodyStyle] = useState("fixed");
+    const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
     const wrapper: React.MutableRefObject<any> = useRef<any>(null);
     const wrapperHeight: number = wrapper.current?.offsetHeight;
     const wrapperWidth: number = wrapper.current?.offsetWidth;
@@ -79,7 +80,6 @@ function Loading(this: any) {
     
     // === Defines canvas ===
     // Note: not using useRef(); because I haven't figured out how to get it as the correct type; HTMLCanvasElement.
-    const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
     let ctx: CanvasRenderingContext2D | null;
     if (canvas && canvas.getContext) {
         ctx = canvas.getContext('2d');
@@ -193,10 +193,14 @@ function Loading(this: any) {
         points = step(points, originalPoints);
         draw(points, ctx);
         t++;
-        window.requestAnimationFrame(animateIt);
+
+        if(localStorage.getItem("disableLoading") == "false") {
+            window.requestAnimationFrame(animateIt);
+            console.log(t);
+        }
     }
     window.requestAnimationFrame(animateIt);
-    
+
     // === update mouse position ===
     window.addEventListener('mousemove', event => {
         const { clientX, clientY } = event;
@@ -218,6 +222,8 @@ function Loading(this: any) {
 
     useEffect(() => {
         document.querySelector('header')?.classList.add("hidden");
+        localStorage.setItem("disableLoading", "false");
+        console.log(localStorage.getItem("disableLoading"));
     }, []);
     
     document.body.style.position = bodyStyle;
@@ -227,6 +233,8 @@ function Loading(this: any) {
 
         setTimeout(() => {
             setOverlayClasses(overlayClasses + " hidden");
+            localStorage.setItem("disableLoading", "true");
+            console.log(localStorage.getItem("disableLoading"));
         }, 700);
 
         anime({
