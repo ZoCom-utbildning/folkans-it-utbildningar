@@ -185,21 +185,6 @@ function Loading(this: any) {
         });
         return points.map((point, i) => point.add(velocities[i]));
     }
-    
-
-    // === animate canvas ===
-    function animateIt() {
-        clear(ctx);
-        points = step(points, originalPoints);
-        draw(points, ctx);
-        t++;
-
-        if(localStorage.getItem("disableLoading") == "false") {
-            window.requestAnimationFrame(animateIt);
-            console.log(t);
-        }
-    }
-    window.requestAnimationFrame(animateIt);
 
     // === update mouse position ===
     window.addEventListener('mousemove', event => {
@@ -219,11 +204,41 @@ function Loading(this: any) {
         }));
     });
     
+    // TODO:
+    // Clean up the code
+    // Disable the whole view with local storage
+    // Make it so you don't see the loading every time you go to home
+    // Testing
+    // Testing
+    // Testing    
 
+    // === animate canvas ===
+    function animateIt() {
+        clear(ctx);
+        points = step(points, originalPoints);
+        draw(points, ctx);
+        t++;
+
+        if(localStorage.getItem("disableLoading") == "false") {
+            window.requestAnimationFrame(animateIt);
+        }
+    }
+    window.requestAnimationFrame(animateIt);
+
+    // Do once on load
     useEffect(() => {
-        document.querySelector('header')?.classList.add("hidden");
-        localStorage.setItem("disableLoading", "false");
         console.log(localStorage.getItem("disableLoading"));
+
+        if(localStorage.getItem("disableLoading") != "true") {
+            document.querySelector('header')?.classList.add("hidden");
+            localStorage.setItem("disableLoading", "false");
+            console.log(localStorage.getItem("disableLoading") != "true", localStorage.getItem("disableLoading"));
+        } else if(localStorage.getItem("disableLoading") == "true") {
+            setOverlayClasses(overlayClasses + " hidden");
+
+        } else {
+            console.log("error in Loading.tsx");
+        }
     }, []);
     
     document.body.style.position = bodyStyle;
@@ -233,6 +248,7 @@ function Loading(this: any) {
 
         setTimeout(() => {
             setOverlayClasses(overlayClasses + " hidden");
+
             localStorage.setItem("disableLoading", "true");
             console.log(localStorage.getItem("disableLoading"));
         }, 700);
