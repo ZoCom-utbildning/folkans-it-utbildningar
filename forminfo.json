@@ -1,4 +1,11 @@
 {
+    "links": [
+        { "course": "FE Karlstad", "links": "FE Karlstad" },
+        { "course": "FE Distans", "links": "FE Distans" },
+        { "course": "JS Distans", "links": "JS Distans" },
+        { "course": "Mobilapp", "links": "Mobilapp" },
+        { "course": "Mjukvaruutveckling", "links": "Mjukvaruutveckling" }
+    ],
     "questions": [
         {
             "id": 1,
@@ -398,7 +405,7 @@
                         },
                         {
                             "course": "Mobilapp",
-                            "points": 2
+                            "points": 3
                         },
                         {
                             "course": "Mjukvaruutv",

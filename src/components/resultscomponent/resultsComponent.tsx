@@ -1,5 +1,6 @@
 import TestButton from "../testbutton/testButton";
 import './resultsComponent.scss';
+import jsonData from '../../../forminfo.json';
 
 
 
@@ -9,12 +10,39 @@ const ResultsComponent = () => {
     const courseResult = 'frontend-utvecklare!'
     const coursePercentage = '99%'
 
+    //Lägga in "courses": "[frontend-link, backend-link .. , ..]"   i json för länkar.
+
 
     const courseScore = [];
 
     // frontend
 
     const loadResults = JSON.parse(localStorage.getItem("resultsArray")!);
+
+    const loadLinks = jsonData.links.map((link: any) => {
+        return link
+    })
+
+    console.log(loadLinks);
+
+    /*
+    let allPoints: Array<number> = [];
+    const totalPoints = jsonData.questions.map((question: any) => {
+        question.options.map((option: any) => {
+            option.value.map((value: any) => {
+                allPoints.push(value.points);
+            })
+        })
+    });
+
+    const allPointsSum = allPoints.reduce((a: number, b: number) => Number(a) + Number(b), 0)
+
+    console.log('allpoints:', allPointsSum);
+
+    console.log(frontendPoints / allPointsSum); */
+
+
+
 
     const frontend = loadResults.map((result: any, index: number) => {
             return result.points[0];
@@ -25,7 +53,8 @@ const ResultsComponent = () => {
 
     const frontendPoints = frontendFilter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'FE Karlstad', points: frontendPoints });
+
+    courseScore.push({ course: 'FE Karlstad', points: frontendPoints, links: loadLinks[0].links });
     // frontend_distans
 
     const frontend_distans = loadResults.map((result: any, index: number) => {
@@ -37,7 +66,7 @@ const ResultsComponent = () => {
 
     const frontend_distans_points = frontend_distans_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'FE Distans', points: frontend_distans_points });
+    courseScore.push({ course: 'FE Distans', points: frontend_distans_points, links: loadLinks[1].links });
 
     // javascript_distans
 
@@ -50,7 +79,7 @@ const ResultsComponent = () => {
 
     const javascript_distans_points = javascript_distans_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'JS distans', points: javascript_distans_points });
+    courseScore.push({ course: 'JS distans', points: javascript_distans_points, links: loadLinks[2].links });
 
     // mobil_app
 
@@ -63,7 +92,7 @@ const ResultsComponent = () => {
 
     const mobil_app_points = mobil_app_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'Mobilapp', points: mobil_app_points });
+    courseScore.push({ course: 'Mobilapp', points: mobil_app_points, links: loadLinks[3].links });
 
     // mjukvaru_utveckling
 
@@ -76,12 +105,11 @@ const ResultsComponent = () => {
 
     const mjukvaru_utveckling_points = mjukvaru_utveckling_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'Mjukvaruutveckling', points: mjukvaru_utveckling_points });
+    courseScore.push({ course: 'Mjukvaruutveckling', points: mjukvaru_utveckling_points, links: loadLinks[4].links });
 
-    console.log(courseScore);
 
     const courseScoreSorted = courseScore.sort((a, b) => b.points - a.points)
-    console.log(courseScoreSorted)
+
 
 
 
@@ -101,7 +129,7 @@ const ResultsComponent = () => {
 
                     courseScoreSorted.map((courseScore, index) => {
                         if (index < 3) {
-                        return <li key={index} className="results_item"> { `${index + 1}.` } {courseScore.course} {courseScore.points} LÄNK HÄR?</li>
+                        return <li key={index} className="results_item"> { `${index + 1}.` } {courseScore.course} {courseScore.points} { courseScore.links }</li>
                         }
                     })
 
@@ -118,7 +146,7 @@ const ResultsComponent = () => {
                     { 
 
                     courseScoreSorted.map((courseScore, index) => {
-                        return <span key={index}>{courseScore.points}P: <a href="" className="form_link">{courseScore.course}</a> LÄNK HÄR?</span>
+                        return <span key={index}>{courseScore.points}P: {courseScore.course} <a href="" className="form_link">{ courseScore.links }</a></span>
                     })
 
                     }
