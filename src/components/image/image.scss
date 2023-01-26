@@ -32,15 +32,15 @@
     position: relative;
     width: 100%;
     height: 100%;
-    max-height: calc($baseline*38);
-    min-height: calc($baseline*27);
+    max-height: calc($baseline*50);
+    min-height: calc($baseline*42);
     margin: 0;
     border-radius: 0 $borderRadius $borderRadius 0;
 
     .image {
       border-radius: 0;
-      max-height: calc($baseline*38);
-      min-height: calc($baseline*27);
+      max-height: calc($baseline*50);
+      min-height: calc($baseline*42);
     }
 
     .gradient {
