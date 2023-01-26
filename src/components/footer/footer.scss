@@ -1,0 +1,22 @@
+@import "../../scss/variables";
+@import "../../scss/layout";
+
+.footer {
+    
+    // All the lines or just the top?
+    // @include lines;
+    border-top: 1px solid $borderColor;
+
+    padding: $padding-large;
+    background-color: $dark;
+
+    @include flex($justify: space-evenly, $wrap: wrap);
+    img {
+        max-width: 40%;
+        max-height: $baseline*3;
+        min-width: 200px;
+        margin: $margin-sml;
+        // -webkit-filter: drop-shadow(1px 1px 10px 10px $light);
+        // filter: drop-shadow(1px 1px 10px 10px $light);
+    }
+}

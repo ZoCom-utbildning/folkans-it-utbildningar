@@ -7,8 +7,9 @@ import "./contentcomponent.scss"
 type Props = {
     formText: string;
     questionId: number;
-    decreaseQuestion: () => void;
-    increaseQuestion: (toggle: boolean) => void;
+    firstQuestion: boolean;
+    decreaseQuestion: () => void
+    increaseQuestion: (toggle: boolean) => void
 }
 
 type ResultsType = {
@@ -17,7 +18,7 @@ type ResultsType = {
     points: string[];
 }
 
-function ContentComponent({ formText, questionId, decreaseQuestion, increaseQuestion }: Props) {
+function ContentComponent({ formText, questionId, decreaseQuestion, increaseQuestion, firstQuestion }: Props) {
 
     const questions = forminfo.questions;
     const questionNmbrs: Array<number> = [];
@@ -37,7 +38,7 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
     }
 
     useEffect(() => {
-        if (!resultsArray[questionId - 1]) {
+        if (!resultsArray[questionId - 1] && questionId !== 0) {
             const updatedArray: ResultsType[] = [...resultsArray, { question: "", button: "", points: [] }];
             setResultsArray(updatedArray);
             localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
@@ -102,7 +103,6 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
                     }
                 })
                 if (resultsArray.length > 0) {
-                    //console.log(tempPoints, "det här ska hända först")
                     setPointsId(tempPoints)
                 }
             }
@@ -131,21 +131,21 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
                 <p>{formText}</p>
             </article>
             <section className='radio_wrapper'>
-                <section className='radio_component' onClick={() => radioClicked(0)}>
-                    <input type='radio' name='radio' value="0" checked={selectedOption === "0"} onChange={handleOption}></input>
+                <label htmlFor="radio-0" className='radio_component' onClick={() => radioClicked(0)}>
+                    <input type='radio' name='radio' id="radio-0" value="0" checked={selectedOption === "0"} onChange={handleOption}></input>
                     <p>{optionText[0]}</p>
-                </section>
-                <section className='radio_component' onClick={() => radioClicked(1)}>
-                    <input type='radio' name='radio' value="1" checked={selectedOption === "1"} onChange={handleOption}></input>
+                </label>
+                <label htmlFor="radio-1" className='radio_component' onClick={() => radioClicked(1)}>
+                    <input type='radio' name='radio' id="radio-1" value="1" checked={selectedOption === "1"} onChange={handleOption}></input>
                     <p>{optionText[1]}</p>
-                </section>
-                <section className='radio_component' onClick={() => radioClicked(2)}>
-                    <input type='radio' name='radio' value="2" checked={selectedOption === "2"} onChange={handleOption}></input>
+                </label>
+                <label htmlFor="radio-2" className='radio_component' onClick={() => radioClicked(2)}>
+                    <input type='radio' name='radio' id="radio-2" value="2" checked={selectedOption === "2"} onChange={handleOption}></input>
                     <p>{optionText[2]}</p>
-                </section>
+                </label>
             </section>
             <nav className="quiz_nav">
-                <img src={arrowLeft} alt="" onClick={decreaseQuestion} />
+                <img className={`hidden_${firstQuestion ? "true" : "false"}`} src={arrowLeft} alt="" onClick={() => decreaseQuestion()} />
                 <p> {questionId} / {questionNmbrs.length - 1} </p>
                 <img className={`transparent_${buttonCheck ? "false" : "true"}`} src={arrowRight} alt="" onClick={() => increaseQuestion(buttonCheck)} />
             </nav>

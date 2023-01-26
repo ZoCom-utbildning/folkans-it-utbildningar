@@ -1,3 +1,4 @@
+import Footer from '../../components/footer/footer';
 import './about.scss';
 import courseData from './tempInfoCourses.json';
 
@@ -31,6 +32,7 @@ function About() {
                 </section>
                 
             </main>
+            <Footer />
         </div>
     );
 }

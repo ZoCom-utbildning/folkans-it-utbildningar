@@ -1,0 +1,148 @@
+@import "../../scss/layout.scss";
+@import "../../scss/variables.scss";
+
+.results_wrapper {
+
+    @include flex($direction: column);
+    width: 100%;
+
+    h2 {
+        padding: 0 10%;
+    }
+
+    .results_section {
+        text-align: center;
+        @include flex($direction: column);
+        margin-top: calc($margin-large * 2);
+
+        .start_button {
+            @include flex;
+            z-index: 3;
+            height: 2.5rem;
+            font-size: $baseline;
+            box-shadow: none;
+            padding: $padding;
+            margin: 1rem;
+            width: 12rem;
+            border-radius: $borderRadius;
+            border: 1px solid $light;
+            background: $darkTransparent;
+            color: $primaryTextColor;
+
+            font-size: $baseline;
+            font-weight: 523;
+            font-family: "Maven Pro";
+            font-style: normal;
+            line-height: 110%;
+            letter-spacing: 0.04em;
+        }
+
+        p {
+            margin-top: $margin;
+        }
+
+        .results_list {
+            list-style: none;
+            margin: $margin;
+
+            .results_item {
+                margin: $margin;
+                padding: $padding;
+                border: 2px solid grey;
+            }
+        }
+    }
+
+    .results_points {
+        text-align: center;
+        @include flex($direction: column, $justify: space-evenly);
+
+        p {
+            margin-top: calc($margin * 1.5);
+        }
+
+        li {
+            @include flex($direction: column, $justify: space-evenly);
+
+            span {
+                margin-top: calc($margin * 1.5);
+                color: $light;
+
+                .form_link {
+                    text-decoration: none;
+                    margin-left: $margin-sml;
+
+                    &:hover {
+                        color: $lightBlue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $breakpointDesktop) {
+    .results_wrapper {
+        @include flex();
+        width: 80%;
+        height: 70%;
+        z-index: 3;
+        min-height: calc($baseline*25);
+
+        .results_section {
+            width: 50%;
+            margin: calc($margin-large * 2) calc($margin * 1.5);
+
+            .results_text {
+                text-align: center;
+                @include flex($direction: column, $justify: space-evenly, $align: center);
+
+                h2 {
+                    margin-bottom: $margin;
+                }
+            }
+
+            .start_button {
+                @include flex;
+                z-index: 3;
+                margin: 1rem;
+                width: 12rem;
+                border-radius: $borderRadius;
+                padding: $padding $padding-large;
+                border: 1px solid $light;
+                background: $darkTransparent;
+                color: $primaryTextColor;
+
+                font-size: $baseline;
+                font-weight: 523;
+                font-family: "Maven Pro";
+                font-style: normal;
+                line-height: 110%;
+                letter-spacing: 0.04em;
+                cursor: pointer;
+                transition: transform-scale(1.1) 0.5s ease-in-out 100ms;
+                transition: .5s;
+
+                &:hover {
+                    transform: scale(1.1);
+                    border-color: $lightBlue;
+                }
+            }
+
+        }
+    }
+
+    .results_points {
+        text-align: center;
+        @include flex($direction: column, $justify: space-evenly);
+        width: 50%;
+
+        li {
+            @include flex($direction: column, $justify: space-evenly);
+
+            span {
+                margin-top: $margin;
+            }
+        }
+    }
+}

@@ -20,16 +20,24 @@
         margin-top: $margin-large;
         padding-bottom: $padding;
 
-        img {
-            cursor: pointer;
-        }
-
         .transparent_true {
             opacity: 20%;
+            cursor: default;
         }
 
         .transparent_false {
             opacity: 100%;
+            cursor: pointer;
+        }
+
+        .hidden_true {
+            opacity: 0%;
+            cursor: default;
+        }
+
+        .hidden_false {
+            opacity: 100%;
+            cursor: pointer;
         }
     }
 }
@@ -42,6 +50,10 @@
     background-color: rgb(255, 255, 255, .03);
     border-radius: $borderRadius;
     cursor: pointer;
+
+    input {
+        cursor: pointer;
+    }
 
     p {
         width: calc(100% - ($baseline*5));
