@@ -131,18 +131,18 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
                 <p>{formText}</p>
             </article>
             <section className='radio_wrapper'>
-                <section className='radio_component' onClick={() => radioClicked(0)}>
-                    <input type='radio' name='radio' value="0" checked={selectedOption === "0"} onChange={handleOption}></input>
+                <label htmlFor="radio-0" className='radio_component' onClick={() => radioClicked(0)}>
+                    <input type='radio' name='radio' id="radio-0" value="0" checked={selectedOption === "0"} onChange={handleOption}></input>
                     <p>{optionText[0]}</p>
-                </section>
-                <section className='radio_component' onClick={() => radioClicked(1)}>
-                    <input type='radio' name='radio' value="1" checked={selectedOption === "1"} onChange={handleOption}></input>
+                </label>
+                <label htmlFor="radio-1" className='radio_component' onClick={() => radioClicked(1)}>
+                    <input type='radio' name='radio' id="radio-1" value="1" checked={selectedOption === "1"} onChange={handleOption}></input>
                     <p>{optionText[1]}</p>
-                </section>
-                <section className='radio_component' onClick={() => radioClicked(2)}>
-                    <input type='radio' name='radio' value="2" checked={selectedOption === "2"} onChange={handleOption}></input>
+                </label>
+                <label htmlFor="radio-2" className='radio_component' onClick={() => radioClicked(2)}>
+                    <input type='radio' name='radio' id="radio-2" value="2" checked={selectedOption === "2"} onChange={handleOption}></input>
                     <p>{optionText[2]}</p>
-                </section>
+                </label>
             </section>
             <nav className="quiz_nav">
                 <img src={arrowLeft} alt="" onClick={decreaseQuestion} />

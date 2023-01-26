@@ -43,6 +43,10 @@
     border-radius: $borderRadius;
     cursor: pointer;
 
+    input {
+        cursor: pointer;
+    }
+
     p {
         width: calc(100% - ($baseline*5));
         text-align: center;
