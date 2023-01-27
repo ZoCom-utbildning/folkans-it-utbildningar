@@ -232,7 +232,6 @@ function Loading(this: any) {
         if(localStorage.getItem("disableLoading") != "true") {
             document.querySelector('header')?.classList.add("hidden");
             localStorage.setItem("disableLoading", "false");
-            console.log(localStorage.getItem("disableLoading") != "true", localStorage.getItem("disableLoading"));
         } else if(localStorage.getItem("disableLoading") == "true") {
             setOverlayClasses(overlayClasses + " hidden");
 
