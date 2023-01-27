@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import PersonaContent from "../personacontent/PersonaContent";
 import happyGuy from "../../assets/photos/happyGuy.png";
 import ResultsComponent from "../resultscomponent/resultsComponent";
+import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
 
 type Props = {
 	activePersona: number;
@@ -14,24 +15,20 @@ function FormComponent({ activePersona }: Props) {
 	const questions = forminfo.questions;
 	const questionNmbrs: Array<number> = [];
 
-	const [questionId, setQuestionId] = useState<number>(1);
+	const [questionId, setQuestionId] = useState<number>(0);
 	const [formText, setFormText] = useState<string>("");
 	const [formImage, setFormImage] = useState<string>("");
 	const [altImage, setAltImage] = useState<string>("");
 	const [lastPage, setLastPage] = useState<boolean>(false);
+	const [firstPage, setFirstPage] = useState<boolean>(false);
+	const [firstQuestion, setFirstQuestion] = useState<boolean>(true)
 
 	//Changes question depending on questionNmbr
 	useEffect(() => {
 		questions.map((question) => {
 			if (questionId === question.id) {
 				setFormText(question.text);
-			}
-
-			if (questionId === question.id) {
 				setFormImage(question.img);
-			}
-
-			if (questionId === question.id) {
 				setAltImage(question.alt);
 			}
 		});
@@ -42,6 +39,18 @@ function FormComponent({ activePersona }: Props) {
 
 		if (questionId === questionNmbrs[questionNmbrs.length - 1]) {
 			setLastPage(true);
+		}
+
+		if (questionId === 0) {
+			setFirstPage(true);
+		} else {
+			setFirstPage(false)
+		}
+
+		if (questionId === 1) {
+			setFirstQuestion(true)
+		} else {
+			setFirstQuestion(false)
 		}
 	}, [questionId]);
 
@@ -55,18 +64,27 @@ function FormComponent({ activePersona }: Props) {
 	const increaseQuestion = (buttonCheck: boolean) => {
 		if (questionId < questionNmbrs.length && buttonCheck) {
 			setQuestionId(questionId + 1);
+			setFirstQuestion(false)
 		}
-	};
+	}
 
 	const decreaseQuestion = () => {
 		if (questionId > 1) {
 			setQuestionId(questionId - 1);
 		}
-	};
+	}
+
+	const startTest = () => {
+		setQuestionId(questionId + 1);
+	}
 
 	return (
 		<section className="card_content">
-			{window.location.href.includes("fragor") && !lastPage ? (
+			{window.location.href.includes("fragor") && firstPage ? (
+				<>
+					<OnboardingComponent startTest={startTest} />
+				</>
+			) : window.location.href.includes("fragor") && !firstPage && !lastPage ? (
 				<>
 					<ImageComponent formImage={formImage} altImage={altImage} />
 					<ContentComponent
@@ -74,6 +92,7 @@ function FormComponent({ activePersona }: Props) {
 						questionId={questionId}
 						increaseQuestion={increaseQuestion}
 						decreaseQuestion={decreaseQuestion}
+						firstQuestion={firstQuestion}
 					/>
 				</>
 			) : window.location.href.includes("fragor") && lastPage ? (

@@ -8,6 +8,7 @@ import TestButton from "../../components/testbutton/testButton";
 import anime from "animejs/lib/anime.es.js";
 import { useSwipeable } from "react-swipeable";
 import { useState, useEffect } from "react";
+import Footer from "../../components/footer/footer";
 
 type Props = {
   activePersona: number;
@@ -227,6 +228,7 @@ function Home({ activePersona, setActivePersona }: Props) {
         </div>
         {buttonElements}
       </section>
+      <Footer />
     </div>
   );
 }

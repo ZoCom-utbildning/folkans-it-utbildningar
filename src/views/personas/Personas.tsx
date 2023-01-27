@@ -1,3 +1,4 @@
+import Footer from "../../components/footer/footer";
 import "./personas.scss";
 import { useRef, useEffect, useState } from "react";
 function Personas() {
@@ -322,6 +323,7 @@ function Personas() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

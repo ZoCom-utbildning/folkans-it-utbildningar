@@ -1,28 +1,10 @@
 @import "../../scss/variables.scss";
 @import "../../scss/layout.scss";
+@import "../../scss/global.scss";
+
 
 .homeButton {
-    margin: $margin-large;
-    z-index: 3;
-    border-radius: $borderRadius;
-    padding: $padding $padding-large;
-    border: 1px solid $light;
-    box-shadow: 0 .5rem 2rem 0 $dark;
-    background: $darkTransparent;
-    backdrop-filter: blur(.5rem);
-    -webkit-backdrop-filter: blur(.5rem);
-    cursor: pointer;
-    @include flex;
-    transition: transform-scale(1.1) 0.5s ease-in-out 100ms;
-  
-    /* h3 */
-    font-size: calc($baseline * 1.6);
-    font-weight: 523;
-    font-family: "Maven Pro";
-    font-style: normal;
-    line-height: 110%;
-    letter-spacing: 0.04em;
-    color: $primaryTextColor;
+    @include formButton
 }
 
 @media (min-width: $breakpointDesktop) {

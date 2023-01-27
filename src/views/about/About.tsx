@@ -1,3 +1,4 @@
+import Footer from '../../components/footer/footer';
 import './about.scss';
 import courseData from './tempInfoCourses.json';
 
@@ -11,11 +12,6 @@ function About() {
             </section>
         );
     });
-
-    function sendEmail(event) {
-        event.preventDefault();
-        // Send email
-    }
 
     return (
         <div className="aboutView">
@@ -31,16 +27,12 @@ function About() {
                 <p>Utbildningens innehåll består av både praktiska och teoretiska delar. Kursplaner och studieplaner tas fram tillsammans med näringslivets representanter. Under utbildningen har du utvecklingssamtal med dina lärare för att du ska få den feed-back du behöver för att utvecklas i din kommande yrkesroll.</p>
 
                 <h2>Våra utbildningar</h2>
-                <section className="coursesWrapper line">
+                <section className="coursesWrapper">
                     {courses}
                 </section>
-                <form className="contactForm">
-                    <h2>Kontakta oss direkt</h2>
-                    <input type="email" className="formText" placeholder="pelle@example.com" />
-                    <textarea className="formText" rows={5} placeholder="Hej! Jag undrar ..." />
-                    <button className="formButton" onClick={sendEmail}>Skicka!</button>
-                </form>
+                
             </main>
+            <Footer />
         </div>
     );
 }
