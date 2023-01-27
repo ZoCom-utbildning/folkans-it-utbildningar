@@ -41,16 +41,15 @@
       box-shadow: $shadow; // ändra till mindre box-shadow? ser ej bra ut
 
       width: 80%;
-      min-height: 60%;
+      min-height: 70%;
       border: none;
       border-radius: $borderRadius;
 
       .persona-card-content {
-        @include lines;
+        //@include lines; //ta bort lines här?
         @include flex($direction: row-reverse);
 
         width: 100%;
-        max-height: 38rem;
         border: none;
         border-radius: $borderRadius;
       }
@@ -59,6 +58,10 @@
         width: 50%;
         margin: auto;
         padding: 0;
+
+        .gradientImageWrapper, .image {
+          min-height: none;
+        }
       }
     }
   }

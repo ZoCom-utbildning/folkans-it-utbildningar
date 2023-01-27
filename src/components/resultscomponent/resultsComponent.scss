@@ -5,18 +5,19 @@
 
     @include flex($direction: column);
 
-    h3 {
+    h2 {
         padding: 0 10%;
     }
 
     .results_section {
         text-align: center;
         @include flex($direction: column);
-        margin-top: calc($margin-large * 2);
+        //margin-top: calc($margin-large * 2);
 
         button {
             width: 9rem;
             height: 2.5rem;
+            margin: 1rem;
             font-size: $baseline;
             box-shadow: none;
             padding: $padding;
@@ -56,7 +57,7 @@
                 .form_link {
                     text-decoration: none;
                     margin-left: $margin-sml;
-                    
+
                     &:hover {
                         color: $lightBlue;
                     }
@@ -69,24 +70,25 @@
 @media screen and (min-width: $breakpointDesktop) {
     .results_wrapper {
         z-index: 3;
-        min-height: calc($baseline*25);
         @include flex();
+        width: 100%;
 
         .results_section {
+            text-align: center;
+            @include flex($direction: column, $justify: space-evenly);
             width: 50%;
-            margin: calc($margin-large * 2) calc($margin * 1.5);
+            max-height: calc($baseline*38);
+            min-height: calc($baseline*30);
+            //margin: auto;
+            //margin: calc($margin * 2) calc($margin * 1.5);
 
-            .results_text {
-                text-align: center;
-                @include flex($direction: column, $justify: space-evenly, $align: center);
-
-                h3 {
-                    margin-bottom: $margin;
-                }
+            h2 {
+                margin: $margin;
             }
 
             button {
                 width: 10rem;
+                margin: 1rem;
                 // height: 2.5rem;
                 // font-size: 1rem;
             }

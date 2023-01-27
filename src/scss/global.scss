@@ -24,11 +24,9 @@ body {
   background-color: $gray;
   background-blend-mode: multiply;
   background-size: cover;
-  background-image: linear-gradient(
-      360deg,
+  background-image: linear-gradient(360deg,
       rgba(18, 123, 0, 0.713) 0%,
-      rgba(0, 255, 51, 0.397) 100%
-    ),
+      rgba(0, 255, 51, 0.397) 100%),
     linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image; //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
@@ -39,4 +37,32 @@ body {
   background: $gradient;
   cursor: pointer;
   color: $light;
+}
+
+@mixin formButton {
+  @include flex;
+  margin: $margin;
+  z-index: 3;
+  border-radius: $borderRadius;
+  padding: $padding $padding-large;
+  border: 1px solid $light;
+  box-shadow: 0 .5rem 2rem 0 $dark;
+  background: $darkTransparent;
+  backdrop-filter: blur(.5rem);
+  -webkit-backdrop-filter: blur(.5rem);
+  transition: transform-scale(1.1) 0.5s ease-in-out 100ms;
+  cursor: pointer;
+  
+  font-size: calc($baseline * 1.6);
+  font-weight: 523;
+  font-family: "Maven Pro";
+  font-style: normal;
+  line-height: 110%;
+  letter-spacing: 0.04em;
+  color: $primaryTextColor;
+
+  &:hover {
+    transform: scale(1.1);
+    border-color: $lightBlue;
+  }
 }
