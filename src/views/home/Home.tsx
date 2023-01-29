@@ -8,7 +8,7 @@ import TestButton from "../../components/testbutton/testButton";
 import anime from "animejs/lib/anime.es.js";
 import { useSwipeable } from "react-swipeable";
 import { useState, useEffect } from "react";
-import Footer from "../../components/footer/footer";
+import Footer from "../../components/footer/Footer";
 
 type Props = {
   activePersona: number;
@@ -171,54 +171,16 @@ function Home({ activePersona, setActivePersona }: Props) {
       <main className="home-main">
         <div className="home-main__content">
           <section className="text-content">
-            <h2 className="title-h2">Vad är det som gör dig nyfiken?</h2>
+            <h2 className="title-h2">Vad är det som testas?</h2>
             <p className="home-main__content__text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-              voluptas, quod, quia, voluptates quae voluptatibus quibusdam
-              voluptatum quos quidem quas nesciunt. Quisquam, quae. Quisquam
-              voluptas, quod, quia, voluptates quae voluptatibus quibusdam
-            </p>
-            <p>
-              Ugh ennui tacos everyday carry skateboard synth af sartorial
-              unicorn try-hard godard you probably haven't heard of them art
-              party. Trust fund live-edge banh mi, listicle seitan bicycle
-              rights coloring book try-hard austin meh tumeric. Subway tile
-              health goth portland shoreditch. Subway tile VHS messenger bag
-              pop-up poke single-origin coffee.
-            </p>
-            <p>
-              Ugh ennui tacos everyday carry skateboard synth af sartorial
-              unicorn try-hard godard you probably haven't heard of them art
-              party. Trust fund live-edge banh mi, listicle seitan bicycle
-              rights coloring book try-hard austin meh tumeric. Subway tile
-              health goth portland shoreditch. Subway tile VHS messenger bag
-              pop-up poke single-origin coffee.
-            </p>
-            <p>
-              Ugh ennui tacos everyday carry skateboard synth af sartorial
-              unicorn try-hard godard you probably haven't heard of them art
-              party. Trust fund live-edge banh mi, listicle seitan bicycle
-              rights coloring book try-hard austin meh tumeric. Subway tile
-              health goth portland shoreditch. Subway tile VHS messenger bag
-              pop-up poke single-origin coffee.
-            </p>
-            <p>
-              Ugh ennui tacos everyday carry skateboard synth af sartorial
-              unicorn try-hard godard you probably haven't heard of them art
-              party. Trust fund live-edge banh mi, listicle seitan bicycle
-              rights coloring book try-hard austin meh tumeric. Subway tile
-              health goth portland shoreditch. Subway tile VHS messenger bag
-              pop-up poke single-origin coffee.
+              Vi har haft en dialog med våra studerande och utbildningsledare på våra utbildningar samt företrädare för IT-branschen.
+              Resultatet av denna dialog har mynnat ut i detta test.
+              Syftet med testet är att fungera som en slags digital studie- och yrkesvägledare för att du ska kunna känna dig trygg med ditt val av utbildning.
+              Vi förstår att innehållet i våra utbildningar kan vara svårt att bedöma utan att vara verksam inom IT-branschen, och vill därför erbjuda dig detta test som en mer lättsmält väg för dig till att veta vad som är rätt för just dig.
             </p>
           </section>
           <section className="img-with-text">
             <img src={vscodecomputer} alt="" />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-              voluptas, quod, quia, voluptates quae voluptatibus quibusdam
-              voluptatum quos quidem quas nesciunt. Quisquam, quae. Quisquam
-              voluptas, quod, quia, voluptates quae voluptatibus quibusdam
-            </p>
           </section>
         </div>
       </main>
