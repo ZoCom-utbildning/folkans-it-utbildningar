@@ -1,8 +1,8 @@
 @import "../../scss/variables";
 @import "../../scss/layout";
 
-.footer {
-    
+footer {
+
     // All the lines or just the top?
     // @include lines;
     border-top: 1px solid $borderColor;
@@ -11,6 +11,7 @@
     background-color: $dark;
 
     @include flex($justify: space-evenly, $wrap: wrap);
+
     img {
         max-width: 40%;
         max-height: $baseline*3;
