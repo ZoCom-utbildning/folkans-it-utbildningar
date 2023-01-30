@@ -21,7 +21,9 @@ const Personas: React.FC = () => {
     setContClass("cont s__el-active");
     toggleClass(el, "s--active");
     setActiveEl(el);
-    setPreview(false);
+    setTimeout(() => {
+      setPreview(false);
+    }, 1350);
   };
 
   const toggleClass = (el: HTMLDivElement, className: string) => {
@@ -39,7 +41,9 @@ const Personas: React.FC = () => {
     toggleClass(activeEl!, "s--active");
     setContClass("cont s__inactive");
     setActiveEl(null);
-    setPreview(true);
+    setTimeout(() => {
+      setPreview(true);
+    }, 1350);
   };
 
   return (
@@ -64,7 +68,7 @@ const Personas: React.FC = () => {
                         </section>
                       ) : (
                         <div className="el__content">
-                          <div className="personas-content-container">
+                          <div className="personas-main">
                             <article className="personas-card">
                               <section className="personas-card-header">
                                 <h2 className="personas-card-title">
@@ -90,12 +94,13 @@ const Personas: React.FC = () => {
                               </main>
                             </article>
                           </div>
+
+                          <button
+                            className="el__close-btn"
+                            onClick={handleCloseBtnClick}
+                          ></button>
                         </div>
                       )}
-                      <button
-                        className="el__close-btn"
-                        onClick={handleCloseBtnClick}
-                      ></button>
                     </div>
                   </div>
                 </div>
