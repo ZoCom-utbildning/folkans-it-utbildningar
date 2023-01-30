@@ -69,11 +69,23 @@
 
     .quiz_section {
         width: 50%;
+        @include flex($direction: column, $justify: space-between, $align: normal);
+        height: 100%;
         margin: auto;
     }
 
+    .radio_wrapper {
+        max-height: 20rem;
+        //finslip här
+
+        .radio_component> p {
+            font-size: 1rem;
+            //fix här
+        }
+    }
+
     .quiz_nav {
-        @include flex($justify: space-evenly);
+        //@include flex($justify: space-evenly);
         margin-top: $margin-large;
         padding-bottom: $padding;
 
