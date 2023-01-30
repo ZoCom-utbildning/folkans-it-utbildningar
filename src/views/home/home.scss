@@ -131,9 +131,9 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       padding: 1rem;
       flex: 1;
       .home-main__content {
-        background-color: $dark;
-        padding: 1rem;
         @include flex($justify: none, $align: none);
+        padding: $padding-large;
+        margin: $margin;
         .text-content {
           @include flex($justify: none, $align: none, $direction: column);
           width: 50%;
@@ -146,7 +146,8 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
         .img-with-text {
           @include flex($justify: none, $align: none, $direction: column);
           width: 50%;
-          margin: 1rem;
+          height: 100%;
+          margin: $margin;
           img {
             width: 100%;
           }
