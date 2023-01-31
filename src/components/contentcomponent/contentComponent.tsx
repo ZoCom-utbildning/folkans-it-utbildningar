@@ -30,6 +30,11 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
     const [selectedOption, setSelectedOption] = useState("")
     const [buttonCheck, setButtonCheck] = useState<boolean>(false)
     const [toggle, setToggle] = useState<boolean>(false)
+    const [hexagon, setHexagon] = useState({
+        hexagonOne: false,
+        hexagonTwo: false,
+        hexagonThree: false
+    })
 
     const resultsValue: ResultsType = {
         question: `${questionId}`,
@@ -56,12 +61,39 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
             }
         })
         setButtonCheck(false);
+        setHexagon({
+            hexagonOne: false,
+            hexagonTwo: false,
+            hexagonThree: false
+        })
     }, [questionId])
 
     useEffect(() => {
         if (resultsArray.length > 0 && resultsArray[questionId]) {
             setSelectedOption(resultsArray[questionId].button)
             setButtonCheck(true);
+
+            if (resultsArray[questionId].button === "0") {
+                setHexagon({
+                    hexagonOne: true,
+                    hexagonTwo: false,
+                    hexagonThree: false
+                })
+            }
+            if (resultsArray[questionId].button === "1") {
+                setHexagon({
+                    hexagonOne: false,
+                    hexagonTwo: true,
+                    hexagonThree: false
+                })
+            }
+            if (resultsArray[questionId].button === "2") {
+                setHexagon({
+                    hexagonOne: false,
+                    hexagonTwo: false,
+                    hexagonThree: true
+                })
+            }
         } else {
             setSelectedOption("")
         }
@@ -92,6 +124,29 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
     const temporaryPoints = async (buttonId: any) => {
         const id = await buttonId
         console.log(id)
+
+        if (id === 0) {
+            setHexagon({
+                hexagonOne: true,
+                hexagonTwo: false,
+                hexagonThree: false
+            })
+        }
+        if (id === 1) {
+            setHexagon({
+                hexagonOne: false,
+                hexagonTwo: true,
+                hexagonThree: false
+            })
+        }
+        if (id === 2) {
+            setHexagon({
+                hexagonOne: false,
+                hexagonTwo: false,
+                hexagonThree: true
+            })
+        }
+
         questions.map(question => {
             if (questionId === question.id) {
                 const tempPoints: SetStateAction<string[]> = []
@@ -118,7 +173,10 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
 
     const handleOption = (event: any) => {
         setSelectedOption(event.target.value);
+        console.log(event.target.checked)
     }
+
+    console.log(hexagon)
 
     // Storing array length to display maxValue of pages.
     questions.map(question => {
@@ -132,15 +190,21 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
             </article>
             <section className='radio_wrapper'>
                 <label htmlFor="radio-0" className='radio_component' onClick={() => radioClicked(0)}>
-                    <input type='radio' name='radio' id="radio-0" value="0" checked={selectedOption === "0"} onChange={handleOption}></input>
+                    <div className={`hexagon_wrapper_${hexagon.hexagonOne ? "true" : "false"}`}>
+                        <input type='radio' name='radio' id="radio-0" value="0" checked={selectedOption === "0"} onChange={handleOption}></input>
+                    </div>
                     <p>{optionText[0]}</p>
                 </label>
                 <label htmlFor="radio-1" className='radio_component' onClick={() => radioClicked(1)}>
-                    <input type='radio' name='radio' id="radio-1" value="1" checked={selectedOption === "1"} onChange={handleOption}></input>
+                    <div className={`hexagon_wrapper_${hexagon.hexagonTwo ? "true" : "false"}`}>
+                        <input type='radio' name='radio' id="radio-1" value="1" checked={selectedOption === "1"} onChange={handleOption}></input>
+                    </div>
                     <p>{optionText[1]}</p>
                 </label>
                 <label htmlFor="radio-2" className='radio_component' onClick={() => radioClicked(2)}>
-                    <input type='radio' name='radio' id="radio-2" value="2" checked={selectedOption === "2"} onChange={handleOption}></input>
+                    <div className={`hexagon_wrapper_${hexagon.hexagonThree ? "true" : "false"}`}>
+                        <input type='radio' name='radio' id="radio-2" value="2" checked={selectedOption === "2"} onChange={handleOption}></input>
+                    </div>
                     <p>{optionText[2]}</p>
                 </label>
             </section>

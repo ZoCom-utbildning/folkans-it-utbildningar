@@ -30,14 +30,6 @@ body {
     linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image; //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
-.formButton {
-  padding: $padding-sml $padding-large;
-  border-radius: $borderRadius;
-  border: 1px solid $light;
-  background: $gradient;
-  cursor: pointer;
-  color: $light;
-}
 
 @mixin formButton {
   @include flex;
@@ -52,7 +44,7 @@ body {
   -webkit-backdrop-filter: blur(.5rem);
   transition: transform-scale(1.1) 0.5s ease-in-out 100ms;
   cursor: pointer;
-  
+
   font-size: calc($baseline * 1.6);
   font-weight: 523;
   font-family: "Maven Pro";
@@ -64,5 +56,51 @@ body {
   &:hover {
     transform: scale(1.1);
     border-color: $lightBlue;
+  }
+}
+
+
+@mixin hexagonButton {
+  position: absolute;
+  top: calc(50% - 15px);
+  background-color: rgb(79, 77, 77);
+  width: 26px;
+  height: 15px;
+  margin: .5rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 0;
+    border-bottom: 7.5px solid rgb(79, 77, 77);
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    border-top: 7.5px solid rgb(79, 77, 77);
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
+  }
+
+  &:hover {
+    background-color: rgb(139, 131, 131);
+    cursor: pointer;
+
+    &::before {
+      border-bottom: 7.5px solid rgb(139, 131, 131);
+      cursor: pointer;
+    }
+
+    &::after {
+      border-top: 7.5px solid rgb(139, 131, 131);
+      cursor: pointer;
+    }
+
   }
 }
