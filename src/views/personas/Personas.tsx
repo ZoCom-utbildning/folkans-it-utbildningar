@@ -16,8 +16,8 @@ const Personas: React.FC = () => {
   const handleElClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
+    if (contClass.includes("s__el-active")) return;
     const el = event.currentTarget;
-    if (el === activeEl) return;
     setContClass("cont s__el-active");
     toggleClass(el, "s--active");
     setActiveEl(el);
@@ -41,9 +41,8 @@ const Personas: React.FC = () => {
     toggleClass(activeEl!, "s--active");
     setContClass("cont s__inactive");
     setActiveEl(null);
-    setTimeout(() => {
-      setPreview(true);
-    }, 1350);
+
+    setPreview(true);
   };
 
   return (
@@ -94,7 +93,6 @@ const Personas: React.FC = () => {
                               </main>
                             </article>
                           </div>
-
                           <button
                             className="el__close-btn"
                             onClick={handleCloseBtnClick}
