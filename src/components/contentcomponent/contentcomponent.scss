@@ -54,18 +54,14 @@
     border-radius: $borderRadius;
     cursor: pointer;
 
-    &:hover {
-        background-color: rgb(255, 255, 255, .16);
-    }
-
     p {
         margin-left: 50px;
         width: calc(100% - ($baseline*5));
         text-align: center;
     }
 
-    .hexagon_wrapper {
-        
+    .hexagon_wrapper_false {
+
         @include hexagonButton;
 
         input {
@@ -79,9 +75,66 @@
             z-index: 1;
             cursor: pointer;
         }
-    
     }
 
+    &:hover {
+        background-color: rgb(255, 255, 255, .16);
+
+        .hexagon_wrapper_false {
+            background-color: rgb(139, 131, 131);
+
+            &::before {
+                border-bottom: 7.5px solid rgb(139, 131, 131);
+            }
+
+            &::after {
+                border-top: 7.5px solid rgb(139, 131, 131);
+            }
+        }
+    }
+
+    .hexagon_wrapper_true {
+
+        @include hexagonButton;
+        background-color: rgb(89, 89, 182);
+
+        input {
+            position: absolute;
+            top: -50%;
+            left: 0;
+            margin: 0;
+            width: 26px;
+            height: 30px;
+            opacity: 0;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        &::before {
+            border-bottom: 7.5px solid rgb(89, 89, 182);
+        }
+
+        &::after {
+            border-top: 7.5px solid rgb(89, 89, 182);
+        }
+
+    }
+
+    &:hover {
+        background-color: rgb(255, 255, 255, .16);
+
+        .hexagon_wrapper_true {
+            background-color: rgb(89, 89, 182);
+
+            &::before {
+                border-bottom: 7.5px solid rgb(89, 89, 182);
+            }
+
+            &::after {
+                border-top: 7.5px solid rgb(89, 89, 182);
+            }
+        }
+    }
 }
 
 @media screen and (min-width: $breakpointDesktop) {
@@ -98,7 +151,7 @@
         max-height: 20rem;
         //finslip här
 
-        .radio_component> p {
+        .radio_component>p {
             font-size: 1rem;
             //media query höjd
             //fix här

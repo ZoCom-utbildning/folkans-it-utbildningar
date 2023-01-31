@@ -44,7 +44,7 @@ body {
   -webkit-backdrop-filter: blur(.5rem);
   transition: transform-scale(1.1) 0.5s ease-in-out 100ms;
   cursor: pointer;
-  
+
   font-size: calc($baseline * 1.6);
   font-weight: 523;
   font-family: "Maven Pro";
@@ -69,32 +69,32 @@ body {
   margin: .5rem;
 
   &::before {
-      content: "";
-      position: absolute;
-      top: -7px;
-      left: 0;
-      border-bottom: 7.5px solid rgb(79, 77, 77);
-      border-left: 13px solid transparent;
-      border-right: 13px solid transparent;
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 0;
+    border-bottom: 7.5px solid rgb(79, 77, 77);
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
   }
 
   &::after {
-      content: "";
-      position: absolute;
-      bottom: -7px;
-      left: 0;
-      border-top: 7.5px solid rgb(79, 77, 77);
-      border-left: 13px solid transparent;
-      border-right: 13px solid transparent;
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 0;
+    border-top: 7.5px solid rgb(79, 77, 77);
+    border-left: 13px solid transparent;
+    border-right: 13px solid transparent;
   }
 
   &:hover {
-      background-color: rgb(139, 131, 131);
-      cursor: pointer;
-    
+    background-color: rgb(139, 131, 131);
+    cursor: pointer;
+
     &::before {
-        border-bottom: 7.5px solid rgb(139, 131, 131);
-        cursor: pointer;
+      border-bottom: 7.5px solid rgb(139, 131, 131);
+      cursor: pointer;
     }
 
     &::after {
@@ -104,4 +104,3 @@ body {
 
   }
 }
-
