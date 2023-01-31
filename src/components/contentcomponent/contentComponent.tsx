@@ -30,8 +30,6 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
     const [selectedOption, setSelectedOption] = useState("")
     const [buttonCheck, setButtonCheck] = useState<boolean>(false)
     const [toggle, setToggle] = useState<boolean>(false)
-
-    //sätt hexagon beroende på localStorage
     const [hexagon, setHexagon] = useState({
         hexagonOne: false,
         hexagonTwo: false,
