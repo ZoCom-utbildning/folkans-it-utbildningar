@@ -132,15 +132,21 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
             </article>
             <section className='radio_wrapper'>
                 <label htmlFor="radio-0" className='radio_component' onClick={() => radioClicked(0)}>
-                    <input type='radio' name='radio' id="radio-0" value="0" checked={selectedOption === "0"} onChange={handleOption}></input>
+                    <div className="hexagon_wrapper">
+                        <input type='radio' name='radio' id="radio-0" value="0" checked={selectedOption === "0"} onChange={handleOption}></input>
+                    </div>
                     <p>{optionText[0]}</p>
                 </label>
                 <label htmlFor="radio-1" className='radio_component' onClick={() => radioClicked(1)}>
-                    <input type='radio' name='radio' id="radio-1" value="1" checked={selectedOption === "1"} onChange={handleOption}></input>
+                    <div className="hexagon_wrapper">
+                        <input type='radio' name='radio' id="radio-1" value="1" checked={selectedOption === "1"} onChange={handleOption}></input>
+                    </div>
                     <p>{optionText[1]}</p>
                 </label>
                 <label htmlFor="radio-2" className='radio_component' onClick={() => radioClicked(2)}>
-                    <input type='radio' name='radio' id="radio-2" value="2" checked={selectedOption === "2"} onChange={handleOption}></input>
+                    <div className="hexagon_wrapper">
+                        <input type='radio' name='radio' id="radio-2" value="2" checked={selectedOption === "2"} onChange={handleOption}></input>
+                    </div>
                     <p>{optionText[2]}</p>
                 </label>
             </section>

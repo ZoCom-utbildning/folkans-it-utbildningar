@@ -1,5 +1,6 @@
 @import '../../scss/variables.scss';
 @import '../../scss/layout.scss';
+@import '../../scss/global.scss';
 
 .quiz_section {
     position: relative;
@@ -46,23 +47,41 @@
 
     @include flex($justify: flex-start);
     margin: $margin-sml auto;
+    position: relative;
     width: 80%;
+    min-height: 5rem;
     background-color: rgb(255, 255, 255, .03);
     border-radius: $borderRadius;
     cursor: pointer;
 
-    input {
-        cursor: pointer;
+    &:hover {
+        background-color: rgb(255, 255, 255, .16);
     }
 
     p {
+        margin-left: 50px;
         width: calc(100% - ($baseline*5));
         text-align: center;
     }
 
-    &:hover {
-        background-color: rgb(255, 255, 255, .16);
+    .hexagon_wrapper {
+        
+        @include hexagonButton;
+
+        input {
+            position: absolute;
+            top: -50%;
+            left: 0;
+            margin: 0;
+            width: 26px;
+            height: 30px;
+            opacity: 0;
+            z-index: 1;
+            cursor: pointer;
+        }
+    
     }
+
 }
 
 @media screen and (min-width: $breakpointDesktop) {
@@ -75,6 +94,7 @@
     }
 
     .radio_wrapper {
+        position: relative;
         max-height: 20rem;
         //finslip här
 
