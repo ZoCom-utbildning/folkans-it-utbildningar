@@ -63,12 +63,39 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
             }
         })
         setButtonCheck(false);
+        setHexagon({
+            hexagonOne: false,
+            hexagonTwo: false,
+            hexagonThree: false
+        })
     }, [questionId])
 
     useEffect(() => {
         if (resultsArray.length > 0 && resultsArray[questionId]) {
             setSelectedOption(resultsArray[questionId].button)
             setButtonCheck(true);
+
+            if (resultsArray[questionId].button === "0") {
+                setHexagon({
+                    hexagonOne: true,
+                    hexagonTwo: false,
+                    hexagonThree: false
+                })
+            }
+            if (resultsArray[questionId].button === "1") {
+                setHexagon({
+                    hexagonOne: false,
+                    hexagonTwo: true,
+                    hexagonThree: false
+                })
+            }
+            if (resultsArray[questionId].button === "2") {
+                setHexagon({
+                    hexagonOne: false,
+                    hexagonTwo: false,
+                    hexagonThree: true
+                })
+            }
         } else {
             setSelectedOption("")
         }
