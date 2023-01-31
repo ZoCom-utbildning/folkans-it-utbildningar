@@ -50,11 +50,13 @@
         @include flex($direction: row-reverse);
 
         width: 100%;
+        height: 100%;
         border: none;
         border-radius: $borderRadius;
       }
 
       .image_section {
+        height: 100%;
         width: 50%;
         margin: auto;
         padding: 0;

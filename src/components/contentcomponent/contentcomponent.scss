@@ -17,7 +17,7 @@
 
     .quiz_nav {
         @include flex($justify: space-evenly, $direction: row);
-        margin-top: $margin-large;
+        margin: 0;
         padding-bottom: $padding;
 
         .transparent_true {
@@ -80,6 +80,7 @@
 
         .radio_component> p {
             font-size: 1rem;
+            //media query höjd
             //fix här
         }
     }
