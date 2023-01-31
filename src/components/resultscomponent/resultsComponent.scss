@@ -69,9 +69,10 @@
 
 @media screen and (min-width: $breakpointDesktop) {
     .results_wrapper {
-        z-index: 3;
         @include flex();
+        z-index: 3;
         width: 100%;
+        min-height: 100%;
 
         .results_section {
             text-align: center;

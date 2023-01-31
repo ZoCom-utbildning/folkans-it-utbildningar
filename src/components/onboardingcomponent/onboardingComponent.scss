@@ -75,10 +75,11 @@
         @include flex();
         padding: $padding;
         z-index: 3;
-        min-height: calc($baseline*30);
+        min-height: 100%;
 
         .results_section {
             width: 50%;
+            height: 100%;
             margin: $margin;
 
             .results_text {
@@ -101,6 +102,7 @@
         text-align: center;
         @include flex($direction: column, $justify: space-evenly);
         width: 50%;
+        height: 100%;
 
         li {
             @include flex($direction: column, $justify: space-evenly);
