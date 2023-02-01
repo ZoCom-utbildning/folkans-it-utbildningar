@@ -2,7 +2,57 @@
 @import "../../scss/layout.scss";
 @import "../../scss/global.scss";
 
+.themeToggler {
+    position: absolute;
+    display: inline-block;
+    top: $baseline;
+    right: $baseline;
+    width: $baseline*11.5;
+    height: $baseline*4;
+    clip-path: path("M22.2624 1.20036C23.5283 0.41572 24.988 0 26.4773 0H151.664C153.19 0 154.683 0.436003 155.969 1.25662L173.804 12.641C176.107 14.1106 177.5 16.6531 177.5 19.3844V38.6156C177.5 41.3469 176.107 43.8894 173.804 45.359L155.969 56.7434C154.683 57.564 153.19 58 151.664 58H26.4773C24.988 58 23.5283 57.5843 22.2624 56.7996L3.78516 45.3463C1.43176 43.8875 0 41.3155 0 38.5466V19.4534C0 16.6845 1.43176 14.1125 3.78516 12.6537L22.2624 1.20036Z");
 
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        &:checked + .slider {
+            background-color: #2196F3;
+        } 
+        &:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }  
+        &:checked + .slider:before {
+            transform: translateX(7.7rem);
+        }
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+        @include flex($justify: flex-start);
+        padding: 1rem;
+        
+        &:before {
+            position: absolute;
+            content: "";
+            height: $baseline*3.4;
+            width: $baseline*3;
+            left: $baseline*0.25;
+            // bottom: $baseline*0.25;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            clip-path: path("M20 1.1547C21.2376 0.440169 22.7624 0.440169 24 1.1547L41.6506 11.3453C42.8882 12.0598 43.6506 13.3803 43.6506 14.8094V35.1906C43.6506 36.6197 42.8882 37.9402 41.6506 38.6547L24 48.8453C22.7624 49.5598 21.2376 49.5598 20 48.8453L2.34936 38.6547C1.11176 37.9402 0.349365 36.6197 0.349365 35.1906V14.8094C0.349365 13.3803 1.11176 12.0598 2.34937 11.3453L20 1.1547Z");
+        } 
+    }
+}
 
 @media (min-width: $breakpointDesktop) {
 

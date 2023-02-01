@@ -5,9 +5,10 @@ function ThemeToggle() {
    
 
     return (
-        <div>
-            
-        </div>
+    <label className="themeToggler">
+        <input type="checkbox" />
+        <span className="slider">Light mode</span>
+    </label>
     );
 }
 

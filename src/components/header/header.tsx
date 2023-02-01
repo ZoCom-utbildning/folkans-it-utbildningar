@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./header.scss";
 import Hamburger from "../../components/hamburger/hamburger";
 import anime from "animejs/lib/anime.es.js";
+import ThemeToggle from "../themeToggle/ThemeToggle";
 
 type Props = {
   navOpen: boolean;
@@ -71,13 +72,13 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
           <li>
             <a href="/fragor">TILL TESTET</a>
           </li>
-
           <li>
             <a href="/om">OM OSS</a>
           </li>
         </ul>
       </nav>
       <div className="overlay">
+      <ThemeToggle />
         <nav>
           <ul>
             <li>
