@@ -6,15 +6,18 @@ import PersonaContent from "../personacontent/PersonaContent";
 import happyGuy from "../../assets/photos/happyGuy.png";
 import ResultsComponent from "../resultscomponent/resultsComponent";
 import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
+import { db } from "../../services/firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 type Props = {
 	activePersona: number;
 };
 
 function FormComponent({ activePersona }: Props) {
-	const questions = forminfo.questions;
+	// const questions = forminfo.questions;
 	const questionNmbrs: Array<number> = [];
 
+	const [questions, setQuestions] = useState<Array<any>>([]);
 	const [questionId, setQuestionId] = useState<number>(0);
 	const [formText, setFormText] = useState<string>("");
 	const [formImage, setFormImage] = useState<string>("");
@@ -23,8 +26,30 @@ function FormComponent({ activePersona }: Props) {
 	const [firstPage, setFirstPage] = useState<boolean>(false);
 	const [firstQuestion, setFirstQuestion] = useState<boolean>(true)
 
+
+	useEffect(() => {
+		(async () => {
+			const querySnapshot = await getDocs(collection(db, "questions"));
+			const tempArr:any[] = [];
+			querySnapshot.forEach((doc) => {
+				tempArr.push(doc.data());
+			});
+			console.log("tempArr.length", tempArr.length);
+			setQuestions(tempArr);
+		})();
+		console.log("questions.length", questions.length);
+	}, []);
+
+
 	//Changes question depending on questionNmbr
 	useEffect(() => {
+		console.log("questionNmbrs", questionNmbrs);
+		
+		// Storing array length to display maxValue of pages.
+		questions.map((question) => {
+			questionNmbrs.push(question.id); // [1, 2, 3, 4]
+		});
+
 		questions.map((question) => {
 			if (questionId === question.id) {
 				setFormText(question.text);
@@ -52,12 +77,7 @@ function FormComponent({ activePersona }: Props) {
 		} else {
 			setFirstQuestion(false)
 		}
-	}, [questionId]);
-
-	// Storing array length to display maxValue of pages.
-	questions.map((question) => {
-		questionNmbrs.push(question.id); // [1, 2, 3, 4]
-	});
+	}, [questionId, questions]);
 
 	// Changes pagenmbrs depending on click.
 	//framåt knapp syns inte om du inte svarat på frågan

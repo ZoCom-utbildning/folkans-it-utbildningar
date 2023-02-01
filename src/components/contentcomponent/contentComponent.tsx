@@ -3,6 +3,8 @@ import arrowRight from '../../assets/icons/arrowRight.svg';
 import forminfo from '../../../forminfo.json';
 import { SetStateAction, useEffect, useState } from 'react';
 import "./contentcomponent.scss"
+import { auth, db } from '../../services/firebase';
+import { addDoc, collection } from 'firebase/firestore';
 
 type Props = {
     formText: string;
@@ -110,11 +112,31 @@ function ContentComponent({ formText, questionId, decreaseQuestion, increaseQues
         })
     }
 
+    async function writeToDB() {
+        const user = auth.currentUser?.uid;
+        console.log("user uid", user);
+
+        try {
+            const docRef = await addDoc(collection(db, "answers"), {
+              first: "Alan",
+              middle: "Mathison",
+              last: "Turing",
+              born: 1912
+            });
+          
+            console.log("Document written with ID: ", docRef.id);
+          } catch (e) {
+            console.error("Error adding document: ", e);
+          }
+          
+    }
+
     const radioClicked = (number: any) => {
         setButtonId(number)
         temporaryPoints(number)
         setToggle(!toggle)
         setButtonCheck(true)
+        writeToDB();
     }
 
     const handleOption = (event: any) => {
