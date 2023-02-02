@@ -1,10 +1,27 @@
-import Footer from '../../components/footer/footer';
+import Footer from '../../components/footer/Footer';
 import './about.scss';
-import courseData from './tempInfoCourses.json';
+import { useEffect, useState } from 'react';
+import { db } from "../../services/firebase";
+import { collection, getDocs } from "firebase/firestore";
+
 
 function About() {
+    const [courses, setCourses] = useState<Array<any>>([]);
 
-    const courses = courseData.map((course, index) => {
+    useEffect(() => {
+        (async () => {
+            const querySnapshot = await getDocs(collection(db, "educations"));
+            const tempArr: any[] = [];
+            querySnapshot.forEach((doc) => {
+                tempArr.push(doc.data());
+            });
+
+            setCourses(tempArr);
+        })();
+        console.log(courses);
+    }, []);
+    
+    const displayCourses = courses.map((course, index) => {
         return (
             <section className="course" key={index}>
                 <h3>{course.name}</h3>
@@ -28,7 +45,7 @@ function About() {
 
                 <h2>Våra utbildningar</h2>
                 <section className="coursesWrapper">
-                    {courses}
+                    {displayCourses}
                 </section>
 
             </main>
