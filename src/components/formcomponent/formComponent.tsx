@@ -26,6 +26,7 @@ function FormComponent({ activePersona }: Props) {
   const [firstPage, setFirstPage] = useState<boolean>(false);
   const [firstQuestion, setFirstQuestion] = useState<boolean>(true);
 
+  // Hämtar questions från firebase databasen
   useEffect(() => {
     (async () => {
       const querySnapshot = await getDocs(collection(db, "questions"));
