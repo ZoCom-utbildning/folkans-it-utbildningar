@@ -30,7 +30,6 @@ const ResultsComponent = () => {
         return link
     })
 
-    console.log(loadLinks);
 
     useEffect(() => {
         (async () => {

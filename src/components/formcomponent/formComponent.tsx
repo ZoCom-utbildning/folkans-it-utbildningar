@@ -14,9 +14,7 @@ type Props = {
 };
 
 function FormComponent({ activePersona }: Props) {
-  // const questions = forminfo.questions;
-  // const questionNmbrs: Array<number> = [];
-  const AMOUNT_OF_QUESTIONS = 11;
+
   const [questions, setQuestions] = useState<Array<any>>([]);
   const [questionId, setQuestionId] = useState<number>(0);
   const [formText, setFormText] = useState<string>("");
@@ -53,10 +51,6 @@ function FormComponent({ activePersona }: Props) {
       setFormImage(happyGuy);
     }
 
-    if (questionId === AMOUNT_OF_QUESTIONS) {
-      setLastPage(true);
-    }
-
     if (questionId === 0) {
       setFirstPage(true);
     } else {
@@ -70,12 +64,17 @@ function FormComponent({ activePersona }: Props) {
     }
   }, [questionId, questions]);
 
+
+
   // Changes pagenmbrs depending on click.
   //framåt knapp syns inte om du inte svarat på frågan
   const increaseQuestion = (buttonCheck: boolean) => {
     if (questionId < questions.length && buttonCheck) {
       setQuestionId(questionId + 1);
       setFirstQuestion(false);
+    }
+    if (questionId === questions.length - 1) {
+      setLastPage(true);
     }
   };
 
