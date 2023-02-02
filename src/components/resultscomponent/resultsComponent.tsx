@@ -1,8 +1,15 @@
 import TestButton from "../testbutton/testButton";
 import './resultsComponent.scss';
 import jsonData from '../../../forminfo.json';
+import { useEffect } from "react";
+import { auth, db } from "../../services/firebase";
+import { doc, updateDoc } from "firebase/firestore";
 
-
+type CourseScore = {
+    course: string;
+    points: string; 
+    links: string;
+}
 
 const ResultsComponent = () => {
 
@@ -13,7 +20,7 @@ const ResultsComponent = () => {
     //Lägga in "courses": "[frontend-link, backend-link .. , ..]"   i json för länkar.
 
 
-    const courseScore = [];
+    const courseScore: Array<CourseScore> = [];
 
     // frontend
 
@@ -24,6 +31,25 @@ const ResultsComponent = () => {
     })
 
     console.log(loadLinks);
+
+    useEffect(() => {
+        (async () => {
+          const user = auth.currentUser?.uid;
+          console.log("user uid", user);
+    
+          await updateDoc(doc(db, "answers", `${user}`), {
+            results: {
+                FE_Karlstad: courseScore[0].points,
+                FE_Distans: courseScore[1].points,
+                JS_Distans: courseScore[2].points,
+                Mobilapp: courseScore[3].points,
+                Mjukvaruutveckling: courseScore[4].points
+            }
+          });
+    
+        })();
+    
+      }, []);
 
     /*
     let allPoints: Array<number> = [];
@@ -108,7 +134,7 @@ const ResultsComponent = () => {
     courseScore.push({ course: 'Mjukvaruutveckling', points: mjukvaru_utveckling_points, links: loadLinks[4].links });
 
 
-    const courseScoreSorted = courseScore.sort((a, b) => b.points - a.points)
+    const courseScoreSorted = courseScore.sort((a: any, b: any) => b.points - a.points)
 
 
 

@@ -4,7 +4,7 @@ import forminfo from "../../../forminfo.json";
 import { SetStateAction, useEffect, useState } from "react";
 import "./contentcomponent.scss";
 import { auth, db } from "../../services/firebase";
-import { addDoc, collection, updateDoc, doc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 
 type Props = {
   questions: Array<any>;
@@ -122,40 +122,21 @@ function ContentComponent({
     });
   };
 
+  // Lägger till answers till firebase databasen 
   useEffect(() => {
     (async () => {
       const user = auth.currentUser?.uid;
       console.log("user uid", user);
-      try {
-        const docRef = await addDoc(collection(db, "answers"), {
-          first: "Alan",
-          middle: "Mathison",
-          last: "Turing",
-          born: 1912,
-          swag: true,
-          answers: [],
-        });
 
-        console.log("Document written with ID: ", docRef.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
+      await setDoc(doc(db, "answers", `${user}`), {
+        user: `${user}`,
+        answers: resultsArray
+      });
+
     })();
-  }, []);
-  useEffect(() => {
-    (async () => {
-      {
-        const docRef = doc(db, "answers", `${auth.currentUser?.uid}`);
-        try {
-          await updateDoc(docRef, {
-            answers: resultsArray,
-          });
-        } catch (e) {
-          console.error("Error adding document: ", e);
-        }
-      }
-    })();
+
   }, [questionId]);
+
 
   const radioClicked = (number: any) => {
     setButtonId(number);
