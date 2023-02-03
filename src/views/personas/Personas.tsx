@@ -1,11 +1,24 @@
 import "./personas.scss";
 import { useEffect, useState } from "react";
-
+import { db } from "../../services/firebase";
+import { collection, getDocs } from "firebase/firestore";
 const Personas: React.FC = () => {
   const [contClass, setContClass] = useState("cont s--inactive");
   const [activeEl, setActiveEl] = useState<HTMLDivElement | null>(null);
   const [preview, setPreview] = useState(true);
+  const [data, setData] = useState<Array<any>>([]);
   const NUM_OF_ELEMENTS = 5;
+  useEffect(() => {
+    (async () => {
+      const querySnapshot = await getDocs(collection(db, "Personas"));
+      const tempArr: any[] = [];
+      querySnapshot.forEach((doc) => {
+        tempArr.push(doc.data());
+      });
+
+      setData(tempArr);
+    })();
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,6 +34,7 @@ const Personas: React.FC = () => {
     setContClass("cont s__el-active");
     toggleClass(el, "s--active");
     setActiveEl(el);
+    console.log(data);
     setTimeout(() => {
       setPreview(false);
     }, 1350);
@@ -84,13 +98,14 @@ const Personas: React.FC = () => {
                                   gymmet och knoppen med koden som en klockren
                                   kombination.
                                 </p>
+                                <span>
+                                  Vad var det som fick dig att välja din
+                                  utbildning?
+                                </span>
+                                <br></br>
                                 <section className="card-text-container">
                                   <p className="personas-card-text">
-                                    <span>
-                                      Vad var det som fick dig att välja din
-                                      utbildning?
-                                    </span>
-                                    Jag har alltid gillat att gamea, men har
+                                    - Jag har alltid gillat att gamea, men har
                                     egentligen inte förrän på senare år funderat
                                     över vad det är som får spelen att funka.
                                     Men från det att jag började fundera kunde
@@ -101,12 +116,13 @@ const Personas: React.FC = () => {
                                     verkade dessutom ha en tydligare riktning
                                     mot ett faktiskt yrke.
                                   </p>
+                                  <span>
+                                    Vad har du för bakgrund innan denna
+                                    utbildning?
+                                  </span>
+                                  <br></br>
                                   <p className="personas-card-text">
-                                    <span>
-                                      Vad har du för bakgrund innan denna
-                                      utbildning?
-                                    </span>
-                                    Inte så mycket mer än gymnasiet, faktisk.
+                                    - Inte så mycket mer än gymnasiet, faktisk.
                                     Jag tog ett halvt sabbatsår efter studenten
                                     och testade lite olika jobb, men det kändes
                                     aldrig som mer än bara som ett sätt att
@@ -114,24 +130,26 @@ const Personas: React.FC = () => {
                                     känner att livet är för kort för att ha ett
                                     tråkigt jobb. Nu stortrivs jag!
                                   </p>
+                                  <span>
+                                    Vad är det bästa med din utbildning?
+                                  </span>
+                                  <br></br>
                                   <p className="personas-card-text">
-                                    <span>
-                                      Vad är det bästa med din utbildning?
-                                    </span>
-                                    Hur gjorde du för att bli behörig? Till
+                                    - Hur gjorde du för att bli behörig? Till
                                     skillnad från flera av mina klasskamrater
                                     var jag faktiskt behörig från början,
                                     eftersom jag hade läst Programmering 1 som
                                     individuellt val på gymnasiet.
                                   </p>
+                                  <span>
+                                    Har du några visdomsord till andra som
+                                    funderar på att söka eller som redan sökt?
+                                  </span>
+                                  <br></br>
                                   <p className="personas-card-text">
-                                    <span>
-                                      Har du några visdomsord till andra som
-                                      funderar på att söka eller som redan sökt?
-                                    </span>
-                                    Se din utbildning som en passion och som ett
-                                    fritidsintresse. Med kod är det som med så
-                                    mycket annat, det krävs att man puttar in
+                                    - Se din utbildning som en passion och som
+                                    ett fritidsintresse. Med kod är det som med
+                                    så mycket annat, det krävs att man puttar in
                                     lite tid för att det ska funka. Jag älskar
                                     att koda och det har nu blivit ett av mina
                                     största fritidsintressen tillsammans med
