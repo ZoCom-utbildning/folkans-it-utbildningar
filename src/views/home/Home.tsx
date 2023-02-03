@@ -8,7 +8,7 @@ import TestButton from "../../components/testbutton/testButton";
 import anime from "animejs/lib/anime.es.js";
 import { useSwipeable } from "react-swipeable";
 import { useState, useEffect } from "react";
-import Footer from "../../components/footer/footer";
+import Footer from "../../components/footer/Footer";
 
 type Props = {
   activePersona: number;
