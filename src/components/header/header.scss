@@ -3,7 +3,7 @@
 
 .header {
   background-color: rgba(255, 255, 255, 0);
- z-index: 5;
+  z-index: 5;
   nav {
     ul {
       display: none;
@@ -18,8 +18,8 @@
     position: fixed;
 
     // TODO: Shadow
-    -webkit-box-shadow: .5rem .5rem 1rem 2rem #0000009f;
-    box-shadow: .5rem .5rem 1rem 2rem #0000009f;
+    -webkit-box-shadow: 0.5rem 0.5rem 1rem 2rem #0000009f;
+    box-shadow: 0.5rem 0.5rem 1rem 2rem #0000009f;
     z-index: 4;
 
     transform: translateX(-1000px);
@@ -28,8 +28,9 @@
       @include flex($direction: column);
       li {
         margin: $margin-large;
-        a { // TODO: Create a class for nav links/text?
-          font-size: $baseline*1.5;
+        a {
+          // TODO: Create a class for nav links/text?
+          font-size: $baseline * 1.5;
           font-weight: 500;
           text-decoration: none;
           transition: all 0.1s ease-in-out;
@@ -47,7 +48,7 @@
     position: fixed;
     transition: 0.4s;
     width: 100%;
-    height: 10vh;
+    height: 6.5vh;
 
     .overlay {
       display: none;
@@ -61,15 +62,16 @@
 
       ul {
         width: 100%;
-        height: 10vh;
+        height: 6.5vh;
         @include flex($justify: space-evenly);
         list-style: none;
 
         li {
-          a { // TODO: Create a class for nav links/text?
+          a {
+            // TODO: Create a class for nav links/text?
             display: block;
             width: 100%;
-            font-size: calc($baseline*1.5);
+            font-size: calc($baseline * 1.5);
             font-weight: 500;
             text-decoration: none;
             transition: all 0.1s ease-in-out;
