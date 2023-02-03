@@ -7,6 +7,7 @@ import Header from "./components/header/header";
 import { useState } from "react";
 import "./scss/global.scss";
 import { Route, Routes } from "react-router-dom";
+import Educations from "./views/educations/Educations";
 
 function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -23,6 +24,7 @@ function App() {
       />
       <Routes>
         <Route path="/om" element={<About />} />
+        <Route path="/utbildningar" element={<Educations />} />
         <Route path="/*" element={<Error />} />
         <Route
           path="/fragor"
