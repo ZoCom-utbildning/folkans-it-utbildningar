@@ -12,13 +12,7 @@ type CourseScore = {
 }
 
 const ResultsComponent = () => {
-
-    const points = 8;
-    const courseResult = 'frontend-utvecklare!'
-    const coursePercentage = '99%'
-
     //Lägga in "courses": "[frontend-link, backend-link .. , ..]"   i json för länkar.
-
 
     const courseScore: Array<CourseScore> = [];
 
@@ -30,7 +24,6 @@ const ResultsComponent = () => {
         return link
     })
 
-
     useEffect(() => {
         (async () => {
           const user = auth.currentUser?.uid;
@@ -38,11 +31,7 @@ const ResultsComponent = () => {
     
           await updateDoc(doc(db, "answers", `${user}`), {
             results: {
-                FE_Karlstad: courseScore[0].points,
-                FE_Distans: courseScore[1].points,
-                JS_Distans: courseScore[2].points,
-                Mobilapp: courseScore[3].points,
-                Mjukvaruutveckling: courseScore[4].points
+                courseScoreSorted
             }
           });
     
@@ -65,8 +54,6 @@ const ResultsComponent = () => {
     console.log('allpoints:', allPointsSum);
 
     console.log(frontendPoints / allPointsSum); */
-
-
 
 
     const frontend = loadResults.map((result: any, index: number) => {
@@ -132,13 +119,7 @@ const ResultsComponent = () => {
 
     courseScore.push({ course: 'Mjukvaruutveckling', points: mjukvaru_utveckling_points, links: loadLinks[4].links });
 
-
     const courseScoreSorted = courseScore.sort((a: any, b: any) => b.points - a.points)
-
-
-
-
-
 
     //funktion för att räkna ut svar/summa
 
