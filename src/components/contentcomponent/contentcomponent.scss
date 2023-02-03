@@ -11,8 +11,11 @@
         margin-top: $margin-large;
         width: 100%;
 
-        p {
-            width: 75%;
+        h2 {
+            height: 100%;
+            width: 85%;
+            font-size: 1.6rem;
+            margin: 0;
         }
     }
 
@@ -48,15 +51,15 @@
     @include flex($justify: flex-start);
     margin: $margin-sml auto;
     position: relative;
-    width: 80%;
+    width: 85%;
     min-height: 5rem;
     background-color: rgb(255, 255, 255, .03);
     border-radius: $borderRadius;
     cursor: pointer;
 
     p {
-        margin-left: 50px;
-        width: calc(100% - ($baseline*5));
+        margin: 0px 5px 0px 50px;
+        //width: calc(100% - ($baseline*5));
         text-align: start;
     }
 
@@ -94,15 +97,58 @@
         @include flex($direction: column, $justify: space-between, $align: normal);
         height: 100%;
         margin: auto;
+
+        .form_question {
+            h2 {
+                padding: 1rem;
+                margin: $margin-large 0 0 0;
+            }
+        }
     }
+
 
     .radio_wrapper {
         position: relative;
-        max-height: 20rem;
+        max-height: 30rem;
         //finslip här
 
         .radio_component>p {
             font-size: 1rem;
+            line-height: 130%;
+            width: 90%;
+            //media query höjd
+            //fix här
+        }
+    }
+
+    .quiz_nav {
+        //@include flex($justify: space-evenly);
+        margin-top: $margin-large;
+        padding-bottom: $padding;
+
+        img {
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (min-width: 1100px) {
+
+    .quiz_section {
+        width: 50%;
+        @include flex($direction: column, $justify: space-between, $align: normal);
+        height: 100%;
+        margin: auto;
+    }
+
+    .radio_wrapper {
+        position: relative;
+        max-height: 30rem;
+        //finslip här
+
+        .radio_component>p {
+            font-size: 1rem;
+            line-height: 150%;
             //media query höjd
             //fix här
         }

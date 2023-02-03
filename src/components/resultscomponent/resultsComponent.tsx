@@ -7,7 +7,7 @@ import { doc, updateDoc } from "firebase/firestore";
 
 type CourseScore = {
     course: string;
-    points: string; 
+    points: string;
     links: string;
 }
 
@@ -26,18 +26,18 @@ const ResultsComponent = () => {
 
     useEffect(() => {
         (async () => {
-          const user = auth.currentUser?.uid;
-          console.log("user uid", user);
-    
-          await updateDoc(doc(db, "answers", `${user}`), {
-            results: {
-                courseScoreSorted
-            }
-          });
-    
+            const user = auth.currentUser?.uid;
+            console.log("user uid", user);
+
+            await updateDoc(doc(db, "answers", `${user}`), {
+                results: {
+                    courseScoreSorted
+                }
+            });
+
         })();
-    
-      }, []);
+
+    }, []);
 
     /*
     let allPoints: Array<number> = [];
@@ -57,7 +57,7 @@ const ResultsComponent = () => {
 
 
     const frontend = loadResults.map((result: any, index: number) => {
-            return result.points[0];
+        return result.points[0];
 
     })
 
@@ -70,7 +70,7 @@ const ResultsComponent = () => {
     // frontend_distans
 
     const frontend_distans = loadResults.map((result: any, index: number) => {
-            return result.points[1];
+        return result.points[1];
 
     })
 
@@ -131,14 +131,12 @@ const ResultsComponent = () => {
                 <h2>Ditt test resultat blev: </h2>
                 <ul className="results_list">
 
-                    { 
-
-                    courseScoreSorted.map((courseScore, index) => {
-                        if (index < 3) {
-                        return <li key={index} className="results_item"> { `${index + 1}.` } {courseScore.course} {courseScore.points} { courseScore.links }</li>
-                        }
-                    })
-
+                    {
+                        courseScoreSorted.map((courseScore, index) => {
+                            if (index < 3) {
+                                return <li key={index} className="results_item"> {`${index + 1}.`} {courseScore.course} {courseScore.links}</li>
+                            }
+                        })
                     }
 
                 </ul>
@@ -149,12 +147,10 @@ const ResultsComponent = () => {
                 <h2>Alternativa utbildningar </h2>
                 <p>Länkar till utbildningarna: </p>
                 <li>
-                    { 
-
-                    courseScoreSorted.map((courseScore, index) => {
-                        return <span key={index}>{courseScore.points}P: {courseScore.course} <a href="" className="form_link">{ courseScore.links }</a></span>
-                    })
-
+                    {
+                        courseScoreSorted.map((courseScore, index) => {
+                            return <span key={index}>{courseScore.course} <a href="" className="form_link">{courseScore.links}</a></span>
+                        })
                     }
                 </li>
             </section>
