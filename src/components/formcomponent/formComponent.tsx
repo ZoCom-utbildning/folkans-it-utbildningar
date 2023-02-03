@@ -3,7 +3,7 @@ import ImageComponent from "../imagecomponent/imageComponent";
 import ContentComponent from "../contentcomponent/contentComponent";
 import { useEffect, useState } from "react";
 import PersonaContent from "../personacontent/PersonaContent";
-import happyGuy from "../../assets/photos/happyGuy.png";
+import happyGuy from "../../assets/photos/happyGuy.webp";
 import ResultsComponent from "../resultscomponent/resultsComponent";
 import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
 import { db } from "../../services/firebase";
