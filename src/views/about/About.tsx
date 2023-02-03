@@ -1,4 +1,4 @@
-import Footer from '../../components/footer/footer';
+import Footer from '../../components/footer/Footer';
 import './about.scss';
 import courseData from './tempInfoCourses.json';
 
