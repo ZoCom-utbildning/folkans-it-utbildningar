@@ -2,6 +2,7 @@
 $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
 @import url("../../scss/_variables.scss");
 @import "../../scss/layout.scss";
+@import "../../scss/global.scss";
 
 .home-wrapper {
   @include maxSize;
@@ -81,43 +82,18 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       margin-top: -5rem;
       z-index: 3;
 
-      input[type="radio"] {
-        -webkit-appearance: none;
-        appearance: none;
-        background-color: $lightBlue;
-        margin: 0;
-        font: inherit;
-        color: currentColor;
-        width: 1.15em;
-        height: 1.15em;
-        border: 0.15em solid currentColor;
-        border-radius: 50%;
-        transform: translateY(-0.075em);
-        display: grid;
-        place-content: center;
-      }
-
-      input[type="radio"]::before {
-        content: "";
-        width: 0.65em;
-        height: 0.65em;
-        border-radius: 50%;
-        transform: scale(0);
-        box-shadow: inset 1em 1em $lightBlue;
-      }
-
-      input[type="radio"]:checked::before {
-        transform: scale(2);
-      }
-
       .gallery-btn {
-        border: 2px solid $lightBlue;
-        padding: 5px;
-        border-radius: $borderRadius;
-        cursor: pointer;
+        @include hexagonButton;
+      }
+      input[type="radio"]:checked {
+        background-color: rgb(90, 90, 182);
 
-        &:hover {
-          background-color: $lightBlue;
+        &::before {
+          border-bottom: 7.5px solid rgb(90, 90, 182);
+        }
+
+        &::after {
+          border-top: 7.5px solid rgb(90, 90, 182);
         }
       }
     }
@@ -197,37 +173,21 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
         display: flex;
         justify-content: space-evenly;
         margin-bottom: 3rem;
-        input[type="radio"] {
-          -webkit-appearance: none;
-          appearance: none;
-          background-color: $lightBlue;
-          margin: 0;
-          font: inherit;
-          color: currentColor;
-          width: 1.15em;
-          height: 1.15em;
-          border: 0.15em solid currentColor;
-          border-radius: 50%;
-          transform: translateY(-0.075em);
-        }
-        input[type="radio"]::before {
-          content: "";
-          width: 0.65em;
-          height: 0.65em;
-          border-radius: 50%;
-          transform: scale(0);
-          box-shadow: inset 1em 1em $lightBlue;
-        }
-        input[type="radio"]:checked::before {
-          transform: scale(2);
-        }
+
         .gallery-btn {
-          border: 2px solid $lightBlue;
-          padding: 5px;
-          border-radius: $borderRadius;
-          cursor: pointer;
-          &:hover {
-            background-color: $lightBlue;
+          appearance: none;
+          @include hexagonButton;
+          position: relative;
+        }
+        input[type="radio"]:checked {
+          background-color: rgb(90, 90, 182);
+
+          &::before {
+            border-bottom: 7.5px solid rgb(90, 90, 182);
+          }
+
+          &::after {
+            border-top: 7.5px solid rgb(90, 90, 182);
           }
         }
       }

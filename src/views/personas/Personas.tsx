@@ -76,25 +76,73 @@ const Personas: React.FC = () => {
                               </section>
                               <main className="personas-card-text-container">
                                 <p className="personas-card-ingress">
-                                  Adam är en av de personer som startat sin
-                                  utbildning hos Folkuniversitetet.
+                                  Adam kommer nästan direkt från gymnasiet, och
+                                  fick upp ögonen för programmering på grund av
+                                  sitt stora gamingintresse. Adam lägger en stor
+                                  del av sin fritid på träning och ser
+                                  kombinationen mellan att träna kroppen på
+                                  gymmet och knoppen med koden som en klockren
+                                  kombination.
                                 </p>
                                 <section className="card-text-container">
                                   <p className="personas-card-text">
-                                    Här är en text som beskriver Adam och hur
-                                    han kom in på utbildningensom förändrade
-                                    hans liv till det bättre. Adam är en riktig
-                                    kung som har lärt sig programmera på egen
-                                    hand men ville utvecklas ytterliggare så han
-                                    sökte in på frontend-utbildningen via
-                                    folkuniversitetets hemsida, efter att han
-                                    tagit quizet och fått reda på att han skulle
-                                    passa perfekt inom frontend-utbildningen.
+                                    <span>
+                                      Vad var det som fick dig att välja din
+                                      utbildning?
+                                    </span>
+                                    Jag har alltid gillat att gamea, men har
+                                    egentligen inte förrän på senare år funderat
+                                    över vad det är som får spelen att funka.
+                                    Men från det att jag började fundera kunde
+                                    jag inte sluta tänka på det. Jag funderade
+                                    på att gå på högskolan, men dels såg det ut
+                                    att vara ganska teoretiskt och dels var
+                                    utbildningarna mycket längre. Min utbildning
+                                    verkade dessutom ha en tydligare riktning
+                                    mot ett faktiskt yrke.
                                   </p>
                                   <p className="personas-card-text">
-                                    Här är en till text som beskriver Adam lite
-                                    ytterligare och läses enklare än en enda
-                                    lång paragraf
+                                    <span>
+                                      Vad har du för bakgrund innan denna
+                                      utbildning?
+                                    </span>
+                                    Inte så mycket mer än gymnasiet, faktisk.
+                                    Jag tog ett halvt sabbatsår efter studenten
+                                    och testade lite olika jobb, men det kändes
+                                    aldrig som mer än bara som ett sätt att
+                                    tjäna pengar. Jag kanske är naiv, men jag
+                                    känner att livet är för kort för att ha ett
+                                    tråkigt jobb. Nu stortrivs jag!
+                                  </p>
+                                  <p className="personas-card-text">
+                                    <span>
+                                      Vad är det bästa med din utbildning?
+                                    </span>
+                                    Hur gjorde du för att bli behörig? Till
+                                    skillnad från flera av mina klasskamrater
+                                    var jag faktiskt behörig från början,
+                                    eftersom jag hade läst Programmering 1 som
+                                    individuellt val på gymnasiet.
+                                  </p>
+                                  <p className="personas-card-text">
+                                    <span>
+                                      Har du några visdomsord till andra som
+                                      funderar på att söka eller som redan sökt?
+                                    </span>
+                                    Se din utbildning som en passion och som ett
+                                    fritidsintresse. Med kod är det som med så
+                                    mycket annat, det krävs att man puttar in
+                                    lite tid för att det ska funka. Jag älskar
+                                    att koda och det har nu blivit ett av mina
+                                    största fritidsintressen tillsammans med
+                                    träning. I början var jag fortfarande
+                                    osäker, vilket gjorde att jag slarvade en
+                                    del, men sedan jag gått in med inställningen
+                                    av att detta är en hobby jag har känner jag
+                                    att det har lossnat rejäl. Jag kodar till
+                                    och med egna projekt utöver utbildningen och
+                                    jag känner att jag lär mig enormt mycket av
+                                    det.
                                   </p>
                                 </section>
                               </main>

@@ -2,19 +2,16 @@
 @import "../../scss/layout.scss";
 @import "../../scss/global.scss";
 
-
 .homeButton {
-    @include formButton
+  @include formButton;
 }
 
 @media (min-width: $breakpointDesktop) {
-
-    .homeButton {
-        transition: .5s;
-        &:hover {
-            transform: scale(1.1);
-            border-color: $lightBlue;
-        }
+  .homeButton {
+    transition: 0.5s;
+    &:hover {
+      transform: scale(1.1);
+      border-color: rgb(90, 90, 182);
     }
+  }
 }
-
