@@ -38,11 +38,7 @@ const ResultsComponent = () => {
     
           await updateDoc(doc(db, "answers", `${user}`), {
             results: {
-                FE_Karlstad: courseScore[0].points,
-                FE_Distans: courseScore[1].points,
-                JS_Distans: courseScore[2].points,
-                Mobilapp: courseScore[3].points,
-                Mjukvaruutveckling: courseScore[4].points
+                courseScoreSorted
             }
           });
     
@@ -134,6 +130,8 @@ const ResultsComponent = () => {
 
 
     const courseScoreSorted = courseScore.sort((a: any, b: any) => b.points - a.points)
+
+    console.log(courseScoreSorted)
 
 
 
