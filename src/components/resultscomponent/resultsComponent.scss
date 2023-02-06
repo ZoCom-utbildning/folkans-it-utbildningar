@@ -4,12 +4,15 @@
 .results_wrapper {
 
     @include flex($direction: column);
+    width: 100%;
 
     h2 {
         padding: 0 10%;
     }
 
     .results_section {
+        height: 100%;
+        width: 80%;
         text-align: center;
         @include flex($direction: column);
         //margin-top: calc($margin-large * 2);
@@ -23,10 +26,6 @@
             padding: $padding;
         }
 
-        p {
-            margin-top: $margin;
-        }
-
         .results_list {
             list-style: none;
             margin: $margin;
@@ -38,7 +37,7 @@
             }
         }
     }
-
+    /*
     .results_points {
         text-align: center;
         @include flex($direction: column, $justify: space-evenly);
@@ -65,6 +64,7 @@
             }
         }
     }
+    */
 }
 
 @media screen and (min-width: $breakpointDesktop) {
@@ -76,8 +76,8 @@
 
         .results_section {
             text-align: center;
-            @include flex($direction: column, $justify: space-evenly);
-            width: 50%;
+            @include flex($direction: column);
+            width: 80%;
             max-height: calc($baseline*38);
             min-height: calc($baseline*30);
             //margin: auto;
@@ -94,7 +94,7 @@
                 // font-size: 1rem;
             }
         }
-
+        /*
         .results_points {
             text-align: center;
             @include flex($direction: column, $justify: space-evenly);
@@ -108,5 +108,6 @@
                 }
             }
         }
+        */
     }
 }

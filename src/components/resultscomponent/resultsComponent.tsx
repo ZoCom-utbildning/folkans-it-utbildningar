@@ -133,16 +133,17 @@ const ResultsComponent = () => {
 
                     {
                         courseScoreSorted.map((courseScore, index) => {
-                            if (index < 3) {
-                                return <li key={index} className="results_item"> {`${index + 1}.`} {courseScore.course} {courseScore.links}</li>
+                            if (index < 5) {
+                                return <li key={index} className="results_item"> {`${index + 1}.`} {courseScore.course} <TestButton buttonText={'ansök här'} /></li>
                             }
                         })
                     }
 
                 </ul>
-                <TestButton buttonText={'ansök här'} />
                 <TestButton buttonText={'ta testet igen'} />
             </section>
+            {
+            /*
             <section className="results_points">
                 <h2>Alternativa utbildningar </h2>
                 <p>Länkar till utbildningarna: </p>
@@ -154,6 +155,8 @@ const ResultsComponent = () => {
                     }
                 </li>
             </section>
+            */
+            }
         </div>
     )
 }
