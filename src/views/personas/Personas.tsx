@@ -7,6 +7,7 @@ const Personas: React.FC = () => {
   const [activeEl, setActiveEl] = useState<HTMLDivElement | null>(null);
   const [preview, setPreview] = useState(true);
   const [data, setData] = useState<Array<any>>([]);
+  const [interviewData, setInterviewData] = useState<any[]>([]);
   const NUM_OF_ELEMENTS = 5;
   useEffect(() => {
     (async () => {
@@ -19,6 +20,48 @@ const Personas: React.FC = () => {
       setData(tempArr);
     })();
   }, []);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      setInterviewData(
+        data.map((personas, index) => {
+          return (
+            <div className="personas-main" key={index}>
+              <article className="personas-card">
+                <section className="personas-card-header">
+                  <h2 className="personas-card-title">
+                    {personas.name + `, ` + personas.age}
+                  </h2>
+                </section>
+                <main className="personas-card-text-container">
+                  <p className="personas-card-ingress">{personas.desc}</p>
+                  <span>
+                    Vad var det som fick dig att välja din utbildning?
+                  </span>
+                  <br></br>
+                  <section className="card-text-container">
+                    <p className="personas-card-text">{personas.replies[0]}</p>
+                    <span>Vad har du för bakgrund innan denna utbildning?</span>
+                    <br></br>
+                    <p className="personas-card-text">{personas.replies[1]}</p>
+                    <span>Vad är det bästa med din utbildning?</span>
+                    <br></br>
+                    <p className="personas-card-text">{personas.replies[2]}</p>
+                    <span>
+                      Har du några visdomsord till andra som funderar på att
+                      söka eller som redan sökt?
+                    </span>
+                    <br></br>
+                    <p className="personas-card-text">{personas.replies[3]}</p>
+                  </section>
+                </main>
+              </article>
+            </div>
+          );
+        })
+      );
+    }
+  }, [data]);
 
   useEffect(() => {
     setTimeout(() => {
@@ -38,6 +81,7 @@ const Personas: React.FC = () => {
     setTimeout(() => {
       setPreview(false);
     }, 1350);
+    console.log(interviewData);
   };
 
   const toggleClass = (el: HTMLDivElement, className: string) => {
@@ -77,95 +121,13 @@ const Personas: React.FC = () => {
                       <div className="el__bg"></div>
                       {preview ? (
                         <section className="el__preview-cont">
-                          <h2 className="el__heading">Adam, 20</h2>
+                          <h2 className="el__heading">
+                            {data[index] ? data[index].name : ""}
+                          </h2>
                         </section>
                       ) : (
                         <div className="el__content">
-                          <div className="personas-main">
-                            <article className="personas-card">
-                              <section className="personas-card-header">
-                                <h2 className="personas-card-title">
-                                  Adam, 20
-                                </h2>
-                              </section>
-                              <main className="personas-card-text-container">
-                                <p className="personas-card-ingress">
-                                  Adam kommer nästan direkt från gymnasiet, och
-                                  fick upp ögonen för programmering på grund av
-                                  sitt stora gamingintresse. Adam lägger en stor
-                                  del av sin fritid på träning och ser
-                                  kombinationen mellan att träna kroppen på
-                                  gymmet och knoppen med koden som en klockren
-                                  kombination.
-                                </p>
-                                <span>
-                                  Vad var det som fick dig att välja din
-                                  utbildning?
-                                </span>
-                                <br></br>
-                                <section className="card-text-container">
-                                  <p className="personas-card-text">
-                                    - Jag har alltid gillat att gamea, men har
-                                    egentligen inte förrän på senare år funderat
-                                    över vad det är som får spelen att funka.
-                                    Men från det att jag började fundera kunde
-                                    jag inte sluta tänka på det. Jag funderade
-                                    på att gå på högskolan, men dels såg det ut
-                                    att vara ganska teoretiskt och dels var
-                                    utbildningarna mycket längre. Min utbildning
-                                    verkade dessutom ha en tydligare riktning
-                                    mot ett faktiskt yrke.
-                                  </p>
-                                  <span>
-                                    Vad har du för bakgrund innan denna
-                                    utbildning?
-                                  </span>
-                                  <br></br>
-                                  <p className="personas-card-text">
-                                    - Inte så mycket mer än gymnasiet, faktisk.
-                                    Jag tog ett halvt sabbatsår efter studenten
-                                    och testade lite olika jobb, men det kändes
-                                    aldrig som mer än bara som ett sätt att
-                                    tjäna pengar. Jag kanske är naiv, men jag
-                                    känner att livet är för kort för att ha ett
-                                    tråkigt jobb. Nu stortrivs jag!
-                                  </p>
-                                  <span>
-                                    Vad är det bästa med din utbildning?
-                                  </span>
-                                  <br></br>
-                                  <p className="personas-card-text">
-                                    - Hur gjorde du för att bli behörig? Till
-                                    skillnad från flera av mina klasskamrater
-                                    var jag faktiskt behörig från början,
-                                    eftersom jag hade läst Programmering 1 som
-                                    individuellt val på gymnasiet.
-                                  </p>
-                                  <span>
-                                    Har du några visdomsord till andra som
-                                    funderar på att söka eller som redan sökt?
-                                  </span>
-                                  <br></br>
-                                  <p className="personas-card-text">
-                                    - Se din utbildning som en passion och som
-                                    ett fritidsintresse. Med kod är det som med
-                                    så mycket annat, det krävs att man puttar in
-                                    lite tid för att det ska funka. Jag älskar
-                                    att koda och det har nu blivit ett av mina
-                                    största fritidsintressen tillsammans med
-                                    träning. I början var jag fortfarande
-                                    osäker, vilket gjorde att jag slarvade en
-                                    del, men sedan jag gått in med inställningen
-                                    av att detta är en hobby jag har känner jag
-                                    att det har lossnat rejäl. Jag kodar till
-                                    och med egna projekt utöver utbildningen och
-                                    jag känner att jag lär mig enormt mycket av
-                                    det.
-                                  </p>
-                                </section>
-                              </main>
-                            </article>
-                          </div>
+                          {interviewData[index]}
                           <button
                             className="el__close-btn"
                             onClick={handleCloseBtnClick}

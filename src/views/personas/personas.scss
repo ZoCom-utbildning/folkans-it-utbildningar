@@ -99,8 +99,8 @@ $bg-images: url("../../assets/photos/personas/*.webp");
       }
 
       .el {
-        $elW: calc(100% - $elMrg * ($numOfEls - 1) / $numOfEls);
-        $elMrgRel: calc($elMrg / $elW);
+        $elW: calc(100% - $elMrg * ($numOfEls - 1)) / $numOfEls;
+        $elMrgRel: calc(percentage($elMrg / $elW));
         position: absolute;
         left: 0;
         top: 0;
@@ -244,7 +244,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
           line-height: 0.85;
           font-weight: bold;
           transition: transform $indexHoverAT,
-            opacity calc($moveAT/2) $expandAT + $expandDelay + $moveAT;
+            opacity $moveAT/2 $expandAT + $expandDelay + $moveAT;
           transform: translate3d(0, 1vw, 0);
         }
 
