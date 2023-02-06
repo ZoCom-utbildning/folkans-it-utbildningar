@@ -13,6 +13,26 @@ $bg-image: url("../assets/photos/manComputer.webp");
 body {
   overflow-x: hidden;
 }
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background: rgb(74, 74, 74);
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: rgb(74, 74, 74);
+  border-radius: 10px;
+  transition-duration: 200ms;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: #787878;
+}
 
 .App {
   overflow-wrap: break-word;
