@@ -6,6 +6,7 @@
     position: relative;
     height: 100%;
 
+
     .form_question {
         @include flex();
         margin-top: $margin-large;
@@ -56,11 +57,13 @@
     background-color: rgb(255, 255, 255, .03);
     border-radius: $borderRadius;
     cursor: pointer;
+    user-select: none;
 
     p {
         margin: 0px 5px 0px 50px;
         //width: calc(100% - ($baseline*5));
         text-align: start;
+        user-select: text;
     }
 
     input[type="radio"] {
