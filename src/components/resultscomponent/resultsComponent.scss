@@ -12,10 +12,14 @@
 
     .results_section {
         height: 100%;
-        width: 80%;
+        width: 95%;
         text-align: center;
         @include flex($direction: column);
         //margin-top: calc($margin-large * 2);
+
+        h2 {
+            margin: 4rem 0;
+        }
 
         button {
             width: 9rem;
@@ -27,13 +31,43 @@
         }
 
         .results_list {
+            @include flex($direction: column);
+            width: 100%;
             list-style: none;
             margin: $margin;
 
             .results_item {
-                margin: $margin;
-                padding: $padding;
-                border: 2px solid grey;
+                @include flex($justify: center, $align: center, $wrap: wrap);
+                margin: $margin-sml;
+                height: 3.5rem;
+                width: 100%;
+                margin-bottom: 4rem;
+
+                span {
+                    padding: $padding;
+                }
+                
+                span:nth-child(1) {
+                    @include flex($justify: center, $align: center);
+                    width: 3.5rem;
+                    border: 2px solid grey;
+                    border-right: none;
+                }
+
+                span:nth-child(2) {
+                    @include flex($justify: center, $align: center);
+                    padding-left: $padding;
+                    width: 12rem;
+                    border: 2px solid grey;
+                }
+
+                span:nth-child(3) {
+                    @include flex($justify: center, $align: center);
+                    height: 100%;
+                    width: 15.5rem;
+                    border: 2px solid grey;
+                    border-top: none;
+                }
             }
         }
     }
@@ -67,7 +101,7 @@
     */
 }
 
-@media screen and (min-width: $breakpointDesktop) {
+@media screen and (min-width: 580px) {
     .results_wrapper {
         @include flex();
         z-index: 3;
@@ -93,6 +127,39 @@
                 // height: 2.5rem;
                 // font-size: 1rem;
             }
+
+            .results_list {
+                width: 100%;
+                list-style: none;
+                margin: $margin;
+    
+                .results_item {
+                    @include flex($justify: center, $align: center);
+                    margin: $margin-sml;
+                    height: 3.5rem;
+                    width: 100%;
+    
+                    span {
+                        height: 100%;
+                    }
+                    
+                    span:nth-child(1) {
+                        width: 6rem;
+                        border-right: none;
+                    }
+    
+                    span:nth-child(2) {
+                        @include flex($justify: center, $align: center);
+                        width: 16rem;
+                    }
+    
+                    span:nth-child(3) {
+                        width: 10rem;
+                        border-top: 2px solid grey;
+                        border-left: none;
+                    }
+                }
+            }
         }
         /*
         .results_points {
@@ -111,3 +178,4 @@
         */
     }
 }
+

@@ -134,12 +134,13 @@ const ResultsComponent = () => {
                     {
                         courseScoreSorted.map((courseScore, index) => {
                             if (index < 5) {
-                                return <li key={index} className="results_item"> {`${index + 1}.`} {courseScore.course} <TestButton buttonText={'ansök här'} /></li>
+                                return <li key={index} className="results_item"> <span>{`${index + 1}`}</span> <span>{courseScore.course}</span> <span> ansök </span></li>
                             }
                         })
                     }
 
                 </ul>
+                { /*<TestButton buttonText={'ansök här'} /> */}
                 <TestButton buttonText={'ta testet igen'} />
             </section>
             {
