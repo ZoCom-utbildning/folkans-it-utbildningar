@@ -1,48 +1,45 @@
 import "./personacontent.scss";
+import { useNavigate } from "react-router-dom";
 type Props = {
   activePersona: number;
 };
 function PersonaContent({ activePersona }: Props) {
+  const navigate = useNavigate();
+  function navToPersonas(e: any) {
+    e.preventDefault();
+    navigate("/personer");
+  }
+
   const personas = [
     {
       id: 0,
       personaTitle: "Adam, 20",
       personaIngress:
-        "Adam är en av de personer som startat sin utbildning hos Folkuniversitetet.",
-      personaText:
-        "Här är en text som beskriver Adam och hur han kom in på utbildningensom förändrade hans liv till det bättre.",
+        "Adam kommer nästan direkt från gymnasiet, och fick upp ögonen för programmering på grund av sitt stora gamingintresse. Adam lägger en stor del av sin fritid på träning och ser kombinationen mellan att träna kroppen på gymmet och knoppen med koden som en klockren kombination.",
     },
     {
       id: 1,
       personaTitle: "Anna, 28",
       personaIngress:
-        "Bertil är en av de personer som startat sin utbildning hos Folkuniversitetet.",
-      personaText:
-        "Här är en text som beskriver Bertil och hur han kom in på utbildningensom förändrade hans liv till det bättre.",
+        "Anna är 28 år gammal och bor tillsammans med sin sambo. Hon har alltid haft ett starkt intresse för teknik, men hade aldrig programmerat innan den behörighetsgivande förutbildningen (BFU).",
     },
     {
       id: 2,
       personaTitle: "Ahmed, 32",
       personaIngress:
-        "Ahmed är en av de personer som startat sin utbildning hos Folkuniversitetet.",
-      personaText:
-        "Här är en text som beskriver Ahmed och hur han kom in på utbildningensom förändrade hans liv till det bättre.",
+        "Ahmed är tvåbarnsfadern med säljbakgrund som är mitt uppe i att sadla om till att bli programmerare. Han gick samhällsprogrammet på gymnasiet och har egentligen inte haft direkt erfarenhet av mjukvaruutveckling sedan tidigare, även om han faktiskt redan är yrkesverksam inom IT-branschen.",
     },
     {
       id: 3,
       personaTitle: "Sonja, 22",
       personaIngress:
-        "Anja är en av de personer som startat sin utbildning hos Folkuniversitetet.",
-      personaText:
-        "Här är en text som beskriver Anja och hur hon kom in på utbildningensom förändrade hennes liv till det bättre.",
+        "Sonja är den nära på professionella gamern som programmerat sedan barnsben och nu tagit steget från att se utvecklingen som en hobby till att vara på god väg att bli en professionell utvecklare. Hon gick in med inställningen om att bara “formalisera” sina kunskaper till att inse att det finns mycket att lära i utbytet med andra, oavsett vilka de är.",
     },
     {
       id: 4,
       personaTitle: "Emilija, 32",
       personaIngress:
-        "Amina är en av de personer som startat sin utbildning hos Folkuniversitetet.",
-      personaText:
-        "Här är en text som beskriver Amina och hur hon kom in på utbildningensom förändrade hennes liv till det bättre.",
+        "Emilija är karriärväxlaren som bytte katedern mot skolbänken och sadlade om från en karriär som SO-lärare på grundskolan till att nu vara helt inställd på programmering. Att hoppa på en programmeringsutbildning har givit henne en riktig nytändning i livet och nu kan hon räkna programmering som en av hennes största hobbies, även om hon stundtals får kämpa lite.",
     },
   ];
   // map out the personas with key={persona.id} and return the active persona
@@ -57,7 +54,12 @@ function PersonaContent({ activePersona }: Props) {
               </header>
               <main className="persona-text-container">
                 <p className="persona-ingress">{persona.personaIngress}</p>
-                <p className="persona-text">{persona.personaText}</p>
+                <button
+                  className="homeButton"
+                  onClick={(e) => navToPersonas(e)}
+                >
+                  Läs hela intervjun här
+                </button>
               </main>
             </div>
           );
