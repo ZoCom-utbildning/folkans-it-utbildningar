@@ -34,6 +34,8 @@
     border-radius: $borderRadius;
     padding: 0;
     background-color: transparent;
+    justify-content: space-evenly;
+    flex-direction: column;
 
     .card_content {
       @include lines;

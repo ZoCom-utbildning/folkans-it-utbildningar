@@ -14,7 +14,7 @@ function PersonaContent({ activePersona }: Props) {
     },
     {
       id: 1,
-      personaTitle: "Bertil, 30",
+      personaTitle: "Anna, 28",
       personaIngress:
         "Bertil är en av de personer som startat sin utbildning hos Folkuniversitetet.",
       personaText:
@@ -30,7 +30,7 @@ function PersonaContent({ activePersona }: Props) {
     },
     {
       id: 3,
-      personaTitle: "Anja, 23",
+      personaTitle: "Sonja, 22",
       personaIngress:
         "Anja är en av de personer som startat sin utbildning hos Folkuniversitetet.",
       personaText:
@@ -38,7 +38,7 @@ function PersonaContent({ activePersona }: Props) {
     },
     {
       id: 4,
-      personaTitle: "Amina, 38",
+      personaTitle: "Emilija, 32",
       personaIngress:
         "Amina är en av de personer som startat sin utbildning hos Folkuniversitetet.",
       personaText:

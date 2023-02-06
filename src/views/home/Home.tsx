@@ -192,8 +192,8 @@ function Home({ activePersona, setActivePersona }: Props) {
       <section className="home-personas-wrapper">
         <div className="form_wrapper" {...handlers}>
           <FormComponent activePersona={activePersona} />
+          {buttonElements}
         </div>
-        {buttonElements}
       </section>
       <Footer />
     </div>
