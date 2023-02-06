@@ -45,9 +45,8 @@
         text-align: center;
         @include flex($direction: column, $justify: space-evenly);
 
-        p {
-            margin: $margin;
-            padding: $padding-sml;
+        .onboarding_text {
+            margin: 0 1.5rem 0 1.5rem;
         }
 
         li {
