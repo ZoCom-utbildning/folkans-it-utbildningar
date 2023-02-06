@@ -136,6 +136,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
           position: relative;
           width: calc(100vw - #{$sidePad * 2 + 2px});
           height: 100%;
+
           transition: transform $moveAT $expandAT;
           will-change: transform;
 
@@ -145,7 +146,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
             left: 0;
             top: -5%;
             width: 100%;
-            height: 110%;
+            height: 225%;
 
             transition: transform $initAT;
             transform: translate3d(0, 0, 0) scale(1);
