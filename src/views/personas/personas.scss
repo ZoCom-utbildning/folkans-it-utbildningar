@@ -16,10 +16,12 @@ $bg-images: url("../../assets/photos/personas/*.webp");
     @include lines;
     background-color: $dark;
     .title-h1 {
+      position: relative;
       color: $light;
       font-size: calc($baseline * 2);
       text-align: center;
       margin-top: $margin-large * 3;
+      z-index: 3;
     }
     .personas-main {
       display: flex;
@@ -44,7 +46,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
         .personas-card-header {
           margin-top: 1rem;
           width: 100%;
-          height: 100%;
+          height: 10%;
           display: flex;
           flex-direction: column;
           justify-content: center;
