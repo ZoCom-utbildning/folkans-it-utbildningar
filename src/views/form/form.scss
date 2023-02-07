@@ -3,7 +3,7 @@
 
 .form_wrapper {
   @include lines;
-  min-height: 100vh;
+  min-height: 140vh;
   position: relative;
   background-color: $dark;
   padding: 1.5rem;
@@ -34,6 +34,8 @@
     border-radius: $borderRadius;
     padding: 0;
     background-color: transparent;
+    justify-content: space-evenly;
+    flex-direction: column;
 
     .card_content {
       @include lines;
