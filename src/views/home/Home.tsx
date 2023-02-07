@@ -195,7 +195,6 @@ function Home({ activePersona, setActivePersona }: Props) {
           {buttonElements}
         </div>
       </section>
-      <Footer />
     </div>
   );
 }
