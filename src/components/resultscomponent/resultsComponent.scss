@@ -43,29 +43,34 @@
                 width: 100%;
                 margin-bottom: 4rem;
 
-                span {
-                    padding: $padding;
+                span, .rank {
+                    height: 3.5rem;
                 }
                 
-                span:nth-child(1) {
+                .rank {
                     @include flex($justify: center, $align: center);
                     width: 3.5rem;
-                    border: 2px solid grey;
+                    border: 1px solid $primaryTextColor;
                     border-right: none;
+                    background-image: linear-gradient(45deg, rgb(221, 221, 221, 50%) 5.56%, $dark 5.56%, $dark 50%, rgb(221, 221, 221, 50%) 50%, 
+                    rgb(221, 221, 221, 50%) 55.56%, $dark 55.56%, $dark 100%);
+                    background-size: 12.73px 12.73px;
+                    margin: 0;
+                    padding: 0;
                 }
 
                 span:nth-child(2) {
-                    @include flex($justify: center, $align: center);
-                    padding-left: $padding;
+                    @include flex($justify: flex-start, $align: center);
+                    padding-left: $padding-sml;
                     width: 12rem;
-                    border: 2px solid grey;
+                    border: 1px solid $primaryTextColor;
                 }
 
                 span:nth-child(3) {
                     @include flex($justify: center, $align: center);
                     height: 100%;
                     width: 15.5rem;
-                    border: 2px solid grey;
+                    border: 1px solid $primaryTextColor;
                     border-top: none;
                 }
             }
@@ -138,24 +143,23 @@
                     margin: $margin-sml;
                     height: 3.5rem;
                     width: 100%;
-    
-                    span {
-                        height: 100%;
-                    }
                     
-                    span:nth-child(1) {
+                    .rank {
                         width: 6rem;
                         border-right: none;
+                        margin: 0;
+                        padding: 0;
                     }
     
                     span:nth-child(2) {
-                        @include flex($justify: center, $align: center);
+                        @include flex($justify: flex-start, $align: center);
+                        padding-left: $padding-sml;
                         width: 16rem;
                     }
     
                     span:nth-child(3) {
                         width: 10rem;
-                        border-top: 2px solid grey;
+                        border-top: 1px solid $primaryTextColor;
                         border-left: none;
                     }
                 }
