@@ -11,6 +11,7 @@ import ResultsComponent from "../resultscomponent/resultsComponent";
 import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import anime, {AnimeInstance} from 'animejs';
 
 type Props = {
   activePersona: number;
@@ -38,6 +39,29 @@ function FormComponent({ activePersona }: Props) {
       setQuestions(tempArr);
     })();
   }, []);
+
+  useEffect(() => {
+    if (questionId !== 0) {
+      anime({
+        targets: '.card_content',
+        opacity: ['10%', '100%'],
+        easing: 'easeOutQuad',
+        duration: 1000,
+        endDelay: 0,
+        autoplay: true
+      });
+  }
+    if (lastPage == true) {
+      anime({
+        targets: '.card_content',
+        opacity: ['0%', '50%', '100%'],
+        easing: 'easeOutQuad',
+        duration: 2000,
+        endDelay: 0,
+        autoplay: true
+      });
+    }
+  }, [questionId]);
 
   //Changes question depending on questionNmbr
   useEffect(() => {
