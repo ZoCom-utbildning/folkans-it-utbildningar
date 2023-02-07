@@ -8,8 +8,13 @@ import { doc, updateDoc } from "firebase/firestore";
 type CourseScore = {
     course: string;
     points: string;
-    links: string;
+    links: Links;
     studyAt: string;
+}
+
+type Links = {
+    course: string;
+    link: string;
 }
 
 const ResultsComponent = () => {
@@ -20,10 +25,10 @@ const ResultsComponent = () => {
     // frontend
 
     const loadResults = JSON.parse(localStorage.getItem("resultsArray")!);
-
+    /*
     const loadLinks = jsonData.links.map((link: any) => {
         return link
-    })
+    }) */
 
     useEffect(() => {
         (async () => {
@@ -67,7 +72,8 @@ const ResultsComponent = () => {
     const frontendPoints = frontendFilter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
 
-    courseScore.push({ course: 'FE Karlstad', points: frontendPoints, links: loadLinks[0].links, studyAt: 'Karlstad' });
+    courseScore.push({ course: 'FE Karlstad', points: frontendPoints, links: { course: 'FE Karlstad', 
+    link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/frontendutvecklare/' }, studyAt: 'Karlstad' });
     // frontend_distans
 
     const frontend_distans = loadResults.map((result: any, index: number) => {
@@ -79,7 +85,8 @@ const ResultsComponent = () => {
 
     const frontend_distans_points = frontend_distans_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'FE Distans', points: frontend_distans_points, links: loadLinks[1].links, studyAt: 'Distans' });
+    courseScore.push({ course: 'FE Distans', points: frontend_distans_points, links: { course: 'FE Distans', 
+    link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/frontendutvecklare-distans/' }, studyAt: 'Distans' });
 
     // javascript_distans
 
@@ -92,7 +99,8 @@ const ResultsComponent = () => {
 
     const javascript_distans_points = javascript_distans_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'JS distans', points: javascript_distans_points, links: loadLinks[2].links, studyAt: 'Distans' });
+    courseScore.push({ course: 'JS distans', points: javascript_distans_points, links: { course: 'JS distans', 
+    link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/javascriptutvecklare-distans/' }, studyAt: 'Distans' });
 
     // mobil_app
 
@@ -105,7 +113,8 @@ const ResultsComponent = () => {
 
     const mobil_app_points = mobil_app_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'Mobilapp', points: mobil_app_points, links: loadLinks[3].links, studyAt: 'Distans' });
+    courseScore.push({ course: 'Mobilapp', points: mobil_app_points, links: { course: 'Mobilapp', 
+    link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/mobilapplikationsutvecklare-distans/' }, studyAt: 'Distans' });
 
     // mjukvaru_utveckling
 
@@ -118,13 +127,20 @@ const ResultsComponent = () => {
 
     const mjukvaru_utveckling_points = mjukvaru_utveckling_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'Mjukvaruutveckling', points: mjukvaru_utveckling_points, links: loadLinks[4].links, studyAt: 'Distans' });
+    courseScore.push({ course: 'Mjukvaruutveckling', points: mjukvaru_utveckling_points, links: { course: 'Mjukvaruutveckling', 
+    link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/mjukvaruutvecklare-for-mobiltetstjanster/' }, studyAt: 'Distans' });
 
     const courseScoreSorted = courseScore.sort((a: any, b: any) => b.points - a.points)
 
     //funktion för att räkna ut svar/summa
 
     //mappa ut data för utbildning + länk till utbildning
+
+    const openNewTab = (link: string) => {
+        const newWindow = window.open(link, '_blank', 'noopener,noreferrer');
+        if (newWindow) { newWindow.opener = null }
+    }
+
 
     return (
         <div className="results_wrapper">
@@ -140,7 +156,7 @@ const ResultsComponent = () => {
                                 <span>{courseScore.course} 
                                     <span className="study_at">{ courseScore.studyAt }</span>
                                 </span> 
-                                <span> ansök </span></li>
+                                <span onClick={() => openNewTab(courseScore.links.link)}> Ansök </span></li>
                             }
                         })
                     }
