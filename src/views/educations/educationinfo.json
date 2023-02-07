@@ -1,0 +1,59 @@
+[
+{
+    "type": "ingress", 
+    "content": [ "Det här är en utbildning för dig som tycker om problemlösning. Du har ett stort intresse för molntjänster, nätverk och säkerhet dessutom har du förmågan att var service-minded och lätt för att bygga goda kundrelationer." ]
+},
+{
+    "type": "h3",
+    "content": "Om yrkesrollen"
+},
+{
+    "type": "p",
+    "content": [
+        "Som moln- och virtualiseringstekniker kommer du att stöta på en mängd olika arbetsuppgifter exempelvis att utföra flesökning, installation och konfiguration av datorer och servrar. Under utbildningen har du lärt dig att arbeta projekt- och kundorienterat med ett problemlösande angreppssätt och kommer därmed att ha förståelse för såväl gruppens betydelse som den egna rollen i olika arbetssituationer.",
+        "Efter fullgjord utbildning får du en yrkeshögskoleexamen som moln- och virtualiseringstekniker. Examensbeviset styrker din kompetens när det gäller de kunskaper och erfarenheter du har förvärvat under utbildningen."
+    ]
+},
+{
+    "type": "h3",
+    "content": [
+        "Om utbildningen"
+    ]
+},
+{
+    "type": "p",
+    "content": [
+        "Utbildningen är på heltid och bedrivs på plats i Borlänge. Under teoriperioderna varvas lektioner, grupparbeten och hemstudier. Då är det lektioner och föreläsningar tre dagar per vecka och övrig tid studerar man på egen hand. Under LIA-perioderna är man på arbetsplatsen under normal arbetstid.",
+        "Under utbildningen ingår även en rad studiebesök.",
+        "Våra lärare är själva yrkesverksamma och därför väl uppdaterade om vad som sker i branschen samt mycket kompetenta såväl praktiskt som pedagogiskt."
+    ]
+},
+{
+    "type": "h3",
+    "content": [
+        "Efter utbildningen"
+    ]
+},
+{
+    "type": "p",
+    "content": [
+        "Efter avslutad utbildning ska du ha kompetenser för att"
+    ]
+},
+{
+    "type": "ul",
+    "content": [
+        "Arbeta med planering och driftsättning av WiFi nät",
+        "Konfigurera och arbeta med molntjänster, såväl privata som hybrida lösningar",
+        "Arbeta på ett problemlösande angreppssätt samt med ett kundorienterat affärstänkande",
+        "Arbeta självständigt och initiativrikt, samt vara delaktig i förändrings- och förbättringsprocesser inom IT-systemområdet",
+        "Arbeta såväl linje- som projektorienterat",
+        "Göra säljinsatser",
+        "Medverka i projekt inom IT-systemområdet",
+        "Arbeta som tekniker inom IT-infrastruktur med design, implementation och drift",
+        "Arbeta med Exchange",
+        "Arbeta i Microsoft System Center",
+        "Läsa, förstå och skriva teknisk dokumentation anpassat till branschens kravbilder"
+    ]
+}
+]
