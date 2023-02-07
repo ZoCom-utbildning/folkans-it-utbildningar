@@ -14,9 +14,10 @@ import { collection, getDocs } from "firebase/firestore";
 
 type Props = {
   activePersona: number;
+  buttonElements: any;
 };
 
-function FormComponent({ activePersona }: Props) {
+function FormComponent({ activePersona, buttonElements }: Props) {
   const [questions, setQuestions] = useState<Array<any>>([]);
   const [questionId, setQuestionId] = useState<number>(0);
   const [formText, setFormText] = useState<string>("");
@@ -113,34 +114,39 @@ function FormComponent({ activePersona }: Props) {
   };
 
   return (
-    <section className="card_content">
-      {window.location.href.includes("fragor") && firstPage ? (
-        <>
-          <OnboardingComponent startTest={startTest} />
-        </>
-      ) : window.location.href.includes("fragor") && !firstPage && !lastPage ? (
-        <>
-          <ImageComponent formImage={formImage} altImage={altImage} />
-          <ContentComponent
-            questions={questions}
-            formText={formText}
-            questionId={questionId}
-            increaseQuestion={increaseQuestion}
-            decreaseQuestion={decreaseQuestion}
-            firstQuestion={firstQuestion}
-          />
-        </>
-      ) : window.location.href.includes("fragor") && lastPage ? (
-        <>
-          <ResultsComponent />
-        </>
-      ) : window.location.href.includes("") ? (
-        <section className="persona-card-content">
-          <ImageComponent formImage={formImage} altImage={altImage} />
-          <PersonaContent activePersona={activePersona} />
-        </section>
-      ) : null}
-    </section>
+    <div className="form_wrapper">
+      <section className="card_content">
+        {window.location.href.includes("fragor") && firstPage ? (
+          <>
+            <OnboardingComponent startTest={startTest} />
+          </>
+        ) : window.location.href.includes("fragor") &&
+          !firstPage &&
+          !lastPage ? (
+          <>
+            <ImageComponent formImage={formImage} altImage={altImage} />
+            <ContentComponent
+              questions={questions}
+              formText={formText}
+              questionId={questionId}
+              increaseQuestion={increaseQuestion}
+              decreaseQuestion={decreaseQuestion}
+              firstQuestion={firstQuestion}
+            />
+          </>
+        ) : window.location.href.includes("fragor") && lastPage ? (
+          <>
+            <ResultsComponent />
+          </>
+        ) : window.location.href.includes("") ? (
+          <section className="persona-card-content">
+            <ImageComponent formImage={formImage} altImage={altImage} />
+            <PersonaContent activePersona={activePersona} />
+            {buttonElements}
+          </section>
+        ) : null}
+      </section>
+    </div>
   );
 }
 

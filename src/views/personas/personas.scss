@@ -15,6 +15,29 @@ $bg-images: url("../../assets/photos/personas/*.webp");
     height: 400%;
     @include lines;
     background-color: $dark;
+    .cont {
+      padding: 2.5rem;
+      .el {
+        padding: 1rem;
+        border: 1px solid gray;
+        border-bottom: none;
+        .el__preview-cont {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .el__heading {
+            margin: calc($margin-sml / 2);
+          }
+          .arrow-img {
+            width: 3rem;
+            cursor: pointer;
+          }
+        }
+      }
+      .el:last-child {
+        border-bottom: 1px solid gray;
+      }
+    }
     .title-h1 {
       position: relative;
       color: $light;
@@ -22,6 +45,10 @@ $bg-images: url("../../assets/photos/personas/*.webp");
       text-align: center;
       margin-top: $margin-large * 3;
       z-index: 3;
+      margin: 4rem;
+    }
+    .title-h2 {
+      display: none;
     }
     .personas-main {
       display: flex;
@@ -92,6 +119,20 @@ $bg-images: url("../../assets/photos/personas/*.webp");
         overflow: hidden;
         height: 100vh;
         padding: $vertPad $sidePad;
+        .el {
+          border: none;
+          .el__preview-cont {
+            width: 100%;
+
+            justify-content: center;
+            .el__heading {
+              margin: calc($margin-sml / 2);
+            }
+          }
+        }
+        .el:last-child {
+          border: none;
+        }
 
         &__inner {
           position: relative;
@@ -191,6 +232,10 @@ $bg-images: url("../../assets/photos/personas/*.webp");
           height: 100%;
           transition: all 0.3s $fullInitAT - 0.2s;
 
+          .arrow-img {
+            display: none;
+          }
+
           @include contInactive {
             opacity: 0;
 
@@ -205,9 +250,10 @@ $bg-images: url("../../assets/photos/personas/*.webp");
         }
 
         &__heading {
-          color: #fff;
+          color: #ededed;
           text-transform: uppercase;
           font-size: 18px;
+          letter-spacing: 0.15em;
         }
 
         &__content {
@@ -354,6 +400,8 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                   text-align: center;
                   margin: $margin-large;
                   z-index: 6;
+                  content-visibility: auto;
+                  contain-intrinsic-size: 1px 5000px;
                   .personas-card-text-container {
                     text-align: center;
                     margin-top: $margin-large;

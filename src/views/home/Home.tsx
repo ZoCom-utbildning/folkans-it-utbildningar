@@ -18,7 +18,7 @@ function Home({ activePersona, setActivePersona }: Props) {
   const [isMobile, setIsMobile] = useState<boolean>();
   function checkMediaQuery() {
     // Check if the media query is true
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 820) {
       // Then log the following message to the console
 
       setIsMobile(false);
@@ -190,9 +190,11 @@ function Home({ activePersona, setActivePersona }: Props) {
         </div>
       </main>
       <section className="home-personas-wrapper">
-        <div className="form_wrapper" {...handlers}>
-          <FormComponent activePersona={activePersona} />
-          {buttonElements}
+        <div {...handlers}>
+          <FormComponent
+            buttonElements={buttonElements}
+            activePersona={activePersona}
+          />
         </div>
       </section>
     </div>

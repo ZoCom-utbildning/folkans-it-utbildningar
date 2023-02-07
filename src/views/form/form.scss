@@ -3,7 +3,7 @@
 
 .form_wrapper {
   @include lines;
-  min-height: 140vh;
+  min-height: 100vh;
   position: relative;
   background-color: $dark;
   padding: 1.5rem;
@@ -34,7 +34,7 @@
     border-radius: $borderRadius;
     padding: 0;
     background-color: transparent;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
 
     .card_content {
@@ -43,7 +43,7 @@
       box-shadow: $shadow; // ändra till mindre box-shadow? ser ej bra ut
 
       width: 80%;
-      height: 70%;
+      height: 65%;
       border: none;
       border-radius: $borderRadius;
 

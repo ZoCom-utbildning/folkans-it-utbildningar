@@ -59,9 +59,6 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
   height: 100vh;
 
   .home-personas-wrapper {
-    width: 100%;
-    height: 140vh;
-
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -80,7 +77,8 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       width: 100%;
       display: flex;
       justify-content: space-evenly;
-
+      position: static;
+      bottom: auto;
       padding: 1rem;
 
       .gallery-btn {
@@ -157,8 +155,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
     }
     .home-personas-wrapper {
       width: 100%;
-      height: 127vh;
-
+      height: 110vh;
       display: flex;
       background-attachment: fixed;
       background-position: center;
@@ -175,10 +172,12 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
         $bg-imageWoman; //Bör flyttas, syns i bakgrunden för views beroende på height.
       @include flex($justify: space-between, $direction: column, $wrap: nowrap);
       .galleryButtons {
-        width: 50%;
+        width: 100%;
         display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 3rem;
+        justify-content: center;
+        gap: 2rem;
+        position: absolute;
+        bottom: -30%;
 
         .gallery-btn {
           appearance: none;
