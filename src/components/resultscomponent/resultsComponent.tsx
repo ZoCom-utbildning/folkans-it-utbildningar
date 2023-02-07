@@ -9,6 +9,7 @@ type CourseScore = {
     course: string;
     points: string;
     links: string;
+    studyAt: string;
 }
 
 const ResultsComponent = () => {
@@ -66,7 +67,7 @@ const ResultsComponent = () => {
     const frontendPoints = frontendFilter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
 
-    courseScore.push({ course: 'FE Karlstad', points: frontendPoints, links: loadLinks[0].links });
+    courseScore.push({ course: 'FE Karlstad', points: frontendPoints, links: loadLinks[0].links, studyAt: 'Karlstad' });
     // frontend_distans
 
     const frontend_distans = loadResults.map((result: any, index: number) => {
@@ -78,7 +79,7 @@ const ResultsComponent = () => {
 
     const frontend_distans_points = frontend_distans_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'FE Distans', points: frontend_distans_points, links: loadLinks[1].links });
+    courseScore.push({ course: 'FE Distans', points: frontend_distans_points, links: loadLinks[1].links, studyAt: 'Distans' });
 
     // javascript_distans
 
@@ -91,7 +92,7 @@ const ResultsComponent = () => {
 
     const javascript_distans_points = javascript_distans_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'JS distans', points: javascript_distans_points, links: loadLinks[2].links });
+    courseScore.push({ course: 'JS distans', points: javascript_distans_points, links: loadLinks[2].links, studyAt: 'Distans' });
 
     // mobil_app
 
@@ -104,7 +105,7 @@ const ResultsComponent = () => {
 
     const mobil_app_points = mobil_app_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'Mobilapp', points: mobil_app_points, links: loadLinks[3].links });
+    courseScore.push({ course: 'Mobilapp', points: mobil_app_points, links: loadLinks[3].links, studyAt: 'Distans' });
 
     // mjukvaru_utveckling
 
@@ -117,7 +118,7 @@ const ResultsComponent = () => {
 
     const mjukvaru_utveckling_points = mjukvaru_utveckling_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'Mjukvaruutveckling', points: mjukvaru_utveckling_points, links: loadLinks[4].links });
+    courseScore.push({ course: 'Mjukvaruutveckling', points: mjukvaru_utveckling_points, links: loadLinks[4].links, studyAt: 'Distans' });
 
     const courseScoreSorted = courseScore.sort((a: any, b: any) => b.points - a.points)
 
@@ -134,7 +135,12 @@ const ResultsComponent = () => {
                     {
                         courseScoreSorted.map((courseScore, index) => {
                             if (index < 5) {
-                                return <li key={index} className="results_item"> <h2 className="rank">{`${index + 1}`}</h2> <span>{courseScore.course}</span> <span> ansök </span></li>
+                                return <li key={index} className="results_item"> 
+                                <h2 className="rank">{`${index + 1}`}</h2> 
+                                <span>{courseScore.course} 
+                                    <span className="study_at">{ courseScore.studyAt }</span>
+                                </span> 
+                                <span> ansök </span></li>
                             }
                         })
                     }
