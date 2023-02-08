@@ -43,6 +43,29 @@ function FormComponent({ activePersona, buttonElements }: Props) {
     })();
   }, []);
 
+  useEffect(() => {
+    if (questionId !== 0) {
+      anime({
+        targets: '.card_content',
+        opacity: ['10%', '100%'],
+        easing: 'easeOutQuad',
+        duration: 1000,
+        endDelay: 0,
+        autoplay: true
+      });
+  }
+    if (lastPage == true) {
+      anime({
+        targets: '.card_content',
+        opacity: ['0%', '50%', '100%'],
+        easing: 'easeOutQuad',
+        duration: 2000,
+        endDelay: 0,
+        autoplay: true
+      });
+    }
+  }, [questionId]);
+
   //Changes question depending on questionNmbr
   useEffect(() => {
     questions.map((question) => {
