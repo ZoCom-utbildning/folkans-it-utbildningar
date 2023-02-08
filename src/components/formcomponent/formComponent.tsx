@@ -53,12 +53,11 @@ function FormComponent({ activePersona, buttonElements }: Props) {
       endDelay: 0,
       autoplay: false,
       complete: () => {
-        if (newQuestionId < questions.length) {
+        if (newQuestionId < questions.length || questions.length === 0) {
           setQuestionId(newQuestionId);
         } else {
           setLastPage(true);
         }
-        setFirstQuestion(false);
         fadeOut.play();
       }
     });
@@ -70,6 +69,7 @@ function FormComponent({ activePersona, buttonElements }: Props) {
 
   // Hämtar questions från firebase databasen
   useEffect(() => {
+
     (async () => {
       const querySnapshot = await getDocs(collection(db, "questions"));
       const tempArr: any[] = [];
@@ -166,10 +166,13 @@ function FormComponent({ activePersona, buttonElements }: Props) {
 
   const startTest = () => {
 
-    if (playFade === false) {
-      fadeFunction(questionId + 1);
-    }
+    if (questions.length > 0) {
 
+      if (playFade === false) {
+        fadeFunction(questionId + 1);
+      }
+
+    }
   };
 
 

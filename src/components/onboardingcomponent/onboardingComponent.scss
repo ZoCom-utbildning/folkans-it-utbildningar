@@ -36,6 +36,14 @@
             box-shadow: none;
             padding: $padding;
             width: 12rem;
+
+            &:focus {
+
+                transform: scale(1.1);
+                border-color: rgb(90, 90, 182);
+
+            }
+
         }
 
         .onboarding_text {
@@ -62,15 +70,16 @@
                 line-height: 140%;
             }
 
-
             .start_button {
+
                 transition: 0.5s;
+
                 &:hover {
                 transform: scale(1.1);
                 border-color: rgb(90, 90, 182);
                 }
-            }
 
+            }
     
         }
 
