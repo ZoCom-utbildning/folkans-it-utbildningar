@@ -197,6 +197,7 @@ function Home({ activePersona, setActivePersona }: Props) {
           />
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

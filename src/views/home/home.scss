@@ -157,7 +157,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
     }
     .home-personas-wrapper {
       width: 100%;
-      height: 110vh;
+      height: 115vh;
       display: flex;
       background-attachment: fixed;
       background-position: center;
@@ -179,7 +179,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
         justify-content: center;
         gap: 2rem;
         position: absolute;
-        bottom: -30%;
+        bottom: -15%;
 
         .gallery-btn {
           appearance: none;
