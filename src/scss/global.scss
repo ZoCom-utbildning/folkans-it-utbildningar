@@ -12,6 +12,7 @@ $bg-image: url("../assets/photos/manComputer.webp");
 
 body {
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 body::-webkit-scrollbar {
   width: 10px;

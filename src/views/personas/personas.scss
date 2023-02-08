@@ -28,6 +28,9 @@ $bg-images: url("../../assets/photos/personas/*.webp");
           .el__heading {
             margin: calc($margin-sml / 2);
           }
+          .el el__bg {
+            display: none;
+          }
           .arrow-img {
             width: 3rem;
             cursor: pointer;

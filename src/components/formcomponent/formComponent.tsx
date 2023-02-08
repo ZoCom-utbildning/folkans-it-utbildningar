@@ -11,13 +11,15 @@ import ResultsComponent from "../resultscomponent/resultsComponent";
 import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import "./formComponent.scss";
 
 type Props = {
+  data: Array<any>;
   activePersona: number;
   buttonElements: any;
 };
 
-function FormComponent({ activePersona, buttonElements }: Props) {
+function FormComponent({ activePersona, buttonElements, data }: Props) {
   const [questions, setQuestions] = useState<Array<any>>([]);
   const [questionId, setQuestionId] = useState<number>(0);
   const [formText, setFormText] = useState<string>("");
@@ -141,7 +143,7 @@ function FormComponent({ activePersona, buttonElements }: Props) {
         ) : window.location.href.includes("") ? (
           <section className="persona-card-content">
             <ImageComponent formImage={formImage} altImage={altImage} />
-            <PersonaContent activePersona={activePersona} />
+            <PersonaContent activePersona={activePersona} data={data} />
             {buttonElements}
           </section>
         ) : null}

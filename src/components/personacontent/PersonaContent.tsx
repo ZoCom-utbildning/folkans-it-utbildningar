@@ -2,8 +2,9 @@ import "./personacontent.scss";
 import { useNavigate } from "react-router-dom";
 type Props = {
   activePersona: number;
+  data: Array<any>;
 };
-function PersonaContent({ activePersona }: Props) {
+function PersonaContent({ activePersona, data }: Props) {
   const navigate = useNavigate();
   function navToPersonas(e: any) {
     e.preventDefault();

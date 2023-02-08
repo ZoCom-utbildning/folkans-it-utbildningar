@@ -16,6 +16,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
 
     .arrow-container {
       @include flex($display: none, $direction: column);
+      cursor: pointer;
     }
 
     .title-h1 {
@@ -141,6 +142,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       min-height: 100vh;
       .arrow-container {
         @include flex($justify: none, $align: center, $direction: column);
+
         .arrowDown {
           animation: float 2s ease-in-out infinite;
         }
