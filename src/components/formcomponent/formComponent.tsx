@@ -120,27 +120,34 @@ function FormComponent({ activePersona, buttonElements }: Props) {
   // Changes pagenmbrs depending on click.
   //framåt knapp syns inte om du inte svarat på frågan
   const increaseQuestion = (buttonCheck: boolean, shakeAnimation: AnimeInstance) => {
+
     if (questionId < questions.length && buttonCheck) {
       setQuestionId(questionId + 1);
       setFirstQuestion(false);
     }
-    if (questionId === questions.length - 1) {
+
+    if (questionId === questions.length - 1 && buttonCheck) {
       setLastPage(true);
     }
+
     if (buttonCheck == false) {
       shakeAnimation.play();
     }
+
   };
 
   const decreaseQuestion = () => {
+
     if (questionId > 1) {
       setQuestionId(questionId - 1);
     }
+    
   };
 
   const startTest = () => {
     setQuestionId(questionId + 1);
   };
+
 
   return (
     <div className="form_wrapper">
