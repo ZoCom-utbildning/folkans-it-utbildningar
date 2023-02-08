@@ -1,6 +1,6 @@
 import ImageComponent from "../imagecomponent/imageComponent";
 import ContentComponent from "../contentcomponent/contentComponent";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import PersonaContent from "../personacontent/PersonaContent";
 import personasImage1 from "../../assets/photos/personas/Persona1.webp";
 import personasImage2 from "../../assets/photos/personas/Persona2.webp";
@@ -11,6 +11,7 @@ import ResultsComponent from "../resultscomponent/resultsComponent";
 import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import anime, { AnimeInstance } from 'animejs';
 
 type Props = {
   activePersona: number;
@@ -25,6 +26,8 @@ function FormComponent({ activePersona }: Props) {
   const [lastPage, setLastPage] = useState<boolean>(false);
   const [firstPage, setFirstPage] = useState<boolean>(false);
   const [firstQuestion, setFirstQuestion] = useState<boolean>(true);
+
+
 
   // Hämtar questions från firebase databasen
   useEffect(() => {
@@ -92,13 +95,16 @@ function FormComponent({ activePersona }: Props) {
 
   // Changes pagenmbrs depending on click.
   //framåt knapp syns inte om du inte svarat på frågan
-  const increaseQuestion = (buttonCheck: boolean) => {
+  const increaseQuestion = (buttonCheck: boolean, shakeAnimation: AnimeInstance) => {
     if (questionId < questions.length && buttonCheck) {
       setQuestionId(questionId + 1);
       setFirstQuestion(false);
     }
     if (questionId === questions.length - 1) {
       setLastPage(true);
+    }
+    if (buttonCheck == false) {
+      shakeAnimation.play();
     }
   };
 
