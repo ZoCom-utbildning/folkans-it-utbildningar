@@ -43,7 +43,7 @@
   }
 }
 
-@media screen and (min-width: $breakpointDesktop) {
+@media screen and (min-width: calc($breakpointDesktop*1.2)) {
   .header {
     position: fixed;
     transition: 0.4s;
