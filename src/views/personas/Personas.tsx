@@ -2,12 +2,14 @@ import "./personas.scss";
 import { useEffect, useState } from "react";
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import Arrow from "../../assets/icons/arrow.svg";
 const Personas: React.FC = () => {
   const [contClass, setContClass] = useState("cont s--inactive");
   const [activeEl, setActiveEl] = useState<HTMLDivElement | null>(null);
   const [preview, setPreview] = useState(true);
   const [data, setData] = useState<Array<any>>([]);
   const [interviewData, setInterviewData] = useState<any[]>([]);
+  const [isMobile, setIsMobile] = useState<boolean>();
   const NUM_OF_ELEMENTS = 5;
   useEffect(() => {
     (async () => {
@@ -19,6 +21,21 @@ const Personas: React.FC = () => {
 
       setData(tempArr);
     })();
+  }, []);
+  function checkMediaQuery() {
+    // Check if the media query is true
+    if (window.innerWidth > 820) {
+      // Then log the following message to the console
+
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+  }
+
+  window.addEventListener("resize", checkMediaQuery);
+  useEffect(() => {
+    checkMediaQuery();
   }, []);
 
   useEffect(() => {
@@ -73,19 +90,21 @@ const Personas: React.FC = () => {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     if (contClass.includes("s__el-active")) return;
-    const el = event.currentTarget;
-    setContClass("cont s__el-active");
-    toggleClass(el, "s--active");
-    setActiveEl(el);
-    console.log(data);
-    setTimeout(() => {
-      setPreview(false);
-    }, 1350);
-    console.log(interviewData);
+    else if (!isMobile) {
+      const el = event.currentTarget;
+      setContClass("cont s__el-active");
+      toggleClass(el, "s--active");
+      setActiveEl(el);
+      console.log(data);
+      setTimeout(() => {
+        setPreview(false);
+      }, 1350);
+      console.log(interviewData);
+    }
   };
 
   const toggleClass = (el: HTMLDivElement, className: string) => {
-    if (el.classList.contains(className)) {
+    if (el.classList.contains(className) && !isMobile) {
       el.classList.remove(className);
     } else {
       el.classList.add(className);
@@ -95,19 +114,21 @@ const Personas: React.FC = () => {
   const handleCloseBtnClick = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
-    event.stopPropagation();
-    toggleClass(activeEl!, "s--active");
-    setContClass("cont s__inactive");
-    setActiveEl(null);
+    if (!isMobile) {
+      event.stopPropagation();
+      toggleClass(activeEl!, "s--active");
+      setContClass("cont s__inactive");
+      setActiveEl(null);
 
-    setPreview(true);
+      setPreview(true);
+    }
   };
 
   return (
     <div className="personasView-container">
       <section className="personasView">
         <h1 className="title-h1">Möt några av våra studerande</h1>
-        <h2 className="title-h1">
+        <h2 className="title-h1 title-h2">
           Klicka på något av korten för att läsa mer om en student
         </h2>
         <div className={contClass}>
@@ -122,8 +143,11 @@ const Personas: React.FC = () => {
                       {preview ? (
                         <section className="el__preview-cont">
                           <h2 className="el__heading">
-                            {data[index] ? data[index].name : ""}
+                            {data[index]
+                              ? data[index].name + ", " + data[index].age
+                              : ""}
                           </h2>
+                          <img className="arrow-img" src={Arrow} alt="" />
                         </section>
                       ) : (
                         <div className="el__content">

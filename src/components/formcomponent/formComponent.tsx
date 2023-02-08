@@ -1,6 +1,6 @@
 import ImageComponent from "../imagecomponent/imageComponent";
 import ContentComponent from "../contentcomponent/contentComponent";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import PersonaContent from "../personacontent/PersonaContent";
 import personasImage1 from "../../assets/photos/personas/Persona1.webp";
 import personasImage2 from "../../assets/photos/personas/Persona2.webp";
@@ -11,13 +11,14 @@ import ResultsComponent from "../resultscomponent/resultsComponent";
 import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
-import anime, {AnimeInstance} from 'animejs';
+import anime, { AnimeInstance } from 'animejs';
 
 type Props = {
   activePersona: number;
+  buttonElements: any;
 };
 
-function FormComponent({ activePersona }: Props) {
+function FormComponent({ activePersona, buttonElements }: Props) {
   const [questions, setQuestions] = useState<Array<any>>([]);
   const [questionId, setQuestionId] = useState<number>(0);
   const [formText, setFormText] = useState<string>("");
@@ -26,6 +27,8 @@ function FormComponent({ activePersona }: Props) {
   const [lastPage, setLastPage] = useState<boolean>(false);
   const [firstPage, setFirstPage] = useState<boolean>(false);
   const [firstQuestion, setFirstQuestion] = useState<boolean>(true);
+
+
 
   // Hämtar questions från firebase databasen
   useEffect(() => {
@@ -116,13 +119,16 @@ function FormComponent({ activePersona }: Props) {
 
   // Changes pagenmbrs depending on click.
   //framåt knapp syns inte om du inte svarat på frågan
-  const increaseQuestion = (buttonCheck: boolean) => {
+  const increaseQuestion = (buttonCheck: boolean, shakeAnimation: AnimeInstance) => {
     if (questionId < questions.length && buttonCheck) {
       setQuestionId(questionId + 1);
       setFirstQuestion(false);
     }
     if (questionId === questions.length - 1) {
       setLastPage(true);
+    }
+    if (buttonCheck == false) {
+      shakeAnimation.play();
     }
   };
 
@@ -137,34 +143,39 @@ function FormComponent({ activePersona }: Props) {
   };
 
   return (
-    <section className="card_content">
-      {window.location.href.includes("fragor") && firstPage ? (
-        <>
-          <OnboardingComponent startTest={startTest} />
-        </>
-      ) : window.location.href.includes("fragor") && !firstPage && !lastPage ? (
-        <>
-          <ImageComponent formImage={formImage} altImage={altImage} />
-          <ContentComponent
-            questions={questions}
-            formText={formText}
-            questionId={questionId}
-            increaseQuestion={increaseQuestion}
-            decreaseQuestion={decreaseQuestion}
-            firstQuestion={firstQuestion}
-          />
-        </>
-      ) : window.location.href.includes("fragor") && lastPage ? (
-        <>
-          <ResultsComponent />
-        </>
-      ) : window.location.href.includes("") ? (
-        <section className="persona-card-content">
-          <ImageComponent formImage={formImage} altImage={altImage} />
-          <PersonaContent activePersona={activePersona} />
-        </section>
-      ) : null}
-    </section>
+    <div className="form_wrapper">
+      <section className="card_content">
+        {window.location.href.includes("fragor") && firstPage ? (
+          <>
+            <OnboardingComponent startTest={startTest} />
+          </>
+        ) : window.location.href.includes("fragor") &&
+          !firstPage &&
+          !lastPage ? (
+          <>
+            <ImageComponent formImage={formImage} altImage={altImage} />
+            <ContentComponent
+              questions={questions}
+              formText={formText}
+              questionId={questionId}
+              increaseQuestion={increaseQuestion}
+              decreaseQuestion={decreaseQuestion}
+              firstQuestion={firstQuestion}
+            />
+          </>
+        ) : window.location.href.includes("fragor") && lastPage ? (
+          <>
+            <ResultsComponent />
+          </>
+        ) : window.location.href.includes("") ? (
+          <section className="persona-card-content">
+            <ImageComponent formImage={formImage} altImage={altImage} />
+            <PersonaContent activePersona={activePersona} />
+            {buttonElements}
+          </section>
+        ) : null}
+      </section>
+    </div>
   );
 }
 
