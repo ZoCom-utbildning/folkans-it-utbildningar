@@ -1,7 +1,7 @@
 export const eduInfo = [
     (
         <>
-            <p>Som Frontendutvecklare jobbar du med modern webbutveckling.</p>
+            <p>En frontendutvecklare skapar det som användaren ser på webben. Med hjälp av HTML, CSS & JavaScript förverkligar en frontendare den design och funktionalitet som webbsidan ska ha.</p>
             <details>
                 <summary>Om yrkesrollen</summary>
                 <p>Idag är mobilen och plattan de vanligaste enheterna för att komma i kontakt med ett företag och dess webbplats. Det ställer stora krav på anpassning till den nya tekniken och efterfrågan på Frontendutvecklare växer. Behovet är stort hos såväl webb- och kommunikationsbyråer som hos it-konsulter, men även bland företag i andra branscher.</p>
@@ -48,7 +48,7 @@ export const eduInfo = [
         </>
     ), (
         <>
-            <p>Som JavaScriptutvecklare jobbar du med modern webbutveckling – både frontend och backend.</p>
+            <p>Det moderna och mångsidiga programmeringsspråket JavaScript står i fokus för denna utbildning. En JavaScriptutvecklare arbetar med både det som användaren ser (frontend) och det som ligger bakom, på serversidan (backend) och blir på det sättet mycket bred i sin kompetens. </p>
             <details>
                 <summary>Om yrkesrollen</summary>
                 <p>Som JavaScriptutvecklare är du en utvecklare som är specialist inom JavaScript-relaterade tekniker. JavaScript med tillhörande ramverk och tekniker används främst inom frontendutveckling. Språket har dock växt explosionsartat under de senaste åren och innehåller nu tekniker för stora delar av stacken och är inte längre bundet till webben. Det gör att en utvecklare som är bra på JavaScript inte längre automatiskt är en utpräglad frontendutvecklare, utan kan ses som en utvecklare som med hjälp av backendtekniker som bland annat Node.js känner sig lika trygg i frontend som backend, även om det är JavaScript som är språket i fokus.</p>
@@ -98,7 +98,7 @@ export const eduInfo = [
         </>
     ), (
         <>
-            <p>Som Frontendutvecklare jobbar du med modern webbutveckling.</p>
+            <p>En frontendutvecklare skapar det som användaren ser på webben. Med hjälp av HTML, CSS & JavaScript förverkligar en frontendare den design och funktionalitet som webbsidan ska ha. </p>
             <details>
                 <summary>Om yrkesrollen</summary>
                 <p>Idag är mobilen och plattan de vanligaste enheterna för att komma i kontakt med ett företag och dess webbplats. Det ställer stora krav på anpassning till den nya tekniken och efterfrågan på Frontendutvecklare växer. Behovet är stort hos såväl webb- och kommunikationsbyråer som hos IT-konsulter, men även bland företag i andra branscher.</p>
@@ -144,7 +144,7 @@ export const eduInfo = [
         </>
     ), (
         <>
-            <p>Som mjukvaruutvecklare för mobilitetstjänster inom fordonsbranschen är du med och tar tekniken till nästa nivå.</p>
+            <p>I denna utbildning ligger fokus på så kallade “inbyggda system”, det vill säga hur man med mjukvara kan styra hårdvara. Utbildningen är specifikt inriktad på hur man programmerar mjukvara för bilar som gör dem bättre och säkrare.</p>
             <details>
                 <summary>Om yrkesrollen</summary>
                 <p>Som mjukvaruutvecklare för mobilitetstjänster jobbar du med att utveckla dagens mobilitetstjänster och ta fram nya mobilitetstjänster inom fordonsbranschen. Efterfrågan ökar markant för mer personligt anpassade resor där nya appar och tjänster inom mobilitet tas fram. Fordonstillverkarna arbetar med att koppla ihop fordonen med utsidan, det vill säga de olika uppkopplingarna som behövs för tjänsterna mellan fordon samt till städers och vägars infrastruktur. </p>
@@ -191,7 +191,7 @@ export const eduInfo = [
         </>
     ), (
         <>
-            <p>Mobilapplikationsutvecklare. Saknar ingress</p>
+            <p>En mobilapplikationsutvecklare är som namnet skvallrar om en expert på att bygga mobilappar. I denna utbildning ingår alla de mest framstående teknikerna för att skapa moderna och dynamiska appar till mobila enheter.</p>
             <details>
                 <summary>Om yrkesrollen</summary>
                 <p>När du är mobilapplikationsutvecklare utvecklar du, precis som namnet skvallrar om, mobilapplikationer. Det finns dock en uppsjö av metoder och verktyg för att skapa mobilapplikationer och en mobilapputvecklare förväntas kunna både utveckla ”native”, det vill säga för en specifik plattform, men även hybridappar, ofta med hjälp av webbapplikationer som paketerats för att kunna skapa en liknande känsla som en nativeapp.</p>
