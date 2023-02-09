@@ -22,17 +22,10 @@ const ResultsComponent = () => {
 
     const navigate = useNavigate();
 
-    //Lägga in "courses": "[frontend-link, backend-link .. , ..]"   i json för länkar.
-
     const courseScore: Array<CourseScore> = [];
 
-    // frontend
-
     const loadResults = JSON.parse(localStorage.getItem("resultsArray")!);
-    /*
-    const loadLinks = jsonData.links.map((link: any) => {
-        return link
-    }) */
+
 
     useEffect(() => {
         (async () => {
@@ -49,21 +42,6 @@ const ResultsComponent = () => {
 
     }, []);
 
-    /*
-    let allPoints: Array<number> = [];
-    const totalPoints = jsonData.questions.map((question: any) => {
-        question.options.map((option: any) => {
-            option.value.map((value: any) => {
-                allPoints.push(value.points);
-            })
-        })
-    });
-
-    const allPointsSum = allPoints.reduce((a: number, b: number) => Number(a) + Number(b), 0)
-
-    console.log('allpoints:', allPointsSum);
-
-    console.log(frontendPoints / allPointsSum); */
 
 
     const frontend = loadResults.map((result: any, index: number) => {
@@ -136,9 +114,6 @@ const ResultsComponent = () => {
 
     const courseScoreSorted = courseScore.sort((a: any, b: any) => b.points - a.points)
 
-    //funktion för att räkna ut svar/summa
-
-    //mappa ut data för utbildning + länk till utbildning
 
     const openNewTab = (link: string) => {
         const newWindow = window.open(link, '_blank', 'noopener,noreferrer');
