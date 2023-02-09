@@ -1,10 +1,9 @@
 import TestButton from "../testbutton/testButton";
 import './resultsComponent.scss';
-import jsonData from '../../../forminfo.json';
-import { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
 import { auth, db } from "../../services/firebase";
 import { doc, updateDoc } from "firebase/firestore";
+import ResultToggleComponent from './resultToggleComponent';
 
 type CourseScore = {
     course: string;
@@ -19,8 +18,6 @@ type Links = {
 }
 
 const ResultsComponent = () => {
-
-    const navigate = useNavigate();
 
     //Lägga in "courses": "[frontend-link, backend-link .. , ..]"   i json för länkar.
 
@@ -140,14 +137,6 @@ const ResultsComponent = () => {
 
     //mappa ut data för utbildning + länk till utbildning
 
-    const openNewTab = (link: string) => {
-        const newWindow = window.open(link, '_blank', 'noopener,noreferrer');
-        if (newWindow) { newWindow.opener = null }
-    }
-
-    const gotoEducations = () => {
-        navigate('/utbildningar');
-    }
 
 
     return (
@@ -160,12 +149,7 @@ const ResultsComponent = () => {
                         courseScoreSorted.map((courseScore, index) => {
                             if (index < 5) {
                                 return <li key={index} className="results_item"> 
-                                <h2 className="rank">{`${index + 1}`}</h2> 
-                                    <span>{courseScore.course} 
-                                        <span className="study_at">{ courseScore.studyAt }</span>
-                                    </span> 
-                                    <span onClick={() => openNewTab(courseScore.links.link)}> Ansök </span>
-                                    <span onClick={gotoEducations}> Läs mer </span>
+                                    < ResultToggleComponent courseScore={courseScore} index={index}/>
                                 </li>
                             }
                         })

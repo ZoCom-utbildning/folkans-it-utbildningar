@@ -193,6 +193,49 @@
                         padding-left: $padding-sml;
                         width: 16rem;
 
+                        .study_at {
+                            position: relative;
+                            width: 100%;
+                            text-align: start;
+
+                            .notToggled {
+                            
+                                position: absolute;
+                                height: .8rem;
+                                top: .2rem;
+                                right: 1rem;
+                                border-bottom: 10px solid rgb(79, 77, 77);
+                                border-left: 13px solid transparent;
+                                border-right: 13px solid transparent;
+
+                                &:hover {
+                                    top: .3rem;
+                                    border-bottom: 13px solid rgb(139, 131, 131);
+                                    cursor: pointer;
+                                }
+
+                            }
+
+                            .toggled {
+
+                                position: absolute;
+                                height: .8rem;
+                                top: .6rem;
+                                right: 1rem;
+                                border-top: 10px solid rgb(90, 90, 182);
+                                border-left: 13px solid transparent;
+                                border-right: 13px solid transparent;
+
+                                &:hover {
+                                    top: .5rem;
+                                    border-top: 13px solid rgb(90, 90, 182);
+                                    cursor: pointer;
+                                }
+
+                            }
+
+                        }
+
                     }
     
                     span:nth-child(3) {
