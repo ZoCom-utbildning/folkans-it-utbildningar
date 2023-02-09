@@ -23,13 +23,8 @@ const ResultsComponent = () => {
 
     const courseScore: Array<CourseScore> = [];
 
-    // frontend
-
     const loadResults = JSON.parse(localStorage.getItem("resultsArray")!);
-    /*
-    const loadLinks = jsonData.links.map((link: any) => {
-        return link
-    }) */
+
 
     useEffect(() => {
         (async () => {
@@ -46,21 +41,6 @@ const ResultsComponent = () => {
 
     }, []);
 
-    /*
-    let allPoints: Array<number> = [];
-    const totalPoints = jsonData.questions.map((question: any) => {
-        question.options.map((option: any) => {
-            option.value.map((value: any) => {
-                allPoints.push(value.points);
-            })
-        })
-    });
-
-    const allPointsSum = allPoints.reduce((a: number, b: number) => Number(a) + Number(b), 0)
-
-    console.log('allpoints:', allPointsSum);
-
-    console.log(frontendPoints / allPointsSum); */
 
 
     const frontend = loadResults.map((result: any, index: number) => {
@@ -73,7 +53,7 @@ const ResultsComponent = () => {
     const frontendPoints = frontendFilter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
 
-    courseScore.push({ course: 'FE Karlstad', points: frontendPoints, links: { course: 'FE Karlstad', 
+    courseScore.push({ course: 'Frontendutvecklare', points: frontendPoints, links: { course: 'FE Karlstad', 
     link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/frontendutvecklare/' }, studyAt: 'Karlstad' });
     // frontend_distans
 
@@ -86,7 +66,7 @@ const ResultsComponent = () => {
 
     const frontend_distans_points = frontend_distans_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'FE Distans', points: frontend_distans_points, links: { course: 'FE Distans', 
+    courseScore.push({ course: 'Frontendutvecklare', points: frontend_distans_points, links: { course: 'FE Distans', 
     link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/frontendutvecklare-distans/' }, studyAt: 'Distans' });
 
     // javascript_distans
@@ -100,7 +80,7 @@ const ResultsComponent = () => {
 
     const javascript_distans_points = javascript_distans_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'JS distans', points: javascript_distans_points, links: { course: 'JS distans', 
+    courseScore.push({ course: 'JavaScriptutvecklare', points: javascript_distans_points, links: { course: 'JS distans', 
     link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/javascriptutvecklare-distans/' }, studyAt: 'Distans' });
 
     // mobil_app
@@ -114,7 +94,7 @@ const ResultsComponent = () => {
 
     const mobil_app_points = mobil_app_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'Mobilapp', points: mobil_app_points, links: { course: 'Mobilapp', 
+    courseScore.push({ course: 'Mobilapplikationsutvecklare', points: mobil_app_points, links: { course: 'Mobilapp', 
     link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/mobilapplikationsutvecklare-distans/' }, studyAt: 'Distans' });
 
     // mjukvaru_utveckling
@@ -128,7 +108,7 @@ const ResultsComponent = () => {
 
     const mjukvaru_utveckling_points = mjukvaru_utveckling_filter.reduce((a: number, b: number) => Number(a) + Number(b), 0)
 
-    courseScore.push({ course: 'Mjukvaruutveckling', points: mjukvaru_utveckling_points, links: { course: 'Mjukvaruutveckling', 
+    courseScore.push({ course: 'Mjukvaruutvecklare', points: mjukvaru_utveckling_points, links: { course: 'Mjukvaruutveckling', 
     link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/mjukvaruutvecklare-for-mobiltetstjanster/' }, studyAt: 'Distans' });
 
     const courseScoreSorted = courseScore.sort((a: any, b: any) => b.points - a.points)
@@ -136,8 +116,7 @@ const ResultsComponent = () => {
     //funktion för att räkna ut svar/summa
 
     //mappa ut data för utbildning + länk till utbildning
-
-
+    
 
     return (
         <div className="results_wrapper">

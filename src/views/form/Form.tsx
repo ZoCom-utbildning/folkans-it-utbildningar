@@ -4,15 +4,17 @@ import "./form.scss";
 type Props = {
   activePersona: number;
   buttonElements: any;
+  questions: Array<any>;
 };
 
-function Form({ activePersona, buttonElements }: Props) {
+function Form({ activePersona, buttonElements, questions }: Props) {
   return (
     <div className="desktop_wrapper">
       <div className="form_wrapper">
         <FormComponent
           buttonElements={buttonElements}
           activePersona={activePersona}
+          questions={questions}
         />
       </div>
     </div>

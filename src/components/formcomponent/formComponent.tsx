@@ -9,17 +9,15 @@ import personasImage4 from "../../assets/photos/personas/Persona4.webp";
 import personasImage5 from "../../assets/photos/personas/Persona5.webp";
 import ResultsComponent from "../resultscomponent/resultsComponent";
 import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
-import { db } from "../../services/firebase";
-import { collection, getDocs } from "firebase/firestore";
 import anime, { AnimeInstance } from 'animejs';
 
 type Props = {
   activePersona: number;
   buttonElements: any;
+  questions: Array<any>;
 };
 
-function FormComponent({ activePersona, buttonElements }: Props) {
-  const [questions, setQuestions] = useState<Array<any>>([]);
+function FormComponent({ activePersona, buttonElements, questions }: Props) {
   const [questionId, setQuestionId] = useState<number>(0);
   const [formText, setFormText] = useState<string>("");
   const [formImage, setFormImage] = useState<string>("");
@@ -66,31 +64,25 @@ function FormComponent({ activePersona, buttonElements }: Props) {
 
   }
 
-
-  // Hämtar questions från firebase databasen
   useEffect(() => {
 
-    (async () => {
-      const querySnapshot = await getDocs(collection(db, "questions"));
-      const tempArr: any[] = [];
-      querySnapshot.forEach((doc) => {
-        tempArr.push(doc.data());
-      });
+    if (questions) {
 
-      setQuestions(tempArr);
-    })();
-  }, []);
+      questions.map((question) => {
+        if (questionId === question.id) {
+          setFormText(question.text);
+          setFormImage(question.img);
+          setAltImage(question.alt);
+        }
+      });
+    }
+    
+  }, [questionId]);
 
 
   //Changes question depending on questionNmbr
   useEffect(() => {
-    questions.map((question) => {
-      if (questionId === question.id) {
-        setFormText(question.text);
-        setFormImage(question.img);
-        setAltImage(question.alt);
-      }
-    });
+
     if (!window.location.href.includes("fragor") && activePersona === 0) {
       setFormImage(personasImage1);
       setAltImage("personasImage1");
@@ -131,7 +123,7 @@ function FormComponent({ activePersona, buttonElements }: Props) {
     } else {
       setFirstQuestion(false);
     }
-  }, [activePersona, questionId, questions]);
+  }, [activePersona, questionId]);
 
 
   // Changes pagenmbrs depending on click.
