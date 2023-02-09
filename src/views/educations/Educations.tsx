@@ -23,8 +23,9 @@ function Educations() {
     
 
     const displayCourses = courses.map((course, index) => {
+        const linkId = course.name.split(" ").join("-").toLowerCase() + index;
         return (
-            <section className="course" key={index}>
+            <section className="course" id={linkId} key={index}>
                 <h3>{course.name}</h3>
                 <p>{course.location}</p>
                 {eduInfo[index]}
