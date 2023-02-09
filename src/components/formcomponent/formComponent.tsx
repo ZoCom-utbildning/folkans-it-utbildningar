@@ -27,11 +27,49 @@ function FormComponent({ activePersona, buttonElements }: Props) {
   const [lastPage, setLastPage] = useState<boolean>(false);
   const [firstPage, setFirstPage] = useState<boolean>(false);
   const [firstQuestion, setFirstQuestion] = useState<boolean>(true);
+  const [playFade, setPlayFade] = useState<boolean>(false);
 
+  const fadeFunction = (newQuestionId: number) => {
+
+    setPlayFade(true);
+
+    const fadeOut: AnimeInstance = anime({
+      targets: '.card_content',
+      opacity: ['10%', '100%'],
+      easing: 'linear',
+      duration: 400,
+      endDelay: 0,
+      autoplay: false,
+      complete: () => {
+        setPlayFade(false);
+      }
+    });
+  
+    let fadeIn: AnimeInstance = anime({
+      targets: '.card_content',
+      opacity: ['100%', '10%'],
+      easing: 'linear',
+      duration: 400,
+      endDelay: 0,
+      autoplay: false,
+      complete: () => {
+        if (newQuestionId < questions.length || questions.length === 0) {
+          setQuestionId(newQuestionId);
+        } else {
+          setLastPage(true);
+        }
+        fadeOut.play();
+      }
+    });
+
+    fadeIn.play();
+
+  }
 
 
   // Hämtar questions från firebase databasen
   useEffect(() => {
+
     (async () => {
       const querySnapshot = await getDocs(collection(db, "questions"));
       const tempArr: any[] = [];
@@ -43,28 +81,6 @@ function FormComponent({ activePersona, buttonElements }: Props) {
     })();
   }, []);
 
-  useEffect(() => {
-    if (questionId !== 0) {
-      anime({
-        targets: '.card_content',
-        opacity: ['10%', '100%'],
-        easing: 'easeOutQuad',
-        duration: 1000,
-        endDelay: 0,
-        autoplay: true
-      });
-  }
-    if (lastPage == true) {
-      anime({
-        targets: '.card_content',
-        opacity: ['0%', '50%', '100%'],
-        easing: 'easeOutQuad',
-        duration: 2000,
-        endDelay: 0,
-        autoplay: true
-      });
-    }
-  }, [questionId]);
 
   //Changes question depending on questionNmbr
   useEffect(() => {
@@ -117,30 +133,48 @@ function FormComponent({ activePersona, buttonElements }: Props) {
     }
   }, [activePersona, questionId, questions]);
 
+
   // Changes pagenmbrs depending on click.
-  //framåt knapp syns inte om du inte svarat på frågan
   const increaseQuestion = (buttonCheck: boolean, shakeAnimation: AnimeInstance) => {
+
     if (questionId < questions.length && buttonCheck) {
-      setQuestionId(questionId + 1);
-      setFirstQuestion(false);
+
+      if (playFade === false) {
+        fadeFunction(questionId + 1);
+      }
+
     }
-    if (questionId === questions.length - 1) {
-      setLastPage(true);
-    }
+
     if (buttonCheck == false) {
       shakeAnimation.play();
     }
+
   };
 
+
   const decreaseQuestion = () => {
+
     if (questionId > 1) {
-      setQuestionId(questionId - 1);
+
+      if (playFade === false) {
+        fadeFunction(questionId - 1);
+      }
+
     }
   };
 
+
   const startTest = () => {
-    setQuestionId(questionId + 1);
+
+    if (questions.length > 0) {
+
+      if (playFade === false) {
+        fadeFunction(questionId + 1);
+      }
+
+    }
   };
+
 
   return (
     <div className="form_wrapper">
