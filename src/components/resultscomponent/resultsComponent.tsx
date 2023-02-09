@@ -116,43 +116,35 @@ const ResultsComponent = () => {
     //funktion för att räkna ut svar/summa
 
     //mappa ut data för utbildning + länk till utbildning
-    
+
 
     return (
         <div className="results_wrapper">
+
             <section className="results_section">
+
                 <h2>Ditt test resultat blev: </h2>
                 <ul className="results_list">
 
                     {
                         courseScoreSorted.map((courseScore, index) => {
                             if (index < 5) {
+
                                 return <li key={index} className="results_item"> 
+                                
                                     < ResultToggleComponent courseScore={courseScore} index={index}/>
+                                    
                                 </li>
+                                
                             }
                         })
                     }
 
                 </ul>
-                { /*<TestButton buttonText={'ansök här'} /> */}
                 <TestButton buttonText={'ta testet igen'} />
+
             </section>
-            {
-            /*
-            <section className="results_points">
-                <h2>Alternativa utbildningar </h2>
-                <p>Länkar till utbildningarna: </p>
-                <li>
-                    {
-                        courseScoreSorted.map((courseScore, index) => {
-                            return <span key={index}>{courseScore.course} <a href="" className="form_link">{courseScore.links}</a></span>
-                        })
-                    }
-                </li>
-            </section>
-            */
-            }
+
         </div>
     )
 }

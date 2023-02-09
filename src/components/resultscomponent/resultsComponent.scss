@@ -204,13 +204,16 @@
                                 height: .8rem;
                                 top: .2rem;
                                 right: 1rem;
-                                border-bottom: 10px solid rgb(79, 77, 77);
+                                border-bottom: 13px solid rgb(79, 77, 77);
                                 border-left: 13px solid transparent;
                                 border-right: 13px solid transparent;
 
                                 &:hover {
-                                    top: .3rem;
-                                    border-bottom: 13px solid rgb(139, 131, 131);
+                                    top: .1rem;
+                                    right: .8rem;
+                                    border-bottom: 16px solid rgb(139, 131, 131);
+                                    border-left: 16px solid transparent;
+                                    border-right: 16px solid transparent;
                                     cursor: pointer;
                                 }
 
@@ -220,15 +223,18 @@
 
                                 position: absolute;
                                 height: .8rem;
-                                top: .6rem;
+                                top: .4rem;
                                 right: 1rem;
-                                border-top: 10px solid rgb(90, 90, 182);
+                                border-top: 13px solid rgb(90, 90, 182);
                                 border-left: 13px solid transparent;
                                 border-right: 13px solid transparent;
 
                                 &:hover {
-                                    top: .5rem;
-                                    border-top: 13px solid rgb(90, 90, 182);
+                                    top: .3rem;
+                                    right: .8rem;
+                                    border-top: 16px solid rgb(90, 90, 182);
+                                    border-left: 16px solid transparent;
+                                    border-right: 16px solid transparent;
                                     cursor: pointer;
                                 }
 
@@ -252,6 +258,7 @@
                         border-left: none;
 
                     }
+
                 }
             }
         }

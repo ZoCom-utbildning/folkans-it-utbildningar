@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import anime from 'animejs';
 
 type Links = {
     course: string;
@@ -21,16 +22,26 @@ type Props = {
 const ResultToggleComponent = ({ courseScore, index }: Props) => {
 
     const [toggleInfo, setToggleInfo] = useState(false);
+
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (index === 0) {
+            setToggleInfo(true);
+        }
+    }, [])
+
 
     const openNewTab = (link: string) => {
         const newWindow = window.open(link, '_blank', 'noopener,noreferrer');
         if (newWindow) { newWindow.opener = null }
     }
 
+
     const gotoEducations = () => {
         navigate('/utbildningar');
     }
+
 
     return (
 
@@ -49,6 +60,13 @@ const ResultToggleComponent = ({ courseScore, index }: Props) => {
                 </span> 
             <span onClick={() => openNewTab(courseScore.links.link)}> Ansök </span>
             <span onClick={gotoEducations}> Läs mer </span>
+            {
+                toggleInfo ?
+                <p>Hejsan svejsan!</p>
+                :
+                ''
+            }
+
         </>
 
     )
