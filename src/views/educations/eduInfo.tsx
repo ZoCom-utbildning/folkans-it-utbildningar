@@ -10,7 +10,9 @@ export const eduInfo = [
             </details>
             <details>
                 <summary>Före utbildningen</summary>
-                <p>Text om Moodle istället för Awesomo</p>
+                <p>Du behöver inte köpa böcker eller annat material då allt ges via utbildningsplattformen Awesomo. Det enda du behöver tänka på i förväg är att du har en egen dator, fungerande webbkamera, bra internetuppkoppling samt att du har installerat webbläsaren Google Chrome och mötesklienten Microsoft Teams.</p>
+                <p>Under hela utbildningen har du tillgång till lärplattformen Awesomo. Där finns bland annat undervisningsmaterial och utbildningsinformation för kurserna. Inlämningar, redovisningar och hemtentor lämnas in, bedöms och återkopplas via Awesomo. Lektioner, föreläsningar samt övergripande planering och information nås genom Microsoft Teams. Lektionerna spelas in vilket gör att du kan se och lyssna till föreläsningarna vid upprepade tillfällen. Detta bidrar till ökad flexibilitet och tillgänglighet.</p>
+                <p>Vi kommer att använda tjänsten Discord under utbildningens gång. Denna chat (röst, text och video) kommer att tjäna som ditt 24h-klassrum under utbildningen.</p>
             </details>
             <details>
                 <summary>Under utbildningen</summary>
@@ -57,7 +59,9 @@ export const eduInfo = [
             </details>
             <details>
                 <summary>Före utbildningen</summary>
-                <p>Text om Moodle istället för Awesomo</p>
+                <p>Du behöver inte köpa böcker eller annat material då allt ges via utbildningsplattformen Awesomo. Det enda du behöver tänka på i förväg är att du har en egen dator, fungerande webbkamera, bra internetuppkoppling samt att du har installerat webbläsaren Google Chrome och mötesklienten Microsoft Teams.</p>
+                <p>Under hela utbildningen har du tillgång till lärplattformen Awesomo. Där finns bland annat undervisningsmaterial och utbildningsinformation för kurserna. Inlämningar, redovisningar och hemtentor lämnas in, bedöms och återkopplas via Awesomo. Lektioner, föreläsningar samt övergripande planering och information nås genom Microsoft Teams. Lektionerna spelas in vilket gör att du kan se och lyssna till föreläsningarna vid upprepade tillfällen. Detta bidrar till ökad flexibilitet och tillgänglighet.</p>
+                <p>Vi kommer att använda tjänsten Discord under utbildningens gång. Denna chat (röst, text och video) kommer att tjäna som ditt 24h-klassrum under utbildningen.</p>
             </details>
             <details>
                 <summary>Under utbildningen</summary>
@@ -107,7 +111,9 @@ export const eduInfo = [
             </details>
             <details>
                 <summary>Före utbildningen</summary>
-                <p>Text om Moodle istället för Awesomo</p>
+                <p>Du behöver inte köpa böcker eller annat material då allt ges via utbildningsplattformen Awesomo. Det enda du behöver tänka på i förväg är att du har en egen dator, fungerande webbkamera, bra internetuppkoppling samt att du har installerat webbläsaren Google Chrome och mötesklienten Microsoft Teams.</p>
+                <p>Under hela utbildningen har du tillgång till lärplattformen Awesomo. Där finns bland annat undervisningsmaterial och utbildningsinformation för kurserna. Inlämningar, redovisningar och hemtentor lämnas in, bedöms och återkopplas via Awesomo. Lektioner, föreläsningar samt övergripande planering och information nås genom Microsoft Teams. Lektionerna spelas in vilket gör att du kan se och lyssna till föreläsningarna vid upprepade tillfällen. Detta bidrar till ökad flexibilitet och tillgänglighet.</p>
+                <p>Vi kommer att använda tjänsten Discord under utbildningens gång. Denna chat (röst, text och video) kommer att tjäna som ditt 24h-klassrum under utbildningen.</p>
             </details>
             <details>
                 <summary>Under utbildningen</summary>
@@ -201,7 +207,9 @@ export const eduInfo = [
             </details>
             <details>
                 <summary>Före utbildningen</summary>
-                <p>Text om Moodle istället för Awesomo</p>
+                <p>Du behöver inte köpa böcker eller annat material då allt ges via utbildningsplattformen Awesomo. Det enda du behöver tänka på i förväg är att du har en egen dator, fungerande webbkamera, bra internetuppkoppling samt att du har installerat webbläsaren Google Chrome och mötesklienten Microsoft Teams.</p>
+                <p>Under hela utbildningen har du tillgång till lärplattformen Awesomo. Där finns bland annat undervisningsmaterial och utbildningsinformation för kurserna. Inlämningar, redovisningar och hemtentor lämnas in, bedöms och återkopplas via Awesomo. Lektioner, föreläsningar samt övergripande planering och information nås genom Microsoft Teams. Lektionerna spelas in vilket gör att du kan se och lyssna till föreläsningarna vid upprepade tillfällen. Detta bidrar till ökad flexibilitet och tillgänglighet.</p>
+                <p>Vi kommer att använda tjänsten Discord under utbildningens gång. Denna chat (röst, text och video) kommer att tjäna som ditt 24h-klassrum under utbildningen.</p>
             </details>
             <details>
                 <summary>Under utbildningen</summary>
