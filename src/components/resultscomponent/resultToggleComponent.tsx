@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import anime from 'animejs';
+
 
 type Links = {
     course: string;
@@ -12,6 +12,8 @@ type CourseScore = {
     points: string;
     links: Links;
     studyAt: string;
+    eduTextTitle: string;
+    eduText: string;
 }
 
 type Props = {
@@ -62,7 +64,10 @@ const ResultToggleComponent = ({ courseScore, index }: Props) => {
             <span onClick={gotoEducations}> Läs mer </span>
             {
                 toggleInfo ?
-                <p>Hejsan svejsan!</p>
+                <section className="toggleText">
+                    <p className="toggleTextTitle"> { courseScore.eduTextTitle } </p>
+                    <p> { courseScore.eduText } </p>
+                </section>
                 :
                 ''
             }
