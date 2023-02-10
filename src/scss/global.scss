@@ -52,6 +52,13 @@ body::-webkit-scrollbar-thumb:hover {
     linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image; //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
+li {
+  list-style: outside "\2B22";
+  padding-left: $padding-sml;
+  margin-left: -$margin-sml;
+}
+
+
 @mixin formButton {
   @include flex;
   margin: $margin;
