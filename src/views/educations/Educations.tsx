@@ -3,7 +3,6 @@ import './educations.scss';
 import { useEffect, useState } from 'react';
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
-import { eduInfo } from "./eduInfo";
 import { Link } from 'react-router-dom';
 
 
@@ -29,7 +28,7 @@ function Educations() {
             <section className="course" id={linkId} key={index}>
                 <h3>{course.name}</h3>
                 <p>{course.location}</p>
-                {eduInfo[index]}
+                {/* {eduInfo[index]} */}
             </section>
         );
     });
@@ -53,7 +52,7 @@ function Educations() {
                 })}
 
                 <section className="coursesWrapper">
-                    {displayCourses}
+                    {/* {displayCourses} */}
                 </section>
 
             </main>
