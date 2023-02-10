@@ -47,32 +47,38 @@ const ResultToggleComponent = ({ courseScore, index }: Props) => {
 
     return (
 
-        <>
-            <h2 className="rank">{`${index + 1}`}</h2> 
-                <span>{courseScore.course} 
-                    <span className="study_at">{ courseScore.studyAt } 
+        <section className="results_list">
 
-                        { toggleInfo ? 
-                        <span className='toggled' onClick={ () => setToggleInfo(!toggleInfo) }></span>
-                        :
-                        <span className='notToggled' onClick={ () => setToggleInfo(!toggleInfo) }></span>
-                        }
+            <section key={index} className="results_item">
+                <h2 className="rank">{`${index + 1}`}</h2> 
+                    <span>{courseScore.course} 
+                        <span className="study_at">{ courseScore.studyAt } 
 
-                    </span>
-                </span> 
-            <span onClick={() => openNewTab(courseScore.links.link)}> Ansök </span>
-            <span onClick={gotoEducations}> Läs mer </span>
+                            { toggleInfo ? 
+                            <span className='toggled' onClick={ () => setToggleInfo(!toggleInfo) }></span>
+                            :
+                            <span className='notToggled' onClick={ () => setToggleInfo(!toggleInfo) }></span>
+                            }
+
+                        </span>
+                    </span> 
+                <span onClick={() => openNewTab(courseScore.links.link)}> Ansök </span>
+                <span onClick={gotoEducations}> Läs mer </span>
+            </section>
+
+
             {
-                toggleInfo ?
-                <section className="toggleText">
-                    <p className="toggleTextTitle"> { courseScore.eduTextTitle } </p>
-                    <p> { courseScore.eduText } </p>
-                </section>
-                :
-                ''
+            toggleInfo ?
+            <section className="toggleText">
+                <p className="toggleTextTitle"> { courseScore.eduTextTitle } </p>
+                <p> { courseScore.eduText } </p>
+            </section>
+            :
+            ''
             }
 
-        </>
+
+        </section>
 
     )
 }

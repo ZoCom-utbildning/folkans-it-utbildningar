@@ -2,6 +2,7 @@
 @import "../../scss/variables.scss";
 @import "../../scss/global.scss";
 
+
 .results_wrapper {
 
     @include flex($direction: column);
@@ -12,8 +13,6 @@
     }
 
     .results_section {
-
-        height: 100%;
         width: 95%;
         text-align: center;
         @include flex($direction: column);
@@ -37,14 +36,13 @@
         .results_list {
 
             @include flex($direction: column);
-            width: 100%;
+            width: fit-content;
             list-style: none;
-            margin: $margin;
+            margin: $margin 0 $margin 0;
 
             .results_item {
 
                 @include flex($justify: center, $align: center, $wrap: wrap);
-                margin: $margin-sml;
                 max-width: 16rem;
                 margin-bottom: $margin-large;
 
@@ -191,18 +189,16 @@
 
 
 @media screen and (min-width: 580px) {
+
     .results_wrapper {
         @include flex();
         z-index: 3;
         width: 100%;
-        min-height: 100%;
 
         .results_section {
             text-align: center;
             @include flex($direction: column);
             width: 80%;
-            max-height: calc($baseline*38);
-            min-height: calc($baseline*30);
 
             button {
 
@@ -213,15 +209,14 @@
 
             .results_list {
 
-                list-style: none;
                 margin: $margin;
     
                 .results_item {
 
                     @include flex($justify: center, $align: center, $wrap: wrap);
                     margin: $margin-sml;
-                    width: 33rem;
-                    min-width: 33rem;
+                    width: 33.5rem;
+                    min-width: 33.5rem;
                     
                     .rank {
 
@@ -339,12 +334,48 @@
 
 @media screen and (min-width: $breakpointDesktop) {
 
+    .form_wrapper {
+        &::before, &::after {
+            display: none;
+        }
+    }
+
+    h2 {
+        padding: 0;
+    }
+
     .results_wrapper {
 
-        .results_section {
+        height: 100%;
         
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            width: 10px;
+            }
+            
+            /* Track */
+        &::-webkit-scrollbar-track {
+            background: rgb(74, 74, 74);
+        }
+            
+            /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: rgb(74, 74, 74);
+            border-radius: 10px;
+            transition-duration: 200ms;
+        }
+            
+            /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #787878;
+        }
+
+        .results_section {
+
+            max-height: 100%;
+
             h2 {
-                margin: 2rem 0 0 0;
+                padding-top: 5rem;
             }
 
             button {
@@ -352,7 +383,6 @@
             }
 
             .results_list {
-
                 .results_item {
 
                     width: 37.5rem;
