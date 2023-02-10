@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { eduInfo } from "./eduInfo";
+import { Link } from 'react-router-dom';
 
 
 function Educations() {
@@ -43,6 +44,13 @@ function Educations() {
 
                 <p>Om du har behov av särskilt stöd av något slag för att klara av dina studier kan du kontakta utbildningsledare så kan ni lägga upp en plan som blir bra för just dig. Kom bara ihåg att ta kontakt med utbildningsledaren i god tid innan utbildningen börjar så att anpassningarna kan planeras och bli rätt från början.</p>
 
+                {courses.map((course) => {
+                    return (
+                    <h5 key={course.id}>
+                        <Link to={`/utbildningar/${course.id}`}>{course.id}</Link>
+                    </h5>
+                    );
+                })}
 
                 <section className="coursesWrapper">
                     {displayCourses}
