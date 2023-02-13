@@ -5,6 +5,7 @@ import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { useNavigate } from 'react-router';
 import { eduInfo } from '../education/eduInfo';
+import anime from 'animejs';
 
 
 function Educations() {
@@ -22,11 +23,13 @@ function Educations() {
             setCourses(tempArr);
         })();
     }, []);
+
     
     function navigateTo(link: string) {
         navigate(link);
     }
 
+    
     const displayCourses = courses.map((course, index) => {
         return (
             <section className="course" id={course.id} key={index} onClick={() => navigateTo(`/utbildningar/${course.id}`)}>
@@ -37,6 +40,23 @@ function Educations() {
             </section>
         );
     });
+
+    useEffect(() => {
+        anime({
+            targets: '.coursesWrapper .course',
+            keyframes: [
+                { backgroundPositionX: 0 }, 
+                { backgroundPositionX: 100 }
+            ],
+            direction: 'alternate',
+            loop: true,
+            delay: anime.stagger(2000, {start: 500}),
+            endDelay: anime.stagger(500, {start: 300}),
+            duration: 5000,
+            easing: 'easeInOutQuart'
+          });
+    },[displayCourses]);
+
 
     return (
         <div className="educationView">
