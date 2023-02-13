@@ -13,7 +13,6 @@ import anime from "animejs";
 import { db } from "./services/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
-
 function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [navClass, setNavClass] = useState<string>("nav-icon");
@@ -22,7 +21,7 @@ function App() {
   const [data, setData] = useState<Array<any>>([]);
   const [interviewData, setInterviewData] = useState<any[]>([]);
   const [questions, setQuestions] = useState<Array<any>>([]);
-  
+
   const targets = document.querySelectorAll(
     ".persona-header .persona-text-container"
   );
@@ -196,21 +195,18 @@ function App() {
     }
   }, [data]);
 
+  // Hämtar questions från firebase databasen
+  useEffect(() => {
+    (async () => {
+      const querySnapshot = await getDocs(collection(db, "questions"));
+      const tempArr: any[] = [];
+      querySnapshot.forEach((doc) => {
+        tempArr.push(doc.data());
+      });
 
-    // Hämtar questions från firebase databasen
-    useEffect(() => {
-
-      (async () => {
-        const querySnapshot = await getDocs(collection(db, "questions"));
-        const tempArr: any[] = [];
-        querySnapshot.forEach((doc) => {
-          tempArr.push(doc.data());
-        });
-  
-        setQuestions(tempArr);
-      })();
-    }, []);
-
+      setQuestions(tempArr);
+    })();
+  }, []);
 
   return (
     <div className="App">
@@ -231,7 +227,7 @@ function App() {
             <Form
               activePersona={activePersona}
               buttonElements={buttonElements}
-              questions={ questions }
+              questions={questions}
             />
           }
         />
@@ -252,6 +248,7 @@ function App() {
           path="/personer"
           element={
             <Personas
+              questions={questions}
               data={data}
               interviewData={interviewData}
               handlers={handlers}
