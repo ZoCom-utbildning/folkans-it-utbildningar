@@ -1,7 +1,6 @@
 @import "../../scss/variables.scss";
 @import "../../scss/layout.scss";
 .persona-card-content {
-  min-height: 125vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,14 +19,13 @@
 @media screen and (min-width: $breakpointDesktop) {
   .persona-card-content {
     min-height: auto;
+    flex: 1;
     .persona-cards {
       width: 100%;
 
       display: flex;
     }
     .persona-content {
-      max-width: 50%;
-
       padding: $padding-large;
       @include flex($align: flex-start, $direction: column);
 
