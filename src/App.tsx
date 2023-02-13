@@ -244,6 +244,7 @@ function App() {
           path="/fragor"
           element={
             <Form
+              interviewData={interviewData}
               activePersona={activePersona}
               buttonElements={buttonElements}
               questions={questions}
@@ -254,6 +255,7 @@ function App() {
           path="/"
           element={
             <Home
+              questions={questions}
               data={data}
               interviewData={interviewData}
               handlers={handlers}

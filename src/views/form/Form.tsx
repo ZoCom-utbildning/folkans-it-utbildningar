@@ -5,13 +5,20 @@ type Props = {
   activePersona: number;
   buttonElements: any;
   questions: Array<any>;
+  interviewData: Array<any>;
 };
 
-function Form({ activePersona, buttonElements, questions }: Props) {
+function Form({
+  activePersona,
+  buttonElements,
+  questions,
+  interviewData,
+}: Props) {
   return (
     <div className="desktop_wrapper">
       <div className="form_wrapper">
         <FormComponent
+          interviewData={interviewData}
           buttonElements={buttonElements}
           activePersona={activePersona}
           questions={questions}

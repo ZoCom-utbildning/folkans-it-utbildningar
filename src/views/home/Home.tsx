@@ -16,12 +16,14 @@ type Props = {
   data: any;
   interviewData: any;
   handlers: ReturnType<typeof useSwipeable>;
+  questions: Array<any>;
 };
 function Home({
   activePersona,
   buttonElements,
   handlers,
   interviewData,
+  questions,
 }: Props) {
   //if window width is smaller than 820px
 
@@ -71,6 +73,7 @@ function Home({
       <section className="home-personas-wrapper">
         <div {...handlers}>
           <FormComponent
+            questions={questions}
             interviewData={interviewData}
             buttonElements={buttonElements}
             activePersona={activePersona}
