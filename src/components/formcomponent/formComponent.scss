@@ -4,8 +4,9 @@
 
 .personas-main {
   overflow-y: scroll;
-  max-height: 60vh;
-  margin: $margin-sml;
+  max-height: 55vh;
+  margin: $margin;
+  padding: 2rem;
   .personas-card {
     .personas-card-header {
       .personas-card-text-container {
@@ -22,7 +23,7 @@
   display: flex;
   justify-content: space-evenly;
   position: relative;
-  bottom: auto;
+  bottom: 0%;
   padding: 1rem;
   z-index: 3;
 
@@ -41,6 +42,24 @@
 
     &::after {
       border-top: 7.5px solid rgb(90, 90, 182);
+    }
+  }
+}
+
+@media screen and (min-width: $breakpointDesktop) {
+  .personas-main {
+    height: 100%;
+    margin: $margin-sml;
+    overflow-y: scroll;
+    .personas-card {
+      .personas-card-header {
+        .personas-card-text-container {
+          .personas-card-ingress {
+          }
+          .card-text-container {
+          }
+        }
+      }
     }
   }
 }

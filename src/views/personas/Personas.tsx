@@ -12,6 +12,8 @@ type Props = {
   data: any;
   interviewData: any;
   questions: any;
+  isMobile: boolean;
+  scrollMobileClass: string;
 };
 const Personas = ({
   questions,
@@ -20,29 +22,14 @@ const Personas = ({
   buttonElements,
   interviewData,
   data,
+  scrollMobileClass,
+  isMobile,
 }: Props) => {
   const [contClass, setContClass] = useState("cont s--inactive");
   const [activeEl, setActiveEl] = useState<HTMLDivElement | null>(null);
   const [preview, setPreview] = useState(true);
 
-  const [isMobile, setIsMobile] = useState<boolean>();
   const NUM_OF_ELEMENTS = 5;
-
-  function checkMediaQuery() {
-    // Check if the media query is true
-    if (window.innerWidth > 820) {
-      // Then log the following message to the console
-
-      setIsMobile(false);
-    } else {
-      setIsMobile(true);
-    }
-  }
-
-  window.addEventListener("resize", checkMediaQuery);
-  useEffect(() => {
-    checkMediaQuery();
-  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -115,7 +102,9 @@ const Personas = ({
                               <img className="arrow-img" src={Arrow} alt="" />
                             </section>
                           ) : (
-                            <div className="el__content">
+                            <div
+                              className={"el__content" + { scrollMobileClass }}
+                            >
                               {interviewData[index]}
                               <button
                                 className="el__close-btn"
