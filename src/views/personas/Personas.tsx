@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Arrow from "../../assets/icons/arrow.svg";
 import FormComponent from "../../components/formcomponent/formComponent";
 import { useSwipeable } from "react-swipeable";
+import Footer from "../../components/footer/Footer";
 
 type Props = {
   activePersona: number;
@@ -126,6 +127,7 @@ const Personas = ({
           </div>
         </section>
       )}
+      <Footer />
     </>
   );
 };
