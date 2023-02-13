@@ -44,7 +44,7 @@
 
                 @include flex($justify: center, $align: center, $wrap: wrap);
                 max-width: 16rem;
-                margin-bottom: $margin-large;
+                margin-bottom: 0;
 
                 span {
                     font-size: 0.875rem;
@@ -159,27 +159,26 @@
                     }
 
                 }
+            }
 
-                .toggleText {
+            .toggleText {
 
-                    width: 100%;
-                    border: 1px solid $primaryTextColor;
-                    border-top: none;
+                width: 16rem;
+                border: 1px solid $primaryTextColor;
+                border-top: none;
 
-                    p {
-                        font-size: 0.875rem;
-                        line-height: 120%;
-                        padding-left: 1px;
-                        padding-right: 1px;
-                        text-align: start;
-                    }
+                p {
+                    font-size: 0.875rem;
+                    line-height: 120%;
+                    padding-left: 1px;
+                    padding-right: 1px;
+                    text-align: start;
+                }
 
-                    .toggleTextTitle {
-                        padding-left: $padding-sml;
-                        font-weight: 600;
-                        padding-bottom: 0;
-                    }
-
+                .toggleTextTitle {
+                    padding-left: $padding-sml;
+                    font-weight: 600;
+                    padding-bottom: 0;
                 }
 
             }
@@ -214,7 +213,7 @@
                 .results_item {
 
                     @include flex($justify: center, $align: center, $wrap: wrap);
-                    margin: $margin-sml;
+                    margin: $margin-sml $margin-sml 0 $margin-sml;
                     width: 33.5rem;
                     min-width: 33.5rem;
                     
@@ -316,16 +315,19 @@
                           }
 
                     }
-
-                    .toggleText {
-
-                        p {
-                            padding: $padding $padding-sml;
-                        }
-
-                    }
-                    
                 }
+
+                .toggleText {
+
+                    width: 33rem;
+
+                    p {
+                        font-size: 1rem;
+                        padding: $padding $padding-sml;
+                    }
+
+                }
+
             }
         }
     }
@@ -347,8 +349,7 @@
     .results_wrapper {
 
         height: 100%;
-        
-        overflow-y: scroll;
+        overflow: auto;
         &::-webkit-scrollbar {
             width: 10px;
             }
@@ -415,22 +416,16 @@
                           }
 
                     }
-
-                    .toggleText {
-
-                        p {
-                            font-size: $baseline;
-                            line-height: 140%;
-                            text-align: start;
-                        }
-
-                        .toggleTextTitle {
-                            font-size: $baseline;
-                        }
-
-                    }
     
                 }
+
+                .toggleText {
+
+                    width: 37.5rem;
+                    border: 1px solid $primaryTextColor;
+                    border-top: none;
+                }
+
             }
         }
     }
