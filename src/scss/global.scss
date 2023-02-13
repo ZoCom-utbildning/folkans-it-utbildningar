@@ -20,19 +20,19 @@ body::-webkit-scrollbar {
 
 /* Track */
 body::-webkit-scrollbar-track {
-  background: rgb(74, 74, 74);
+  background: rgb(110, 110, 110);
 }
 
 /* Handle */
 body::-webkit-scrollbar-thumb {
-  background: rgb(74, 74, 74);
+  background: rgb(58, 58, 58);
   border-radius: 10px;
   transition-duration: 200ms;
 }
 
 /* Handle on hover */
 body::-webkit-scrollbar-thumb:hover {
-  background: #787878;
+  background: #4d4d4d;
 }
 
 .App {

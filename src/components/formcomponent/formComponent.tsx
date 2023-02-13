@@ -145,16 +145,14 @@ function FormComponent({
             <ResultsComponent />
           </>
         ) : window.location.href.includes("") ? (
-          <>
-            <section className="persona-card-content">
-              <ImageComponent formImage={formImage} altImage={altImage} />
-              <PersonaContent
-                activePersona={activePersona}
-                interviewData={interviewData}
-              />
-              {buttonElements}
-            </section>
-          </>
+          <section className="persona-card-content">
+            <ImageComponent formImage={formImage} altImage={altImage} />
+            <PersonaContent
+              activePersona={activePersona}
+              interviewData={interviewData}
+            />
+            {buttonElements}
+          </section>
         ) : null}
       </section>
     </div>

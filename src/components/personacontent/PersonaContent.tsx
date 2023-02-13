@@ -50,7 +50,7 @@ function PersonaContent({ activePersona, interviewData }: Props) {
       {personas.map((persona, index) => {
         if (persona.id === activePersona) {
           return (
-            <div key={persona.id}>
+            <div className="persona-card-content" key={persona.id}>
               {!window.location.href.includes("personer") ? (
                 <div className="persona-content">
                   <header className="persona-header">
