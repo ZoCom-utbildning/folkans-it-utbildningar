@@ -4,11 +4,13 @@
 
 .homeButton {
   @include formButton;
+  padding: 1rem 2rem;
 }
 
 @media (min-width: $breakpointDesktop) {
   .homeButton {
     transition: 0.5s;
+    max-width: 100%;
     &:hover {
       transform: scale(1.1);
       border-color: rgb(90, 90, 182);
