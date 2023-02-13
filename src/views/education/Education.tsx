@@ -23,16 +23,13 @@ const Education = () => {
         })();
     }, [educationId]);
     const educationInfo = eduInfo.find(elem => elem.key == educationId);
-    if(educationInfo){
-        const titleElem = educationInfo.props.children.find((elem: { type: string; }) => elem.type == "h1");
-        console.log(titleElem);
-        // titleElem.props.children = course.name;
-        // console.log(titleElem.props.children);
-    }
-
     return (
         <div className="educationView">
-            {educationInfo}
+            <main>
+                <h1>{course.name}</h1>
+                <p className="ingress">{course.description}</p>
+                {educationInfo}
+            </main>
         </div>
     );
 };
