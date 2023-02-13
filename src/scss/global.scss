@@ -14,25 +14,27 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
+
 body::-webkit-scrollbar {
   width: 10px;
 }
 
 /* Track */
 body::-webkit-scrollbar-track {
-  background: rgb(110, 110, 110);
+  background: $scrollTrack;
 }
 
 /* Handle */
 body::-webkit-scrollbar-thumb {
-  background: rgb(58, 58, 58);
+  background: $scrollThumb;
   border-radius: 10px;
   transition-duration: 200ms;
 }
 
 /* Handle on hover */
 body::-webkit-scrollbar-thumb:hover {
-  background: #4d4d4d;
+  background: $scrollHover;
+
 }
 
 .App {
@@ -45,11 +47,9 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: $gray;
   background-blend-mode: multiply;
   background-size: cover;
-  background-image: linear-gradient(
-      360deg,
+  background-image: linear-gradient(360deg,
       rgba(18, 123, 0, 0.713) 0%,
-      rgba(0, 255, 51, 0.397) 100%
-    ),
+      rgba(0, 255, 51, 0.397) 100%),
     linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image; //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
@@ -82,6 +82,7 @@ li {
   color: $primaryTextColor;
   max-width: 75%;
   margin: 0 auto;
+
   &:hover {
     transform: scale(1.1);
     border-color: $lightBlue;
@@ -134,9 +135,8 @@ li {
 
 @mixin stripes($stripes-background-size: $stripes-background-size) {
 
-  background-image: linear-gradient(45deg, rgb(221, 221, 221, 50%) 5.56%, $dark 5.56%, $dark 50%, 
-  rgb(221, 221, 221, 50%) 50%, rgb(221, 221, 221, 50%) 55.56%, $dark 55.56%, $dark 100%);
+  background-image: linear-gradient(45deg, rgb(221, 221, 221, 50%) 5.56%, $dark 5.56%, $dark 50%,
+      rgb(221, 221, 221, 50%) 50%, rgb(221, 221, 221, 50%) 55.56%, $dark 55.56%, $dark 100%);
 
   background-size: $stripes-background-size;
 }
-
