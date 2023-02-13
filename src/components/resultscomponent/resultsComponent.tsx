@@ -136,23 +136,17 @@ const ResultsComponent = () => {
             <section className="results_section">
 
                 <h2>Ditt test resultat blev: </h2>
-                <ul className="results_list">
 
                     {
                         courseScoreSorted.map((courseScore, index) => {
                             if (index < 5) {
 
-                                return <li key={index} className="results_item"> 
-                                
-                                    < ResultToggleComponent courseScore={courseScore} index={index}/>
-                                    
-                                </li>
-                                
+                                return < ResultToggleComponent courseScore={courseScore} index={index} />
+                             
                             }
                         })
                     }
 
-                </ul>
                 <TestButton buttonText={'Ta testet igen'} />
 
             </section>

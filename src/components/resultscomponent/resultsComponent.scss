@@ -2,6 +2,7 @@
 @import "../../scss/variables.scss";
 @import "../../scss/global.scss";
 
+
 .results_wrapper {
 
     @include flex($direction: column);
@@ -12,8 +13,6 @@
     }
 
     .results_section {
-
-        height: 100%;
         width: 95%;
         text-align: center;
         @include flex($direction: column);
@@ -37,16 +36,15 @@
         .results_list {
 
             @include flex($direction: column);
-            width: 100%;
+            width: fit-content;
             list-style: none;
-            margin: $margin;
+            margin: $margin 0 $margin 0;
 
             .results_item {
 
                 @include flex($justify: center, $align: center, $wrap: wrap);
-                margin: $margin-sml;
                 max-width: 16rem;
-                margin-bottom: $margin-large;
+                margin-bottom: 0;
 
                 span {
                     font-size: 0.875rem;
@@ -161,27 +159,26 @@
                     }
 
                 }
+            }
 
-                .toggleText {
+            .toggleText {
 
-                    width: 100%;
-                    border: 1px solid $primaryTextColor;
-                    border-top: none;
+                width: 16rem;
+                border: 1px solid $primaryTextColor;
+                border-top: none;
 
-                    p {
-                        font-size: 0.875rem;
-                        line-height: 120%;
-                        padding-left: 1px;
-                        padding-right: 1px;
-                        text-align: start;
-                    }
+                p {
+                    font-size: 0.875rem;
+                    line-height: 120%;
+                    padding-left: 1px;
+                    padding-right: 1px;
+                    text-align: start;
+                }
 
-                    .toggleTextTitle {
-                        padding-left: $padding-sml;
-                        font-weight: 600;
-                        padding-bottom: 0;
-                    }
-
+                .toggleTextTitle {
+                    padding-left: $padding-sml;
+                    font-weight: 600;
+                    padding-bottom: 0;
                 }
 
             }
@@ -191,18 +188,18 @@
 
 
 @media screen and (min-width: 580px) {
+
     .results_wrapper {
         @include flex();
         z-index: 3;
         width: 100%;
-        min-height: 100%;
 
         .results_section {
             text-align: center;
-            @include flex($direction: column);
+            display: flex;
+            flex-direction: column;
+            margin: auto;
             width: 80%;
-            max-height: calc($baseline*38);
-            min-height: calc($baseline*30);
 
             button {
 
@@ -213,15 +210,14 @@
 
             .results_list {
 
-                list-style: none;
                 margin: $margin;
     
                 .results_item {
 
                     @include flex($justify: center, $align: center, $wrap: wrap);
-                    margin: $margin-sml;
-                    width: 33rem;
-                    min-width: 33rem;
+                    margin: $margin-sml $margin-sml 0 $margin-sml;
+                    width: 33.5rem;
+                    min-width: 33.5rem;
                     
                     .rank {
 
@@ -321,16 +317,19 @@
                           }
 
                     }
-
-                    .toggleText {
-
-                        p {
-                            padding: $padding $padding-sml;
-                        }
-
-                    }
-                    
                 }
+
+                .toggleText {
+
+                    width: 33rem;
+
+                    p {
+                        font-size: 1rem;
+                        padding: $padding $padding-sml;
+                    }
+
+                }
+
             }
         }
     }
@@ -339,12 +338,48 @@
 
 @media screen and (min-width: $breakpointDesktop) {
 
+    .form_wrapper {
+
+        &::before, &::after {
+            display: none;
+        }
+
+    }
+
+    h2 {
+        padding: 0;
+    }
+
     .results_wrapper {
+        
+        max-height: 100%;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+            }
+            
+            /* Track */
+        &::-webkit-scrollbar-track {
+            background: rgb(74, 74, 74);
+        }
+            
+            /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: rgb(74, 74, 74);
+            border-radius: 10px;
+            transition-duration: 200ms;
+        }
+            
+            /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: #787878;
+        }
 
         .results_section {
-        
+
             h2 {
-                margin: 2rem 0 0 0;
+                margin-top: 7rem;
             }
 
             button {
@@ -352,9 +387,9 @@
             }
 
             .results_list {
-
+                
                 .results_item {
-
+                    
                     width: 37.5rem;
                     min-width: 37.5rem;
 
@@ -385,22 +420,16 @@
                           }
 
                     }
-
-                    .toggleText {
-
-                        p {
-                            font-size: $baseline;
-                            line-height: 140%;
-                            text-align: start;
-                        }
-
-                        .toggleTextTitle {
-                            font-size: $baseline;
-                        }
-
-                    }
     
                 }
+
+                .toggleText {
+
+                    width: 37.5rem;
+                    border: 1px solid $primaryTextColor;
+                    border-top: none;
+                }
+
             }
         }
     }
