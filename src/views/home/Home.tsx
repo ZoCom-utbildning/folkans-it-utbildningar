@@ -23,7 +23,7 @@ function Home({
   buttonElements,
   setIsMobile,
   handlers,
-  data,
+  interviewData,
 }: Props) {
   function checkMediaQuery() {
     // Check if the media query is true
@@ -89,7 +89,7 @@ function Home({
       <section className="home-personas-wrapper">
         <div {...handlers}>
           <FormComponent
-            data={data}
+            interviewData={interviewData}
             buttonElements={buttonElements}
             activePersona={activePersona}
           />

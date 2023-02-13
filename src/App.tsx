@@ -19,6 +19,10 @@ function App() {
   const [isMobile, setIsMobile] = useState<boolean>();
   const [data, setData] = useState<Array<any>>([]);
   const [interviewData, setInterviewData] = useState<any[]>([]);
+  const targets = document.querySelectorAll(
+    ".persona-header .persona-text-container"
+  );
+
   const buttonElements = (
     <ul className="galleryButtons">
       <input
@@ -98,7 +102,7 @@ function App() {
   const swipeRight = () => {
     if (isMobile) {
       anime({
-        targets: ".card_content",
+        targets: targets,
         keyframes: [
           { translateX: "200%", duration: 250 },
           { translateX: "0", duration: 250 },
@@ -116,7 +120,7 @@ function App() {
   const swipeLeft = () => {
     if (isMobile) {
       anime({
-        targets: ".card_content",
+        targets: targets,
 
         keyframes: [
           { translateX: "-200%", duration: 250 },
@@ -231,7 +235,6 @@ function App() {
               handlers={handlers}
               activePersona={activePersona}
               buttonElements={buttonElements}
-              setActivePersona={setActivePersona}
             />
           }
         />

@@ -14,12 +14,16 @@ import { collection, getDocs } from "firebase/firestore";
 import "./formComponent.scss";
 
 type Props = {
-  data: Array<any>;
   activePersona: number;
   buttonElements: any;
+  interviewData: Array<any>;
 };
 
-function FormComponent({ activePersona, buttonElements, data }: Props) {
+function FormComponent({
+  activePersona,
+  buttonElements,
+  interviewData,
+}: Props) {
   const [questions, setQuestions] = useState<Array<any>>([]);
   const [questionId, setQuestionId] = useState<number>(0);
   const [formText, setFormText] = useState<string>("");
@@ -141,11 +145,16 @@ function FormComponent({ activePersona, buttonElements, data }: Props) {
             <ResultsComponent />
           </>
         ) : window.location.href.includes("") ? (
-          <section className="persona-card-content">
-            <ImageComponent formImage={formImage} altImage={altImage} />
-            <PersonaContent activePersona={activePersona} data={data} />
-            {buttonElements}
-          </section>
+          <>
+            <section className="persona-card-content">
+              <ImageComponent formImage={formImage} altImage={altImage} />
+              <PersonaContent
+                activePersona={activePersona}
+                interviewData={interviewData}
+              />
+              {buttonElements}
+            </section>
+          </>
         ) : null}
       </section>
     </div>

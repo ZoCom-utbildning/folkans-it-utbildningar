@@ -7,7 +7,6 @@ import { useSwipeable } from "react-swipeable";
 
 type Props = {
   activePersona: number;
-  setActivePersona: (activePersona: number) => void;
   buttonElements: JSX.Element;
   handlers: ReturnType<typeof useSwipeable>;
   data: any;
@@ -15,7 +14,6 @@ type Props = {
 };
 const Personas = ({
   activePersona,
-  setActivePersona,
   handlers,
   buttonElements,
   interviewData,
@@ -83,7 +81,6 @@ const Personas = ({
       toggleClass(activeEl!, "s--active");
       setContClass("cont s__inactive");
       setActiveEl(null);
-
       setPreview(true);
     }
   };
@@ -136,7 +133,7 @@ const Personas = ({
         <section className="home-personas-wrapper">
           <div {...handlers}>
             <FormComponent
-              data={data}
+              interviewData={interviewData}
               buttonElements={buttonElements}
               activePersona={activePersona}
             />

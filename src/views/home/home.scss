@@ -78,16 +78,16 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       width: 100%;
       display: flex;
       justify-content: space-evenly;
-      position: relative;
+
       bottom: auto;
       padding: 1rem;
-      z-index: 5;
+      z-index: 3;
 
       .gallery-btn {
         appearance: none;
         @include hexagonButton;
         position: relative;
-        z-index: 6;
+        z-index: 3;
       }
       input[type="radio"]:checked {
         background-color: rgb(90, 90, 182);

@@ -2,9 +2,10 @@ import "./personacontent.scss";
 import { useNavigate } from "react-router-dom";
 type Props = {
   activePersona: number;
-  data: Array<any>;
+
+  interviewData: Array<any>;
 };
-function PersonaContent({ activePersona, data }: Props) {
+function PersonaContent({ activePersona, interviewData }: Props) {
   const navigate = useNavigate();
   function navToPersonas(e: any) {
     e.preventDefault();
@@ -43,30 +44,36 @@ function PersonaContent({ activePersona, data }: Props) {
         "Emilija är karriärväxlaren som bytte katedern mot skolbänken och sadlade om från en karriär som SO-lärare på grundskolan till att nu vara helt inställd på programmering. Att hoppa på en programmeringsutbildning har givit henne en riktig nytändning i livet och nu kan hon räkna programmering som en av hennes största hobbies, även om hon stundtals får kämpa lite.",
     },
   ];
-  // map out the personas with key={persona.id} and return the active persona
+
   return (
-    <div className="persona-content">
-      {personas.map((persona) => {
+    <>
+      {personas.map((persona, index) => {
         if (persona.id === activePersona) {
           return (
             <div key={persona.id}>
-              <header className="persona-header">
-                <h2 className="persona-title">{persona.personaTitle}</h2>
-              </header>
-              <main className="persona-text-container">
-                <p className="persona-ingress">{persona.personaIngress}</p>
-                <button
-                  className="homeButton"
-                  onClick={(e) => navToPersonas(e)}
-                >
-                  Läs hela intervjun här
-                </button>
-              </main>
+              {!window.location.href.includes("personer") ? (
+                <div className="persona-content">
+                  <header className="persona-header">
+                    <h2 className="persona-title">{persona.personaTitle}</h2>
+                  </header>
+                  <main className="persona-text-container">
+                    <p className="persona-ingress">{persona.personaIngress}</p>
+                    <button
+                      className="homeButton"
+                      onClick={(e) => navToPersonas(e)}
+                    >
+                      Läs hela intervjun här
+                    </button>
+                  </main>
+                </div>
+              ) : (
+                <div>{interviewData[index]}</div>
+              )}
             </div>
           );
         }
       })}
-    </div>
+    </>
   );
 }
 
