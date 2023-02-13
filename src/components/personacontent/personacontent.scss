@@ -1,17 +1,32 @@
 @import "../../scss/variables.scss";
 @import "../../scss/layout.scss";
+@import "../../scss/global.scss";
 .persona-card-content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 46vh;
   .persona-content {
     max-width: 100%;
     padding: 0 $padding 0 $padding;
     @include flex($align: none, $direction: column);
     gap: 1rem; // TODO: Is this unused?
+    .persona-header {
+      .persona-title {
+        margin: 0;
+      }
+    }
     .persona-text-container {
       @include flex($align: none, $direction: column);
       gap: $margin;
+      .persona-ingress {
+        hyphens: auto;
+      }
+      .personasButton {
+        @include formButton;
+        padding: $padding-sml $padding;
+        max-width: 75%;
+      }
     }
   }
 }

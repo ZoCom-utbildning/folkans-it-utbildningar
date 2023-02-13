@@ -23,13 +23,13 @@
     filter: grayscale(1);
     object-fit: cover;
     object-position: top;
+    max-height: 300px;
   }
 }
 
 // Might need to be changed later for the desktop view
 @media screen and (min-width: $breakpointDesktop) {
   .gradientImageWrapper {
-    position: relative;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -37,6 +37,7 @@
 
     .image {
       border-radius: 0;
+      max-height: none;
     }
 
     .gradient {
