@@ -3,11 +3,13 @@ import './educations.scss';
 import { useEffect, useState } from 'react';
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
+import { eduInfo } from '../education/eduInfo';
 
 
 function Educations() {
     const [courses, setCourses] = useState<Array<any>>([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -21,14 +23,17 @@ function Educations() {
         })();
     }, []);
     
+    function navigateTo(link: string) {
+        navigate(link);
+    }
 
     const displayCourses = courses.map((course, index) => {
-        const linkId = course.name.split(" ").join("-").toLowerCase() + index;
         return (
-            <section className="course" id={linkId} key={index}>
+            <section className="course" id={course.id} key={index} onClick={() => navigateTo(`/utbildningar/${course.id}`)}>
                 <h3>{course.name}</h3>
                 <p>{course.location}</p>
-                {/* {eduInfo[index]} */}
+                <p>{course.description}</p>
+                <p className="right">Läs mer</p>
             </section>
         );
     });
@@ -43,16 +48,8 @@ function Educations() {
 
                 <p>Om du har behov av särskilt stöd av något slag för att klara av dina studier kan du kontakta utbildningsledare så kan ni lägga upp en plan som blir bra för just dig. Kom bara ihåg att ta kontakt med utbildningsledaren i god tid innan utbildningen börjar så att anpassningarna kan planeras och bli rätt från början.</p>
 
-                {courses.map((course) => {
-                    return (
-                    <h5 key={course.id}>
-                        <Link to={`/utbildningar/${course.id}`}>{course.id}</Link>
-                    </h5>
-                    );
-                })}
-
                 <section className="coursesWrapper">
-                    {/* {displayCourses} */}
+                    {displayCourses}
                 </section>
 
             </main>
