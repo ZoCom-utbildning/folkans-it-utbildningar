@@ -11,8 +11,10 @@ type Props = {
   handlers: ReturnType<typeof useSwipeable>;
   data: any;
   interviewData: any;
+  questions: any;
 };
 const Personas = ({
+  questions,
   activePersona,
   handlers,
   buttonElements,
@@ -133,6 +135,7 @@ const Personas = ({
         <section className="home-personas-wrapper">
           <div {...handlers}>
             <FormComponent
+              questions={questions}
               interviewData={interviewData}
               buttonElements={buttonElements}
               activePersona={activePersona}

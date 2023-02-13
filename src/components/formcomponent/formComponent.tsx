@@ -12,25 +12,21 @@ import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import "./formComponent.scss";
-import anime, { AnimeInstance } from 'animejs';
+import anime, { AnimeInstance } from "animejs";
 
 type Props = {
   activePersona: number;
   buttonElements: any;
   interviewData: Array<any>;
+  questions: Array<any>;
 };
 
 function FormComponent({
   activePersona,
   buttonElements,
+  questions,
   interviewData,
 }: Props) {
-  questions: Array<any>;
-};
-
-
-function FormComponent({ activePersona, buttonElements, questions }: Props) {
-
   const [questionId, setQuestionId] = useState<number>(0);
   const [formText, setFormText] = useState<string>("");
   const [formImage, setFormImage] = useState<string>("");
@@ -41,25 +37,24 @@ function FormComponent({ activePersona, buttonElements, questions }: Props) {
   const [playFade, setPlayFade] = useState<boolean>(false);
 
   const fadeFunction = (newQuestionId: number) => {
-
     setPlayFade(true);
 
     const fadeOut: AnimeInstance = anime({
-      targets: '.card_content',
-      opacity: ['10%', '100%'],
-      easing: 'linear',
+      targets: ".card_content",
+      opacity: ["10%", "100%"],
+      easing: "linear",
       duration: 400,
       endDelay: 0,
       autoplay: false,
       complete: () => {
         setPlayFade(false);
-      }
+      },
     });
-  
+
     let fadeIn: AnimeInstance = anime({
-      targets: '.card_content',
-      opacity: ['100%', '10%'],
-      easing: 'linear',
+      targets: ".card_content",
+      opacity: ["100%", "10%"],
+      easing: "linear",
       duration: 400,
       endDelay: 0,
       autoplay: false,
@@ -70,17 +65,14 @@ function FormComponent({ activePersona, buttonElements, questions }: Props) {
           setLastPage(true);
         }
         fadeOut.play();
-      }
+      },
     });
 
     fadeIn.play();
-
-  }
+  };
 
   useEffect(() => {
-
     if (questions) {
-
       questions.map((question) => {
         if (questionId === question.id) {
           setFormText(question.text);
@@ -89,13 +81,10 @@ function FormComponent({ activePersona, buttonElements, questions }: Props) {
         }
       });
     }
-    
   }, [questionId]);
-
 
   //Changes question depending on questionNmbr
   useEffect(() => {
-
     if (!window.location.href.includes("fragor") && activePersona === 0) {
       setFormImage(personasImage1);
       setAltImage("personasImage1");
@@ -138,48 +127,37 @@ function FormComponent({ activePersona, buttonElements, questions }: Props) {
     }
   }, [activePersona, questionId]);
 
-
   // Changes pagenmbrs depending on click.
-  const increaseQuestion = (buttonCheck: boolean, shakeAnimation: AnimeInstance) => {
-
+  const increaseQuestion = (
+    buttonCheck: boolean,
+    shakeAnimation: AnimeInstance
+  ) => {
     if (questionId < questions.length && buttonCheck) {
-
       if (playFade === false) {
         fadeFunction(questionId + 1);
       }
-
     }
 
     if (buttonCheck == false) {
       shakeAnimation.play();
     }
-
   };
 
-
   const decreaseQuestion = () => {
-
     if (questionId > 1) {
-
       if (playFade === false) {
         fadeFunction(questionId - 1);
       }
-
     }
   };
 
-
   const startTest = () => {
-
     if (questions.length > 0) {
-
       if (playFade === false) {
         fadeFunction(questionId + 1);
       }
-
     }
   };
-
 
   return (
     <div className="form_wrapper">
