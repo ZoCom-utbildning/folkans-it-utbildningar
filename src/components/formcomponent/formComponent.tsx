@@ -9,15 +9,28 @@ import personasImage4 from "../../assets/photos/personas/Persona4.webp";
 import personasImage5 from "../../assets/photos/personas/Persona5.webp";
 import ResultsComponent from "../resultscomponent/resultsComponent";
 import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
+import { db } from "../../services/firebase";
+import { collection, getDocs } from "firebase/firestore";
+import "./formComponent.scss";
 import anime, { AnimeInstance } from 'animejs';
 
 type Props = {
   activePersona: number;
   buttonElements: any;
+  interviewData: Array<any>;
+};
+
+function FormComponent({
+  activePersona,
+  buttonElements,
+  interviewData,
+}: Props) {
   questions: Array<any>;
 };
 
+
 function FormComponent({ activePersona, buttonElements, questions }: Props) {
+
   const [questionId, setQuestionId] = useState<number>(0);
   const [formText, setFormText] = useState<string>("");
   const [formImage, setFormImage] = useState<string>("");
@@ -196,7 +209,10 @@ function FormComponent({ activePersona, buttonElements, questions }: Props) {
         ) : window.location.href.includes("") ? (
           <section className="persona-card-content">
             <ImageComponent formImage={formImage} altImage={altImage} />
-            <PersonaContent activePersona={activePersona} />
+            <PersonaContent
+              activePersona={activePersona}
+              interviewData={interviewData}
+            />
             {buttonElements}
           </section>
         ) : null}
