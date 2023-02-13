@@ -1,10 +1,11 @@
 @import "../../scss/variables.scss";
 @import "../../scss/layout.scss";
 @import "../../scss/global.scss";
-
-.personas-main {
+.scroll {
   overflow-y: scroll;
-  max-height: 55vh;
+  max-height: 60vh;
+}
+.personas-main {
   margin: $margin;
   padding: 2rem;
   .personas-card {
@@ -48,9 +49,9 @@
 
 @media screen and (min-width: $breakpointDesktop) {
   .personas-main {
+    position: relative;
     height: 100%;
     margin: $margin-sml;
-    overflow-y: scroll;
     .personas-card {
       .personas-card-header {
         .personas-card-text-container {

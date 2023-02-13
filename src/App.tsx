@@ -22,11 +22,23 @@ function App() {
   const [interviewData, setInterviewData] = useState<any[]>([]);
   const [questions, setQuestions] = useState<Array<any>>([]);
   const [scrollClass, setScrollClass] = useState<string>("scroll");
-  const [scrollMobileClass, setMobileScrollClass] = useState<string>("scroll2");
+  const [scrollMobileClass, setScrollMobileClass] = useState<string>("scroll");
   const targets = document.querySelectorAll(
     ".persona-header .persona-text-container"
   );
+  function checkMediaQuery() {
+    // Check if the media query is true
+    if (window.innerWidth > 820) {
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+  }
 
+  window.addEventListener("resize", checkMediaQuery);
+  useEffect(() => {
+    checkMediaQuery();
+  }, []);
   const buttonElements = (
     <ul className="galleryButtons">
       <input
@@ -154,30 +166,21 @@ function App() {
     })();
   }, []);
 
-  function checkMediaQuery() {
-    // Check if the media query is true
-    if (window.innerWidth > 820) {
-      setMobileScrollClass("");
-      setScrollClass("scroll");
-      setIsMobile(false);
-    } else {
-      setMobileScrollClass("scroll");
-      setScrollClass("");
-      setIsMobile(true);
-    }
-  }
-
-  window.addEventListener("resize", checkMediaQuery);
-  useEffect(() => {
-    checkMediaQuery();
-  }, []);
-
   useEffect(() => {
     if (data.length > 0) {
+      if (window.innerWidth > 820) {
+        setScrollMobileClass("scroll");
+        setScrollClass("");
+        setIsMobile(false);
+      } else {
+        setScrollMobileClass("");
+        setScrollClass("scroll");
+        setIsMobile(true);
+      }
       setInterviewData(
         data.map((personas, index) => {
           return (
-            <div className={"personas-main" + scrollClass} key={index}>
+            <div className={"personas-main " + scrollMobileClass} key={index}>
               <article className="personas-card">
                 <section className="personas-card-header">
                   <h2 className="personas-card-title">
@@ -212,7 +215,7 @@ function App() {
         })
       );
     }
-  }, [data]);
+  }, [data, isMobile]);
 
   // Hämtar questions från firebase databasen
   useEffect(() => {
@@ -270,7 +273,7 @@ function App() {
             <Personas
               isMobile={isMobile}
               questions={questions}
-              scrollMobileClass={scrollMobileClass}
+              scrollClass={scrollMobileClass}
               data={data}
               interviewData={interviewData}
               handlers={handlers}

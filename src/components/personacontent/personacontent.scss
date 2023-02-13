@@ -26,6 +26,11 @@
         @include formButton;
         padding: $padding-sml $padding;
         max-width: 75%;
+        transition: 0.5s;
+        &:hover {
+          transform: scale(1.1);
+          border-color: rgb(90, 90, 182);
+        }
       }
     }
   }

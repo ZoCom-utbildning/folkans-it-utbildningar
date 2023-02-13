@@ -13,7 +13,7 @@ type Props = {
   interviewData: any;
   questions: any;
   isMobile: boolean;
-  scrollMobileClass: string;
+  scrollClass: string;
 };
 const Personas = ({
   questions,
@@ -22,7 +22,7 @@ const Personas = ({
   buttonElements,
   interviewData,
   data,
-  scrollMobileClass,
+  scrollClass,
   isMobile,
 }: Props) => {
   const [contClass, setContClass] = useState("cont s--inactive");
@@ -79,10 +79,6 @@ const Personas = ({
       {!isMobile ? (
         <div className="personasView-container">
           <section className="personasView">
-            <h1 className="title-h1">Möt några av våra studerande</h1>
-            <h2 className="title-h1 title-h2">
-              Klicka på något av korten för att läsa mer om en student
-            </h2>
             <div className={contClass}>
               <div className="cont__inner">
                 {Array(NUM_OF_ELEMENTS)
@@ -102,9 +98,7 @@ const Personas = ({
                               <img className="arrow-img" src={Arrow} alt="" />
                             </section>
                           ) : (
-                            <div
-                              className={"el__content" + { scrollMobileClass }}
-                            >
+                            <div className={`el__content ${scrollClass}`}>
                               {interviewData[index]}
                               <button
                                 className="el__close-btn"
