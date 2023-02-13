@@ -17,11 +17,12 @@ function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [navClass, setNavClass] = useState<string>("nav-icon");
   const [activePersona, setActivePersona] = useState<number>(0);
-  const [isMobile, setIsMobile] = useState<boolean>();
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const [data, setData] = useState<Array<any>>([]);
   const [interviewData, setInterviewData] = useState<any[]>([]);
   const [questions, setQuestions] = useState<Array<any>>([]);
-
+  const [scrollClass, setScrollClass] = useState<string>("scroll");
+  const [scrollMobileClass, setMobileScrollClass] = useState<string>("scroll2");
   const targets = document.querySelectorAll(
     ".persona-header .persona-text-container"
   );
@@ -153,12 +154,30 @@ function App() {
     })();
   }, []);
 
+  function checkMediaQuery() {
+    // Check if the media query is true
+    if (window.innerWidth > 820) {
+      setMobileScrollClass("");
+      setScrollClass("scroll");
+      setIsMobile(false);
+    } else {
+      setMobileScrollClass("scroll");
+      setScrollClass("");
+      setIsMobile(true);
+    }
+  }
+
+  window.addEventListener("resize", checkMediaQuery);
+  useEffect(() => {
+    checkMediaQuery();
+  }, []);
+
   useEffect(() => {
     if (data.length > 0) {
       setInterviewData(
         data.map((personas, index) => {
           return (
-            <div className="personas-main" key={index}>
+            <div className={"personas-main" + scrollClass} key={index}>
               <article className="personas-card">
                 <section className="personas-card-header">
                   <h2 className="personas-card-title">
@@ -240,7 +259,6 @@ function App() {
               handlers={handlers}
               activePersona={activePersona}
               buttonElements={buttonElements}
-              setIsMobile={setIsMobile}
             />
           }
         />
@@ -248,7 +266,9 @@ function App() {
           path="/personer"
           element={
             <Personas
+              isMobile={isMobile}
               questions={questions}
+              scrollMobileClass={scrollMobileClass}
               data={data}
               interviewData={interviewData}
               handlers={handlers}

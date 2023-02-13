@@ -13,7 +13,6 @@ import Footer from "../../components/footer/Footer";
 type Props = {
   activePersona: number;
   buttonElements: JSX.Element;
-  setIsMobile: (isMobile: boolean) => void;
   data: any;
   interviewData: any;
   handlers: ReturnType<typeof useSwipeable>;
@@ -21,26 +20,9 @@ type Props = {
 function Home({
   activePersona,
   buttonElements,
-  setIsMobile,
   handlers,
   interviewData,
 }: Props) {
-  function checkMediaQuery() {
-    // Check if the media query is true
-    if (window.innerWidth > 820) {
-      // Then log the following message to the console
-
-      setIsMobile(false);
-    } else {
-      setIsMobile(true);
-    }
-  }
-
-  window.addEventListener("resize", checkMediaQuery);
-  useEffect(() => {
-    checkMediaQuery();
-  }, []);
-
   //if window width is smaller than 820px
 
   return (
