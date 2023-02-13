@@ -53,6 +53,13 @@ body::-webkit-scrollbar-thumb:hover {
     linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image; //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
+li {
+  list-style: outside "\2B22";
+  padding-left: $padding-sml;
+  margin-left: -$margin-sml;
+}
+
+
 @mixin formButton {
   @include flex;
   margin: calc($margin / 2);
@@ -125,3 +132,12 @@ body::-webkit-scrollbar-thumb:hover {
     }
   }
 }
+
+@mixin stripes($stripes-background-size: $stripes-background-size) {
+
+  background-image: linear-gradient(45deg, rgb(221, 221, 221, 50%) 5.56%, $dark 5.56%, $dark 50%, 
+  rgb(221, 221, 221, 50%) 50%, rgb(221, 221, 221, 50%) 55.56%, $dark 55.56%, $dark 100%);
+
+  background-size: $stripes-background-size;
+}
+

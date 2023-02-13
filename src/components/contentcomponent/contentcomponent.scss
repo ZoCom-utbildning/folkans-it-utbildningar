@@ -12,10 +12,9 @@
         margin-top: $margin-large;
         width: 100%;
 
-        h2 {
+        h3 {
             height: 100%;
             width: 85%;
-            font-size: 1.6rem;
             margin: 0;
         }
     }
@@ -180,6 +179,21 @@
                 @include hexagonButton;
         
             }
+
+            input[type="radio"]:checked {
+
+                background-color: rgb(90, 90, 182);
+        
+                &::before {
+                    border-bottom: 7.5px solid rgb(90, 90, 182);
+                }
+        
+                &::after {
+                    border-top: 7.5px solid rgb(90, 90, 182);
+                }
+        
+            }
+
         }
     }
 

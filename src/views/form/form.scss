@@ -5,7 +5,7 @@
   @include lines;
   position: relative;
   background-color: $dark;
-  padding: 1.5rem;
+  //padding: 1.5rem; behövs ej?
 
   .card_content {
     background-color: $dark;

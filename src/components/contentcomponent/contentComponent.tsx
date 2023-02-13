@@ -5,6 +5,7 @@ import { SetStateAction, useEffect, useState } from "react";
 import "./contentcomponent.scss";
 import { auth, db } from "../../services/firebase";
 import { doc, setDoc } from "firebase/firestore";
+import anime, { AnimeInstance } from 'animejs';
 
 type Props = {
   questions: Array<any>;
@@ -12,7 +13,7 @@ type Props = {
   questionId: number;
   firstQuestion: boolean;
   decreaseQuestion: () => void;
-  increaseQuestion: (toggle: boolean) => void;
+  increaseQuestion: (toggle: boolean, shakeAnimation: AnimeInstance) => void;
 };
 
 type ResultsType = {
@@ -44,6 +45,20 @@ function ContentComponent({
     button: `${buttonId}`,
     points: pointsId,
   };
+
+  let shakeAnimation: AnimeInstance = anime({
+    targets: '.quiz_section .radio_wrapper, .quiz_nav',
+    keyframes: [
+      { translateX: '10px' },
+      { translateX: '0px' },
+      { translateX: '-10px' },
+      { translateX: '0px' }
+    ],
+    duration: 200,
+    endDelay: 0,
+    easing: 'linear',
+    autoplay: false
+  });
 
   useEffect(() => {
     if (!resultsArray[questionId - 1] && questionId !== 0) {
@@ -152,7 +167,7 @@ function ContentComponent({
   return (
     <section className="quiz_section">
       <article className="form_question">
-        <h2>{formText}</h2>
+        <h3>{formText}</h3>
       </article>
       <section className="radio_wrapper">
         <label
@@ -216,7 +231,7 @@ function ContentComponent({
           className={`transparent_${buttonCheck ? "false" : "true"}`}
           src={arrowRight}
           alt=""
-          onClick={() => increaseQuestion(buttonCheck)}
+          onClick={() => increaseQuestion(buttonCheck, shakeAnimation)}
         />
       </nav>
     </section>

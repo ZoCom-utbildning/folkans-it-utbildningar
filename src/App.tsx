@@ -12,6 +12,8 @@ import { useSwipeable } from "react-swipeable";
 import anime from "animejs";
 import { db } from "./services/firebase";
 import { collection, getDocs } from "firebase/firestore";
+
+
 function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [navClass, setNavClass] = useState<string>("nav-icon");
@@ -19,6 +21,8 @@ function App() {
   const [isMobile, setIsMobile] = useState<boolean>();
   const [data, setData] = useState<Array<any>>([]);
   const [interviewData, setInterviewData] = useState<any[]>([]);
+  const [questions, setQuestions] = useState<Array<any>>([]);
+  
   const targets = document.querySelectorAll(
     ".persona-header .persona-text-container"
   );
@@ -191,6 +195,23 @@ function App() {
       );
     }
   }, [data]);
+
+
+    // Hämtar questions från firebase databasen
+    useEffect(() => {
+
+      (async () => {
+        const querySnapshot = await getDocs(collection(db, "questions"));
+        const tempArr: any[] = [];
+        querySnapshot.forEach((doc) => {
+          tempArr.push(doc.data());
+        });
+  
+        setQuestions(tempArr);
+      })();
+    }, []);
+
+
   return (
     <div className="App">
       {/**bryt ut <Header/> till egen komponent som vi använder där den behövs och inte på alla sidor, väldigt mycket problem med z-index osv pga detta}*/}
@@ -210,6 +231,7 @@ function App() {
             <Form
               activePersona={activePersona}
               buttonElements={buttonElements}
+              questions={ questions }
             />
           }
         />
