@@ -196,7 +196,9 @@
 
         .results_section {
             text-align: center;
-            @include flex($direction: column);
+            display: flex;
+            flex-direction: column;
+            margin: auto;
             width: 80%;
 
             button {
