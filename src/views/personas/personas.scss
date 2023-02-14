@@ -10,17 +10,21 @@ $bg-images: url("../../assets/photos/personas/*.webp");
   flex-direction: column;
   @include lines;
   background-color: $dark;
+
   .personasView {
     width: 100%;
     height: 400%;
     @include lines;
     background-color: $dark;
+
     .cont {
       padding: 2.5rem;
+
       .el {
         padding: 1rem;
         border: 1px solid gray;
         border-bottom: none;
+
         .el__preview-cont {
           width: 100%;
           display: flex;
@@ -28,19 +32,23 @@ $bg-images: url("../../assets/photos/personas/*.webp");
           .el__heading {
             margin: calc($margin-sml / 2);
           }
+
           .el el__bg {
             display: none;
           }
+
           .arrow-img {
             width: 3rem;
             cursor: pointer;
           }
         }
       }
+
       .el:last-child {
         border-bottom: 1px solid gray;
       }
     }
+
     .personas-main {
       display: flex;
       flex-direction: column;
@@ -60,6 +68,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
 
         margin-bottom: $margin-large;
         border: 2px solid rgba(255, 255, 255, 0);
+
         .personas-card-header {
           margin-top: 1rem;
           width: 100%;
@@ -70,11 +79,13 @@ $bg-images: url("../../assets/photos/personas/*.webp");
 
           text-align: center;
         }
+
         .personas-card-title {
           color: $light;
           font-size: calc($baseline * 1.5);
           text-align: center;
         }
+
         .personas-card-text {
           color: $light;
           font-size: calc($baseline * 1.2);
@@ -98,6 +109,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
 
     @include lines;
     background-color: $dark;
+
     .personasView {
       width: 100%;
       height: 400%;
@@ -109,17 +121,21 @@ $bg-images: url("../../assets/photos/personas/*.webp");
         overflow: hidden;
         height: 100vh;
         padding: $vertPad $sidePad;
+
         .el {
           border: none;
+
           .el__preview-cont {
             width: 100%;
 
             justify-content: center;
+
             .el__heading {
               margin: calc($margin-sml / 2);
             }
           }
         }
+
         .el:last-child {
           border: none;
         }
@@ -147,11 +163,13 @@ $bg-images: url("../../assets/photos/personas/*.webp");
         &:not(.s--active) {
           cursor: pointer;
         }
+
         &__overflow {
           overflow: hidden;
           position: relative;
           height: 100%;
         }
+
         &__inner {
           overflow: hidden;
           position: relative;
@@ -163,6 +181,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
             transform: translate3d(0, 100%, 0);
           }
         }
+
         &__bg {
           position: relative;
           width: calc(100vw - #{$sidePad * 2 + 2px});
@@ -313,23 +332,21 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                   background-color: #9f9f9f;
                   background-blend-mode: multiply;
                   background-size: cover;
-                  background-image: linear-gradient(
-                      360deg,
-                      rgba(18, 123, 0, 0.713) 0%,
-                      rgba(0, 255, 51, 0.397) 100%
-                    ),
-                    linear-gradient(
-                      136.33deg,
-                      #0763aeb6 20%,
-                      rgb(6, 84, 33) 96.25%
-                    ),
-                    url("../../assets/photos/personas/Persona#{$i + 1}.webp");
+                  background-image: linear-gradient(360deg,
+                    rgba(18, 123, 0, 0.713) 0%,
+                    rgba(0, 255, 51, 0.397) 100%),
+                  linear-gradient(136.33deg,
+                    #0763aeb6 20%,
+                    rgb(6, 84, 33) 96.25%),
+                  url("../../assets/photos/personas/Persona#{$i + 1}.webp");
                 }
               }
+
               .scroll {
                 overflow-y: scroll;
                 max-height: 60vh;
               }
+
               .el__content {
                 z-index: 6;
                 display: flex;
@@ -350,6 +367,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                   background: none;
                   outline: none;
                   border: none;
+
                   &:before,
                   &:after {
                     content: "";
@@ -367,9 +385,9 @@ $bg-images: url("../../assets/photos/personas/*.webp");
 
                   &:before {
                     transform: rotate(45deg) translateX(2%);
+
                     @include elActive {
-                      transition: all $closeBtnAT $fullExpandAT
-                        cubic-bezier(0.72, 0.09, 0.32, 1.57);
+                      transition: all $closeBtnAT $fullExpandAT cubic-bezier(0.72, 0.09, 0.32, 1.57);
                       transform: rotate(45deg) translateX(0);
                     }
                   }
@@ -378,16 +396,17 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                     transform: rotate(-45deg) translateX(0%);
 
                     @include elActive {
-                      transition: all $closeBtnAT $fullExpandAT +
-                        $closeBtnLineDelay cubic-bezier(0.72, 0.09, 0.32, 1.57);
+                      transition: all $closeBtnAT $fullExpandAT + $closeBtnLineDelay cubic-bezier(0.72, 0.09, 0.32, 1.57);
                       transform: rotate(-45deg) translateX(0);
                     }
                   }
                 }
+
                 .scroll {
                   overflow-y: scroll;
                   max-height: 60vh;
                 }
+
                 .personas-main {
                   width: 66%;
                   position: absolute;
@@ -399,9 +418,11 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                   z-index: 6;
                   content-visibility: auto;
                   contain-intrinsic-size: 1px 5000px;
+
                   .personas-card-text-container {
                     text-align: center;
                     margin-top: $margin-large;
+
                     span {
                       color: $light;
                       font-size: calc($baseline * 1.3);
@@ -409,12 +430,14 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                       margin: $margin-sml;
                       font-weight: 600;
                     }
+
                     .personas-card-ingress {
                       color: $light;
                       font-size: calc($baseline * 1.2);
                       margin-bottom: $margin-large;
                     }
                   }
+
                   .personas-card {
                     width: 100%;
                     height: 100%;
@@ -443,11 +466,13 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                         margin: $margin-sml;
                       }
                     }
+
                     .personas-card-title {
                       color: $light;
                       font-size: calc($baseline * 1.5);
                       text-align: center;
                     }
+
                     .card-text-container {
                       width: 100%;
                       height: 100%;
@@ -468,25 +493,27 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                   }
                 }
               }
+
               .el__content::-webkit-scrollbar {
                 width: 10px;
               }
 
               /* Track */
               .el__content::-webkit-scrollbar-track {
+                background: $scrollTrack;
                 border-radius: 10px;
               }
 
               /* Handle */
               .el__content::-webkit-scrollbar-thumb {
-                background: rgb(74, 74, 74);
+                background: $scrollThumb;
                 border-radius: 10px;
                 transition-duration: 100ms;
               }
 
               /* Handle on hover */
               .el__content::-webkit-scrollbar-thumb:hover {
-                background: #787878;
+                background: $scrollHover;
               }
             }
           }
@@ -512,4 +539,6 @@ $bg-images: url("../../assets/photos/personas/*.webp");
       }
     }
   }
-} ;
+}
+
+;

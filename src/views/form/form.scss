@@ -87,7 +87,7 @@
     background-color: transparent;
 
     .card_content {
-      @include lines;
+      @include lines($z-index: 3);
       @include flex($direction: row-reverse);
       box-shadow: $shadow; // ändra till mindre box-shadow? ser ej bra ut
 
@@ -98,7 +98,6 @@
       border-radius: $borderRadius;
 
       .persona-card-content {
-        //@include lines; //ta bort lines här?
         @include flex($direction: row-reverse);
 
         width: 100%;
