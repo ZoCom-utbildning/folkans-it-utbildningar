@@ -344,7 +344,6 @@ $bg-images: url("../../assets/photos/personas/*.webp");
 
               .scroll {
                 overflow-y: scroll;
-                max-height: 60vh;
               }
 
               .el__content {
@@ -352,7 +351,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                 display: flex;
 
                 justify-content: center;
-                height: 100%;
+                min-height: 80vh;
 
                 .el__close-btn {
                   transition-delay: $initDelayStep * $i;
@@ -408,10 +407,11 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                 }
 
                 .personas-main {
-                  width: 66%;
+                  width: 70%;
                   position: absolute;
                   display: flex;
                   flex-direction: column;
+                  height: min-content;
 
                   text-align: center;
                   margin: $margin-large;
