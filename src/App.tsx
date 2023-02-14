@@ -4,13 +4,16 @@ import Form from "./views/form/Form";
 import Home from "./views/home/Home";
 import Personas from "./views/personas/Personas";
 import Header from "./components/header/header";
-import { useState, useEffect } from "react";
-import "./scss/global.scss";
-import { Route, Routes } from "react-router-dom";
 import Educations from "./views/educations/Educations";
 import Education from "./views/education/Education";
+import { useState, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+
+import "./scss/global.scss";
+
 import { useSwipeable } from "react-swipeable";
 import anime from "animejs";
+
 import { db } from "./services/firebase";
 import { collection, getDocs } from "firebase/firestore";
 
@@ -24,6 +27,7 @@ function App() {
   const [questions, setQuestions] = useState<Array<any>>([]);
   const [scrollClass, setScrollClass] = useState<string>("");
   const [scrollMobileClass, setScrollMobileClass] = useState<string>("");
+
   const targets = document.querySelectorAll(
     ".persona-header .persona-text-container"
   );
@@ -40,72 +44,35 @@ function App() {
   useEffect(() => {
     checkMediaQuery();
   }, []);
+
+  const inputElem = interviewData.map((data, index) => {
+    return (
+      <input
+        type="radio"
+        name="radio-btn"
+        className="gallery-btn"
+        id={"btn"+(index+1)}
+        key={"btn"+(index+1)}
+        checked={activePersona === index}
+        onChange={(e) => {
+          changePersona(e);
+        }}
+      />
+    );
+  });
+
   const buttonElements = (
     <ul className="galleryButtons">
-      <input
-        type="radio"
-        name="radio-btn"
-        className="gallery-btn"
-        id="btn1"
-        checked={activePersona === 0}
-        onChange={(e) => {
-          changePersona(e);
-        }}
-      />
-      <input
-        type="radio"
-        name="radio-btn"
-        checked={activePersona === 1}
-        className="gallery-btn"
-        id="btn2"
-        onChange={(e) => {
-          changePersona(e);
-        }}
-      />
-      <input
-        type="radio"
-        name="radio-btn"
-        checked={activePersona === 2}
-        className="gallery-btn"
-        id="btn3"
-        onChange={(e) => {
-          changePersona(e);
-        }}
-      />
-      <input
-        type="radio"
-        name="radio-btn"
-        className="gallery-btn"
-        checked={activePersona === 3}
-        id="btn4"
-        onChange={(e) => {
-          changePersona(e);
-        }}
-      />
-      <input
-        type="radio"
-        name="radio-btn"
-        className="gallery-btn"
-        checked={activePersona === 4}
-        onChange={(e) => {
-          changePersona(e);
-        }}
-        id="btn5"
-      />
+      {inputElem}
     </ul>
   );
+  
   const changePersona = (e: any) => {
-    if (e.target.id === "btn1") {
-      setActivePersona(0);
-    } else if (e.target.id === "btn2") {
-      setActivePersona(1);
-    } else if (e.target.id === "btn3") {
-      setActivePersona(2);
-    } else if (e.target.id === "btn4") {
-      setActivePersona(3);
-    } else if (e.target.id === "btn5") {
-      setActivePersona(4);
-    }
+    interviewData.forEach((data,index) => {
+      if (e.target.id === "btn"+(index+1)) {
+        setActivePersona(index);
+      }
+    });
   };
   // swiping animation between personas
 
@@ -138,7 +105,6 @@ function App() {
     if (isMobile) {
       anime({
         targets: targets,
-
         keyframes: [
           { translateX: "-200%", duration: 250 },
           { translateX: "0", duration: 250 },
@@ -233,7 +199,6 @@ function App() {
 
   return (
     <div className="App">
-      {/**bryt ut <Header/> till egen komponent som vi använder där den behövs och inte på alla sidor, väldigt mycket problem med z-index osv pga detta}*/}
       <Header
         navOpen={navOpen}
         setNavOpen={setNavOpen}
