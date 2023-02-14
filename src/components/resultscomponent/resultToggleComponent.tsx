@@ -1,20 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { CourseScore, Links } from '../../models/types';
 
-
-type Links = {
-    course: string;
-    link: string;
-}
-
-type CourseScore = {
-    course: string;
-    points: string;
-    links: Links;
-    studyAt: string;
-    eduTextTitle: string;
-    eduText: string;
-}
 
 type Props = {
     courseScore: CourseScore;
@@ -23,7 +10,7 @@ type Props = {
 
 const ResultToggleComponent = ({ courseScore, index }: Props) => {
 
-    const [toggleInfo, setToggleInfo] = useState(false);
+    const [toggleInfo, setToggleInfo] = useState<boolean>(false);
     const navigate = useNavigate();
 
     useEffect(() => {

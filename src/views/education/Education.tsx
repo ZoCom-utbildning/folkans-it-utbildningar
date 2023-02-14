@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { db } from "../../services/firebase";
 import { eduInfo } from "./eduInfo";
+import { EducationInfo } from '../../models/types';
 
 const Education = () => {
-  const { educationId } = useParams();
-  const [course, setCourse] = useState({});
+  const { educationId } = useParams<string>();
+  const [course, setCourse] = useState<EducationInfo>({});
   useEffect(() => {
         (async () => {
             const querySnapshot = await getDocs(collection(db, "educations"));
@@ -22,7 +23,7 @@ const Education = () => {
             }
         })();
     }, [educationId]);
-    const educationInfo = eduInfo.find(elem => elem.key == educationId);
+    const educationInfo: JSX.Element | undefined = eduInfo.find(elem => elem.key == educationId);
     return (
         <div className="educationView">
             <main>

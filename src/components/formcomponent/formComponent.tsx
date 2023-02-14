@@ -15,8 +15,8 @@ import { Question } from '../../models/types';
 
 type Props = {
   activePersona: number;
-  buttonElements: any;
-  interviewData: Array<any>;
+  buttonElements: JSX.Element;
+  interviewData: JSX.Element[];
   questions: Question[];
 };
 

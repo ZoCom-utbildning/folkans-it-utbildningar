@@ -5,14 +5,15 @@ import Arrow from "../../assets/icons/arrow.svg";
 import FormComponent from "../../components/formcomponent/formComponent";
 import { useSwipeable } from "react-swipeable";
 import Footer from "../../components/footer/Footer";
+import { Persona, Question } from '../../models/types';
 
 type Props = {
   activePersona: number;
   buttonElements: JSX.Element;
   handlers: ReturnType<typeof useSwipeable>;
-  data: any;
-  interviewData: any;
-  questions: any;
+  data: Persona[];
+  interviewData: JSX.Element[];
+  questions: Question[];
   isMobile: boolean;
   scrollClass: string;
 };
@@ -30,7 +31,7 @@ const Personas = ({
   const [activeEl, setActiveEl] = useState<HTMLDivElement | null>(null);
   const [preview, setPreview] = useState(true);
 
-  const NUM_OF_ELEMENTS = 5;
+  const NUM_OF_ELEMENTS: number = 5;
 
   useEffect(() => {
     setTimeout(() => {
@@ -43,7 +44,7 @@ const Personas = ({
   ) => {
     if (contClass.includes("s__el-active")) return;
     else if (!isMobile) {
-      const el = event.currentTarget;
+      const el: HTMLDivElement = event.currentTarget;
       setContClass("cont s__el-active");
       toggleClass(el, "s--active");
       setActiveEl(el);
@@ -84,7 +85,7 @@ const Personas = ({
               <div className="cont__inner">
                 {Array(NUM_OF_ELEMENTS)
                   .fill(0)
-                  .map((_, index) => (
+                  .map((_: string, index: number) => (
                     <div key={index} className="el" onClick={handleElClick}>
                       <div className="el__overflow">
                         <div className="el__inner">

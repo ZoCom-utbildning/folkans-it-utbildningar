@@ -1,9 +1,11 @@
 import "./personacontent.scss";
 import { useNavigate } from "react-router-dom";
+import { PersonaText } from '../../models/types';
+
 type Props = {
   activePersona: number;
 
-  interviewData: Array<any>;
+  interviewData: JSX.Element[];
 };
 function PersonaContent({ activePersona, interviewData }: Props) {
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ function PersonaContent({ activePersona, interviewData }: Props) {
     navigate("/personer");
   }
 
-  const personas = [
+  const personas: PersonaText[] = [
     {
       id: 0,
       personaTitle: "Adam, 20",
@@ -47,7 +49,7 @@ function PersonaContent({ activePersona, interviewData }: Props) {
 
   return (
     <>
-      {personas.map((persona, index) => {
+      {personas.map((persona: PersonaText, index: number) => {
         if (persona.id === activePersona) {
           return (
             <div className="persona-card-content" key={persona.id}>

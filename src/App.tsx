@@ -16,20 +16,20 @@ import anime from "animejs";
 
 import { db } from "./services/firebase";
 import { collection, getDocs } from "firebase/firestore";
-import { Question } from './models/types';
+import { Question, Persona } from './models/types';
 
 function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [navClass, setNavClass] = useState<string>("nav-icon");
   const [activePersona, setActivePersona] = useState<number>(0);
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const [data, setData] = useState<Array<any>>([]);
-  const [interviewData, setInterviewData] = useState<any[]>([]);
+  const [data, setData] = useState<Persona[]>([]);
+  const [interviewData, setInterviewData] = useState<JSX.Element[]>([]);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [scrollClass, setScrollClass] = useState<string>("");
   const [scrollMobileClass, setScrollMobileClass] = useState<string>("");
 
-  const targets = document.querySelectorAll(
+  const targets: NodeListOf<Element> = document.querySelectorAll(
     ".persona-header .persona-text-container"
   );
   function checkMediaQuery() {
@@ -46,7 +46,7 @@ function App() {
     checkMediaQuery();
   }, []);
 
-  const inputElem = interviewData.map((data, index) => {
+  const inputElem: JSX.Element[] = interviewData.map((data: JSX.Element, index: number) => {
     return (
       <input
         type="radio"
@@ -62,14 +62,14 @@ function App() {
     );
   });
 
-  const buttonElements = (
+  const buttonElements: JSX.Element = (
     <ul className="galleryButtons">
       {inputElem}
     </ul>
   );
   
   const changePersona = (e: any) => {
-    interviewData.forEach((data,index) => {
+    interviewData.forEach((data: JSX.Element, index: number) => {
       if (e.target.id === "btn"+(index+1)) {
         setActivePersona(index);
       }
@@ -146,7 +146,7 @@ function App() {
         setIsMobile(true);
       }
       setInterviewData(
-        data.map((personas, index) => {
+        data.map((personas: Persona, index: number) => {
           return (
             <div className={"personas-main " + scrollMobileClass} key={index}>
               <article className="personas-card">

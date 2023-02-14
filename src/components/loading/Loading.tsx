@@ -57,10 +57,10 @@ class Vector {
 
 function Loading(this: any) {
     // === Defining data ===
-    const [overlayClasses, setOverlayClasses] = useState("loadingOverlay");
-    const [canvasWidth, setCanvasWidth] = useState(1000);
-    const [canvasHeight, setCanvasHeight] = useState(1000);
-    const [bodyStyle, setBodyStyle] = useState("fixed");
+    const [overlayClasses, setOverlayClasses] = useState<string>("loadingOverlay");
+    const [canvasWidth, setCanvasWidth] = useState<number>(1000);
+    const [canvasHeight, setCanvasHeight] = useState<number>(1000);
+    const [bodyStyle, setBodyStyle] = useState<string>("fixed");
     const wrapper: React.MutableRefObject<any> = useRef<any>(null);
     const wrapperHeight: number = wrapper.current?.offsetHeight;
     const wrapperWidth: number = wrapper.current?.offsetWidth;
@@ -131,7 +131,7 @@ function Loading(this: any) {
     // === creates the blob ===
     // size, x position, y position, how many points the blob has
     function generateCircle(r = wrapperHeight/5, cx = wrapperWidth/2, cy = wrapperHeight/2, iterations = 200) {
-        const points = [];
+        const points: Vector[] = [];
         for (let i = 0; i < 2 * Math.PI; i+= 2 * Math.PI / iterations) {
             // Makes the blob more or less wobbly
             points.push(new Vector({

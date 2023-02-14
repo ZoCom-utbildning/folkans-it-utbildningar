@@ -91,7 +91,7 @@ function ContentComponent({
 
   useEffect(() => {
     if (toggle) {
-      const index = resultsArray.findIndex(
+      const index: number = resultsArray.findIndex(
         (obj) => obj.question === resultsValue.question
       );
       if (index === -1) {
