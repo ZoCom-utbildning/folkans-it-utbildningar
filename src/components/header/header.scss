@@ -27,7 +27,7 @@
       @include flex($direction: column);
       li {
         list-style: none;
-        margin: $margin-large;
+        margin: $margin-large 0;
         a {
           // TODO: Create a class for nav links/text?
           font-size: $baseline * 2;
