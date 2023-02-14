@@ -24,9 +24,7 @@ const ResultsComponent = () => {
     //Lägga in "courses": "[frontend-link, backend-link .. , ..]"   i json för länkar.
 
     const courseScore: Array<CourseScore> = [];
-
     const loadResults = JSON.parse(localStorage.getItem("resultsArray")!);
-
 
     useEffect(() => {
         (async () => {
@@ -42,8 +40,6 @@ const ResultsComponent = () => {
         })();
 
     }, []);
-
-
 
     const frontend = loadResults.map((result: any, index: number) => {
         return result.points[0];
