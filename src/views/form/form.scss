@@ -5,6 +5,7 @@
   @include lines;
   position: relative;
   background-color: $dark;
+  min-height: 100vh;
   //padding: 1.5rem; behövs ej?
 
   .card_content {

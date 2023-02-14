@@ -16,14 +16,14 @@ function Form({
 }: Props) {
   return (
     <div className="desktop_wrapper">
-      <div className="form_wrapper">
+      <>
         <FormComponent
           interviewData={interviewData}
           buttonElements={buttonElements}
           activePersona={activePersona}
           questions={questions}
         />
-      </div>
+      </>
     </div>
   );
 }
