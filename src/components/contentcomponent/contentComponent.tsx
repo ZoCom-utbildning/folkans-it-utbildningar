@@ -167,7 +167,7 @@ function ContentComponent({
   return (
     <section className="quiz_section">
       <article className="form_question">
-        <h2>{formText}</h2>
+        <h3>{formText}</h3>
       </article>
       <section className="radio_wrapper">
         <label
