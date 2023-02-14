@@ -65,7 +65,6 @@ li {
   z-index: 3;
   border-radius: $borderRadius;
   padding: calc($padding / 2) $padding;
-  margin: calc($margin / 2); //TODO???
   margin: 0 auto;
   border: 1px solid $light;
   box-shadow: 0 0.5rem 2rem 0 $dark;
@@ -81,7 +80,6 @@ li {
   line-height: 110%;
   letter-spacing: 0.04em;
   color: $primaryTextColor;
-  max-width: 75%;
 
   &:hover {
     transform: scale(1.1);
