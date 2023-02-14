@@ -6,7 +6,8 @@ import { eduInfo } from "./eduInfo";
 
 const Education = () => {
   const { educationId } = useParams();
-  const [course, setCourse] = useState({});
+  const [course, setCourse] = useState<any>({});
+
   useEffect(() => {
         (async () => {
             const querySnapshot = await getDocs(collection(db, "educations"));
@@ -23,6 +24,7 @@ const Education = () => {
         })();
     }, [educationId]);
     const educationInfo = eduInfo.find(elem => elem.key == educationId);
+    
     return (
         <div className="educationView">
             <main>
