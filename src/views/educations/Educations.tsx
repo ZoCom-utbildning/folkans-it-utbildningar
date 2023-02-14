@@ -26,6 +26,7 @@ function Educations() {
 
     
     function navigateTo(link: string) {
+        window.scrollTo(0, 0)
         navigate(link);
     }
 
