@@ -92,6 +92,25 @@
         @include flex($direction: column, $justify: space-between, $align: normal);
         height: 100%;
         margin: auto;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $scrollTrack;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $scrollThumb;
+            border-radius: 10px;
+            transition-duration: 200ms;
+
+            &:hover {
+                background: $scrollHover;
+            }
+        }
     }
 
 
