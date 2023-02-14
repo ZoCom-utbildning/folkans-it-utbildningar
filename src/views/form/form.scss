@@ -87,7 +87,7 @@
     background-color: transparent;
 
     .card_content {
-      @include lines($z-index: 3);
+      @include lines($z-index: 1); //TODO enbart 1 funkar, 3 går över imageComponent men täcker knappar
       @include flex($direction: row-reverse);
       box-shadow: $shadow; // ändra till mindre box-shadow? ser ej bra ut
 
