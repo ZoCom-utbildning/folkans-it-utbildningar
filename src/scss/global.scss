@@ -21,19 +21,20 @@ body::-webkit-scrollbar {
 
 /* Track */
 body::-webkit-scrollbar-track {
-  background: rgb(110, 110, 110);
+  background: $scrollTrack;
 }
 
 /* Handle */
 body::-webkit-scrollbar-thumb {
-  background: rgb(58, 58, 58);
+  background: $scrollThumb;
   border-radius: 10px;
   transition-duration: 200ms;
 }
 
 /* Handle on hover */
 body::-webkit-scrollbar-thumb:hover {
-  background: #4d4d4d;
+  background: $scrollHover;
+
 }
 
 .App {
@@ -80,6 +81,7 @@ li {
   line-height: 110%;
   letter-spacing: 0.04em;
   color: $primaryTextColor;
+  max-width: 75%;
 
   &:hover {
     transform: scale(1.1);
