@@ -43,7 +43,7 @@ function Home({
         <TestButton buttonText={"TILL TESTET"} />
         <section
           className="arrow-container"
-          onClick={() => window.scrollTo({ top: 850, behavior: "smooth" })}
+          onClick={() => window.scrollTo({ top: 780, behavior: "smooth" })}
         >
           <p>Mer info om testet</p>
           <img src={arrowDown} alt="" className="arrowDown" />

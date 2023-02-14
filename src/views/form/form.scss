@@ -41,8 +41,8 @@
       @include lines;
       @include flex($direction: row-reverse);
       box-shadow: $shadow; // ändra till mindre box-shadow? ser ej bra ut
-      width: 80%;
-      height: 65%;
+      width: 95%;
+      height: 85%;
       border: none;
       border-radius: $borderRadius;
 

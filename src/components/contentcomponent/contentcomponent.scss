@@ -6,16 +6,16 @@
     position: relative;
     height: 100%;
 
-
     .form_question {
         @include flex();
-        margin-top: $margin-large;
+        margin-top: calc($margin * 3);
         width: 100%;
 
         h3 {
             height: 100%;
             width: 85%;
             margin: 0;
+            font-size: 1.4rem;
         }
     }
 
@@ -23,6 +23,7 @@
         @include flex($justify: space-evenly, $direction: row);
         margin: 0;
         padding-bottom: $padding;
+        margin-bottom: $margin-sml;
 
         .transparent_true {
             opacity: 20%;
@@ -61,6 +62,7 @@
     p {
         margin: 0px 5px 0px 15px;
         //width: calc(100% - ($baseline*5));
+        font-size: 0.875rem;
         text-align: start;
         user-select: text;
     }
@@ -90,13 +92,6 @@
         @include flex($direction: column, $justify: space-between, $align: normal);
         height: 100%;
         margin: auto;
-
-        .form_question {
-            h2 {
-                padding: 1rem;
-                margin: $margin-large 0 0 0;
-            }
-        }
     }
 
 
@@ -116,25 +111,25 @@
 
         .radio_component {
             input[type="radio"] {
-        
+
                 opacity: 1;
                 appearance: none;
                 @include hexagonButton;
-        
+
             }
 
             input[type="radio"]:checked {
 
                 background-color: rgb(90, 90, 182);
-        
+
                 &::before {
                     border-bottom: 7.5px solid rgb(90, 90, 182);
                 }
-        
+
                 &::after {
                     border-top: 7.5px solid rgb(90, 90, 182);
                 }
-        
+
             }
         }
     }
@@ -173,25 +168,25 @@
 
         .radio_component {
             input[type="radio"] {
-        
+
                 opacity: 1;
                 appearance: none;
                 @include hexagonButton;
-        
+
             }
 
             input[type="radio"]:checked {
 
                 background-color: rgb(90, 90, 182);
-        
+
                 &::before {
                     border-bottom: 7.5px solid rgb(90, 90, 182);
                 }
-        
+
                 &::after {
                     border-top: 7.5px solid rgb(90, 90, 182);
                 }
-        
+
             }
 
         }

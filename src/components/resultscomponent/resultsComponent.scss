@@ -36,14 +36,14 @@
         .results_list {
 
             @include flex($direction: column);
-            width: fit-content;
+            width: 15rem;
             list-style: none;
-            margin: $margin 0 $margin 0;
+            margin: $margin-sml 0;
 
             .results_item {
 
                 @include flex($justify: center, $align: center, $wrap: wrap);
-                max-width: 16rem;
+                width: 100%;
                 margin-bottom: 0;
 
                 span {
@@ -71,7 +71,7 @@
 
                     @include flex($direction: column, $justify: center, $align: center);
                     padding-top: $padding-sml;
-                    width: 18rem;
+                    width: 100%;
                     height: 3.5rem;
                     border: 1px solid $primaryTextColor;
 
@@ -131,7 +131,7 @@
                 span:nth-child(3) {
 
                     @include flex($justify: center, $align: center);
-                    width: 16rem;
+                    width: 100%;
                     height: 2.5rem;
                     border: 1px solid $primaryTextColor;
                     border-top: none;
@@ -147,7 +147,7 @@
                 span:nth-child(4) {
 
                     @include flex($justify: center, $align: center);
-                    width: 16rem;
+                    width: 100%;
                     height: 2.5rem;
                     padding: $padding;
                     border: 1px solid $primaryTextColor;
@@ -164,7 +164,7 @@
 
             .toggleText {
 
-                width: 16rem;
+                width: 100%;
                 border: 1px solid $primaryTextColor;
                 border-top: none;
 
@@ -187,6 +187,23 @@
     }
 }
 
+@media screen and (min-width: 350px) {
+    .results_wrapper .results_section .results_list {
+        width: 18rem;
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .results_wrapper .results_section .results_list {
+        width: 20rem;
+    }
+}
+
+@media screen and (min-width: 460px) {
+    .results_wrapper .results_section .results_list {
+        width: 25rem;
+    }
+}
 
 @media screen and (min-width: 580px) {
 
@@ -211,7 +228,7 @@
 
             .results_list {
 
-                margin: $margin;
+                margin: $margin-sml;
 
                 .results_item {
 
@@ -382,7 +399,7 @@
         .results_section {
 
             h2 {
-                margin-top: 7rem;
+                margin: $margin-sml;
             }
 
             button {
