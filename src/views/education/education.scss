@@ -1,0 +1,19 @@
+@import "../../scss/variables";
+@import "../../scss/layout";
+@import "../../scss/motion";
+
+
+.educationView {
+    @include maxSize;
+    @include flex($justify: none, $align: none, $direction: column);
+    @include lines;
+    overflow-x: hidden;
+
+    &* { position: relative; }
+    background-color: $dark;
+    
+    main {
+        margin-top: $margin*8;
+        padding: $padding-large;
+    }
+}

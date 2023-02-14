@@ -1,18 +1,31 @@
-import FormComponent from "../../components/formcomponent/formComponent"
-import "./form.scss"
+import FormComponent from "../../components/formcomponent/formComponent";
+import "./form.scss";
 
 type Props = {
   activePersona: number;
-}
+  buttonElements: any;
+  questions: Array<any>;
+  interviewData: Array<any>;
+};
 
-function Form({ activePersona }: Props) {
+function Form({
+  activePersona,
+  buttonElements,
+  questions,
+  interviewData,
+}: Props) {
   return (
     <div className="desktop_wrapper">
-      <div className="form_wrapper">
-        <FormComponent activePersona={activePersona} />
-      </div>
+      <>
+        <FormComponent
+          interviewData={interviewData}
+          buttonElements={buttonElements}
+          activePersona={activePersona}
+          questions={questions}
+        />
+      </>
     </div>
-  )
+  );
 }
 
-export default Form
+export default Form;

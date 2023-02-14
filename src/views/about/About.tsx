@@ -1,10 +1,27 @@
 import Footer from '../../components/footer/Footer';
 import './about.scss';
-import courseData from './tempInfoCourses.json';
+import { useEffect, useState } from 'react';
+import { db } from "../../services/firebase";
+import { collection, getDocs } from "firebase/firestore";
+
 
 function About() {
+    const [courses, setCourses] = useState<Array<any>>([]);
 
-    const courses = courseData.map((course, index) => {
+    useEffect(() => {
+        (async () => {
+            const querySnapshot = await getDocs(collection(db, "educations"));
+            const tempArr: any[] = [];
+            querySnapshot.forEach((doc) => {
+                tempArr.push(doc.data());
+            });
+
+            setCourses(tempArr);
+        })();
+        console.log(courses);
+    }, []);
+    
+    const displayCourses = courses.map((course, index) => {
         return (
             <section className="course" key={index}>
                 <h3>{course.name}</h3>
@@ -26,10 +43,10 @@ function About() {
                 <h2>Innehåll</h2>
                 <p>Utbildningens innehåll består av både praktiska och teoretiska delar. Kursplaner och studieplaner tas fram tillsammans med näringslivets representanter. Under utbildningen har du utvecklingssamtal med dina lärare för att du ska få den feed-back du behöver för att utvecklas i din kommande yrkesroll.</p>
 
-                <h2>Våra utbildningar</h2>
+                {/* <h2>Våra utbildningar</h2>
                 <section className="coursesWrapper">
-                    {courses}
-                </section>
+                    {displayCourses}
+                </section> */}
 
             </main>
             <Footer />

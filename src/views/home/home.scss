@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Maven+Pro&family=Roboto+Mono:wght@200&display=swap");
-$bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
+$bg-imageWoman: url("../../assets/photos/womanComputer.webp");
 @import url("../../scss/_variables.scss");
 @import "../../scss/layout.scss";
+@import "../../scss/global.scss";
 
 .home-wrapper {
   @include maxSize;
@@ -15,6 +16,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
 
     .arrow-container {
       @include flex($display: none, $direction: column);
+      cursor: pointer;
     }
 
     .title-h1 {
@@ -58,9 +60,6 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
   height: 100vh;
 
   .home-personas-wrapper {
-    width: 100%;
-    height: 100vh;
-    max-height: 70vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -76,48 +75,29 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       $bg-imageWoman; //Bör flyttas, syns i bakgrunden för views beroende på height.
     @include flex($justify: space-between, $direction: column, $wrap: nowrap);
     .galleryButtons {
-      @include flex($justify: space-evenly, $align: center, $direction: row);
       width: 100%;
-      margin-top: -5rem;
+      display: flex;
+      justify-content: space-evenly;
+
+      bottom: auto;
+      padding: 1rem;
       z-index: 3;
 
-      input[type="radio"] {
-        -webkit-appearance: none;
-        appearance: none;
-        background-color: $lightBlue;
-        margin: 0;
-        font: inherit;
-        color: currentColor;
-        width: 1.15em;
-        height: 1.15em;
-        border: 0.15em solid currentColor;
-        border-radius: 50%;
-        transform: translateY(-0.075em);
-        display: grid;
-        place-content: center;
-      }
-
-      input[type="radio"]::before {
-        content: "";
-        width: 0.65em;
-        height: 0.65em;
-        border-radius: 50%;
-        transform: scale(0);
-        box-shadow: inset 1em 1em $lightBlue;
-      }
-
-      input[type="radio"]:checked::before {
-        transform: scale(2);
-      }
-
       .gallery-btn {
-        border: 2px solid $lightBlue;
-        padding: 5px;
-        border-radius: $borderRadius;
-        cursor: pointer;
+        appearance: none;
+        @include hexagonButton;
+        position: relative;
+        z-index: 3;
+      }
+      input[type="radio"]:checked {
+        background-color: rgb(90, 90, 182);
 
-        &:hover {
-          background-color: $lightBlue;
+        &::before {
+          border-bottom: 7.5px solid rgb(90, 90, 182);
+        }
+
+        &::after {
+          border-top: 7.5px solid rgb(90, 90, 182);
         }
       }
     }
@@ -144,12 +124,15 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
           }
         }
         .img-with-text {
-          @include flex($justify: none, $align: none, $direction: column);
           width: 50%;
           height: 100%;
+          max-width: 50%;
           margin: $margin;
           img {
-            width: 100%;
+            aspect-ratio: 1/1;
+            height: 600px;
+            object-fit: cover;
+            image-resolution: from-image;
           }
         }
       }
@@ -159,6 +142,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
       min-height: 100vh;
       .arrow-container {
         @include flex($justify: none, $align: center, $direction: column);
+
         .arrowDown {
           animation: float 2s ease-in-out infinite;
         }
@@ -175,8 +159,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
     }
     .home-personas-wrapper {
       width: 100%;
-      height: 100vh;
-      max-height: 100vh;
+      height: 115vh;
       display: flex;
       background-attachment: fixed;
       background-position: center;
@@ -193,41 +176,27 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.jpg");
         $bg-imageWoman; //Bör flyttas, syns i bakgrunden för views beroende på height.
       @include flex($justify: space-between, $direction: column, $wrap: nowrap);
       .galleryButtons {
-        width: 50%;
+        width: 100%;
         display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 3rem;
-        input[type="radio"] {
-          -webkit-appearance: none;
-          appearance: none;
-          background-color: $lightBlue;
-          margin: 0;
-          font: inherit;
-          color: currentColor;
-          width: 1.15em;
-          height: 1.15em;
-          border: 0.15em solid currentColor;
-          border-radius: 50%;
-          transform: translateY(-0.075em);
-        }
-        input[type="radio"]::before {
-          content: "";
-          width: 0.65em;
-          height: 0.65em;
-          border-radius: 50%;
-          transform: scale(0);
-          box-shadow: inset 1em 1em $lightBlue;
-        }
-        input[type="radio"]:checked::before {
-          transform: scale(2);
-        }
+        justify-content: center;
+        gap: 2rem;
+        position: absolute;
+        bottom: -15%;
+
         .gallery-btn {
-          border: 2px solid $lightBlue;
-          padding: 5px;
-          border-radius: $borderRadius;
-          cursor: pointer;
-          &:hover {
-            background-color: $lightBlue;
+          appearance: none;
+          @include hexagonButton;
+          position: relative;
+        }
+        input[type="radio"]:checked {
+          background-color: rgb(90, 90, 182);
+
+          &::before {
+            border-bottom: 7.5px solid rgb(90, 90, 182);
+          }
+
+          &::after {
+            border-top: 7.5px solid rgb(90, 90, 182);
           }
         }
       }
