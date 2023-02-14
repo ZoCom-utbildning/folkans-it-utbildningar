@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import "./scss/global.scss";
 import { Route, Routes } from "react-router-dom";
 import Educations from "./views/educations/Educations";
+import Education from "./views/education/Education";
 import { useSwipeable } from "react-swipeable";
 import anime from "animejs";
 import { db } from "./services/firebase";
@@ -242,6 +243,7 @@ function App() {
       <Routes>
         <Route path="/om" element={<About />} />
         <Route path="/utbildningar" element={<Educations />} />
+        <Route path="/utbildningar/:educationId" element={<Education />} />
         <Route path="/*" element={<Error />} />
         <Route
           path="/fragor"
