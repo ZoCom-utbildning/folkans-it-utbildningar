@@ -9,16 +9,15 @@ import personasImage4 from "../../assets/photos/personas/Persona4.webp";
 import personasImage5 from "../../assets/photos/personas/Persona5.webp";
 import ResultsComponent from "../resultscomponent/resultsComponent";
 import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
-import { db } from "../../services/firebase";
-import { collection, getDocs } from "firebase/firestore";
 import "./formComponent.scss";
 import anime, { AnimeInstance } from "animejs";
+import { Question } from '../../models/types';
 
 type Props = {
   activePersona: number;
   buttonElements: any;
   interviewData: Array<any>;
-  questions: Array<any>;
+  questions: Question[];
 };
 
 function FormComponent({
@@ -73,7 +72,7 @@ function FormComponent({
 
   useEffect(() => {
     if (questions) {
-      questions.map((question) => {
+      questions.map((question: Question) => {
         if (questionId === question.id) {
           setFormText(question.text);
           setFormImage(question.img);

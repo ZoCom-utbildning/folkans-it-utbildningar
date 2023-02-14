@@ -13,6 +13,7 @@ import { useSwipeable } from "react-swipeable";
 import anime from "animejs";
 import { db } from "./services/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { Question } from './models/types';
 
 function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -21,7 +22,7 @@ function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [data, setData] = useState<Array<any>>([]);
   const [interviewData, setInterviewData] = useState<any[]>([]);
-  const [questions, setQuestions] = useState<Array<any>>([]);
+  const [questions, setQuestions] = useState<Question[]>([]);
   const [scrollClass, setScrollClass] = useState<string>("");
   const [scrollMobileClass, setScrollMobileClass] = useState<string>("");
   const targets = document.querySelectorAll(

@@ -137,7 +137,7 @@ const ResultsComponent = () => {
                         courseScoreSorted.map((courseScore, index) => {
                             if (index < 5) {
 
-                                return < ResultToggleComponent courseScore={courseScore} index={index} />
+                                return < ResultToggleComponent key={index} courseScore={courseScore} index={index} />
                              
                             }
                         })
