@@ -30,7 +30,8 @@ const Personas = ({
   const [activeEl, setActiveEl] = useState<HTMLDivElement | null>(null);
   const [preview, setPreview] = useState(true);
 
-  const NUM_OF_ELEMENTS = 5;
+  const NUM_OF_ELEMENTS = interviewData.length;
+
 
   useEffect(() => {
     setTimeout(() => {
