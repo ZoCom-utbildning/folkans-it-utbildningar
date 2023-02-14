@@ -3,7 +3,7 @@
 @import "../../scss/global.scss";
 .scroll {
   overflow-y: scroll;
-  max-height: 60vh;
+  max-height: 48vh;
 }
 .personas-main {
   margin: $margin;
@@ -25,7 +25,8 @@
   justify-content: space-evenly;
   position: relative;
   bottom: 0%;
-  padding: 1rem;
+  padding: 3rem;
+  padding-top: 0rem;
   z-index: 3;
 
   .gallery-btn {
