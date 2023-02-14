@@ -9,7 +9,7 @@
     width: 100%;
 
     h2 {
-        padding: 0 10%;
+        padding: 0 5%;
     }
 
     .results_section {
@@ -19,18 +19,6 @@
 
         h2 {
             margin: 5rem 0 $margin 0;
-        }
-
-        button {
-
-            width: 9rem;
-            height: 2.5rem;
-            margin-top: 0;
-            margin-bottom: 4rem;
-            font-size: $baseline;
-            box-shadow: none;
-            padding: $padding;
-
         }
 
         .results_list {
@@ -46,8 +34,11 @@
                 width: 100%;
                 margin-bottom: 0;
 
-                span {
+                span,
+                .apply-link,
+                .read-more-button {
                     font-size: 0.875rem;
+                    font-family: "Roboto Mono";
                 }
 
                 span,
@@ -128,7 +119,7 @@
                     }
                 }
 
-                span:nth-child(3) {
+                .apply-link:nth-child(3) {
 
                     @include flex($justify: center, $align: center);
                     width: 100%;
@@ -144,13 +135,15 @@
 
                 }
 
-                span:nth-child(4) {
+                .read-more-button:nth-child(4) {
 
                     @include flex($justify: center, $align: center);
                     width: 100%;
                     height: 2.5rem;
                     padding: $padding;
                     border: 1px solid $primaryTextColor;
+                    color: $primaryTextColor;
+                    background: transparent;
                     border-top: none;
 
                     &:hover {
@@ -219,13 +212,6 @@
             margin: auto;
             width: 80%;
 
-            button {
-
-                width: 10rem;
-                margin: 1rem;
-
-            }
-
             .results_list {
 
                 margin: $margin-sml;
@@ -270,6 +256,7 @@
                                 border-bottom: 13px solid rgb(79, 77, 77);
                                 border-left: 13px solid transparent;
                                 border-right: 13px solid transparent;
+                                transition: 100ms;
 
                                 &:hover {
                                     top: .1rem;
@@ -291,6 +278,7 @@
                                 border-top: 13px solid rgb(90, 90, 182);
                                 border-left: 13px solid transparent;
                                 border-right: 13px solid transparent;
+                                transition: 100ms;
 
                                 &:hover {
                                     top: .3rem;
@@ -306,7 +294,7 @@
                         }
                     }
 
-                    span:nth-child(3) {
+                    .apply-link:nth-child(3) {
 
                         height: 3.5rem;
                         width: 7rem;
@@ -321,7 +309,7 @@
 
                     }
 
-                    span:nth-child(4) {
+                    .read-more-button:nth-child(4) {
 
                         height: 3.5rem;
                         width: 7rem;
@@ -333,7 +321,11 @@
                             color: rgb(90, 90, 182);
                             font-size: 1rem;
                         }
+                    }
 
+                    .apply-link,
+                    .read-more-button {
+                        transition: 200ms ease-in-out 50ms;
                     }
                 }
 
@@ -365,10 +357,6 @@
 
     }
 
-    h2 {
-        padding: 0;
-    }
-
     .results_wrapper {
 
         max-height: 100%;
@@ -381,7 +369,6 @@
         /* Track */
         &::-webkit-scrollbar-track {
             background: $scrollTrack;
-
         }
 
         /* Handle */
@@ -399,11 +386,7 @@
         .results_section {
 
             h2 {
-                margin: $margin-sml;
-            }
-
-            button {
-                margin-bottom: 2rem;
+                margin: $margin;
             }
 
             .results_list {
@@ -413,7 +396,9 @@
                     width: 37.5rem;
                     min-width: 37.5rem;
 
-                    span {
+                    span,
+                    .apply-link,
+                    .read-more-button {
                         font-size: $baseline;
                     }
 
@@ -421,7 +406,7 @@
                         width: 18rem;
                     }
 
-                    span:nth-child(3) {
+                    .apply-link:nth-child(3) {
 
                         width: 8rem;
 
@@ -431,7 +416,7 @@
 
                     }
 
-                    span:nth-child(4) {
+                    .read-more-button:nth-child(4) {
 
                         width: 8rem;
 
@@ -449,7 +434,6 @@
                     border: 1px solid $primaryTextColor;
                     border-top: none;
                 }
-
             }
         }
     }

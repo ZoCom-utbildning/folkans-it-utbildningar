@@ -24,7 +24,6 @@ type Props = {
 const ResultToggleComponent = ({ courseScore, index }: Props) => {
 
     const [toggleInfo, setToggleInfo] = useState(false);
-
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -33,48 +32,45 @@ const ResultToggleComponent = ({ courseScore, index }: Props) => {
         }
     }, [])
 
-
     const openNewTab = (link: string) => {
         const newWindow = window.open(link, '_blank', 'noopener,noreferrer');
         if (newWindow) { newWindow.opener = null }
     }
 
-
     const gotoEducations = () => {
         navigate('/utbildningar');
     }
-
 
     return (
 
         <section className="results_list">
 
             <section key={index} className="results_item">
-                <h2 className="rank">{`${index + 1}`}</h2> 
-                    <span>{courseScore.course} 
-                        <span className="study_at">{ courseScore.studyAt } 
+                <h2 className="rank">{`${index + 1}`}</h2>
+                <span>{courseScore.course}
+                    <span className="study_at">{courseScore.studyAt}
 
-                            { toggleInfo ? 
-                            <span className='toggled' onClick={ () => setToggleInfo(!toggleInfo) }></span>
+                        {toggleInfo ?
+                            <span className='toggled' onClick={() => setToggleInfo(!toggleInfo)}></span>
                             :
-                            <span className='notToggled' onClick={ () => setToggleInfo(!toggleInfo) }></span>
-                            }
+                            <span className='notToggled' onClick={() => setToggleInfo(!toggleInfo)}></span>
+                        }
 
-                        </span>
-                    </span> 
-                <span onClick={() => openNewTab(courseScore.links.link)}> Ansök </span>
-                <span onClick={gotoEducations}> Läs mer </span>
+                    </span>
+                </span>
+                <a className='apply-link' onClick={() => openNewTab(courseScore.links.link)}> Ansök </a>
+                <button className='read-more-button' onClick={gotoEducations}> Läs mer </button>
             </section>
 
 
             {
-            toggleInfo ?
-            <section className="toggleText">
-                <p className="toggleTextTitle"> { courseScore.eduTextTitle } </p>
-                <p> { courseScore.eduText } </p>
-            </section>
-            :
-            ''
+                toggleInfo ?
+                    <section className="toggleText">
+                        <p className="toggleTextTitle"> {courseScore.eduTextTitle} </p>
+                        <p> {courseScore.eduText} </p>
+                    </section>
+                    :
+                    ''
             }
 
 
