@@ -21,8 +21,8 @@ function App() {
   const [data, setData] = useState<Array<any>>([]);
   const [interviewData, setInterviewData] = useState<any[]>([]);
   const [questions, setQuestions] = useState<Array<any>>([]);
-  const [scrollClass, setScrollClass] = useState<string>("scroll");
-  const [scrollMobileClass, setScrollMobileClass] = useState<string>("scroll");
+  const [scrollClass, setScrollClass] = useState<string>("");
+  const [scrollMobileClass, setScrollMobileClass] = useState<string>("");
   const targets = document.querySelectorAll(
     ".persona-header .persona-text-container"
   );
