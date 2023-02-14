@@ -66,7 +66,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
             <a href="/">HEM</a>
           </li>
           <li>
-            <a href="/personer">ATT STUDERA</a>
+            <a href="/personer">VÅRA STUDENTER</a>
           </li>
           <li>
             <a href="/fragor">TILL TESTET</a>
@@ -86,7 +86,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
               <a href="/">HEM</a>
             </li>
             <li>
-              <a href="/personer">ATT STUDERA</a>
+              <a href="/personer">VÅRA STUDENTER</a>
             </li>
             <li>
               <a href="/fragor">TILL TESTET</a>
