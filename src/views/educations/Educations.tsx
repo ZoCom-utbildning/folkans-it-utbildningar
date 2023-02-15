@@ -76,6 +76,7 @@ function Educations() {
 
             </main>
             <Footer />
+            <div className="stripeBg"> </div>
         </div>
     );
 }

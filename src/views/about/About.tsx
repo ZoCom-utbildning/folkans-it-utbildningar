@@ -45,6 +45,7 @@ function About() {
                 <p>Utbildningens innehåll består av både praktiska och teoretiska delar. Kursplaner och studieplaner tas fram tillsammans med näringslivets representanter. Under utbildningen har du utvecklingssamtal med dina lärare för att du ska få den feed-back du behöver för att utvecklas i din kommande yrkesroll.</p>
             </main>
             <Footer />
+            <div className="stripeBg"> </div>
         </div>
     );
 }

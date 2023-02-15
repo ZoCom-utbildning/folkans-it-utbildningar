@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { db } from "../../services/firebase";
 import { eduInfo } from "./eduInfo";
 import { EducationInfo } from '../../models/types';
+import Footer from "../../components/footer/Footer";
 
 const Education = () => {
     const { educationId } = useParams<string>();
@@ -42,6 +43,8 @@ const Education = () => {
                 <p className="ingress">{course.description}</p>
                 {educationInfo}
             </main>
+            <Footer />
+            <div className="stripeBg"> </div>
         </div>
     );
 };
