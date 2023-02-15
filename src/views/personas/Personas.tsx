@@ -5,7 +5,7 @@ import Arrow from "../../assets/icons/arrow.svg";
 import FormComponent from "../../components/formcomponent/formComponent";
 import { useSwipeable } from "react-swipeable";
 import Footer from "../../components/footer/Footer";
-import { Persona, Question } from '../../models/types';
+import { Persona, Question } from "../../models/types";
 
 type Props = {
   activePersona: number;

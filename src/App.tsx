@@ -16,7 +16,7 @@ import anime from "animejs";
 
 import { db } from "./services/firebase";
 import { collection, getDocs } from "firebase/firestore";
-import { Question, Persona } from './models/types';
+import { Question, Persona } from "./models/types";
 
 function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -29,9 +29,7 @@ function App() {
   const [scrollClass, setScrollClass] = useState<string>("");
   const [scrollMobileClass, setScrollMobileClass] = useState<string>("");
 
-  const targets: NodeListOf<Element> = document.querySelectorAll(
-    ".persona-header .persona-text-container"
-  );
+  const targets = document.getElementsByClassName("image_section");
   function checkMediaQuery() {
     // Check if the media query is true
     if (window.innerWidth > 820) {
@@ -48,31 +46,31 @@ function App() {
     checkMediaQuery();
   }, []);
 
-  const inputElem: JSX.Element[] = interviewData.map((data: JSX.Element, index: number) => {
-    return (
-      <input
-        type="radio"
-        name="radio-btn"
-        className="gallery-btn"
-        id={"btn" + (index + 1)}
-        key={"btn" + (index + 1)}
-        checked={activePersona === index}
-        onChange={(e) => {
-          changePersona(e);
-        }}
-      />
-    );
-  });
+  const inputElem: JSX.Element[] = interviewData.map(
+    (data: JSX.Element, index: number) => {
+      return (
+        <input
+          type="radio"
+          name="radio-btn"
+          className="gallery-btn"
+          id={"btn" + (index + 1)}
+          key={"btn" + (index + 1)}
+          checked={activePersona === index}
+          onChange={(e) => {
+            changePersona(e);
+          }}
+        />
+      );
+    }
+  );
 
   const buttonElements: JSX.Element = (
-    <ul className="galleryButtons">
-      {inputElem}
-    </ul>
+    <ul className="galleryButtons">{inputElem}</ul>
   );
-  
+
   const changePersona = (e: any) => {
     interviewData.forEach((data: JSX.Element, index: number) => {
-      if (e.target.id === "btn"+(index+1)) {
+      if (e.target.id === "btn" + (index + 1)) {
         setActivePersona(index);
       }
     });

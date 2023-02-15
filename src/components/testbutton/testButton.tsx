@@ -1,23 +1,22 @@
-import { useNavigate } from 'react-router-dom'
-import './testButton.scss';
+import { useNavigate } from "react-router-dom";
+import "./testButton.scss";
 
 type Props = {
-    buttonText: string;
-}
+  buttonText: string;
+};
 
 function TestButton({ buttonText }: Props) {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
-
-    function navToTest() {
-        if (window.location.href.includes("fragor")) {
-            localStorage.removeItem("resultsArray")
-            window.location.reload();
-        } else if (window.location.href.includes("")) {
-            navigate("/fragor");
-        }
+  function navToTest() {
+    if (window.location.href.includes("fragor")) {
+      localStorage.removeItem("resultsArray");
+      window.location.reload();
+    } else if (window.location.href.includes("")) {
+      navigate("/fragor");
     }
-
+  }
+  
     return (
         <>
             <button className="homeButton" onClick={() => navToTest()}>

@@ -7,7 +7,7 @@
   width: 80%;
   margin: $margin-large auto;
   border-radius: $borderRadius;
-  overflow: hidden;
+  overflow-x: hidden;
 
   .gradient {
     position: absolute;
@@ -15,6 +15,7 @@
     height: 100%;
     background: $gradient;
     mix-blend-mode: multiply;
+    overflow-x: hidden;
   }
 
   .image {
@@ -24,6 +25,7 @@
     object-fit: cover;
     object-position: top;
     max-height: 300px;
+    overflow-x: hidden;
   }
 }
 
