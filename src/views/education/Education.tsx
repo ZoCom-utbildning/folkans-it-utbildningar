@@ -42,6 +42,7 @@ const Education = () => {
                 <p className="ingress">{course.description}</p>
                 {educationInfo}
             </main>
+            <div className="stripeBg"> </div>
         </div>
     );
 };

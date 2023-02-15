@@ -1,6 +1,7 @@
 @import "../../scss/variables";
 @import "../../scss/layout";
 @import "../../scss/motion";
+@import "../../scss/global";
 
 .aboutView {
     @include maxSize;
