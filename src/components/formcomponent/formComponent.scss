@@ -8,23 +8,14 @@
 .personas-main {
   margin: $margin;
   padding: 2rem;
-  .personas-card {
-    .personas-card-header {
-      .personas-card-text-container {
-        .personas-card-ingress {
-        }
-        .card-text-container {
-        }
-      }
-    }
-  }
 }
 .galleryButtons {
+  background-color: rgba(41, 39, 39, 0.356);
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  position: relative;
-  bottom: 0%;
+  position: fixed;
+  bottom: 0;
   padding: 3rem;
   padding-top: 0rem;
   z-index: 3;
@@ -33,6 +24,7 @@
     appearance: none;
     @include hexagonButton;
     position: relative;
+
     z-index: 3;
   }
   input[type="radio"]:checked {
@@ -53,15 +45,9 @@
     position: relative;
     height: 100%;
     margin: $margin-sml;
-    .personas-card {
-      .personas-card-header {
-        .personas-card-text-container {
-          .personas-card-ingress {
-          }
-          .card-text-container {
-          }
-        }
-      }
-    }
   }
+}
+
+.galleryButtons {
+  background-color: rgba(41, 39, 39, 0);
 }
