@@ -29,7 +29,7 @@ function App() {
   const [scrollClass, setScrollClass] = useState<string>("");
   const [scrollMobileClass, setScrollMobileClass] = useState<string>("");
 
-  const targets = document.getElementsByClassName("persona-card-content");
+  const targets = document.getElementsByClassName("image_section");
   function checkMediaQuery() {
     // Check if the media query is true
     if (window.innerWidth > 820) {
