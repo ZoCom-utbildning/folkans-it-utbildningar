@@ -30,7 +30,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
           display: flex;
 
           .el__heading {
-            margin: calc($margin-sml / 2);
+            margin: calc($margin-small / 2);
           }
 
           .el el__bg {
@@ -90,7 +90,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
           color: $light;
           font-size: calc($baseline * 1.2);
           text-align: left;
-          margin: $margin-sml;
+          margin: $margin-small;
         }
       }
     }
@@ -131,7 +131,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
             justify-content: center;
 
             .el__heading {
-              margin: calc($margin-sml / 2);
+              margin: calc($margin-small / 2);
             }
           }
         }
@@ -427,7 +427,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                       color: $light;
                       font-size: calc($baseline * 1.3);
                       text-align: left;
-                      margin: $margin-sml;
+                      margin: $margin-small;
                       font-weight: 600;
                     }
 
@@ -463,7 +463,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                         color: $light;
                         font-size: calc($baseline * 1.2);
                         text-align: left;
-                        margin: $margin-sml;
+                        margin: $margin-small;
                       }
                     }
 
@@ -487,7 +487,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                         color: $light;
                         font-size: calc($baseline * 1.2);
                         text-align: left;
-                        margin: $margin-sml;
+                        margin: $margin-small;
                       }
                     }
                   }

@@ -19,11 +19,11 @@ function TestButton({ buttonText }: Props) {
     }
 
     return (
-        <div>
+        <>
             <button className="homeButton" onClick={() => navToTest()}>
                 {buttonText}
             </button>
-        </div>
+        </>
     );
 }
 
