@@ -144,8 +144,6 @@ function Loading(this: any) {
         points = step(points, originalPoints);
         draw(points, ctx);
         t++;
-        setCanvasWidth(wrapperWidth);
-        setCanvasHeight(wrapperHeight);
         window.requestAnimationFrame(animateIt);
     }
     window.requestAnimationFrame(animateIt);
