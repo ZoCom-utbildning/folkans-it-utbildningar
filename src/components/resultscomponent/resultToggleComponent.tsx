@@ -24,9 +24,6 @@ const ResultToggleComponent = ({ courseScore, index }: Props) => {
         if (newWindow) { newWindow.opener = null }
     }
 
-    const gotoEducations = () => {
-        navigate('/utbildningar');
-    }
 
     return (
 
@@ -46,7 +43,7 @@ const ResultToggleComponent = ({ courseScore, index }: Props) => {
                     </span>
                 </span>
                 <a className='apply-link' onClick={() => openNewTab(courseScore.links.link)}> Ansök </a>
-                <button className='read-more-button' onClick={gotoEducations}> Läs mer </button>
+                <button className='read-more-button' onClick={() => openNewTab(`/utbildningar/${courseScore.intLink}`)}> Läs mer </button>
             </section>
 
 

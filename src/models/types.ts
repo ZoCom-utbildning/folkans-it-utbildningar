@@ -44,6 +44,7 @@ export type CourseScore = {
     studyAt: string;
     eduTextTitle: string;
     eduText: string;
+    intLink: string;
 }
 
 export type Links = {
