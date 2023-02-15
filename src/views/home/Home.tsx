@@ -5,6 +5,7 @@ import vscodecomputer from "../../assets/photos/vscodecomputer.webp";
 import Loading from "../../components/loading/Loading";
 import FormComponent from "../../components/formcomponent/formComponent";
 import TestButton from "../../components/testbutton/testButton";
+import { Persona, Question } from '../../models/types';
 
 import { useSwipeable } from "react-swipeable";
 import { useEffect } from "react";
@@ -13,10 +14,10 @@ import Footer from "../../components/footer/Footer";
 type Props = {
   activePersona: number;
   buttonElements: JSX.Element;
-  data: any;
-  interviewData: any;
+  data: Persona[];
+  interviewData: JSX.Element[];
   handlers: ReturnType<typeof useSwipeable>;
-  questions: Array<any>;
+  questions: Array<Question>;
 };
 function Home({
   activePersona,

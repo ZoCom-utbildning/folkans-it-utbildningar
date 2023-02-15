@@ -9,11 +9,12 @@ type Props = {
 }
 
 const RangeSlider = ({ optionText, id, questionId, loadStorage }: Props) => {
-    const [value, setValue] = useState<number>(0)
+    
+    const [value, setValue] = useState<number>(0);
 
     //ta värden från databas beroende på fråga
-    const minValue = 0
-    const maxValue = 100
+    const minValue: number = 0;
+    const maxValue: number = 100;
 
     const handleChange = (e: any) => {
         setValue(e.target.value)

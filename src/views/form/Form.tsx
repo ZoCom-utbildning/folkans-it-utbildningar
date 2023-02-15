@@ -1,11 +1,12 @@
 import FormComponent from "../../components/formcomponent/formComponent";
 import "./form.scss";
+import { Question } from '../../models/types';
 
 type Props = {
   activePersona: number;
-  buttonElements: any;
-  questions: Array<any>;
-  interviewData: Array<any>;
+  buttonElements: JSX.Element;
+  questions: Question[];
+  interviewData: JSX.Element[];
 };
 
 function Form({

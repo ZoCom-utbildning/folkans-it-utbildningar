@@ -1,14 +1,15 @@
 import arrowLeft from "../../assets/icons/arrowLeft.svg";
 import arrowRight from "../../assets/icons/arrowRight.svg";
-import forminfo from "../../../forminfo.json";
-import { SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./contentcomponent.scss";
 import { auth, db } from "../../services/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import anime, { AnimeInstance } from 'animejs';
+import { ResultsType } from '../../models/types';
+import { Question, Option, Optionvalue } from '../../models/types';
 
 type Props = {
-  questions: Array<any>;
+  questions: Array<Question>;
   formText: string;
   questionId: number;
   firstQuestion: boolean;
@@ -16,11 +17,6 @@ type Props = {
   increaseQuestion: (toggle: boolean, shakeAnimation: AnimeInstance) => void;
 };
 
-type ResultsType = {
-  question: string;
-  button: string;
-  points: string[];
-};
 
 function ContentComponent({
   questions,
@@ -72,9 +68,9 @@ function ContentComponent({
   }, []);
 
   useEffect(() => {
-    questions.map((question) => {
+    questions.map((question: Question) => {
       if (questionId === question.id) {
-        const tempText: SetStateAction<string[]> = [];
+        const tempText: string[] = [];
         question.options.map((option: { text: string }) => {
           tempText.push(option.text);
         });
@@ -95,7 +91,7 @@ function ContentComponent({
 
   useEffect(() => {
     if (toggle) {
-      const index = resultsArray.findIndex(
+      const index: number = resultsArray.findIndex(
         (obj) => obj.question === resultsValue.question
       );
       if (index === -1) {
@@ -105,7 +101,7 @@ function ContentComponent({
         localStorage.setItem("resultsArray", JSON.stringify(updatedArray));
       } else {
         // uppdatera arrayen med nytt objekt-värde
-        const updatedArray = [
+        const updatedArray: ResultsType[] = [
           ...resultsArray.slice(0, index),
           resultsValue,
           ...resultsArray.slice(index + 1),
@@ -117,15 +113,15 @@ function ContentComponent({
     }
   }, [pointsId]);
 
-  const temporaryPoints = async (buttonId: any) => {
+  const temporaryPoints = async (buttonId: Promise<string>) => {
     const id = await buttonId;
 
-    questions.map((question) => {
+    questions.map((question: Question) => {
       if (questionId === question.id) {
-        const tempPoints: SetStateAction<string[]> = [];
-        question.options.map((option: { id: number; value: any[] }) => {
-          if (option.id == Number(id) + 1) {
-            option.value.map((value) => {
+        const tempPoints: string[] = [];
+        question.options.map((option: Option) => {
+          if (option.id == id + 1) {
+            option.value.map((value: Optionvalue) => {
               tempPoints.push(`${value.points}`);
             });
           }

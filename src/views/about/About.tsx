@@ -3,10 +3,11 @@ import './about.scss';
 import { useEffect, useState } from 'react';
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
+import { EducationInfo } from '../../models/types';
 
 
 function About() {
-    const [courses, setCourses] = useState<Array<any>>([]);
+    const [courses, setCourses] = useState<EducationInfo[]>([]);
 
     useEffect(() => {
         (async () => {
@@ -21,7 +22,15 @@ function About() {
         console.log(courses);
     }, []);
     
-    
+    const displayCourses: JSX.Element[] = courses.map((course: EducationInfo, index: number) => {
+        return (
+            <section className="course" key={index}>
+                <h3>{course.name}</h3>
+                <p>{course.location}</p>
+            </section>
+        );
+    });
+
     return (
         <div className="aboutView">
             <main>

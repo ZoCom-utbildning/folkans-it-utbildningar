@@ -6,10 +6,11 @@ import { collection, getDocs } from "firebase/firestore";
 import { useNavigate } from 'react-router';
 import { eduInfo } from '../education/eduInfo';
 import anime from 'animejs';
+import { EducationInfo } from '../../models/types';
 
 
 function Educations() {
-    const [courses, setCourses] = useState<Array<any>>([]);
+    const [courses, setCourses] = useState<EducationInfo[]>([]);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -31,7 +32,7 @@ function Educations() {
     }
 
     
-    const displayCourses = courses.map((course, index) => {
+    const displayCourses: JSX.Element[] = courses.map((course: EducationInfo, index: number) => {
         return (
             <section className="course" id={course.id} key={index} onClick={() => navigateTo(`/utbildningar/${course.id}`)}>
                 <h3>{course.name}</h3>
