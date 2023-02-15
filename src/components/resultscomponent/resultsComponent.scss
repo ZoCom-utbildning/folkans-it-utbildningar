@@ -26,7 +26,7 @@
             @include flex($direction: column);
             width: 15rem;
             list-style: none;
-            margin: $margin-sml 0;
+            margin: $margin-small 0;
 
             .results_item {
 
@@ -61,7 +61,7 @@
                 span:nth-child(2) {
 
                     @include flex($direction: column, $justify: center, $align: center);
-                    padding-top: $padding-sml;
+                    padding-top: $padding-small;
                     width: 100%;
                     height: 3.5rem;
                     border: 1px solid $primaryTextColor;
@@ -170,12 +170,16 @@
                 }
 
                 .toggleTextTitle {
-                    padding-left: $padding-sml;
+                    padding-left: $padding-small;
                     font-weight: 600;
                     padding-bottom: 0;
                 }
 
             }
+        }
+
+        .results-button-container {
+            margin: calc($margin-large * 2) 0;
         }
     }
 }
@@ -214,12 +218,12 @@
 
             .results_list {
 
-                margin: $margin-sml;
+                margin: $margin-small;
 
                 .results_item {
 
                     @include flex($justify: center, $align: center, $wrap: wrap);
-                    margin: $margin-sml $margin-sml 0 $margin-sml;
+                    margin: $margin-small $margin-small 0 $margin-small;
                     width: 33.5rem;
                     min-width: 33.5rem;
 
@@ -238,7 +242,7 @@
 
                         @include flex($direction: column, $align: flex-start);
                         padding-top: 0;
-                        padding-left: $padding-sml;
+                        padding-left: $padding-small;
                         width: 15.5rem;
 
                         .study_at {
@@ -335,11 +339,15 @@
 
                     p {
                         font-size: 1rem;
-                        padding: $padding $padding-sml;
+                        padding: $padding $padding-small;
                     }
 
                 }
 
+            }
+
+            .results-button-container {
+                margin: $margin 0 calc($margin-large * 2);
             }
         }
     }
