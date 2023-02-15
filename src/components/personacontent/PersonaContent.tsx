@@ -1,6 +1,6 @@
 import "./personacontent.scss";
 import { useNavigate } from "react-router-dom";
-import { PersonaText } from '../../models/types';
+import { PersonaText } from "../../models/types";
 
 type Props = {
   activePersona: number;
@@ -11,6 +11,7 @@ function PersonaContent({ activePersona, interviewData }: Props) {
   const navigate = useNavigate();
   function navToPersonas(e: any) {
     e.preventDefault();
+    window.scrollTo(0, 0);
     navigate("/personer");
   }
 

@@ -78,9 +78,8 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       width: 100%;
       display: flex;
       justify-content: space-evenly;
-
-      bottom: auto;
       padding: 1rem;
+      position: relative;
       z-index: 3;
 
       .gallery-btn {

@@ -1,5 +1,5 @@
 @import "../../scss/variables.scss";
-@import "../../scss/_layout.scss";
+@import "../../scss/layout.scss";
 @import "../../scss/global.scss";
 .scroll {
   overflow-y: scroll;
@@ -10,11 +10,12 @@
   padding: 2rem;
 }
 .galleryButtons {
+  background-color: rgba(41, 39, 39, 0.356);
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  position: relative;
-  bottom: 0%;
+  position: fixed;
+  bottom: 0;
   padding: 3rem;
   padding-top: 0rem;
   z-index: 3;
@@ -23,6 +24,7 @@
     appearance: none;
     @include hexagonButton;
     position: relative;
+
     z-index: 3;
   }
   input[type="radio"]:checked {
@@ -43,5 +45,10 @@
     position: relative;
     height: 100%;
     margin: $margin-small;
+
   }
+}
+
+.galleryButtons {
+  background-color: rgba(41, 39, 39, 0);
 }

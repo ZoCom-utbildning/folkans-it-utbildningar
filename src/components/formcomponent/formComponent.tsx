@@ -11,7 +11,7 @@ import ResultsComponent from "../resultscomponent/resultsComponent";
 import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
 import "./formComponent.scss";
 import anime, { AnimeInstance } from "animejs";
-import { Question } from '../../models/types';
+import { Question } from "../../models/types";
 
 type Props = {
   activePersona: number;
@@ -190,6 +190,7 @@ function FormComponent({
               activePersona={activePersona}
               interviewData={interviewData}
             />
+
             {buttonElements}
           </section>
         ) : null}
