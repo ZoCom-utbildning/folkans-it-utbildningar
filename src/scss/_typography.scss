@@ -18,7 +18,7 @@ button {
   font-family: "Roboto Mono";
   font-size: $baseline;
   line-height: 180%;
-  padding: $padding-sml 0;
+  padding: $padding-small 0;
 
   &.ingress {
     font-size: calc($baseline * 1.2);
@@ -37,14 +37,14 @@ a {
 h1 {
   font-size: calc($baseline * 2.5);
   font-weight: 900;
-  padding: $padding-sml 0;
-  margin: $margin-large 0 $margin-sml 0;
+  padding: $padding-small 0;
+  margin: $margin-large 0 $margin-small 0;
 }
 
 h2 {
   font-size: calc($baseline * 2.1);
   font-weight: 600;
-  margin: $margin-large 0 $margin-sml 0;
+  margin: $margin-large 0 $margin-small 0;
 }
 
 h3 {

@@ -198,7 +198,7 @@ function ContentComponent({
         </label>
         <label
           htmlFor="radio-2"
-          className="radio_component"
+          className="radio_component margin"
           onClick={() => radioClicked(2)}
         >
           <input
@@ -212,24 +212,26 @@ function ContentComponent({
           <p>{optionText[2]}</p>
         </label>
       </section>
-      <nav className="quiz_nav">
-        <img
-          className={`hidden_${firstQuestion ? "true" : "false"}`}
-          src={arrowLeft}
-          alt=""
-          onClick={() => decreaseQuestion()}
-        />
-        <p>
-          {" "}
-          {questionId} / {questions.length - 1}{" "}
-        </p>
-        <img
-          className={`transparent_${buttonCheck ? "false" : "true"}`}
-          src={arrowRight}
-          alt=""
-          onClick={() => increaseQuestion(buttonCheck, shakeAnimation)}
-        />
-      </nav>
+      <div className="nav_container">
+        <nav className="quiz_nav">
+          <img
+            className={`hidden_${firstQuestion ? "true" : "false"}`}
+            src={arrowLeft}
+            alt=""
+            onClick={() => decreaseQuestion()}
+          />
+          <p>
+            {" "}
+            {questionId} / {questions.length - 1}{" "}
+          </p>
+          <img
+            className={`transparent_${buttonCheck ? "false" : "true"}`}
+            src={arrowRight}
+            alt=""
+            onClick={() => increaseQuestion(buttonCheck, shakeAnimation)}
+          />
+        </nav>
+      </div>
     </section>
   );
 }

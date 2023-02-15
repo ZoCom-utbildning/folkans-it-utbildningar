@@ -3,13 +3,14 @@
 @import '../../scss/global.scss';
 
 .quiz_section {
+    @include flex($direction: column, $align: space-between);
     position: relative;
     height: 100%;
 
     .form_question {
         @include flex();
-        margin-top: calc($margin * 3);
         width: 100%;
+        margin-bottom: .5rem;
 
         h3 {
             height: 100%;
@@ -19,38 +20,53 @@
         }
     }
 
-    .quiz_nav {
-        @include flex($justify: space-evenly, $direction: row);
-        margin: 0;
-        padding-bottom: $padding;
-        margin-bottom: $margin-sml;
+    .nav_container {
 
-        .transparent_true {
-            opacity: 20%;
-            cursor: default;
+        @include flex($justify: center);
+        position: sticky;
+        bottom: 1.1rem;
+        width: 100%;
+
+        .quiz_nav {
+            @include flex($justify: space-evenly, $direction: row, $align: center);
+            margin: 0;
+            background-color: rgb(29, 32, 37, 90%);
+            height: 2rem;
+            width: 85%;
+
+            p {
+                padding: 0;
+            }
+    
+            .transparent_true {
+                opacity: 20%;
+                cursor: default;
+            }
+    
+            .transparent_false {
+                opacity: 100%;
+                cursor: pointer;
+            }
+    
+            .hidden_true {
+                opacity: 0%;
+                cursor: default;
+            }
+    
+            .hidden_false {
+                opacity: 100%;
+                cursor: pointer;
+            }
         }
 
-        .transparent_false {
-            opacity: 100%;
-            cursor: pointer;
-        }
-
-        .hidden_true {
-            opacity: 0%;
-            cursor: default;
-        }
-
-        .hidden_false {
-            opacity: 100%;
-            cursor: pointer;
-        }
     }
+
 }
 
 .radio_component {
 
     @include flex($justify: flex-start);
-    margin: $margin-sml auto;
+    margin: $margin-small auto;
     position: relative;
     width: 85%;
     min-height: 5rem;
@@ -85,6 +101,10 @@
     }
 }
 
+.radio_component.margin {
+    margin-bottom: 2rem;
+}
+
 @media screen and (min-width: $breakpointDesktop) {
 
     .quiz_section {
@@ -93,6 +113,16 @@
         height: 100%;
         margin: auto;
         overflow-y: auto;
+
+        .form_question {
+
+            margin-top: calc($margin * 3);
+
+        }
+
+        .nav_container {
+            bottom: 1.1rem;
+        }
 
         &::-webkit-scrollbar {
             width: 10px;
@@ -162,6 +192,10 @@
             cursor: pointer;
         }
     }
+}
+
+.radio_component.margin {
+    margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 1100px) {

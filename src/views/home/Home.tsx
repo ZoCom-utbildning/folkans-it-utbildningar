@@ -41,7 +41,9 @@ function Home({
             }}
           />
         </h1>
+        <div>
         <TestButton buttonText={"TILL TESTET"} />
+        </div>
         <section
           className="arrow-container"
           onClick={() => window.scrollTo({ top: 780, behavior: "smooth" })}

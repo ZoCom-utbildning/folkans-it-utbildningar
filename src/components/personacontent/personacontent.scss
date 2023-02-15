@@ -62,7 +62,7 @@
       }
       .personasButton {
         @include formButton;
-        padding: $padding-sml $padding;
+        padding: $padding-small $padding;
         max-width: 75%;
         transition: 0.5s;
         &:hover {
