@@ -6,19 +6,27 @@ import { eduInfo } from "./eduInfo";
 import { EducationInfo } from '../../models/types';
 
 const Education = () => {
-  const { educationId } = useParams<string>();
-  const [course, setCourse] = useState<EducationInfo>({});
+    const { educationId } = useParams<string>();
+    const [course, setCourse] = useState<EducationInfo>({
+        applyLink: "",
+        description: "",
+        externalLink: "",
+        id: "",
+        internalLink: "",
+        location: "",
+        name: "",
+    });
 
-  useEffect(() => {
+    useEffect(() => {
         (async () => {
             const querySnapshot = await getDocs(collection(db, "educations"));
             const tempArr: any[] = [];
             querySnapshot.forEach((doc) => {
                 tempArr.push(doc.data());
             });
-            
-            for(let data of tempArr) {
-                if(data.id == educationId) {
+
+            for (let data of tempArr) {
+                if (data.id == educationId) {
                     setCourse(data);
                 }
             }
