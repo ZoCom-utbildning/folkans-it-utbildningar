@@ -43,12 +43,6 @@ function About() {
 
                 <h2>Innehåll</h2>
                 <p>Utbildningens innehåll består av både praktiska och teoretiska delar. Kursplaner och studieplaner tas fram tillsammans med näringslivets representanter. Under utbildningen har du utvecklingssamtal med dina lärare för att du ska få den feed-back du behöver för att utvecklas i din kommande yrkesroll.</p>
-
-                {/* <h2>Våra utbildningar</h2>
-                <section className="coursesWrapper">
-                    {displayCourses}
-                </section> */}
-
             </main>
             <Footer />
         </div>

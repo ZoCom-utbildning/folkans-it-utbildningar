@@ -8,6 +8,7 @@ import { EducationInfo } from '../../models/types';
 const Education = () => {
   const { educationId } = useParams<string>();
   const [course, setCourse] = useState<EducationInfo>({});
+
   useEffect(() => {
         (async () => {
             const querySnapshot = await getDocs(collection(db, "educations"));
@@ -23,7 +24,9 @@ const Education = () => {
             }
         })();
     }, [educationId]);
+
     const educationInfo: JSX.Element | undefined = eduInfo.find(elem => elem.key == educationId);
+
     return (
         <div className="educationView">
             <main>

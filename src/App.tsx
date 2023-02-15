@@ -36,12 +36,14 @@ function App() {
     // Check if the media query is true
     if (window.innerWidth > 820) {
       setIsMobile(false);
+      console.log("isMobile: ", isMobile);
     } else {
       setIsMobile(true);
+      console.log("isMobile: ", isMobile);
     }
   }
-
   window.addEventListener("resize", checkMediaQuery);
+
   useEffect(() => {
     checkMediaQuery();
   }, []);
@@ -52,8 +54,8 @@ function App() {
         type="radio"
         name="radio-btn"
         className="gallery-btn"
-        id={"btn"+(index+1)}
-        key={"btn"+(index+1)}
+        id={"btn" + (index + 1)}
+        key={"btn" + (index + 1)}
         checked={activePersona === index}
         onChange={(e) => {
           changePersona(e);
@@ -136,14 +138,15 @@ function App() {
 
   useEffect(() => {
     if (data.length > 0) {
-      if (window.innerWidth > 820) {
+      if (isMobile) {
+        console.log(isMobile, "activated scroll mobile");
+
         setScrollMobileClass("scroll");
         setScrollClass("");
-        setIsMobile(false);
       } else {
+        console.log(isMobile, "activated scroll desktop");
         setScrollMobileClass("");
         setScrollClass("scroll");
-        setIsMobile(true);
       }
       setInterviewData(
         data.map((personas: Persona, index: number) => {
@@ -183,7 +186,7 @@ function App() {
         })
       );
     }
-  }, [data, isMobile]);
+  }, [data, scrollMobileClass, scrollClass]);
 
   // Hämtar questions från firebase databasen
   useEffect(() => {
@@ -241,7 +244,7 @@ function App() {
             <Personas
               isMobile={isMobile}
               questions={questions}
-              scrollClass={scrollMobileClass}
+              scrollClass={scrollClass}
               data={data}
               interviewData={interviewData}
               handlers={handlers}
