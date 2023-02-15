@@ -1,5 +1,5 @@
 @import "../../scss/variables.scss";
-@import "../../scss/layout.scss";
+@import "../../scss/_layout.scss";
 @import "../../scss/global.scss";
 .scroll {
   overflow-y: scroll;
@@ -8,16 +8,6 @@
 .personas-main {
   margin: $margin;
   padding: 2rem;
-  .personas-card {
-    .personas-card-header {
-      .personas-card-text-container {
-        .personas-card-ingress {
-        }
-        .card-text-container {
-        }
-      }
-    }
-  }
 }
 .galleryButtons {
   width: 100%;
@@ -53,15 +43,5 @@
     position: relative;
     height: 100%;
     margin: $margin-small;
-    .personas-card {
-      .personas-card-header {
-        .personas-card-text-container {
-          .personas-card-ingress {
-          }
-          .card-text-container {
-          }
-        }
-      }
-    }
   }
 }
