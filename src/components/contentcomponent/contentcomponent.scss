@@ -9,8 +9,8 @@
 
     .form_question {
         @include flex();
-        margin-top: calc($margin * 3);
         width: 100%;
+        margin-bottom: .5rem;
 
         h3 {
             height: 100%;
@@ -114,6 +114,12 @@
         height: 100%;
         margin: auto;
         overflow-y: auto;
+
+        .form_question {
+
+            margin-top: calc($margin * 3);
+
+        }
 
         .nav_container {
             bottom: 1.1rem;
