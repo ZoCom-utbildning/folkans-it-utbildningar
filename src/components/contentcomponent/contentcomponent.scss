@@ -25,9 +25,9 @@
 
         @include flex($justify: center);
         position: sticky;
-        bottom: 1.1rem;
+        bottom: 0;
         width: 100%;
-        padding-top: 4rem;
+        margin: 5rem 0 1.2rem 0;
 
         .quiz_nav {
             @include flex($justify: space-evenly, $direction: row, $align: center);
@@ -110,6 +110,7 @@
         height: 100%;
         margin: auto;
         overflow-y: auto;
+        overflow-x: hidden;
 
         .form_question {
 
@@ -118,8 +119,9 @@
         }
 
         .nav_container {
-            bottom: 1.1rem;
+            bottom: 1.2rem;
             padding-top: 0;
+            @include flex($justify: center);
         }
 
         &::-webkit-scrollbar {
@@ -189,7 +191,7 @@
     .quiz_nav {
         //@include flex($justify: space-evenly);
         margin-top: $margin-large;
-        padding-bottom: $padding;
+
 
         img {
             cursor: pointer;
@@ -251,7 +253,6 @@
     .quiz_nav {
         //@include flex($justify: space-evenly);
         margin-top: $margin-large;
-        padding-bottom: $padding;
 
         img {
             cursor: pointer;

@@ -97,17 +97,7 @@
                     }
                 }
 
-                .apply-link:nth-child(3) {
-
-                    @include flex($justify: center, $align: center);
-                    width: 100%;
-                    height: 2.5rem;
-                    border: 1px solid $primaryTextColor;
-                    border-top: none;
-
-                }
-
-                .read-more-button:nth-child(4) {
+                .read-more-button:nth-child(3) {
 
                     @include flex($justify: center, $align: center);
                     width: 100%;
@@ -123,6 +113,7 @@
 
             .toggleText {
 
+                @include flex($direction: column);
                 width: 100%;
                 border: 1px solid $primaryTextColor;
                 border-top: none;
@@ -130,7 +121,7 @@
                 p {
                     font-size: 0.875rem;
                     line-height: 120%;
-                    padding-left: 1px;
+                    padding-left: $padding-small;
                     padding-right: 1px;
                     text-align: start;
                 }
@@ -139,6 +130,15 @@
                     padding-left: $padding-small;
                     font-weight: 600;
                     padding-bottom: 0;
+                    align-self: flex-start;
+                }
+
+                .apply-link {
+                    align-self: flex-end;
+                    margin: $margin;
+                    color: $primaryTextColor;
+                    border-bottom: 2px solid rgb(90, 90, 182);
+                    
                 }
 
             }
@@ -264,22 +264,8 @@
                         }
                     }
 
-                    .apply-link:nth-child(3) {
 
-                        height: 3.5rem;
-                        width: 7rem;
-                        border-top: 1px solid $primaryTextColor;
-                        border-left: none;
-
-                        &:hover {
-                            cursor: pointer;
-                            color: rgb(90, 90, 182);
-                            font-size: 1rem;
-                        }
-
-                    }
-
-                    .read-more-button:nth-child(4) {
+                    .read-more-button:nth-child(3) {
 
                         height: 3.5rem;
                         width: 7rem;
@@ -301,7 +287,7 @@
 
                 .toggleText {
 
-                    width: 33rem;
+                    width: 26rem;
 
                     p {
                         font-size: 1rem;
@@ -404,7 +390,7 @@
 
                 .toggleText {
 
-                    width: 37.5rem;
+                    width: 28.5rem;
                     border: 1px solid $primaryTextColor;
                     border-top: none;
                 }
