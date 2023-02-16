@@ -25,9 +25,9 @@
 
         @include flex($justify: center);
         position: sticky;
-        bottom: 1.1rem;
+        bottom: 0;
         width: 100%;
-        padding-top: 4rem;
+        margin: 5rem 0 1.2rem 0;
 
         .quiz_nav {
             @include flex($justify: space-evenly, $direction: row, $align: center);
