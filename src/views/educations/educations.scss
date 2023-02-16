@@ -1,8 +1,9 @@
 @import "../../scss/variables";
 @import "../../scss/layout";
 @import "../../scss/motion";
+@import "../../scss/global";
 
-.educationView {
+.educationsView {
     @include maxSize;
     @include flex($justify: none, $align: none, $direction: column);
     @include lines;
@@ -52,11 +53,11 @@
 
 
 @media screen and (min-width: $breakpointDesktop) {
-    .educationView {
+    .educationsView {
         main {
             max-width: 50rem;
             margin: $margin*8 auto 0;
- 
+            
             .coursesWrapper {
                 padding: $padding;
             }
