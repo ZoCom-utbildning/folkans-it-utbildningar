@@ -2,6 +2,7 @@
 @import '../../scss/layout.scss';
 @import '../../scss/global.scss';
 
+
 .quiz_section {
     @include flex($direction: column, $align: space-between);
     position: relative;
@@ -26,6 +27,7 @@
         position: sticky;
         bottom: 1.1rem;
         width: 100%;
+        padding-top: 4rem;
 
         .quiz_nav {
             @include flex($justify: space-evenly, $direction: row, $align: center);
@@ -91,11 +93,6 @@
 
     }
 
-    &:hover {
-        background-color: rgb(255, 255, 255, .16);
-
-    }
-
     &:has(input[type="radio"]:checked) {
         background-color: rgb(255, 255, 255, .16);
     }
@@ -122,6 +119,7 @@
 
         .nav_container {
             bottom: 1.1rem;
+            padding-top: 0;
         }
 
         &::-webkit-scrollbar {
@@ -165,6 +163,11 @@
                 appearance: none;
                 @include hexagonButton;
 
+            }
+
+            &:hover {
+                background-color: rgb(255, 255, 255, .16);
+        
             }
 
             input[type="radio"]:checked {
@@ -255,3 +258,6 @@
         }
     }
 }
+
+
+

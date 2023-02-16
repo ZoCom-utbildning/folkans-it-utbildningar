@@ -1,6 +1,7 @@
 @import "../../scss/variables";
 @import "../../scss/layout";
 @import "../../scss/motion";
+@import "../../scss/global";
 
 .aboutView {
     @include maxSize;
@@ -12,7 +13,6 @@
     background-color: $dark;
     
     main {
-        margin-top: $margin*8;
         padding: $padding-large;
 
         .line {
@@ -53,7 +53,6 @@
 @media screen and (min-width: $breakpointDesktop) {
     .aboutView {
         main {
-            padding: $padding-large;
             max-width: 50rem;
             margin: $margin*8 auto 0;
  

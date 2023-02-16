@@ -19,6 +19,7 @@
   padding: 3rem;
   padding-top: 0rem;
   z-index: 3;
+  margin: 0;
 
   .gallery-btn {
     appearance: none;
@@ -45,7 +46,6 @@
     position: relative;
     height: 100%;
     margin: $margin-small;
-
   }
 }
 

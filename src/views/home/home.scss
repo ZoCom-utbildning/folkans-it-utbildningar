@@ -8,8 +8,9 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
   @include maxSize;
 
   .hero-content {
-    @include flex($direction: column);
-    padding-top: 4rem;
+    @include flex($direction: column, $justify: space-between);
+    padding-top: 10rem;
+    padding-bottom: 8rem;
     min-height: 55vh;
     height: 70vh;
     width: 100%;
@@ -23,23 +24,36 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       color: rgb(246, 246, 246);
       z-index: 3;
       font-size: 2.5rem;
-      margin: 8rem 1.5rem 1rem;
+      margin: 2rem 1.5rem 1rem;
       font-weight: 500;
     }
   }
 
   .home-main {
+    @include lines;
+    border-top: 1px solid rgba(255, 255, 255, .1215686275);
+    border-bottom: 1px solid rgba(255, 255, 255, .1215686275);
     background-color: #1d2025;
     padding: 1.5rem;
-    @include lines;
 
     .home-main__content {
       background-color: #1d2025;
       padding: 1rem;
+      position: relative;
+      z-index: 2;
 
-      p {
-        margin-top: 1rem;
-        position: relative;
+      .text-content {
+        
+        p {
+          margin-top: 1rem;
+          position: relative;
+        }
+
+        button {
+          margin: $margin-large auto;
+          padding: $padding calc($padding-large * 2);
+        }
+        
       }
 
       .img-with-text {
@@ -66,14 +80,13 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
     background-color: #9f9f9f;
     background-blend-mode: multiply;
     background-size: cover;
-    background-image: linear-gradient(
-        360deg,
+    background-image: linear-gradient(360deg,
         rgba(18, 123, 0, 0.713) 0%,
-        rgba(0, 255, 51, 0.397) 100%
-      ),
+        rgba(0, 255, 51, 0.397) 100%),
       linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%),
       $bg-imageWoman; //Bör flyttas, syns i bakgrunden för views beroende på height.
     @include flex($justify: space-between, $direction: column, $wrap: nowrap);
+
     .galleryButtons {
       width: 100%;
       display: flex;
@@ -89,6 +102,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
         position: relative;
         z-index: 3;
       }
+
       input[type="radio"]:checked {
         background-color: rgb(90, 90, 182);
 
@@ -110,24 +124,29 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       background-color: $dark;
       padding: 1rem;
       flex: 1;
+
       .home-main__content {
         @include flex($justify: none, $align: none);
         padding: $padding-large;
         margin: $margin;
+
         .text-content {
           @include flex($justify: none, $align: none, $direction: column);
           width: 50%;
           margin: 1rem;
+
           p {
             margin-top: 1rem;
             width: 100%;
           }
         }
+
         .img-with-text {
           width: 50%;
           height: 100%;
           max-width: 50%;
           margin: $margin;
+
           img {
             aspect-ratio: 1/1;
             height: 600px;
@@ -137,9 +156,12 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
         }
       }
     }
+
     .hero-content {
-      @include flex($justify: space-evenly, $direction: column, $wrap: nowrap);
+      @include flex($justify: space-around, $direction: column, $wrap: nowrap);
       min-height: 100vh;
+      padding: 6rem 0rem 0rem 0rem;
+      
       .arrow-container {
         @include flex($justify: none, $align: center, $direction: column);
 
@@ -147,6 +169,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
           animation: float 2s ease-in-out infinite;
         }
       }
+
       .title-h1 {
         width: 50%;
         height: 7rem;
@@ -157,6 +180,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
         font-weight: 500;
       }
     }
+
     .home-personas-wrapper {
       width: 100%;
       height: 115vh;
@@ -167,14 +191,13 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       background-color: #9f9f9f;
       background-blend-mode: multiply;
       background-size: cover;
-      background-image: linear-gradient(
-          360deg,
+      background-image: linear-gradient(360deg,
           rgba(18, 123, 0, 0.713) 0%,
-          rgba(0, 255, 51, 0.397) 100%
-        ),
+          rgba(0, 255, 51, 0.397) 100%),
         linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%),
         $bg-imageWoman; //Bör flyttas, syns i bakgrunden för views beroende på height.
       @include flex($justify: space-between, $direction: column, $wrap: nowrap);
+
       .galleryButtons {
         width: 100%;
         display: flex;
@@ -188,6 +211,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
           @include hexagonButton;
           position: relative;
         }
+
         input[type="radio"]:checked {
           background-color: rgb(90, 90, 182);
 

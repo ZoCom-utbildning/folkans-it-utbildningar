@@ -37,7 +37,6 @@ function Educations() {
             <section className="course" id={course.id} key={index} onClick={() => navigateTo(`/utbildningar/${course.id}`)}>
                 <h3>{course.name}</h3>
                 <p>{course.location}</p>
-                <p>{course.description}</p>
                 <p className="right">Läs mer</p>
             </section>
         );
@@ -76,6 +75,7 @@ function Educations() {
 
             </main>
             <Footer />
+            <div className="stripeBg"> </div>
         </div>
     );
 }
