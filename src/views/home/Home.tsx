@@ -72,6 +72,7 @@ function Home({
               detta test som en mer lättsmält väg för dig till att veta vad som
               är rätt för just dig.
             </p>
+            <TestButton buttonText={"ta testet"} />
           </section>
           <section className="img-with-text">
             <img src={vscodecomputer} alt="" />
