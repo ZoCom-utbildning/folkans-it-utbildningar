@@ -42,7 +42,7 @@ const ResultToggleComponent = ({ courseScore, index }: Props) => {
 
                     </span>
                 </span>
-                <a className='apply-link' onClick={() => openNewTab(courseScore.links.link)}> Ansök </a>
+                
                 <button className='read-more-button' onClick={() => openNewTab(`/utbildningar/${courseScore.intLink}`)}> Läs mer </button>
             </section>
 
@@ -52,6 +52,7 @@ const ResultToggleComponent = ({ courseScore, index }: Props) => {
                     <section className="toggleText">
                         <p className="toggleTextTitle"> {courseScore.eduTextTitle} </p>
                         <p> {courseScore.eduText} </p>
+                        <a className='apply-link' onClick={() => openNewTab(courseScore.links.link)}> Ansök här </a>
                     </section>
                     :
                     ''
