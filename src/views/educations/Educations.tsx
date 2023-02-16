@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { useNavigate } from 'react-router';
-import { eduInfo } from '../education/eduInfo';
 import anime from 'animejs';
 import { EducationInfo } from '../../models/types';
 
@@ -60,7 +59,7 @@ function Educations() {
 
 
     return (
-        <div className="educationView">
+        <div className="educationsView">
             <main>
                 <h1>Våra utbildningar</h1>
                 <p>Samtliga våra utbildningar är 400 YH-poäng, vilket i praktiken är 2 år. Utbildningarna startar i augusti/september och examen sker i juni lite mindre än två år senare. Alla utbildningar är dessutom studiemedelsberättigade, vilket gör att du har samma rätt till studiemedel från CSN som på en traditionell högskoleutbildning.</p>
@@ -72,7 +71,6 @@ function Educations() {
                 <section className="coursesWrapper">
                     {displayCourses}
                 </section>
-
             </main>
             <Footer />
             <div className="stripeBg"> </div>

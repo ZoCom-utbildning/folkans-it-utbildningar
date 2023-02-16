@@ -1,7 +1,7 @@
 @import "../../scss/variables";
 @import "../../scss/layout";
 @import "../../scss/motion";
-
+@import "../../scss/global";
 
 .educationView {
     @include maxSize;
@@ -14,6 +14,37 @@
     background-color: $dark;
     
     main {
-        margin-top: $margin*8;
+        padding: $padding-large;
+
+        .applyButton {
+            @include formButton;
+            padding: $padding $padding-large*2;
+            margin: $margin-large auto;
+
+            &:last-of-type {
+                margin-top: $margin-large;
+            }
+        }
+
+        .line {
+            margin: auto -1.5rem;
+            border-bottom: .1rem solid $borderColor;
+        }
     }
 }
+
+
+@media screen and (min-width: $breakpointDesktop) {
+    .educationView {
+        main {
+            max-width: 50rem;
+            margin: $margin*8 auto 0;
+            
+            .applyButton {
+                float: right; 
+                margin: $margin-small;
+            }
+        }
+    }
+
+} 
