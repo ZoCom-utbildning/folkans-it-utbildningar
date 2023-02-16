@@ -279,7 +279,6 @@
                         }
                     }
 
-                    .apply-link,
                     .read-more-button {
                         transition: 200ms ease-in-out 50ms;
                     }
@@ -292,6 +291,10 @@
                     p {
                         font-size: 1rem;
                         padding: $padding $padding-small;
+                    }
+
+                    .apply-link {
+                        cursor: pointer;
                     }
 
                 }
@@ -366,17 +369,7 @@
                         width: 18rem;
                     }
 
-                    .apply-link:nth-child(3) {
-
-                        width: 8rem;
-
-                        &:hover {
-                            font-size: 1.2rem;
-                        }
-
-                    }
-
-                    .read-more-button:nth-child(4) {
+                    .read-more-button:nth-child(3) {
 
                         width: 8rem;
 
@@ -390,7 +383,7 @@
 
                 .toggleText {
 
-                    width: 28.5rem;
+                    width: 29.5rem;
                     border: 1px solid $primaryTextColor;
                     border-top: none;
                 }

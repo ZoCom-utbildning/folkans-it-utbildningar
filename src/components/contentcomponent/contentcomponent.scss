@@ -39,6 +39,10 @@
             p {
                 padding: 0;
             }
+            
+            img {
+                width: 3rem;
+            }
     
             .transparent_true {
                 opacity: 20%;
@@ -79,7 +83,6 @@
 
     p {
         margin: 0px 5px 0px 15px;
-        //width: calc(100% - ($baseline*5));
         font-size: 0.875rem;
         text-align: start;
         user-select: text;
@@ -145,17 +148,17 @@
 
 
     .radio_wrapper {
+
         position: relative;
         max-height: 30rem;
-        //finslip här
 
         .radio_component>p {
+
             font-size: 1rem;
             line-height: 130%;
             width: 90%;
             margin: 0px 5px 0px 50px;
-            //media query höjd
-            //fix här
+
         }
 
         .radio_component {
@@ -189,7 +192,7 @@
     }
 
     .quiz_nav {
-        //@include flex($justify: space-evenly);
+
         margin-top: $margin-large;
 
 
@@ -215,13 +218,13 @@
     .radio_wrapper {
         position: relative;
         max-height: 30rem;
-        //finslip här
+
 
         .radio_component>p {
+
             font-size: 1rem;
             line-height: 150%;
-            //media query höjd
-            //fix här
+
         }
 
         .radio_component {
@@ -251,7 +254,7 @@
     }
 
     .quiz_nav {
-        //@include flex($justify: space-evenly);
+
         margin-top: $margin-large;
 
         img {
