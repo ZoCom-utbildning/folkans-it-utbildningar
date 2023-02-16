@@ -116,7 +116,7 @@
     }
 }
 
-@media screen and (max-height: 730px) {
+@media screen and (max-height: 730px) and (min-width: $breakpointDesktop) {
 
     .desktop_wrapper {
         .form_wrapper {

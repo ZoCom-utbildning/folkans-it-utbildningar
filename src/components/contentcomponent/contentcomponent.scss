@@ -27,6 +27,7 @@
         position: sticky;
         bottom: 1.1rem;
         width: 100%;
+        padding-top: 4rem;
 
         .quiz_nav {
             @include flex($justify: space-evenly, $direction: row, $align: center);
@@ -256,5 +257,6 @@
         }
     }
 }
+
 
 
