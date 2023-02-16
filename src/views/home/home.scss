@@ -8,8 +8,9 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
   @include maxSize;
 
   .hero-content {
-    @include flex($direction: column);
-    padding-top: 4rem;
+    @include flex($direction: column, $justify: space-between);
+    padding-top: 10rem;
+    padding-bottom: 8rem;
     min-height: 55vh;
     height: 70vh;
     width: 100%;
@@ -23,7 +24,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       color: rgb(246, 246, 246);
       z-index: 3;
       font-size: 2.5rem;
-      margin: 8rem 1.5rem 1rem;
+      margin: 2rem 1.5rem 1rem;
       font-weight: 500;
     }
   }
@@ -137,8 +138,9 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       }
     }
     .hero-content {
-      @include flex($justify: space-evenly, $direction: column, $wrap: nowrap);
+      @include flex($justify: space-around, $direction: column, $wrap: nowrap);
       min-height: 100vh;
+      padding: 6rem 0rem 0rem 0rem;
       .arrow-container {
         @include flex($justify: none, $align: center, $direction: column);
 

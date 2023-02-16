@@ -1,14 +1,14 @@
 import "./home.scss";
-import Typewriter from "typewriter-effect";
+import Typewriter, { TypewriterClass } from "typewriter-effect";
 import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.webp";
 import Loading from "../../components/loading/Loading";
 import FormComponent from "../../components/formcomponent/formComponent";
 import TestButton from "../../components/testbutton/testButton";
-import { Persona, Question } from '../../models/types';
+import { Persona, Question } from "../../models/types";
 
 import { useSwipeable } from "react-swipeable";
-import { useEffect } from "react";
+
 import Footer from "../../components/footer/Footer";
 
 type Props = {
@@ -34,15 +34,20 @@ function Home({
       <section className="hero-content">
         <h1 className="title-h1">
           <Typewriter
-            onInit={(typeWriter) => {
-              typeWriter
+            onInit={(typewriter) => {
+              typewriter
                 .typeString("Så du är nyfiken på att jobba inom IT-branschen?")
+                .pauseFor(2000)
+                .deleteAll()
+                .typeString(
+                  "Ta testet nedan för att se vad som passar dig bäst!"
+                )
                 .start();
             }}
           />
         </h1>
         <div>
-        <TestButton buttonText={"TILL TESTET"} />
+          <TestButton buttonText={"TILL TESTET"} />
         </div>
         <section
           className="arrow-container"
