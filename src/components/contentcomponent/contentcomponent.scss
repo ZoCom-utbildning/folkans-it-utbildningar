@@ -2,6 +2,7 @@
 @import '../../scss/layout.scss';
 @import '../../scss/global.scss';
 
+
 .quiz_section {
     @include flex($direction: column, $align: space-between);
     position: relative;
@@ -91,11 +92,6 @@
 
     }
 
-    &:hover {
-        background-color: rgb(255, 255, 255, .16);
-
-    }
-
     &:has(input[type="radio"]:checked) {
         background-color: rgb(255, 255, 255, .16);
     }
@@ -165,6 +161,11 @@
                 appearance: none;
                 @include hexagonButton;
 
+            }
+
+            &:hover {
+                background-color: rgb(255, 255, 255, .16);
+        
             }
 
             input[type="radio"]:checked {
@@ -255,3 +256,5 @@
         }
     }
 }
+
+
