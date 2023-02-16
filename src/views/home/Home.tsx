@@ -42,7 +42,7 @@ function Home({
           />
         </h1>
         <div>
-        <TestButton buttonText={"TILL TESTET"} />
+          <TestButton buttonText={"TILL TESTET"} />
         </div>
         <section
           className="arrow-container"
@@ -67,6 +67,7 @@ function Home({
               detta test som en mer lättsmält väg för dig till att veta vad som
               är rätt för just dig.
             </p>
+            <TestButton buttonText={"ta testet"} />
           </section>
           <section className="img-with-text">
             <img src={vscodecomputer} alt="" />
