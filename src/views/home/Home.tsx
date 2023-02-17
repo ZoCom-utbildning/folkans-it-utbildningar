@@ -1,5 +1,5 @@
 import "./home.scss";
-import Typewriter, { TypewriterClass } from "typewriter-effect";
+import Typewriter from "typewriter-effect";
 import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.webp";
 import Loading from "../../components/loading/Loading";
@@ -36,12 +36,15 @@ function Home({
           <Typewriter
             onInit={(typewriter) => {
               typewriter
+                .changeDelay(50)
+                .changeDeleteSpeed(50)
                 .typeString("Så du är nyfiken på att jobba inom IT-branschen?")
                 .pauseFor(2000)
                 .deleteAll()
                 .typeString(
                   "Ta testet nedan för att se vad som passar dig bäst!"
                 )
+
                 .start();
             }}
           />
