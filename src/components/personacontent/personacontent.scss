@@ -110,6 +110,22 @@
         @include flex($justify: none, $align: none, $direction: column);
         gap: $margin-large;
       }
+      .personas-button-container {
+        @include flex($justify: center, $align: center);
+        width: 100%;
+        height: 100%;
+        .personasButton {
+          @include formButton;
+          padding: $padding $padding;
+          margin-bottom: 2rem;
+          position: static;
+          transition: 0.5s;
+          &:hover {
+            transform: scale(1.1);
+            border-color: rgb(90, 90, 182);
+          }
+        }
+      }
     }
   }
 }
