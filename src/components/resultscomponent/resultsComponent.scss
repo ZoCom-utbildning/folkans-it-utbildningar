@@ -145,7 +145,15 @@
         }
 
         .results-button-container {
-            margin: calc($margin-large * 2) 0;
+            @include flex();
+            margin-bottom: 1.5rem;
+            height: 8rem;
+
+            .homeButton {
+                width: 13rem;
+                margin: 0;
+                padding: $padding-small;
+            }
         }
     }
 }
@@ -306,7 +314,15 @@
             }
 
             .results-button-container {
-                margin: $margin 0 calc($margin-large * 2);
+    
+                margin-top: 1rem;
+
+                .homeButton {
+
+                    width: 14rem;
+                    margin: 0;
+
+                }
             }
         }
     }
@@ -392,6 +408,20 @@
                     border-top: none;
                 }
             }
+
+            .results-button-container {
+
+                    margin: 0;
+    
+                .homeButton {
+
+                    width: 15rem;
+                    font-size: 1.2rem;
+                    margin: 0;
+                    
+                }
+            }
+
         }
     }
 }
