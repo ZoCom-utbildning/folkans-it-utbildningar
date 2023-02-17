@@ -429,18 +429,18 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                     text-align: left;
                     margin-top: $margin-large;
 
-                    span {
+                    h2 {
                       color: $light;
                       font-size: calc($baseline * 1.3);
                       text-align: left;
-                      margin: $margin-small;
+                      margin: 0 $margin-small 0 $margin-small;
                       font-weight: 600;
                     }
 
-                    .personas-card-ingress {
+                    .ingress {
                       color: $light;
                       font-size: calc($baseline * 1.2);
-                      margin-bottom: $margin-large;
+                      margin-bottom: calc($margin-large * 2);
                     }
                   }
 
@@ -469,7 +469,6 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                         color: $light;
                         font-size: calc($baseline * 1.2);
                         text-align: left;
-                        margin: $margin-small;
                       }
                     }
 
@@ -493,7 +492,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                         color: $light;
                         font-size: calc($baseline * 1.2);
                         text-align: left;
-                        margin: $margin-small;
+                        margin-bottom: calc($margin-large * 2);
                       }
                     }
                   }
