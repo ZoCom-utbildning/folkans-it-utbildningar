@@ -2,7 +2,7 @@ import "./home.scss";
 import Typewriter, { TypewriterClass } from "typewriter-effect";
 import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.webp";
-import Loading from "../../components/loading/Loading";
+import Blob from "../../components/blob/Blob";
 import FormComponent from "../../components/formcomponent/formComponent";
 import TestButton from "../../components/testbutton/testButton";
 import { Persona, Question } from "../../models/types";
@@ -30,7 +30,7 @@ function Home({
 
   return (
     <div className="home-wrapper">
-      <Loading />
+      <Blob />
       <section className="hero-content">
         <h1 className="title-h1">
           <Typewriter

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import anime from 'animejs';
-import './loading.scss';
+import './blob.scss';
 import '../../scss/_variables.scss';
 import arrow from '../../assets/icons/arrowDown.svg';
 
@@ -55,7 +55,7 @@ class Vector {
     }
 }
 
-function Loading(this: any) {
+function Blob(this: any) {
     // === Defining data ===
     const [overlayClasses, setOverlayClasses] = useState<string>("loadingOverlay");
     const [canvasWidth, setCanvasWidth] = useState<number>(1000);
@@ -303,4 +303,4 @@ function Loading(this: any) {
 }
 
 
-export default Loading;
+export default Blob;
