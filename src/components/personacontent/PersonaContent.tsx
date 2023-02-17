@@ -63,7 +63,6 @@ function PersonaContent({ activePersona, interviewData }: Props) {
                     <p className="ingress">{persona.personaIngress}</p>
                   </main>
                   <div className="personas-button-container">
-                    {" "}
                     <button
                       className="personasButton"
                       onClick={(e) => navToPersonas(e)}

@@ -102,6 +102,7 @@ const Personas = ({
                           ) : (
                             <div className={`el__content ${scrollClass}`}>
                               {interviewData[index]}
+
                               <button
                                 className="el__close-btn"
                                 onClick={handleCloseBtnClick}
