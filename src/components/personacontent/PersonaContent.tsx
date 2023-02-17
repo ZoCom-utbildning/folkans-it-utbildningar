@@ -60,14 +60,17 @@ function PersonaContent({ activePersona, interviewData }: Props) {
                     <h2 className="persona-title">{persona.personaTitle}</h2>
                   </header>
                   <main className="persona-text-container">
-                    <p className="persona-ingress">{persona.personaIngress}</p>
+                    <p className="ingress">{persona.personaIngress}</p>
+                  </main>
+                  <div className="personas-button-container">
+                    {" "}
                     <button
                       className="personasButton"
                       onClick={(e) => navToPersonas(e)}
                     >
                       Läs hela intervjun här
                     </button>
-                  </main>
+                  </div>
                 </div>
               ) : (
                 <div>{interviewData[index]}</div>

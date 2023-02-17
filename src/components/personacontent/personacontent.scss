@@ -5,12 +5,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 45vh;
+  min-height: 60vh;
   .persona-card-content {
     margin-top: 0rem;
     margin-left: 1rem;
     margin-right: 1rem;
-    height: 100%;
+    min-height: 62vh;
     .personas-main {
       .personas-card {
         .personas-card-header {
@@ -44,6 +44,7 @@
   }
   .persona-content {
     max-width: 100%;
+    height: 100%;
     padding: 0 $padding 0 $padding;
     @include flex($align: none, $direction: column);
     gap: 1rem; // TODO: Is this unused?
@@ -60,9 +61,18 @@
       .persona-ingress {
         hyphens: auto;
       }
+    }
+    .personas-button-container {
+      @include flex($justify: center, $align: center);
+      width: 100%;
+      height: 100%;
       .personasButton {
         @include formButton;
         padding: $padding $padding;
+        position: absolute;
+        bottom: 0;
+
+        margin-bottom: 6rem;
 
         transition: 0.5s;
         &:hover {
