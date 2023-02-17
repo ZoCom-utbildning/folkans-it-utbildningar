@@ -120,7 +120,7 @@
 
                 p {
                     font-size: 0.875rem;
-                    line-height: 120%;
+                    line-height: 140%;
                     padding-left: $padding-small;
                     padding-right: 1px;
                     text-align: start;
@@ -210,6 +210,10 @@
                         padding-top: 0;
                         padding-left: $padding-small;
                         width: 15.5rem;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
 
                         .study_at {
 
@@ -356,8 +360,8 @@
 
                 .results_item {
 
-                    width: 37.5rem;
-                    min-width: 37.5rem;
+                    width: 41.5rem;
+                    min-width: 41.5rem;
 
                     span,
                     .apply-link,
@@ -366,7 +370,7 @@
                     }
 
                     span:nth-child(2) {
-                        width: 18rem;
+                        width: 30rem;
                     }
 
                     .read-more-button:nth-child(3) {
@@ -383,7 +387,7 @@
 
                 .toggleText {
 
-                    width: 29.5rem;
+                    width: 41.5rem;
                     border: 1px solid $primaryTextColor;
                     border-top: none;
                 }
