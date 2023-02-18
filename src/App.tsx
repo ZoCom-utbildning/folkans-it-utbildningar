@@ -17,6 +17,7 @@ import anime from "animejs";
 import { db } from "./services/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { Question, Persona } from "./models/types";
+import TestButton from "./components/testbutton/testButton";
 
 function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -157,26 +158,25 @@ function App() {
                   </h2>
                 </section>
                 <main className="personas-card-text-container">
-                  <p className="personas-card-ingress">{personas.desc}</p>
-                  <span>
-                    Vad var det som fick dig att välja din utbildning?
-                  </span>
-                  <br></br>
+                  <p className="ingress">{personas.desc}</p>
+                  <h2>Vad var det som fick dig att välja din utbildning?</h2>
+
                   <section className="card-text-container">
                     <p className="personas-card-text">{personas.replies[0]}</p>
-                    <span>Vad har du för bakgrund innan denna utbildning?</span>
-                    <br></br>
+                    <h2>Vad har du för bakgrund innan denna utbildning?</h2>
+
                     <p className="personas-card-text">{personas.replies[1]}</p>
-                    <span>Vad är det bästa med din utbildning?</span>
-                    <br></br>
+                    <h2>Vad är det bästa med din utbildning?</h2>
+
                     <p className="personas-card-text">{personas.replies[2]}</p>
-                    <span>
+                    <h2>
                       Har du några visdomsord till andra som funderar på att
                       söka eller som redan sökt?
-                    </span>
-                    <br></br>
+                    </h2>
+
                     <p className="personas-card-text">{personas.replies[3]}</p>
                   </section>
+                  <TestButton buttonText={"Gör testet"} />
                 </main>
               </article>
             </div>

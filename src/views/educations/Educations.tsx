@@ -51,9 +51,9 @@ function Educations() {
             direction: 'alternate',
             loop: true,
             delay: anime.stagger(2000, {start: 500}),
-            endDelay: anime.stagger(500, {start: 300}),
+            endDelay: anime.stagger(300, {start: 300}),
             duration: 5000,
-            easing: 'easeInOutQuart'
+            easing: 'easeInOutQuad'
           });
     },[displayCourses]);
 

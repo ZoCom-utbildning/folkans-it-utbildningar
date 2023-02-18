@@ -31,13 +31,13 @@ const ResultToggleComponent = ({ courseScore, index }: Props) => {
 
             <section key={index} className="results_item">
                 <h2 className="rank">{`${index + 1}`}</h2>
-                <span>{courseScore.course}
+                <span onClick={() => setToggleInfo(!toggleInfo)}>{courseScore.course}
                     <span className="study_at">{courseScore.studyAt}
 
                         {toggleInfo ?
-                            <span className='toggled' onClick={() => setToggleInfo(!toggleInfo)}></span>
+                            <span className='toggled' ></span>
                             :
-                            <span className='notToggled' onClick={() => setToggleInfo(!toggleInfo)}></span>
+                            <span className='notToggled' ></span>
                         }
 
                     </span>
