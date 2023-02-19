@@ -14,14 +14,11 @@
     
     main {
         padding: $padding-large;
-
-        .line {
-            margin: auto -1.5rem;
-            border-bottom: .1rem solid $borderColor;
-        }
+        // z-index: 2;
 
         .coursesWrapper {
             margin: 0 $margin*-3;
+            position: relative;
             .course {
                 margin: $margin;
                 padding: $padding;

@@ -6,6 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { useNavigate } from 'react-router';
 import anime from 'animejs';
 import { EducationInfo } from '../../models/types';
+import Blob from '../../components/blob/Blob';
 
 
 function Educations() {
@@ -72,8 +73,9 @@ function Educations() {
                     {displayCourses}
                 </section>
             </main>
+            <Blob xPos={1.2} yPos={1.8} radius={4.5} opacity={0.2} /> 
             <Footer />
-            <div className="stripeBg"> </div>
+            {/* <div className="stripeBg"> </div> */}
         </div>
     );
 }
