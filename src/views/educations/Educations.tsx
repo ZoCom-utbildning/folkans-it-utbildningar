@@ -25,13 +25,13 @@ function Educations() {
         })();
     }, []);
 
-    
+
     function navigateTo(link: string) {
         window.scrollTo(0, 0)
         navigate(link);
     }
 
-    
+
     const displayCourses: JSX.Element[] = courses.map((course: EducationInfo, index: number) => {
         return (
             <section className="course" id={course.id} key={index} onClick={() => navigateTo(`/utbildningar/${course.id}`)}>
@@ -42,24 +42,21 @@ function Educations() {
         );
     });
 
-    /*
     useEffect(() => {
         anime({
             targets: '.coursesWrapper .course',
             keyframes: [
-                { backgroundPositionX: 0 }, 
+                { backgroundPositionX: 0 },
                 { backgroundPositionX: 100 }
             ],
             direction: 'alternate',
             loop: true,
-            delay: anime.stagger(2000, {start: 500}),
-            endDelay: anime.stagger(300, {start: 300}),
+            delay: anime.stagger(2000, { start: 500 }),
+            endDelay: anime.stagger(300, { start: 300 }),
             duration: 5000,
             easing: 'easeInOutQuad'
-          });
-    },[displayCourses]);
-    */
-
+        });
+    }, [displayCourses]);
 
     return (
         <div className="educationsView">
@@ -75,9 +72,10 @@ function Educations() {
                     {displayCourses}
                 </section>
             </main>
-            <Blob xPos={6.2} yPos={1.8} radius={4.5} opacity={0.2} /> 
+            {
+                displayCourses.length > 0 ? <Blob xPos={6.2} yPos={1.8} radius={4.5} opacity={0.2} /> : null
+            }
             <Footer />
-            {/* <div className="stripeBg"> </div> */}
         </div>
     );
 }
