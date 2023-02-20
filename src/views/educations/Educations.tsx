@@ -60,9 +60,9 @@ function Educations() {
 
     return (
         <div className="educationsView">
-            {
+            {/*
                 displayCourses.length > 0 ? <Blob xPos={6.2} yPos={1.8} radius={4.5} opacity={0.2} /> : null
-            }
+    */}
             <main>
                 <h1>Våra utbildningar</h1>
                 <p>Samtliga våra utbildningar är 400 YH-poäng, vilket i praktiken är 2 år. Utbildningarna startar i augusti/september och examen sker i juni lite mindre än två år senare. Alla utbildningar är dessutom studiemedelsberättigade, vilket gör att du har samma rätt till studiemedel från CSN som på en traditionell högskoleutbildning.</p>
