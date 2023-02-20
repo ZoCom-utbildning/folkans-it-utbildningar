@@ -73,7 +73,7 @@ function Educations() {
                     {displayCourses}
                 </section>
             </main>
-            <Blob xPos={1.2} yPos={1.8} radius={4.5} opacity={0.2} /> 
+            <Blob xPos={6.2} yPos={1.8} radius={4.5} opacity={0.2} /> 
             <Footer />
             {/* <div className="stripeBg"> </div> */}
         </div>
