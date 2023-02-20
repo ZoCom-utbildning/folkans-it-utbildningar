@@ -9,35 +9,41 @@
     @include lines;
     overflow-x: hidden;
 
-    &* { position: relative; }
+    &* {
+        position: relative;
+    }
+
     background-color: $dark;
-    
+
     main {
         padding: $padding-large;
         // z-index: 2;
 
         .coursesWrapper {
+
             margin: 0 $margin*-3;
             position: relative;
+            
             .course {
-                margin: $margin;
-                padding: $padding;
+                margin: $margin-small 0;
+                padding: $padding-small;
                 border: 1px solid $borderColor;
                 background-color: $dark;
                 cursor: pointer;
                 background: linear-gradient(-45deg, $dark, $dark, $lightBlue, $dark, $dark);
                 background-size: 300% 200%;
                 background-position-y: 50%;
-                
+
                 .right {
                     text-align: right;
                     font-style: italic;
                 }
-                
-                
-                &:hover, &:active {
+
+
+                &:hover,
+                &:active {
                     box-shadow: 0 0 1rem 0 $lightBlue;
-                    }
+                }
             }
         }
     }
@@ -49,11 +55,17 @@
         main {
             max-width: 50rem;
             margin: $margin*8 auto 0;
-            
+
             .coursesWrapper {
+                margin: 0 calc($margin * -3);
                 padding: $padding;
+
+                .course {
+                    margin: $margin;
+                    padding: $padding;
+                }
             }
         }
     }
 
-} 
+}
