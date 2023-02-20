@@ -13,7 +13,7 @@
     background-color: $dark;
     
     main {
-        padding: $padding-large;
+        padding: 2rem;
 
         .applyButton {
             @include formButton;
