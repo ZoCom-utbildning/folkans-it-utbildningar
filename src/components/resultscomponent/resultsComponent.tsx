@@ -9,8 +9,6 @@ import ResultToggleComponent from './resultToggleComponent';
 
 const ResultsComponent = () => {
 
-    //Lägga in "courses": "[frontend-link, backend-link .. , ..]"   i json för länkar.
-
     const courseScore: Array<CourseScore> = [];
     const loadResults: ResultsType[] = JSON.parse(localStorage.getItem("resultsArray")!);
 
@@ -28,6 +26,9 @@ const ResultsComponent = () => {
         })();
 
     }, []);
+
+
+    // FRONTEND POINTS/INFO
 
     const frontend: string[] = loadResults.map((result: ResultsType, index: number) => {
         return result.points[0];
@@ -48,7 +49,9 @@ const ResultsComponent = () => {
         eduText: 'En frontendutvecklare skapar det som användaren ser på webben. Med hjälp av HTML, CSS & JavaScript förverkligar en frontendare den design och funktionalitet som webbsidan ska ha.',
         intLink: 'frontendutvecklare-karlstad'
     });
-    // frontend_distans
+
+
+    // FRONTEND DISTANCE POINTS/INFO
 
     const frontend_distans: string[] = loadResults.map((result: ResultsType, index: number) => {
         return result.points[1];
@@ -69,7 +72,8 @@ const ResultsComponent = () => {
         intLink: 'frontendutvecklare-distans'
     });
 
-    // javascript_distans
+
+    // JAVASCRIPT DISTANCE POINTS/INFO
 
     const javascript_distans: string[] = loadResults.map((result: ResultsType, index: number) => {
         return result.points[2];
@@ -90,7 +94,8 @@ const ResultsComponent = () => {
         intLink: 'javascriptutvecklare-distans'
     });
 
-    // mobil_app
+
+    // MOBIL APP POINTS/INFO
 
     const mobil_app: string[] = loadResults.map((result: ResultsType, index: number) => {
         return result.points[3];
@@ -111,7 +116,8 @@ const ResultsComponent = () => {
         intLink: 'mobilapplikationsutvecklare-distans'
     });
 
-    // mjukvaru_utveckling
+
+    // MJUKVARU UTV. POINTS/INFO
 
     const mjukvaru_utveckling: string[] = loadResults.map((result: ResultsType, index: number) => {
         return result.points[4];
@@ -132,11 +138,9 @@ const ResultsComponent = () => {
         intLink: 'mjukvaruutvecklare-for-mobiltjanster-distans'
     });
 
+
     const courseScoreSorted: CourseScore[] = courseScore.sort((a: any, b: any) => b.points - a.points);
 
-    //funktion för att räkna ut svar/summa
-
-    //mappa ut data för utbildning + länk till utbildning
 
 
     return (
@@ -155,6 +159,7 @@ const ResultsComponent = () => {
                         }
                     })
                 }
+                
                 <div className="results-button-container">
                     <TestButton buttonText={'Ta testet igen'} />
                 </div>
