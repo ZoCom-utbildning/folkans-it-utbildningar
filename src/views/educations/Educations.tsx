@@ -42,6 +42,7 @@ function Educations() {
         );
     });
 
+    /*
     useEffect(() => {
         anime({
             targets: '.coursesWrapper .course',
@@ -57,6 +58,7 @@ function Educations() {
             easing: 'easeInOutQuad'
           });
     },[displayCourses]);
+    */
 
 
     return (
