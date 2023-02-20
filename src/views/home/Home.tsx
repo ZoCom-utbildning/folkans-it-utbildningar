@@ -26,9 +26,6 @@ function Home({
   interviewData,
   questions,
 }: Props) {
-  //if window width is smaller than 820px
-
-  // TODO: Decide size for blob, remove border on button?
   
   return (
     <div className="home-wrapper">
