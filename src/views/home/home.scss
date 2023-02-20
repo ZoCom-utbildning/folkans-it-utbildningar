@@ -13,17 +13,17 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
     min-height: 70vh;
     height: 70vh;
     width: 100%;
-
+    
     .arrow-container {
       @include flex($display: none, $direction: column);
       cursor: pointer;
       z-index: 2;
     }
-
+    
     .title-h1 {
       color: rgb(246, 246, 246);
       font-size: 2.5rem;
-      margin: 15rem 1.5rem 1rem;
+      margin: 2rem 1.5rem 1rem;
       font-weight: 500;
       z-index: 2;
     }
@@ -78,9 +78,11 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
     background-color: #9f9f9f;
     background-blend-mode: multiply;
     background-size: cover;
-    background-image: linear-gradient(360deg,
+    background-image: linear-gradient(
+        360deg,
         rgba(18, 123, 0, 0.713) 0%,
-        rgba(0, 255, 51, 0.397) 100%),
+        rgba(0, 255, 51, 0.397) 100%
+      ),
       linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%),
       $bg-imageWoman; //Bör flyttas, syns i bakgrunden för views beroende på height.
     @include flex($justify: space-between, $direction: column, $wrap: nowrap);
@@ -172,7 +174,9 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
         width: 50%;
         height: 7rem;
         font-size: 3.5rem;
-        margin: 0 0 0 3rem;
+        margin-top: 0rem;
+        margin-left: 0rem;
+        margin-bottom: 3rem;
         font-weight: 500;
       }
     }
@@ -187,9 +191,11 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       background-color: #9f9f9f;
       background-blend-mode: multiply;
       background-size: cover;
-      background-image: linear-gradient(360deg,
+      background-image: linear-gradient(
+          360deg,
           rgba(18, 123, 0, 0.713) 0%,
-          rgba(0, 255, 51, 0.397) 100%),
+          rgba(0, 255, 51, 0.397) 100%
+        ),
         linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%),
         $bg-imageWoman; //Bör flyttas, syns i bakgrunden för views beroende på height.
       @include flex($justify: space-between, $direction: column, $wrap: nowrap);
