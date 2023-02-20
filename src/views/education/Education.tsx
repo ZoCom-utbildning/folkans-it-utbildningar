@@ -6,6 +6,7 @@ import { eduInfo } from "./eduInfo";
 import { EducationInfo } from '../../models/types';
 import Footer from "../../components/footer/Footer";
 import './education.scss';
+import Blob from '../../components/blob/Blob';
 
 const Education = () => {
     const { educationId } = useParams<string>();
@@ -50,8 +51,9 @@ const Education = () => {
                 {educationInfo}
                 <button className="applyButton">Ansök nu</button>
             </main>
+            <Blob xPos={1.2} yPos={1.8} radius={4.5} opacity={0.2} /> 
             <Footer />
-            <div className="stripeBg"> </div>
+            {/* <div className="stripeBg"> </div> */}
         </div>
     );
 };

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { db } from "../../services/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { EducationInfo } from '../../models/types';
+import Blob from '../../components/blob/Blob';
 
 
 function About() {
@@ -44,8 +45,9 @@ function About() {
                 <h2>Innehåll</h2>
                 <p>Utbildningens innehåll består av både praktiska och teoretiska delar. Kursplaner och studieplaner tas fram tillsammans med näringslivets representanter. Under utbildningen har du utvecklingssamtal med dina lärare för att du ska få den feed-back du behöver för att utvecklas i din kommande yrkesroll.</p>
             </main>
+            <Blob xPos={1.2} yPos={1.8} radius={4.5} opacity={0.2} /> 
             <Footer />
-            <div className="stripeBg"> </div>
+            {/* <div className="stripeBg"> </div> */}
         </div>
     );
 }

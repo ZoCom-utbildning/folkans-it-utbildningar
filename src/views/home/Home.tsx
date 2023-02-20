@@ -2,7 +2,7 @@ import "./home.scss";
 import Typewriter from "typewriter-effect";
 import arrowDown from "../../assets/icons/arrowDown.svg";
 import vscodecomputer from "../../assets/photos/vscodecomputer.webp";
-import Loading from "../../components/loading/Loading";
+import Blob from "../../components/blob/Blob";
 import FormComponent from "../../components/formcomponent/formComponent";
 import TestButton from "../../components/testbutton/testButton";
 import { Persona, Question } from "../../models/types";
@@ -26,32 +26,30 @@ function Home({
   interviewData,
   questions,
 }: Props) {
-  //if window width is smaller than 820px
-
+  
   return (
     <div className="home-wrapper">
-      <Loading />
       <section className="hero-content">
         <h1 className="title-h1">
           <Typewriter
             onInit={(typewriter) => {
               typewriter
-                .changeDelay(50)
-                .changeDeleteSpeed(50)
-                .typeString("Så du är nyfiken på att jobba inom IT-branschen?")
-                .pauseFor(2000)
-                .deleteAll()
-                .typeString(
-                  "Ta testet nedan för att se vad som passar dig bäst!"
+              .changeDelay(50)
+              .changeDeleteSpeed(50)
+              .typeString("Så du är nyfiken på att jobba inom IT-branschen?")
+              .pauseFor(2000)
+              .deleteAll()
+              .typeString(
+                "Ta testet för att se vad som passar dig bäst!"
                 )
-
+                
                 .start();
-            }}
+              }}
           />
         </h1>
-        <div>
+        {/* <div className="buttonWrapper"> */}
           <TestButton buttonText={"TILL TESTET"} />
-        </div>
+        {/* </div> */}
         <section
           className="arrow-container"
           onClick={() => window.scrollTo({ top: 780, behavior: "smooth" })}
@@ -59,6 +57,7 @@ function Home({
           <p>Mer info om testet</p>
           <img src={arrowDown} alt="" className="arrowDown" />
         </section>
+        <Blob xPos={4} yPos={2} radius={4} opacity={0.3} /> 
       </section>
       <main className="home-main">
         <div className="home-main__content">
@@ -75,7 +74,7 @@ function Home({
               detta test som en mer lättsmält väg för dig till att veta vad som
               är rätt för just dig.
             </p>
-            <TestButton buttonText={"ta testet"} />
+            <TestButton buttonText={"Ta Testet"} />
           </section>
           <section className="img-with-text">
             <img src={vscodecomputer} alt="" />

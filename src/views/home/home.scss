@@ -13,18 +13,19 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
     min-height: 70vh;
     height: 70vh;
     width: 100%;
-
+    
     .arrow-container {
       @include flex($display: none, $direction: column);
       cursor: pointer;
+      z-index: 2;
     }
-
+    
     .title-h1 {
       color: rgb(246, 246, 246);
-      z-index: 3;
       font-size: 2.5rem;
       margin: 2rem 1.5rem 1rem;
       font-weight: 500;
+      z-index: 2;
     }
   }
 
@@ -34,12 +35,12 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
     border-bottom: 1px solid rgba(255, 255, 255, 0.1215686275);
     background-color: #1d2025;
     padding: 1.5rem;
+    z-index: 2;
 
     .home-main__content {
       background-color: #1d2025;
       padding: 1rem;
       position: relative;
-      z-index: 2;
 
       .text-content {
         p {

@@ -1,69 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
-import anime from 'animejs';
-import './loading.scss';
+import './blob.scss';
 import '../../scss/_variables.scss';
-import arrow from '../../assets/icons/arrowDown.svg';
+import {Vector} from './vector';
 
-class Vector {
-    x: number;
-    y: number;
-    constructor({ x = 0, y = 0 }) {
-        this.x = x;
-        this.y = y;
-    }
-    add(...vectors: Vector[]) {
-        return vectors.reduce(
-            (acc, curr) => ( new Vector({
-                x: acc.x + curr.x,
-                y: acc.y + curr.y,
-            })),
-            new Vector({
-                x: this.x,
-                y: this.y,
-            })
-        );
-    }
-  
-    sub(p2: { x: number; y: number; }) {
-        return new Vector({
-            x: this.x - p2.x,
-            y: this.y - p2.y,
-        });
-    }
-  
-    mul(n: number) {
-        return new Vector ({
-            x: this.x*n,
-            y: this.y*n,
-        });
-    }
-  
-    dot(v2: this) {
-        return this.x*v2.x + this.y*v2.y;
-    }
-  
-    len() {
-        return Math.sqrt(this.dot(this));
-    }
-    
-    norm() {
-      let len = this.len();
-      return new Vector({
-        x: this.x/len,
-        y: this.y/len,
-      });
-    }
+type Props = {
+    xPos: number;
+    yPos: number;
+    radius: number;
+    opacity: number;
 }
 
-function Loading(this: any) {
+function Blob(this: any, {xPos, yPos, radius, opacity}: Props) {
     // === Defining data ===
-    const [overlayClasses, setOverlayClasses] = useState<string>("loadingOverlay");
     const [canvasWidth, setCanvasWidth] = useState<number>(1000);
     const [canvasHeight, setCanvasHeight] = useState<number>(1000);
-    const [bodyStyle, setBodyStyle] = useState<string>("fixed");
+    // const [bodyStyle, setBodyStyle] = useState<string>("fixed");
     const wrapper: React.MutableRefObject<any> = useRef<any>(null);
     const wrapperHeight: number = wrapper.current?.offsetHeight;
     const wrapperWidth: number = wrapper.current?.offsetWidth;
+    
     let t: number = 0;
     const originalPoints: Vector[] = generateCircle();
     let points: Vector[] = generateCircle();
@@ -95,7 +50,7 @@ function Loading(this: any) {
     function draw(points: string | any[], ctx: any) {
         if(ctx) {
             ctx.beginPath();
-            ctx.fillStyle = "rgba(0, 0, 0, .5)";
+            ctx.fillStyle = `rgba(0, 0, 0, ${opacity})`;
             // ctx.shadowColor = "black";
             // ctx.shadowBlur = 15;
             if (points.length > 0) {
@@ -130,7 +85,7 @@ function Loading(this: any) {
     
     // === creates the blob ===
     // size, x position, y position, how many points the blob has
-    function generateCircle(r = wrapperHeight/5, cx = wrapperWidth/2, cy = wrapperHeight/2, iterations = 200) {
+    function generateCircle(r = wrapperHeight/radius, cx = wrapperWidth/xPos, cy = wrapperHeight/yPos, iterations = 200) {
         const points: Vector[] = [];
         for (let i = 0; i < 2 * Math.PI; i+= 2 * Math.PI / iterations) {
             // Makes the blob more or less wobbly
@@ -216,91 +171,12 @@ function Loading(this: any) {
     });
     
 
-    useEffect(() => {
-        document.querySelector('header')?.classList.add("hidden");
-    }, []);
-    
-    document.body.style.position = bodyStyle;
-    function hideOverlay() {
-        setBodyStyle("");
-        document.querySelector('header')?.classList.remove("hidden");
-
-        setTimeout(() => {
-            setOverlayClasses(overlayClasses + " hidden");
-        }, 700);
-
-        anime({
-            targets: '.loadingOverlay',
-            duration: 700,
-            easing: 'easeOutSine',
-            keyframes: [
-                {
-                    easing: 'linear',
-                    scale: 0.66,
-                    rotateY: 20,
-                    rotateX: 30,
-                    rotateZ: -10,
-                    translateX: -200,
-                    translateY: 200
-                },{
-                    scale: 0.33,
-                    rotateY: 40,
-                    rotateX: 60,
-                    rotateZ: -20,
-                    translateX: 400,
-                    translateY: -400
-                },{
-                    scale: 0,
-                    rotateY: 60,
-                    rotateX: 90,
-                    rotateZ: -30,
-                },{
-                    delay: 1000,
-                    scale: 1,
-                    rotateY: 0,
-                    rotateX: 0,
-                    rotateZ: 0,
-                    translateX: 0,
-                    translateY: 0
-                }
-            ]
-        });
-    }
-
-    anime({
-        targets: '.continueButton',
-        duration: 800,
-        loop: true,
-        easing: 'linear',
-        delay: 5000,
-        keyframes: [
-            { 
-                rotate: '0.02turn',
-                translateX: 10,
-                translateY: 0, 
-            },
-            { 
-                rotate: '-0.04turn',
-                translateX: -10,
-                translateY: 0, 
-            },
-            { 
-                rotate: '0.02turn',
-                translateX: 0 
-            }
-        ]
-    });
-
-
     return (
-        <div className={overlayClasses} ref={wrapper}>
-            <div className="canvasOverlayWrapper">
-                <img src={arrow} className="continueButton" onClick={hideOverlay} />
-            </div>
+        <div className="canvasWrapper" ref={wrapper}>
             <canvas id="canvas" width={canvasWidth} height={canvasHeight} > </canvas>
         </div>
     );
 }
 
 
-export default Loading;
+export default Blob;
