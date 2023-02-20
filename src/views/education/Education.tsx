@@ -1,6 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { db } from "../../services/firebase";
 import { eduInfo } from "./eduInfo";
 import { EducationInfo } from '../../models/types';
@@ -49,11 +49,10 @@ const Education = () => {
                 <p className="ingress">{course.description}</p>
                 <button className="applyButton" onClick={() => openNewTab(course.externalLink)}>Ansök nu</button>
                 {educationInfo}
-                <button className="applyButton">Ansök nu</button>
+                <button className="applyButton" onClick={() => openNewTab(course.externalLink)}>Ansök nu</button>
             </main>
-            <Blob xPos={1.2} yPos={1.8} radius={4.5} opacity={0.2} /> 
+            <Blob xPos={1.2} yPos={1.8} radius={4.5} opacity={0.2} />
             <Footer />
-            {/* <div className="stripeBg"> </div> */}
         </div>
     );
 };
