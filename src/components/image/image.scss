@@ -5,9 +5,10 @@
   @include flex();
   position: relative;
   width: 80%;
+  max-height: 250px;
   margin: $margin-large auto;
   border-radius: $borderRadius;
-  overflow-x: hidden;
+  overflow: hidden;
 
   .gradient {
     position: absolute;
