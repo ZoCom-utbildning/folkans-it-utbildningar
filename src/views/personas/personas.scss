@@ -334,13 +334,36 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                   background-size: cover;
                   background-image: linear-gradient(
                       360deg,
-                      rgba(7, 48, 0, 0.713) 0%,
+                      rgba(18, 123, 0, 0.713) 0%,
                       rgba(0, 255, 51, 0.397) 100%
                     ),
                     linear-gradient(
                       136.33deg,
-                      #003159 20%,
+                      #0763aeb6 20%,
                       rgb(6, 84, 33) 96.25%
+                    ),
+                    url("../../assets/photos/personas/Persona#{$i + 1}.webp");
+                }
+              }
+
+              .darker-background {
+                &:before {
+                  transition-delay: 0.1s * $i;
+                  z-index: 2;
+                  background-position: center;
+                  background-repeat: no-repeat;
+                  background-color: #ffffff;
+                  background-blend-mode: multiply;
+                  background-size: cover;
+                  background-image: linear-gradient(
+                      360deg,
+                      rgba(18, 123, 0, 0.713) 0%,
+                      rgba(0, 255, 51, 0.397) 100%
+                    ),
+                    linear-gradient(
+                      136.33deg,
+                      #062138db 20%,
+                      rgb(0, 107, 37) 96.25%
                     ),
                     url("../../assets/photos/personas/Persona#{$i + 1}.webp");
                 }
