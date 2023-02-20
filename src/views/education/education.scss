@@ -8,13 +8,12 @@
     @include flex($justify: none, $align: none, $direction: column);
     @include lines;
     overflow-x: hidden;
-    padding: $padding-large;
 
     &* { position: relative; }
     background-color: $dark;
     
     main {
-        padding: $padding-large;
+        padding: 2rem;
 
         .applyButton {
             @include formButton;
