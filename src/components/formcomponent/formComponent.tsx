@@ -1,6 +1,6 @@
 import ImageComponent from "../imagecomponent/imageComponent";
 import ContentComponent from "../contentcomponent/contentComponent";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import PersonaContent from "../personacontent/PersonaContent";
 import personasImage1 from "../../assets/photos/personas/Persona1.webp";
 import personasImage2 from "../../assets/photos/personas/Persona2.webp";
@@ -190,7 +190,6 @@ function FormComponent({
               activePersona={activePersona}
               interviewData={interviewData}
             />
-
             {buttonElements}
           </section>
         ) : null}

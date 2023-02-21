@@ -1,13 +1,16 @@
 @import "../../scss/variables.scss";
 @import "../../scss/layout.scss";
 @import "../../scss/global.scss";
+
 .scroll {
   overflow-y: scroll;
   max-height: 48vh;
 }
+
 .personas-main {
   margin: $margin;
 }
+
 .galleryButtons {
   background-color: rgba(41, 39, 39, 0.356);
   width: 100%;
@@ -15,18 +18,18 @@
   justify-content: space-evenly;
   position: fixed;
   bottom: 0;
-  padding: 3rem;
+  margin: 0;
+  padding: calc($padding * 3);
   padding-top: 0rem;
   z-index: 3;
-  margin: 0;
 
   .gallery-btn {
-    appearance: none;
     @include hexagonButton;
+    appearance: none;
     position: relative;
-
     z-index: 3;
   }
+
   input[type="radio"]:checked {
     background-color: rgb(90, 90, 182);
 

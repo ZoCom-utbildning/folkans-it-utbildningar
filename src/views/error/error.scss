@@ -2,10 +2,9 @@
 @import "../../scss/layout";
 
 .errorView {
+    @include flex($direction: column);
     @include maxSize;
     @include lines;
     background-color: $dark;
     padding: 2rem;
-
-    @include flex($direction: column);
 }

@@ -26,7 +26,7 @@ function Home({
   interviewData,
   questions,
 }: Props) {
-  
+
   return (
     <div className="home-wrapper">
       <section className="hero-content">
@@ -34,22 +34,20 @@ function Home({
           <Typewriter
             onInit={(typewriter) => {
               typewriter
-              .changeDelay(50)
-              .changeDeleteSpeed(50)
-              .typeString("Så du är nyfiken på att jobba inom IT-branschen?")
-              .pauseFor(2000)
-              .deleteAll()
-              .typeString(
-                "Ta testet för att se vad som passar dig bäst!"
+                .changeDelay(50)
+                .changeDeleteSpeed(50)
+                .typeString("Så du är nyfiken på att jobba inom IT-branschen?")
+                .pauseFor(2000)
+                .deleteAll()
+                .typeString(
+                  "Ta testet för att se vad som passar dig bäst!"
                 )
-                
+
                 .start();
-              }}
+            }}
           />
         </h1>
-        {/* <div className="buttonWrapper"> */}
-          <TestButton buttonText={"TILL TESTET"} />
-        {/* </div> */}
+        <TestButton buttonText={"TILL TESTET"} />
         <section
           className="arrow-container"
           onClick={() => window.scrollTo({ top: 780, behavior: "smooth" })}
@@ -57,7 +55,7 @@ function Home({
           <p>Mer info om testet</p>
           <img src={arrowDown} alt="" className="arrowDown" />
         </section>
-        <Blob xPos={4} yPos={2} radius={4} opacity={0.3} /> 
+        <Blob xPos={4} yPos={2} radius={4} opacity={0.3} />
       </section>
       <main className="home-main">
         <div className="home-main__content">

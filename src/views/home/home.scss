@@ -8,18 +8,17 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
 
   .hero-content {
     @include flex($direction: column, $justify: space-between, $align: center);
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding: calc($padding-large * 2) 0;
     min-height: 70vh;
     height: 70vh;
     width: 100%;
-    
+
     .arrow-container {
       @include flex($display: none, $direction: column);
       cursor: pointer;
       z-index: 2;
     }
-    
+
     .title-h1 {
       color: rgb(246, 246, 246);
       font-size: 2.5rem;
@@ -39,12 +38,12 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
 
     .home-main__content {
       background-color: #1d2025;
-      padding: 1rem;
+      padding: $padding;
       position: relative;
 
       .text-content {
         p {
-          margin-top: 1rem;
+          margin-top: $margin;
           position: relative;
         }
 
@@ -57,7 +56,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       .img-with-text {
         @include flex($justify: none, $align: none, $direction: column);
         width: 90%;
-        margin: 1rem;
+        margin: $margin;
 
         img {
           width: 100%;
@@ -72,27 +71,25 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
   height: 100vh;
 
   .home-personas-wrapper {
+    @include flex($justify: space-between, $direction: column, $wrap: nowrap);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-color: #9f9f9f;
     background-blend-mode: multiply;
     background-size: cover;
-    background-image: linear-gradient(
-        360deg,
+    background-image: linear-gradient(360deg,
         rgba(18, 123, 0, 0.713) 0%,
-        rgba(0, 255, 51, 0.397) 100%
-      ),
+        rgba(0, 255, 51, 0.397) 100%),
       linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%),
-      $bg-imageWoman; //Bör flyttas, syns i bakgrunden för views beroende på height.
-    @include flex($justify: space-between, $direction: column, $wrap: nowrap);
+      $bg-imageWoman;
 
     .galleryButtons {
       width: 100%;
       display: flex;
       justify-content: space-evenly;
-      padding: 1rem;
-      padding-bottom: 2rem;
+      padding: $padding;
+      padding-bottom: $padding-large;
       position: relative;
       z-index: 3;
 
@@ -122,7 +119,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
   .home-wrapper {
     .home-main {
       background-color: $dark;
-      padding: 1rem;
+      padding: $padding;
       flex: 1;
 
       .home-main__content {
@@ -133,10 +130,10 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
         .text-content {
           @include flex($justify: none, $align: none, $direction: column);
           width: 50%;
-          margin: 1rem;
+          margin: $margin;
 
           p {
-            margin-top: 1rem;
+            margin-top: $margin;
             width: 100%;
           }
         }
@@ -160,7 +157,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
     .hero-content {
       @include flex($justify: space-around, $direction: column, $wrap: nowrap);
       min-height: 100vh;
-      padding: 6rem 0rem 0rem 0rem;
+      padding-top: calc($padding-large * 3);
 
       .arrow-container {
         @include flex($justify: none, $align: center, $direction: column);
@@ -176,12 +173,13 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
         font-size: 3.5rem;
         margin-top: 0rem;
         margin-left: 0rem;
-        margin-bottom: 3rem;
+        margin-bottom: calc($margin * 3);
         font-weight: 500;
       }
     }
 
     .home-personas-wrapper {
+      @include flex($justify: space-between, $direction: column, $wrap: nowrap);
       width: 100%;
       height: 115vh;
       display: flex;
@@ -191,14 +189,11 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       background-color: #9f9f9f;
       background-blend-mode: multiply;
       background-size: cover;
-      background-image: linear-gradient(
-          360deg,
+      background-image: linear-gradient(360deg,
           rgba(18, 123, 0, 0.713) 0%,
-          rgba(0, 255, 51, 0.397) 100%
-        ),
+          rgba(0, 255, 51, 0.397) 100%),
         linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%),
-        $bg-imageWoman; //Bör flyttas, syns i bakgrunden för views beroende på height.
-      @include flex($justify: space-between, $direction: column, $wrap: nowrap);
+        $bg-imageWoman;
 
       .galleryButtons {
         width: 100%;
@@ -209,8 +204,8 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
         bottom: -20%;
 
         .gallery-btn {
-          appearance: none;
           @include hexagonButton;
+          appearance: none;
           position: relative;
         }
 

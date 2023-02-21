@@ -32,7 +32,6 @@ function App() {
 
   const targets = document.getElementsByClassName("image_section");
   function checkMediaQuery() {
-    // Check if the media query is true
     if (window.innerWidth > 820) {
       setIsMobile(false);
       console.log("isMobile: ", isMobile);
@@ -76,8 +75,8 @@ function App() {
       }
     });
   };
-  // swiping animation between personas
 
+  // swiping animation between personas
   const handlers = useSwipeable({
     onSwiped: (eventData) => console.log("User Swiped!", eventData),
     onSwipedLeft: () => swipeLeft(),

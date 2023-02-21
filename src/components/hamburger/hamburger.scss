@@ -6,6 +6,7 @@
   position: fixed;
   left: 1.5rem;
   top: 1.5rem;
+
   .nav-icon {
     width: 60px;
     height: 45px;
@@ -20,6 +21,7 @@
     transition: 0.5s ease-in-out;
     cursor: pointer;
   }
+
   .nav-icon span {
     display: block;
     position: absolute;
@@ -39,6 +41,7 @@
     -o-transition: 0.25s ease-in-out;
     transition: 0.25s ease-in-out;
   }
+
   .nav-icon span:nth-child(1) {
     top: 0;
   }
