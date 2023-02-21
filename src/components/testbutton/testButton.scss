@@ -6,6 +6,7 @@
   @include formButton;
   padding: $padding calc($padding * 7);
   font-size: 1.2rem;
+  margin-bottom: $margin-large;
 }
 
 @media (min-width: $breakpointDesktop) {
