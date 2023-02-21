@@ -31,7 +31,7 @@ function Blob(this: any, { xPos, yPos, radius, opacity }: Props) {
                 setCanvasWidth(wrapperWidth);
                 setCanvasHeight(wrapperHeight);
             }
-        }, "500");
+        }, 500);
     },);
 
     // === Defines canvas ===
