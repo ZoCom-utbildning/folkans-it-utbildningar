@@ -30,6 +30,7 @@ const Personas = ({
   const [contClass, setContClass] = useState("cont s--inactive");
   const [activeEl, setActiveEl] = useState<HTMLDivElement | null>(null);
   const [preview, setPreview] = useState(true);
+  const [backgroundClass, setBackgroundClass] = useState("lighter-background");
 
   const NUM_OF_ELEMENTS: number = interviewData.length;
 
@@ -59,8 +60,10 @@ const Personas = ({
   const toggleClass = (el: HTMLDivElement, className: string) => {
     if (el.classList.contains(className) && !isMobile) {
       el.classList.remove(className);
+      setBackgroundClass("");
     } else {
       el.classList.add(className);
+      setBackgroundClass("darker-background");
     }
   };
 
@@ -89,7 +92,7 @@ const Personas = ({
                     <div key={index} className="el" onClick={handleElClick}>
                       <div className="el__overflow">
                         <div className="el__inner">
-                          <div className="el__bg"></div>
+                          <div className={"el__bg " + backgroundClass}></div>
                           {preview ? (
                             <section className="el__preview-cont">
                               <h2 className="el__heading">
