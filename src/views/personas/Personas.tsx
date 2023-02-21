@@ -52,6 +52,7 @@ const Personas = ({
       console.log(data);
       setTimeout(() => {
         setPreview(false);
+        setBackgroundClass("");
       }, 1350);
       console.log(interviewData);
     }
@@ -60,10 +61,8 @@ const Personas = ({
   const toggleClass = (el: HTMLDivElement, className: string) => {
     if (el.classList.contains(className) && !isMobile) {
       el.classList.remove(className);
-      setBackgroundClass("");
     } else {
       el.classList.add(className);
-      setBackgroundClass("darker-background");
     }
   };
 
@@ -76,6 +75,7 @@ const Personas = ({
       setContClass("cont s__inactive");
       setActiveEl(null);
       setPreview(true);
+      setBackgroundClass("lighter-background");
     }
   };
 

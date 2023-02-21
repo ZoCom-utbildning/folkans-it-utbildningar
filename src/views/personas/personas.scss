@@ -151,13 +151,19 @@ $bg-images: url("../../assets/photos/personas/*.webp");
         top: 0;
         width: $elW;
         height: 100%;
-
         transition: transform $moveAT $expandAT, width $expandAT,
           opacity $moveAT $expandAT, z-index 0s $moveAT + $expandAT;
         will-change: transform, width, opacity;
 
         &:not(.s--active) {
           cursor: pointer;
+          &:hover {
+            .el__bg {
+              &:before {
+                transform: translate3d(0, 2%, 0) scale(1.1);
+              }
+            }
+          }
         }
 
         &__overflow {
@@ -328,18 +334,21 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                   background-color: #ffffff;
                   background-blend-mode: multiply;
                   background-size: cover;
-                  background-image: linear-gradient(360deg,
-                    rgba(7, 48, 0, 0.713) 0%,
-                    rgba(0, 255, 51, 0.397) 100%),
-                  linear-gradient(136.33deg,
-                    #003159 20%,
-                    rgb(6, 84, 33) 96.25%),
-                  url("../../assets/photos/personas/Persona#{$i + 1}.webp");
-
+                  background-image: linear-gradient(
+                      360deg,
+                      rgba(7, 48, 0, 0.713) 0%,
+                      rgba(0, 255, 51, 0.397) 100%
+                    ),
+                    linear-gradient(
+                      136.33deg,
+                      #003159 20%,
+                      rgb(6, 84, 33) 96.25%
+                    ),
+                    url("../../assets/photos/personas/Persona#{$i + 1}.webp");
                 }
               }
 
-              .darker-background {
+              .lighter-background {
                 &:before {
                   transition-delay: 0.1s * $i;
                   z-index: 2;
@@ -355,8 +364,8 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                     ),
                     linear-gradient(
                       136.33deg,
-                      #062138db 20%,
-                      rgb(0, 107, 37) 96.25%
+                      rgba(7, 99, 174, 0.7137254902) 20%,
+                      rgb(6, 84, 33) 96.25%
                     ),
                     url("../../assets/photos/personas/Persona#{$i + 1}.webp");
                 }
@@ -406,7 +415,8 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                     transform: rotate(45deg) translateX(2%);
 
                     @include elActive {
-                      transition: all $closeBtnAT $fullExpandAT cubic-bezier(0.72, 0.09, 0.32, 1.57);
+                      transition: all $closeBtnAT $fullExpandAT
+                        cubic-bezier(0.72, 0.09, 0.32, 1.57);
                       transform: rotate(45deg) translateX(0);
                     }
                   }
@@ -415,7 +425,8 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                     transform: rotate(-45deg) translateX(0%);
 
                     @include elActive {
-                      transition: all $closeBtnAT $fullExpandAT + $closeBtnLineDelay cubic-bezier(0.72, 0.09, 0.32, 1.57);
+                      transition: all $closeBtnAT $fullExpandAT +
+                        $closeBtnLineDelay cubic-bezier(0.72, 0.09, 0.32, 1.57);
                       transform: rotate(-45deg) translateX(0);
                     }
                   }
