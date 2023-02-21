@@ -2,10 +2,17 @@
 @import '../../scss/layout.scss';
 @import '../../scss/global.scss';
 
+
 .quiz_section {
     @include flex($direction: column, $align: space-between);
     position: relative;
     height: 100%;
+
+    .radio_wrapper {
+        .radio_component.margin {
+            margin-bottom: $margin-large*3;
+        }
+    }
 
     .form_question {
         @include flex();
@@ -22,7 +29,7 @@
 
     .nav_container {
         @include flex($justify: center);
-        position: sticky;
+        position: fixed;
         bottom: 0;
         width: 100%;
         margin: 5rem 0 1.2rem 0;
@@ -31,7 +38,7 @@
             @include flex($justify: space-evenly, $direction: row, $align: center);
             margin: 0;
             background-color: rgb(29, 32, 37, 90%);
-            height: 4rem;
+            height: 3rem;
             width: 85%;
 
             p {
@@ -65,6 +72,7 @@
     }
 }
 
+
 .radio_component {
     @include flex($justify: flex-start);
     margin: $margin-small auto;
@@ -94,9 +102,6 @@
     }
 }
 
-.radio_component.margin {
-    margin-bottom: $margin-large;
-}
 
 @media screen and (min-width: $breakpointDesktop) {
     .quiz_section {
@@ -107,12 +112,21 @@
         overflow-y: auto;
         overflow-x: hidden;
 
+        .radio_wrapper {
+
+            .radio_component.margin {
+                margin-bottom: 0;
+            }
+        
+        }
+
         .form_question {
             margin-top: calc($margin * 3);
         }
 
         .nav_container {
             @include flex($justify: center);
+            position: sticky;
             bottom: 1.2rem;
             padding-top: 0;
         }
@@ -181,9 +195,6 @@
     }
 }
 
-.radio_component.margin {
-    margin-bottom: $margin-large;
-}
 
 @media screen and (min-width: 1100px) {
     .quiz_section {
