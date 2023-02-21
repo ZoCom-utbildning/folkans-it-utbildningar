@@ -8,16 +8,14 @@
     @include flex($justify: none, $align: none, $direction: column);
     @include lines;
     overflow-x: hidden;
+    background-color: $dark;
 
     &* {
         position: relative;
     }
 
-    background-color: $dark;
-
     main {
         padding: $padding-large;
-        // z-index: 2;
 
         .coursesWrapper {
             margin: 0;
@@ -38,7 +36,6 @@
                     font-style: italic;
                 }
 
-
                 &:hover,
                 &:active {
                     box-shadow: 0 0 1rem 0 $lightBlue;
@@ -47,7 +44,6 @@
         }
     }
 }
-
 
 @media screen and (min-width: $breakpointDesktop) {
     .educationsView {
@@ -66,5 +62,4 @@
             }
         }
     }
-
 }

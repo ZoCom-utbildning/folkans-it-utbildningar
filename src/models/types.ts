@@ -1,41 +1,30 @@
 // TYPES - QUESTIONAIRE SECTION
-
 export type Optionvalue = {
-
     course: string;
     points: number;
-
-};
+}
 
 export type Option = {
-
     id: string;
     text: string;
     value: Array<Optionvalue>;
-
-};
+}
 
 export type Question = {
-
     alt: string;
     id: number;
     img: string;
     options: Array<Option>;
     text: string;
     type: string;
-
-};
-
+}
 
 // TYPES - RESULTS SECTION
-
 export type ResultsType = {
-
     question: string;
     button: string;
     points: string[];
-
-};
+}
 
 export type CourseScore = {
     course: string;
@@ -52,16 +41,12 @@ export type Links = {
     link: string;
 }
 
-
 // TYPES - PERSONA SECTION
-
 export type Persona = {
-
     age: string;
     desc: string;
     name: string;
     replies: Array<string>;
-
 }
 
 export type PersonaText = {
@@ -70,9 +55,7 @@ export type PersonaText = {
     personaIngress: string;
 }
 
-
 // TYPES - ABOUT/EDUCATION SECTION
-
 export type EducationInfo = {
     applyLink: string;
     description: string;
@@ -82,4 +65,3 @@ export type EducationInfo = {
     location: string;
     name: string;
 }
-
