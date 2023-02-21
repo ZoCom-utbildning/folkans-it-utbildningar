@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./header.scss";
 import Hamburger from "../../components/hamburger/hamburger";
 import anime from "animejs/lib/anime.es.js";
@@ -72,7 +72,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
             <a href="/fragor">TILL TESTET</a>
           </li>
           <li>
-              <a href="/utbildningar">VÅRA UTBILDNINGAR</a>
+            <a href="/utbildningar">VÅRA UTBILDNINGAR</a>
           </li>
           <li>
             <a href="/om">OM OSS</a>
@@ -103,4 +103,5 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
     </header>
   );
 };
+
 export default Header;

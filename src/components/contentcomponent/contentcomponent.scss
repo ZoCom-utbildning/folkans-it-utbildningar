@@ -2,7 +2,6 @@
 @import '../../scss/layout.scss';
 @import '../../scss/global.scss';
 
-
 .quiz_section {
     @include flex($direction: column, $align: space-between);
     position: relative;
@@ -11,7 +10,7 @@
     .form_question {
         @include flex();
         width: 100%;
-        margin-bottom: .5rem;
+        margin-bottom: $margin-small;
 
         h3 {
             height: 100%;
@@ -22,7 +21,6 @@
     }
 
     .nav_container {
-
         @include flex($justify: center);
         position: sticky;
         bottom: 0;
@@ -39,38 +37,35 @@
             p {
                 padding: 0;
             }
-            
+
             img {
                 width: 3rem;
             }
-    
+
             .transparent_true {
                 opacity: 20%;
                 cursor: default;
             }
-    
+
             .transparent_false {
                 opacity: 100%;
                 cursor: pointer;
             }
-    
+
             .hidden_true {
                 opacity: 0%;
                 cursor: default;
             }
-    
+
             .hidden_false {
                 opacity: 100%;
                 cursor: pointer;
             }
         }
-
     }
-
 }
 
 .radio_component {
-
     @include flex($justify: flex-start);
     margin: $margin-small auto;
     position: relative;
@@ -89,11 +84,9 @@
     }
 
     input[type="radio"] {
-
+        @include hexagonButton;
         opacity: 0;
         appearance: none;
-        @include hexagonButton;
-
     }
 
     &:has(input[type="radio"]:checked) {
@@ -102,29 +95,26 @@
 }
 
 .radio_component.margin {
-    margin-bottom: 2rem;
+    margin-bottom: $margin-large;
 }
 
 @media screen and (min-width: $breakpointDesktop) {
-
     .quiz_section {
-        width: 50%;
         @include flex($direction: column, $justify: space-between, $align: normal);
+        width: 50%;
         height: 100%;
         margin: auto;
         overflow-y: auto;
         overflow-x: hidden;
 
         .form_question {
-
             margin-top: calc($margin * 3);
-
         }
 
         .nav_container {
+            @include flex($justify: center);
             bottom: 1.2rem;
             padding-top: 0;
-            @include flex($justify: center);
         }
 
         &::-webkit-scrollbar {
@@ -146,37 +136,29 @@
         }
     }
 
-
     .radio_wrapper {
-
         position: relative;
         max-height: 30rem;
 
         .radio_component>p {
-
             font-size: 1rem;
             line-height: 130%;
             width: 90%;
             margin: 0px 5px 0px 50px;
-
         }
 
         .radio_component {
             input[type="radio"] {
-
+                @include hexagonButton;
                 opacity: 1;
                 appearance: none;
-                @include hexagonButton;
-
             }
 
             &:hover {
                 background-color: rgb(255, 255, 255, .16);
-        
             }
 
             input[type="radio"]:checked {
-
                 background-color: rgb(90, 90, 182);
 
                 &::before {
@@ -186,15 +168,12 @@
                 &::after {
                     border-top: 7.5px solid rgb(90, 90, 182);
                 }
-
             }
         }
     }
 
     .quiz_nav {
-
         margin-top: $margin-large;
-
 
         img {
             cursor: pointer;
@@ -203,14 +182,13 @@
 }
 
 .radio_component.margin {
-    margin-bottom: 2rem;
+    margin-bottom: $margin-large;
 }
 
 @media screen and (min-width: 1100px) {
-
     .quiz_section {
-        width: 50%;
         @include flex($direction: column, $justify: space-between, $align: normal);
+        width: 50%;
         height: 100%;
         margin: auto;
     }
@@ -219,25 +197,19 @@
         position: relative;
         max-height: 30rem;
 
-
         .radio_component>p {
-
             font-size: 1rem;
             line-height: 150%;
-
         }
 
         .radio_component {
             input[type="radio"] {
-
+                @include hexagonButton;
                 opacity: 1;
                 appearance: none;
-                @include hexagonButton;
-
             }
 
             input[type="radio"]:checked {
-
                 background-color: rgb(90, 90, 182);
 
                 &::before {
@@ -247,14 +219,11 @@
                 &::after {
                     border-top: 7.5px solid rgb(90, 90, 182);
                 }
-
             }
-
         }
     }
 
     .quiz_nav {
-
         margin-top: $margin-large;
 
         img {
@@ -262,6 +231,3 @@
         }
     }
 }
-
-
-

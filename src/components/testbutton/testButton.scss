@@ -4,7 +4,7 @@
 
 .homeButton {
   @include formButton;
-  padding: 1rem 7rem;
+  padding: $padding calc($padding * 7);
   font-size: 1.2rem;
 }
 

@@ -1,5 +1,5 @@
 import "./hamburger.scss";
-import anime from "animejs/lib/anime.es.js";
+
 type Props = {
   navOpen: boolean;
   setNavOpen: (navOpen: boolean) => void;

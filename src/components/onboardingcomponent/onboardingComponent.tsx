@@ -1,14 +1,10 @@
 import './onboardingComponent.scss';
 
-
 type Props = {
     startTest: () => void;
 }
 
 const OnboardingComponent = ({ startTest }: Props) => {
-
-
-
     return (
         <div className="results_wrapper">
             <section className="results_points">

@@ -34,13 +34,12 @@ body::-webkit-scrollbar-thumb {
 /* Handle on hover */
 body::-webkit-scrollbar-thumb:hover {
   background: $scrollHover;
-
 }
 
 .App {
+  @include maxSize;
   overflow-wrap: break-word;
   hyphenate-character: "-";
-  @include maxSize;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -58,7 +57,6 @@ li {
   padding-left: $padding-small;
   margin-left: $margin;
 }
-
 
 @mixin formButton {
   @include flex;
@@ -94,7 +92,7 @@ li {
   background-color: rgb(79, 77, 77);
   width: 26px;
   height: 15px;
-  margin: 0.5rem;
+  margin: $margin-small;
 
   &::before {
     content: "";
@@ -133,15 +131,14 @@ li {
 }
 
 @mixin stripes($stripes-background-size: $stripes-background-size) {
-
   background-image: linear-gradient(45deg, rgb(221, 221, 221, 50%) 5.56%, $dark 5.56%, $dark 50%,
       rgb(221, 221, 221, 50%) 50%, rgb(221, 221, 221, 50%) 55.56%, $dark 55.56%, $dark 100%);
-
   background-size: $stripes-background-size;
 }
 
 @media screen and (min-width: 1500px) {
   .stripeBg {
+    @include stripes;
     position: absolute;
     z-index: 1;
     width: 18%;
@@ -149,6 +146,5 @@ li {
     top: 4rem;
     bottom: 1rem;
     opacity: .6;
-    @include stripes;
   }
 }
