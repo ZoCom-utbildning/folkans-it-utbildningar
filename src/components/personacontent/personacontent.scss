@@ -29,8 +29,9 @@
             margin-bottom: $margin-large;
           }
 
-          span {
+          .question-title {
             font-weight: 600;
+            font-size: calc($baseline * 1.5);
           }
 
           .card-text-container {
