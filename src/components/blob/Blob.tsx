@@ -26,10 +26,12 @@ function Blob(this: any, { xPos, yPos, radius, opacity }: Props) {
 
     // TODO: Figure out a way to update this.
     useEffect(() => {
-        if (wrapper.current) {
-            setCanvasWidth(wrapperWidth);
-            setCanvasHeight(wrapperHeight);
-        }
+        setTimeout(() => {
+            if (wrapper.current) {
+                setCanvasWidth(wrapperWidth);
+                setCanvasHeight(wrapperHeight);
+            }
+        }, "500");
     },);
 
     // === Defines canvas ===
