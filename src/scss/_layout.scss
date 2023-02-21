@@ -6,14 +6,11 @@
   align-items: center;
 }
 
-// Ersätta .viewWrapper med denna?
-@mixin flex(
-  $display: flex,
+@mixin flex($display: flex,
   $justify: center,
   $align: center,
   $direction: row,
-  $wrap: nowrap
-) {
+  $wrap: nowrap) {
   display: $display;
   justify-content: $justify;
   align-items: $align;
@@ -33,12 +30,13 @@
 }
 
 @mixin radioMargin {
-  margin-top: 0.5rem;
+  margin-top: $margin-small;
   margin-left: 12.5%;
 }
 
 @mixin lines($z-index: 1) {
   position: relative;
+
   & * {
     z-index: 2;
   }
@@ -54,6 +52,7 @@
     border-right: 0.1rem solid $borderColor;
     z-index: $z-index;
   }
+
   &::after {
     content: "";
     position: absolute;

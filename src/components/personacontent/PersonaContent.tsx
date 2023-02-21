@@ -4,7 +4,6 @@ import { PersonaText } from "../../models/types";
 
 type Props = {
   activePersona: number;
-
   interviewData: JSX.Element[];
 };
 function PersonaContent({ activePersona, interviewData }: Props) {

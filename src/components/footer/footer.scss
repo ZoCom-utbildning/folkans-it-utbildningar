@@ -2,22 +2,19 @@
 @import "../../scss/layout";
 
 footer {
-
-    // All the lines or just the top?
-    // @include lines;
+    @include flex($justify: space-evenly, $wrap: wrap);
     border-top: 1px solid $borderColor;
-
     padding: $padding-large;
     background-color: $dark;
-
-    @include flex($justify: space-evenly, $wrap: wrap);
 
     #folkanImg {
         max-height: $baseline*3.5;
     }
+
     #zocomImg {
         max-height: $baseline*2;
     }
+
     img {
         margin: $margin-small;
     }

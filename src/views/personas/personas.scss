@@ -3,25 +3,24 @@
 $bg-images: url("../../assets/photos/personas/*.webp");
 
 .personasView-container {
+  @include lines;
   width: 100%;
-  background-color: $dark;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  @include lines;
   background-color: $dark;
 
   .personasView {
+    @include lines;
     width: 100%;
     height: 400%;
-    @include lines;
     background-color: $dark;
 
     .cont {
       padding: 2.5rem;
 
       .el {
-        padding: 1rem;
+        padding: $padding;
         border: 1px solid gray;
         border-bottom: none;
 
@@ -59,9 +58,9 @@ $bg-images: url("../../assets/photos/personas/*.webp");
       contain-intrinsic-size: 1px 5000px;
 
       .personas-card {
+        display: flex;
         width: 100%;
         height: 100%;
-        display: flex;
         flex-direction: column;
         text-align: center;
         gap: 2.5rem;
@@ -70,13 +69,12 @@ $bg-images: url("../../assets/photos/personas/*.webp");
         border: 2px solid rgba(255, 255, 255, 0);
 
         .personas-card-header {
-          margin-top: 1rem;
+          display: flex;
           width: 100%;
           height: 10%;
-          display: flex;
+          margin-top: $margin;
           flex-direction: column;
           justify-content: center;
-
           text-align: center;
         }
 
@@ -99,21 +97,19 @@ $bg-images: url("../../assets/photos/personas/*.webp");
 
 @media screen and (min-width: 820px) {
   .personasView-container {
-    width: 100%;
-    background-color: $dark;
-    height: 100vh;
+    @include lines;
     display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: $dark;
     margin-top: 0;
     justify-content: flex-start;
     flex-direction: column;
 
-    @include lines;
-    background-color: $dark;
-
     .personasView {
+      @include lines;
       width: 100%;
       height: 400%;
-      @include lines;
       background-color: $dark;
 
       .cont {
@@ -332,17 +328,14 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                   background-color: #ffffff;
                   background-blend-mode: multiply;
                   background-size: cover;
-                  background-image: linear-gradient(
-                      360deg,
-                      rgba(18, 123, 0, 0.713) 0%,
-                      rgba(0, 255, 51, 0.397) 100%
-                    ),
-                    linear-gradient(
-                      136.33deg,
-                      #0763aeb6 20%,
-                      rgb(6, 84, 33) 96.25%
-                    ),
-                    url("../../assets/photos/personas/Persona#{$i + 1}.webp");
+                  background-image: linear-gradient(360deg,
+                    rgba(7, 48, 0, 0.713) 0%,
+                    rgba(0, 255, 51, 0.397) 100%),
+                  linear-gradient(136.33deg,
+                    #003159 20%,
+                    rgb(6, 84, 33) 96.25%),
+                  url("../../assets/photos/personas/Persona#{$i + 1}.webp");
+
                 }
               }
 
@@ -413,8 +406,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                     transform: rotate(45deg) translateX(2%);
 
                     @include elActive {
-                      transition: all $closeBtnAT $fullExpandAT
-                        cubic-bezier(0.72, 0.09, 0.32, 1.57);
+                      transition: all $closeBtnAT $fullExpandAT cubic-bezier(0.72, 0.09, 0.32, 1.57);
                       transform: rotate(45deg) translateX(0);
                     }
                   }
@@ -423,8 +415,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                     transform: rotate(-45deg) translateX(0%);
 
                     @include elActive {
-                      transition: all $closeBtnAT $fullExpandAT +
-                        $closeBtnLineDelay cubic-bezier(0.72, 0.09, 0.32, 1.57);
+                      transition: all $closeBtnAT $fullExpandAT + $closeBtnLineDelay cubic-bezier(0.72, 0.09, 0.32, 1.57);
                       transform: rotate(-45deg) translateX(0);
                     }
                   }
@@ -479,7 +470,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                     border: 2px solid rgba(255, 255, 255, 0);
 
                     .personas-card-header {
-                      margin-top: 1rem;
+                      margin-top: $margin;
                       width: 100%;
                       height: 100%;
                       display: flex;
@@ -567,4 +558,4 @@ $bg-images: url("../../assets/photos/personas/*.webp");
       }
     }
   }
-} ;
+}

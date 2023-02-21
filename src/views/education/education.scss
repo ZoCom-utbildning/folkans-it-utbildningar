@@ -8,10 +8,12 @@
     @include flex($justify: none, $align: none, $direction: column);
     @include lines;
     overflow-x: hidden;
-
-    &* { position: relative; }
     background-color: $dark;
-    
+
+    &* {
+        position: relative;
+    }
+
     main {
         padding: $padding-large;
 
@@ -32,13 +34,11 @@
     }
 }
 
-
 @media screen and (min-width: $breakpointDesktop) {
     .educationView {
         main {
             max-width: 50rem;
-            margin: $margin*8 auto 0;
+            margin: calc($margin * 8) auto 0;
         }
     }
-
-} 
+}

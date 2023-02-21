@@ -17,7 +17,6 @@ type Props = {
   increaseQuestion: (toggle: boolean, shakeAnimation: AnimeInstance) => void;
 };
 
-
 function ContentComponent({
   questions,
   formText,
@@ -138,16 +137,12 @@ function ContentComponent({
     (async () => {
       const user = auth.currentUser?.uid;
       console.log("user uid", user);
-
       await setDoc(doc(db, "answers", `${user}`), {
         user: `${user}`,
         answers: resultsArray
       });
-
     })();
-
   }, [questionId]);
-
 
   const radioClicked = (number: any) => {
     setButtonId(number);
