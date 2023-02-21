@@ -16,14 +16,14 @@ function TestButton({ buttonText }: Props) {
       navigate("/fragor");
     }
   }
-  
-    return (
-        <>
-            <button className="homeButton" onClick={() => navToTest()}>
-                {buttonText}
-            </button>
-        </>
-    );
+
+  return (
+    <>
+      <button className="homeButton" onClick={() => navToTest()}>
+        {buttonText}
+      </button>
+    </>
+  );
 }
 
 export default TestButton;
