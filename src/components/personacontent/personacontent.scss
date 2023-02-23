@@ -143,12 +143,6 @@
 
             cursor: pointer;
           }
-          .left-arrow {
-            left: -2rem;
-          }
-          .right-arrow {
-            right: -2rem;
-          }
         }
         .personasButton {
           @include formButton;
