@@ -165,7 +165,7 @@ function FormComponent({
     if (questions.length > 0) {
 
       if (playFade === false) {
-
+        setLastPage(false);
         fadeFunction(questionId + 1);
         navigate(`/fragor/${questionId + 1}`);
 
