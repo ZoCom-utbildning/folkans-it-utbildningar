@@ -2,11 +2,12 @@
 @import "../../scss/layout.scss";
 
 .burger-icon {
-  z-index: 5;
-  position: fixed;
-  left: 1.5rem;
-  top: 1.5rem;
-
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  margin-left: 1rem;
   .nav-icon {
     width: 60px;
     height: 45px;

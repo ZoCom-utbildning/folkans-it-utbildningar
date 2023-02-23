@@ -86,7 +86,9 @@
     background-color: transparent;
 
     .card_content {
-      @include lines($z-index: 1); //TODO enbart 1 funkar, 3 går över imageComponent men täcker knappar
+      @include lines(
+        $z-index: 1
+      ); //TODO enbart 1 funkar, 3 går över imageComponent men täcker knappar
       @include flex($direction: row-reverse);
       box-shadow: $shadow;
       width: 80%;
@@ -100,6 +102,7 @@
         height: 100%;
         border: none;
         border-radius: $borderRadius;
+        z-index: 2;
       }
 
       .image_section {
@@ -107,10 +110,12 @@
         width: 50%;
         margin: auto;
         padding: 0;
+        z-index: 0;
 
         .gradientImageWrapper,
         .image {
           min-height: none;
+          z-index: 0;
           max-height: none;
         }
       }

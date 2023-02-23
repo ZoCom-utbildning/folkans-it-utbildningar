@@ -18,6 +18,7 @@ type Props = {
   buttonElements: JSX.Element;
   interviewData: JSX.Element[];
   questions: Question[];
+  setActivePersona: (activePersona: number) => void;
 };
 
 function FormComponent({
@@ -25,6 +26,7 @@ function FormComponent({
   buttonElements,
   questions,
   interviewData,
+  setActivePersona,
 }: Props) {
   const [questionId, setQuestionId] = useState<number>(0);
   const [formText, setFormText] = useState<string>("");
@@ -187,6 +189,7 @@ function FormComponent({
           <section className="persona-card-content">
             <ImageComponent formImage={formImage} altImage={altImage} />
             <PersonaContent
+              setActivePersona={setActivePersona}
               activePersona={activePersona}
               interviewData={interviewData}
             />

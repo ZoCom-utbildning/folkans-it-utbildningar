@@ -8,10 +8,12 @@
   justify-content: space-between;
   min-height: 60vh;
 
+  .arrow-wrapper {
+    display: none;
+  }
+
   .persona-card-content {
-    margin-top: 0rem;
-    margin-left: $margin;
-    margin-right: $margin;
+    padding: $margin;
     min-height: 62vh;
 
     .personas-main {
@@ -69,6 +71,7 @@
       @include flex($direction: column, $justify: space-between);
       height: 100%;
       gap: $margin;
+      z-index: 5;
 
       .persona-ingress {
         hyphens: auto;
@@ -110,6 +113,7 @@
   .persona-card-content {
     min-height: auto;
     flex: 1;
+    z-index: 1;
 
     .persona-cards {
       width: 100%;
@@ -129,7 +133,27 @@
         @include flex($justify: center, $align: center);
         width: 100%;
         height: 100%;
+        .arrow-wrapper {
+          z-index: 5;
+          position: absolute;
+          bottom: -90%;
+          left: 20%;
+          width: 10%;
+          height: 100%;
+          display: flex;
 
+          img {
+            z-index: 7;
+            position: absolute;
+            cursor: pointer;
+          }
+          .left-arrow {
+            left: -2rem;
+          }
+          .right-arrow {
+            right: -2rem;
+          }
+        }
         .personasButton {
           @include formButton;
           padding: $padding $padding;

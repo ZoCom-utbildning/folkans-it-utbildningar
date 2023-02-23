@@ -221,6 +221,7 @@ function App() {
           path="/fragor"
           element={
             <Form
+              setActivePersona={setActivePersona}
               interviewData={interviewData}
               activePersona={activePersona}
               buttonElements={buttonElements}
@@ -232,6 +233,7 @@ function App() {
           path="/"
           element={
             <Home
+              setActivePersona={setActivePersona}
               questions={questions}
               data={data}
               interviewData={interviewData}
@@ -245,6 +247,7 @@ function App() {
           path="/personer"
           element={
             <Personas
+              setActivePersona={setActivePersona}
               isMobile={isMobile}
               questions={questions}
               scrollClass={scrollClass}

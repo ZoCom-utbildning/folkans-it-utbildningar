@@ -6,6 +6,7 @@ type Props = {
   navClass: string;
   setNavClass: (navClass: string) => void;
   animateOverlay: () => void;
+  setMobileHeader: (mobileHeader: string) => void;
 };
 
 const Hamburger = ({
@@ -14,6 +15,7 @@ const Hamburger = ({
   setNavOpen,
   navOpen,
   animateOverlay,
+  setMobileHeader,
 }: Props) => {
   const toggleNav = () => {
     // om navOpen är false när funktionen körs
@@ -22,12 +24,14 @@ const Hamburger = ({
       setNavClass("nav-icon open");
       // nav nu öppen, sätter navOpen till true
       setNavOpen(true);
+      setMobileHeader("");
     } else {
       // annars betyder det att användaren vill stänga menyn,
       // tar bort klasser för öppen och ändrar tillbaka till hamburgaren
       animateOverlay();
       setNavOpen(false);
       setNavClass("nav-icon");
+      setMobileHeader("mobile-header");
     }
   };
 

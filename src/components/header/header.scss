@@ -2,8 +2,18 @@
 @import "../../scss/layout.scss";
 
 .header {
-  background-color: rgba(255, 255, 255, 0);
-  z-index: 5;
+  background-color: rgba(0, 47, 10, 0.104);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+  z-index: 4;
+  height: 10vh;
+  width: 100%;
+  position: fixed;
+  background-color: rgba(0, 47, 10, 0);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+  top: 0;
+  border-bottom: 1px solid $lightTransparent;
 
   nav {
     ul {
@@ -17,7 +27,7 @@
     height: 100vh;
     width: 100vw;
     position: fixed;
-    z-index: 4;
+    z-index: 5;
     transform: translateX(-1000px);
 
     ul {
@@ -42,13 +52,34 @@
   }
 }
 
+.mobile-header {
+  height: 10vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+}
+
+.hamburger {
+  right: 0;
+  margin-right: $margin-large;
+
+  &::before {
+    border-bottom: 7.5px solid $darkBlue;
+  }
+
+  &::after {
+    border-top: 7.5px solid $darkBlue;
+  }
+}
+
 @media screen and (min-width: calc($breakpointDesktop*1.2)) {
   .header {
     position: fixed;
     transition: 0.4s;
     width: 100%;
     height: 6.5vh;
-    min-height: calc($baseline*4);
+    min-height: calc($baseline * 4);
 
     .overlay {
       display: none;
@@ -65,7 +96,7 @@
         @include flex($justify: space-evenly);
         width: 100%;
         height: 6.5vh;
-        min-height: calc($baseline*4);
+        min-height: calc($baseline * 4);
 
         li {
           list-style: none;

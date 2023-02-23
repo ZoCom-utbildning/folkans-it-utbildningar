@@ -11,6 +11,7 @@ type Props = {
 };
 const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
   const [headerBackground, setHeaderBackground] = useState<string>("header");
+  const [mobileHeader, setMobileHeader] = useState<string>("mobile-header");
   function animateOverlay() {
     if (!navOpen) {
       anime({
@@ -52,8 +53,9 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
   }
 
   return (
-    <header className={headerBackground}>
+    <header className={headerBackground + " " + mobileHeader}>
       <Hamburger
+        setMobileHeader={setMobileHeader}
         navOpen={navOpen}
         setNavOpen={setNavOpen}
         navClass={navClass}
