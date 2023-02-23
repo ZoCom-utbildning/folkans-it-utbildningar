@@ -11,6 +11,7 @@ function TestButton({ buttonText }: Props) {
   function navToTest() {
     if (window.location.href.includes("fragor")) {
       localStorage.removeItem("resultsArray");
+      navigate("/fragor/onboarding");
       window.location.reload();
     } else if (window.location.href.includes("")) {
       navigate("/fragor/onboarding");

@@ -27,7 +27,7 @@
             line-height: 120%;
         }
 
-        .start_button {
+        .start_button, .result_button {
             @include formButton;
             align-self: center;
             margin: $margin-large;
