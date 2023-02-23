@@ -31,8 +31,8 @@ function Blob(this: any, { xPos, yPos, radius, opacity }: Props) {
                 setCanvasWidth(wrapperWidth);
                 setCanvasHeight(wrapperHeight);
             }
-        }, 500);
-    },);
+        })
+    });
 
     // === Defines canvas ===
     // Note: not using useRef(); because I haven't figured out how to get it as the correct type; HTMLCanvasElement.
