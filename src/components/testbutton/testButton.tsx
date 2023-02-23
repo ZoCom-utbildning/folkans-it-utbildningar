@@ -13,7 +13,7 @@ function TestButton({ buttonText }: Props) {
       localStorage.removeItem("resultsArray");
       window.location.reload();
     } else if (window.location.href.includes("")) {
-      navigate("/fragor");
+      navigate("/fragor/onboarding");
     }
   }
 
