@@ -74,10 +74,14 @@
         width: 100%;
         z-index: 3;
 
+        h2 {
+            margin-top: $margin;
+        }
+
         .results_points {
             @include flex($direction: column, $align: space-evenly);
             margin-top: 0;
-            width: 60%;
+            width: 75%;
             height: 100%;
 
             .button_container {
@@ -100,6 +104,7 @@
         }
 
     }
+
 }
 
 @media screen and (min-width: 1100px) {
