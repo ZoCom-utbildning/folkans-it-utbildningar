@@ -16,6 +16,9 @@
 
     main {
         padding: $padding-large;
+        h2, h3 {
+            margin-top: $margin-large;
+        }
     }
 }
 
