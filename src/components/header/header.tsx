@@ -11,7 +11,7 @@ type Props = {
 };
 const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
   const [headerBackground, setHeaderBackground] = useState<string>("header");
-  const [mobileHeader, setMobileHeader] = useState<string>("mobile-header");
+
   function animateOverlay() {
     if (!navOpen) {
       anime({
@@ -53,9 +53,8 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
   }
 
   return (
-    <header className={headerBackground + " " + mobileHeader}>
+    <header className={headerBackground}>
       <Hamburger
-        setMobileHeader={setMobileHeader}
         navOpen={navOpen}
         setNavOpen={setNavOpen}
         navClass={navClass}
@@ -68,7 +67,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
             <a href="/">HEM</a>
           </li>
           <li>
-            <a href="/personer">VÅRA STUDENTER</a>
+            <a href="/personer">VÅRA STUDERANDE</a>
           </li>
           <li>
             <a href="/fragor/onboarding">TILL TESTET</a>
@@ -88,7 +87,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
               <a href="/">HEM</a>
             </li>
             <li>
-              <a href="/personer">VÅRA STUDENTER</a>
+              <a href="/personer">VÅRA STUDERANDE</a>
             </li>
             <li>
               <a href="/fragor/onboarding">TILL TESTET</a>
