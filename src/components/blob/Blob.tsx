@@ -26,11 +26,13 @@ function Blob(this: any, { xPos, yPos, radius, opacity }: Props) {
 
     // TODO: Figure out a way to update this.
     useEffect(() => {
-        if (wrapper.current) {
-            setCanvasWidth(wrapperWidth);
-            setCanvasHeight(wrapperHeight);
-        }
-    },);
+        setTimeout(() => {
+            if (wrapper.current) {
+                setCanvasWidth(wrapperWidth);
+                setCanvasHeight(wrapperHeight);
+            }
+        })
+    });
 
     // === Defines canvas ===
     // Note: not using useRef(); because I haven't figured out how to get it as the correct type; HTMLCanvasElement.

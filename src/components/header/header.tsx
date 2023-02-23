@@ -71,7 +71,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
             <a href="/personer">VÅRA STUDENTER</a>
           </li>
           <li>
-            <a href="/fragor">TILL TESTET</a>
+            <a href="/fragor/onboarding">TILL TESTET</a>
           </li>
           <li>
             <a href="/utbildningar">VÅRA UTBILDNINGAR</a>
@@ -91,7 +91,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
               <a href="/personer">VÅRA STUDENTER</a>
             </li>
             <li>
-              <a href="/fragor">TILL TESTET</a>
+              <a href="/fragor/onboarding">TILL TESTET</a>
             </li>
             <li>
               <a href="/utbildningar">VÅRA UTBILDNINGAR</a>
