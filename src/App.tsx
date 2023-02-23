@@ -218,7 +218,7 @@ function App() {
         <Route path="/utbildningar/:educationId" element={<Education />} />
         <Route path="/*" element={<Error />} />
         <Route
-          path="/fragor"
+          path="/fragor/:pageId"
           element={
             <Form
               interviewData={interviewData}

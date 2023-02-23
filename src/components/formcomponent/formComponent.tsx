@@ -12,6 +12,7 @@ import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
 import "./formComponent.scss";
 import anime, { AnimeInstance } from "animejs";
 import { Question } from "../../models/types";
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   activePersona: number;
@@ -34,6 +35,8 @@ function FormComponent({
   const [firstPage, setFirstPage] = useState<boolean>(false);
   const [firstQuestion, setFirstQuestion] = useState<boolean>(true);
   const [playFade, setPlayFade] = useState<boolean>(false);
+
+  const navigate = useNavigate();
 
   const fadeFunction = (newQuestionId: number) => {
     setPlayFade(true);
@@ -62,6 +65,7 @@ function FormComponent({
           setQuestionId(newQuestionId);
         } else {
           setLastPage(true);
+          navigate('/fragor/result');
         }
         fadeOut.play();
       },
@@ -135,6 +139,7 @@ function FormComponent({
       if (playFade === false) {
         fadeFunction(questionId + 1);
       }
+      navigate(`/fragor/${questionId + 1}`);
     }
 
     if (buttonCheck == false) {
@@ -143,17 +148,25 @@ function FormComponent({
   };
 
   const decreaseQuestion = () => {
+
     if (questionId > 1) {
       if (playFade === false) {
         fadeFunction(questionId - 1);
       }
+
+      navigate(`/fragor/${questionId - 1}`);
     }
   };
 
   const startTest = () => {
+
     if (questions.length > 0) {
+
       if (playFade === false) {
+
         fadeFunction(questionId + 1);
+        navigate(`/fragor/${questionId + 1}`);
+
       }
     }
   };
