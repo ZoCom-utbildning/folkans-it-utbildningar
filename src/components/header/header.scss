@@ -80,6 +80,7 @@
     width: 100%;
     height: 6.5vh;
     min-height: calc($baseline * 4);
+    border-bottom: none;
 
     .overlay {
       display: none;
@@ -120,5 +121,6 @@
 
   .background {
     z-index: 5;
+    border-bottom: 1px solid $lightTransparent;
   }
 }

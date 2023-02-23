@@ -71,7 +71,7 @@
       @include flex($direction: column, $justify: space-between);
       height: 100%;
       gap: $margin;
-      z-index: 5;
+      z-index: 2;
 
       .persona-ingress {
         hyphens: auto;

@@ -36,6 +36,7 @@
     background-color: transparent;
     justify-content: center;
     flex-direction: column;
+    overflow-y: hidden;
 
     .card_content {
       @include lines;
