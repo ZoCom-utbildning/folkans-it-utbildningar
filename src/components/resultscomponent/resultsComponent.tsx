@@ -5,10 +5,18 @@ import { auth, db } from "../../services/firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import { CourseScore, Links, ResultsType } from '../../models/types';
 import ResultToggleComponent from './resultToggleComponent';
+import { useNavigate } from 'react-router-dom';
 
-const ResultsComponent = () => {
+type Props = {
+    setQuestionId: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const ResultsComponent = ({ setQuestionId }: Props) => {
+
     const courseScore: Array<CourseScore> = [];
     const loadResults: ResultsType[] = JSON.parse(localStorage.getItem("resultsArray")!);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         (async () => {
@@ -114,6 +122,11 @@ const ResultsComponent = () => {
 
     const courseScoreSorted: CourseScore[] = courseScore.sort((a: any, b: any) => b.points - a.points);
 
+    const gotoOnboarding = () => {
+        setQuestionId(0);
+        navigate('/fragor/onboarding');
+    }
+
     return (
         <div className="results_wrapper">
             <section className="results_section">
@@ -126,7 +139,7 @@ const ResultsComponent = () => {
                     })
                 }
                 <div className="results-button-container">
-                    <TestButton buttonText={'Ta testet igen'} />
+                    <button onClick={ gotoOnboarding }>Ta testet igen</button>
                 </div>
             </section>
         </div>

@@ -133,10 +133,20 @@
             margin-bottom: 1.5rem;
             height: 8rem;
 
-            .homeButton {
-                width: 13rem;
-                margin: 0;
-                padding: $padding-small;
+            button {
+                @include formButton;
+                align-self: center;
+                margin: $margin-large;
+                height: 2.5rem;
+                font-size: $baseline;
+                box-shadow: none;
+                padding: $padding;
+                width: 12rem;
+    
+                &:focus {
+                    transform: scale(1.1);
+                    border-color: rgb(90, 90, 182);
+                }
             }
         }
     }
@@ -284,10 +294,6 @@
             .results-button-container {
                 margin-top: $margin;
 
-                .homeButton {
-                    width: 14rem;
-                    margin: 0;
-                }
             }
         }
     }

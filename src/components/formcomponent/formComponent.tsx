@@ -196,7 +196,7 @@ function FormComponent({
           </>
         ) : window.location.href.includes("fragor") && lastPage ?  (
           <>
-            <ResultsComponent />
+            <ResultsComponent setQuestionId={setQuestionId}/>
           </>
         ) : window.location.href.includes("") ? (
           <section className="persona-card-content">
