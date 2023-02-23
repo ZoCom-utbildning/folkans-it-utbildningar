@@ -37,16 +37,20 @@ const OnboardingComponent = ({ startTest, questions, setLastPage, setQuestionId 
                 <p className='onboarding_text'> Det finns inget rätt eller fel, utan svara med det svarsalternativ som känns mest rätt för hur just du ser på frågan. </p>
                 <p className='onboarding_text'> När du svarat på frågorna kommer du att få ett resultat, där fem utbildningar rangordnas efter hur du svarat på frågorna. </p>
                 <p className='onboarding_text'> Detta är så klart bara en rekommendation, men det är samtidigt vår kvalificerade gissning för vilken utbildning vi tror är mest rätt för just dig. </p>
-                <button className={'start_button'} onClick={() => startTest()}>
-                    Starta testet
-                </button>
-                {
-                    loadResults.length !== questions.length
-                    ?
-                    ''
-                    :
-                    <button className={`result_button`}onClick={gotoResult}>Se senaste resultat</button>
-                }
+
+                <section className="button_container">
+                    <button className={'start_button'} onClick={() => startTest()}>
+                        Starta testet
+                    </button>
+                    {
+                        loadResults.length !== questions.length
+                        ?
+                        ''
+                        :
+                        <button className={`result_button`}onClick={gotoResult}>Se senaste resultat</button>
+                    }
+                </section>
+        
             </section>
         </div>
     )

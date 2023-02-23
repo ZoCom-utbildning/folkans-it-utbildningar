@@ -27,24 +27,33 @@
             line-height: 120%;
         }
 
-        .start_button, .result_button {
-            @include formButton;
-            align-self: center;
-            margin: $margin-large;
-            height: 2.5rem;
-            font-size: $baseline;
-            box-shadow: none;
-            padding: $padding;
-            width: 12rem;
-
-            &:focus {
-                transform: scale(1.1);
-                border-color: rgb(90, 90, 182);
-            }
-        }
 
         .onboarding_text {
             margin: 0 1.5rem 0 1.5rem;
+        }
+
+        .button_container {
+
+            @include flex($direction: column, $align: center);
+            margin-top: $margin;
+            width: 100%;
+
+            .start_button, .result_button {
+                @include formButton;
+                align-self: center;
+                margin: $margin-large;
+                margin-top: $margin-small*1.5;
+                height: 2.5rem;
+                font-size: $baseline;
+                box-shadow: none;
+                padding: $padding;
+                width: 12rem;
+    
+                &:focus {
+                    transform: scale(1.1);
+                    border-color: rgb(90, 90, 182);
+                }
+            }
         }
     }
 }
@@ -71,6 +80,11 @@
             width: 60%;
             height: 100%;
 
+            .button_container {
+
+                @include flex($direction: row, $justify: center);
+            }
+
             p {
                 line-height: 120%;
             }
@@ -84,6 +98,7 @@
                 }
             }
         }
+
     }
 }
 
