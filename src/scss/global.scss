@@ -93,6 +93,7 @@ li {
   width: 26px;
   height: 15px;
   margin: $margin-small;
+  border-radius: 0;
 
   &::before {
     content: "";
