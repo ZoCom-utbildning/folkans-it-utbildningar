@@ -12,28 +12,30 @@ type Props = {
 
 function Blob(this: any, { xPos, yPos, radius, opacity }: Props) {
     // === Defining data ===
+/*
     const [canvasWidth, setCanvasWidth] = useState<number>(1000);
     const [canvasHeight, setCanvasHeight] = useState<number>(1000);
     // const [bodyStyle, setBodyStyle] = useState<string>("fixed");
-    const wrapper: React.MutableRefObject<any> = useRef<any>(null);
     const wrapperHeight: number = wrapper.current?.offsetHeight;
     const wrapperWidth: number = wrapper.current?.offsetWidth;
+    */
+    const wrapper: React.MutableRefObject<any> = useRef<any>(null);
+    const wrapperHeight = window.innerHeight;
+    const wrapperWidth = window.innerWidth;
 
     let t: number = 0;
     const originalPoints: Vector[] = generateCircle();
     let points: Vector[] = generateCircle();
     let velocities: Vector[] = points.map(_ => new Vector({ x: 0, y: 0 }));
-
+/*
     // TODO: Figure out a way to update this.
     useEffect(() => {
-        setTimeout(() => {
-            if (wrapper.current) {
-                setCanvasWidth(wrapperWidth);
-                setCanvasHeight(wrapperHeight);
-            }
-        })
+        if (wrapper.current) {
+            setCanvasWidth(wrapperWidth);
+            setCanvasHeight(wrapperHeight);
+        }
     });
-
+*/
     // === Defines canvas ===
     // Note: not using useRef(); because I haven't figured out how to get it as the correct type; HTMLCanvasElement.
     const canvas: HTMLCanvasElement = document.getElementById('canvas') as HTMLCanvasElement;
@@ -173,7 +175,7 @@ function Blob(this: any, { xPos, yPos, radius, opacity }: Props) {
 
     return (
         <div className="canvasWrapper" ref={wrapper}>
-            <canvas id="canvas" width={canvasWidth} height={canvasHeight} > </canvas>
+            <canvas id="canvas" width={wrapperWidth} height={wrapperHeight} > </canvas>
         </div>
     );
 }
