@@ -1,12 +1,19 @@
 import "./personacontent.scss";
 import { useNavigate } from "react-router-dom";
 import { PersonaText } from "../../models/types";
+import arrowRight from "../../assets/icons/arrowRight.svg";
+import arrowLeft from "../../assets/icons/arrowLeft.svg";
 
 type Props = {
   activePersona: number;
+  setActivePersona: (activePersona: number) => void;
   interviewData: JSX.Element[];
 };
-function PersonaContent({ activePersona, interviewData }: Props) {
+function PersonaContent({
+  activePersona,
+  interviewData,
+  setActivePersona,
+}: Props) {
   const navigate = useNavigate();
   function navToPersonas(e: any) {
     e.preventDefault();
@@ -47,6 +54,20 @@ function PersonaContent({ activePersona, interviewData }: Props) {
     },
   ];
 
+  function increaseActivePersona() {
+    if (activePersona < 4) setActivePersona(activePersona + 1);
+    else {
+      setActivePersona(0);
+    }
+  }
+
+  function decreaseActivePersona() {
+    if (activePersona > 0) setActivePersona(activePersona - 1);
+    else {
+      setActivePersona(4);
+    }
+  }
+
   return (
     <>
       {personas.map((persona: PersonaText, index: number) => {
@@ -68,6 +89,20 @@ function PersonaContent({ activePersona, interviewData }: Props) {
                     >
                       Läs hela intervjun här
                     </button>
+                    <section className="arrow-wrapper">
+                      <img
+                        className="left-arrow"
+                        src={arrowLeft}
+                        alt=""
+                        onClick={decreaseActivePersona}
+                      />
+                      <img
+                        className="right-arrow"
+                        src={arrowRight}
+                        alt=""
+                        onClick={increaseActivePersona}
+                      />
+                    </section>
                   </div>
                 </div>
               ) : (
