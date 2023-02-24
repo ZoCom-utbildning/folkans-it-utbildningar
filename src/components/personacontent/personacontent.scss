@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 60vh;
+  min-height: 100vh;
 
   .arrow-wrapper {
     display: none;
@@ -14,7 +14,10 @@
 
   .persona-card-content {
     padding: $margin;
-    min-height: 62vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .personas-main {
       .personas-card {
@@ -55,7 +58,7 @@
   }
 
   .persona-content {
-    @include flex($align: none, $direction: column);
+    @include flex($align: flex-start, $direction: column);
     max-width: 100%;
     height: 100%;
     padding: 0 $padding 0 $padding;
@@ -69,7 +72,7 @@
 
     .persona-text-container {
       @include flex($direction: column, $justify: space-between);
-      height: 100%;
+      height: 70vh;
       gap: $margin;
       z-index: 2;
 
@@ -86,9 +89,7 @@
       .personasButton {
         @include formButton;
         padding: $padding $padding;
-        position: absolute;
-        bottom: 0;
-        margin-bottom: calc($margin-large * 3);
+
         transition: 0.5s;
 
         &:hover {
