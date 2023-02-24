@@ -22,13 +22,14 @@
         }
 
         .about-section {
-            @include flex($justify: none, $direction: row);
+            @include flex($justify: center, $direction: row);
             flex-wrap: wrap;
             margin: 0;
             padding: 0;
 
             section {
                 display: flex;
+                flex-wrap: wrap;
                 width: 100%;
                 border: $borderStyle;
                 margin: $margin;
