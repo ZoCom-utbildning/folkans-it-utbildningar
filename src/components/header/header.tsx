@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { MouseEventHandler, useState } from "react";
 import "./header.scss";
 import Hamburger from "../../components/hamburger/hamburger";
 import anime from "animejs/lib/anime.es.js";
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   navOpen: boolean;
@@ -11,6 +12,7 @@ type Props = {
 };
 const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
   const [headerBackground, setHeaderBackground] = useState<string>("header");
+  const navigate = useNavigate();
   function animateOverlay() {
     if (!navOpen) {
       anime({
@@ -51,6 +53,14 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
     }
   }
 
+  const noReload = (e: any) => {
+    e.preventDefault();
+    navigate('fragor/onboarding');
+    animateOverlay();
+    setNavOpen(false);
+    setNavClass("nav-icon");
+  }
+
   return (
     <header className={headerBackground}>
       <Hamburger
@@ -69,7 +79,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
             <a href="/personer">VÅRA STUDENTER</a>
           </li>
           <li>
-            <a href="/fragor">TILL TESTET</a>
+            <a onClick={noReload} href="/fragor/onboarding">TILL TESTET</a>
           </li>
           <li>
             <a href="/utbildningar">VÅRA UTBILDNINGAR</a>
@@ -89,7 +99,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
               <a href="/personer">VÅRA STUDENTER</a>
             </li>
             <li>
-              <a href="/fragor">TILL TESTET</a>
+              <a onClick={noReload} href="/fragor/onboarding">TILL TESTET</a>
             </li>
             <li>
               <a href="/utbildningar">VÅRA UTBILDNINGAR</a>
