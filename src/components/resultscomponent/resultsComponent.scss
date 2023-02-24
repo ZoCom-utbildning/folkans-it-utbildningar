@@ -365,6 +365,7 @@
         margin: 0;
 
         button {
+          @include formButton;
           width: 15rem;
           font-size: 1.2rem;
           margin: 0;
