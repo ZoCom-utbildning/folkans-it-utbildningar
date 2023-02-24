@@ -90,29 +90,29 @@ li {
   position: absolute;
   top: calc(50% - 15px);
   background-color: rgb(79, 77, 77);
-  width: 26px;
-  height: 15px;
+  width: 24px;
+  height: 12px;
   margin: $margin-small;
   border-radius: 0;
 
   &::before {
     content: "";
     position: absolute;
-    top: -7px;
+    top: -6px;
     left: 0;
-    border-bottom: 7.5px solid rgb(79, 77, 77);
-    border-left: 13px solid transparent;
-    border-right: 13px solid transparent;
+    border-bottom: 6px solid rgb(79, 77, 77);
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
   }
 
   &::after {
     content: "";
     position: absolute;
-    bottom: -7px;
+    bottom: -6px;
     left: 0;
-    border-top: 7.5px solid rgb(79, 77, 77);
-    border-left: 13px solid transparent;
-    border-right: 13px solid transparent;
+    border-top: 6px solid rgb(79, 77, 77);
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
   }
 
   &:hover {
@@ -120,12 +120,12 @@ li {
     cursor: pointer;
 
     &::before {
-      border-bottom: 7.5px solid rgb(139, 131, 131);
+      border-bottom: 6px solid rgb(139, 131, 131);
       cursor: pointer;
     }
 
     &::after {
-      border-top: 7.5px solid rgb(139, 131, 131);
+      border-top: 6px solid rgb(139, 131, 131);
       cursor: pointer;
     }
   }
