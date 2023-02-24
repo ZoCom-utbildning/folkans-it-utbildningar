@@ -133,7 +133,8 @@
       margin-bottom: 1.5rem;
       height: 8rem;
 
-      .homeButton {
+      button {
+        @include formButton;
         width: 13rem;
         margin: 0;
         padding: $padding-small;
@@ -283,7 +284,8 @@
       .results-button-container {
         margin-top: 1rem;
 
-        .homeButton {
+        button {
+          @include formButton;
           width: 14rem;
           margin: 0;
         }
