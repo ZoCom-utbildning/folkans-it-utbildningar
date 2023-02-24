@@ -2,9 +2,15 @@
 @import "../../scss/layout.scss";
 
 .header {
-  background-color: rgba(255, 255, 255, 0);
-  z-index: 5;
+  padding-bottom: 1rem;
+  z-index: 4;
+  height: 10vh;
+  width: 100%;
 
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.1s ease-in-out;
   nav {
     ul {
       display: none;
@@ -17,11 +23,12 @@
     height: 100vh;
     width: 100vw;
     position: fixed;
-    z-index: 4;
+    z-index: 5;
     transform: translateX(-1000px);
 
     ul {
       @include flex($direction: column);
+      align-items: flex-start;
 
       li {
         list-style: none;
@@ -42,14 +49,35 @@
   }
 }
 
+.hamburger {
+  right: 0;
+  margin-right: $margin-large;
+
+  &::before {
+    border-bottom: 7.5px solid $darkBlue;
+  }
+
+  &::after {
+    border-top: 7.5px solid $darkBlue;
+  }
+}
+
+.background {
+  z-index: 5;
+  background-color: $dark;
+  box-shadow: $shadow;
+}
+
 @media screen and (min-width: calc($breakpointDesktop*1.2)) {
   .header {
     position: fixed;
     transition: 0.4s;
     width: 100%;
     height: 6.5vh;
-    min-height: calc($baseline*4);
-
+    min-height: calc($baseline * 4);
+    border-bottom: none;
+    background-color: transparent;
+    box-shadow: none;
     .overlay {
       display: none;
     }
@@ -65,7 +93,7 @@
         @include flex($justify: space-evenly);
         width: 100%;
         height: 6.5vh;
-        min-height: calc($baseline*4);
+        min-height: calc($baseline * 4);
 
         li {
           list-style: none;
@@ -88,7 +116,8 @@
   }
 
   .background {
-    background-color: $dark;
     z-index: 5;
+    background-color: $dark;
+    box-shadow: $shadow;
   }
 }

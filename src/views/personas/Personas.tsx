@@ -16,8 +16,10 @@ type Props = {
   questions: Question[];
   isMobile: boolean;
   scrollClass: string;
+  setActivePersona: (activePersona: number) => void;
 };
 const Personas = ({
+  setActivePersona,
   questions,
   activePersona,
   handlers,
@@ -124,6 +126,7 @@ const Personas = ({
         <section className="home-personas-wrapper">
           <div {...handlers}>
             <FormComponent
+              setActivePersona={setActivePersona}
               questions={questions}
               interviewData={interviewData}
               buttonElements={buttonElements}

@@ -28,7 +28,6 @@ function App() {
   const [interviewData, setInterviewData] = useState<JSX.Element[]>([]);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [scrollClass, setScrollClass] = useState<string>("");
-  const [scrollMobileClass, setScrollMobileClass] = useState<string>("");
 
   const targets = document.getElementsByClassName("image_section");
   function checkMediaQuery() {
@@ -139,17 +138,15 @@ function App() {
       if (isMobile) {
         console.log(isMobile, "activated scroll mobile");
 
-        setScrollMobileClass("scroll");
         setScrollClass("");
       } else {
         console.log(isMobile, "activated scroll desktop");
-        setScrollMobileClass("");
         setScrollClass("scroll");
       }
       setInterviewData(
         data.map((personas: Persona, index: number) => {
           return (
-            <div className={"personas-main " + scrollMobileClass} key={index}>
+            <div className={"personas-main"} key={index}>
               <article className="personas-card">
                 <section className="personas-card-header">
                   <h2 className="personas-card-title">
@@ -189,7 +186,7 @@ function App() {
         })
       );
     }
-  }, [data, scrollMobileClass, scrollClass]);
+  }, [data, scrollClass]);
 
   // Hämtar questions från firebase databasen
   useEffect(() => {
@@ -221,6 +218,7 @@ function App() {
           path="/fragor/:pageId"
           element={
             <Form
+              setActivePersona={setActivePersona}
               interviewData={interviewData}
               activePersona={activePersona}
               buttonElements={buttonElements}
@@ -232,6 +230,7 @@ function App() {
           path="/"
           element={
             <Home
+              setActivePersona={setActivePersona}
               questions={questions}
               data={data}
               interviewData={interviewData}
@@ -245,6 +244,7 @@ function App() {
           path="/personer"
           element={
             <Personas
+              setActivePersona={setActivePersona}
               isMobile={isMobile}
               questions={questions}
               scrollClass={scrollClass}
