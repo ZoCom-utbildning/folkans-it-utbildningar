@@ -13,28 +13,28 @@ function About() {
                 <section className='about-section'>
                     <section>
                         <p>Emil Arvidsson</p>
-                        <a href="https://github.com/KarlEmilArvid">github</a>
-                        <a href="https://www.linkedin.com/in/karlemilarvid/">linkedin</a>
+                        <a href="https://github.com/KarlEmilArvid" target="_blank">github</a>
+                        <a href="https://www.linkedin.com/in/karlemilarvid/" target="_blank">linkedin</a>
                     </section>
                     <section>
                         <p>Monica Björk</p>
-                        <a href="https://github.com/MonBjo">github</a>
-                        <a href="https://www.linkedin.com/in/monbjo/">linkedin</a>
+                        <a href="https://github.com/MonBjo" target="_blank">github</a>
+                        <a href="https://www.linkedin.com/in/monbjo/" target="_blank">linkedin</a>
                     </section>
                     <section>
                         <p>Ricky Johanson</p>
-                        <a href="https://github.com/RickyJohansson">github</a>
-                        <a href="https://www.linkedin.com/in/ricky-johansson-2264a9265/">linkedin</a>
+                        <a href="https://github.com/RickyJohansson" target="_blank">github</a>
+                        <a href="https://www.linkedin.com/in/ricky-johansson-2264a9265/" target="_blank">linkedin</a>
                     </section>
                     <section>
                         <p>William Löfroth</p>
-                        <a href="https://github.com/Williamlof">github</a>
-                        <a href="https://www.linkedin.com/in/william-l%C3%B6froth-aa2ba8263/">linkedin</a>
+                        <a href="https://github.com/Williamlof" target="_blank">github</a>
+                        <a href="https://www.linkedin.com/in/william-l%C3%B6froth-aa2ba8263/" target="_blank">linkedin</a>
                     </section>
                     <section>
                         <p>Vilhelm Stahl</p>
-                        <a href="https://github.com/VSMC">github</a>
-                        <a href="https://www.linkedin.com/in/vilhelm-stahl/">linkedin</a>
+                        <a href="https://github.com/VSMC" target="_blank">github</a>
+                        <a href="https://www.linkedin.com/in/vilhelm-stahl/" target="_blank">linkedin</a>
                     </section>
                 </section>
             </main>

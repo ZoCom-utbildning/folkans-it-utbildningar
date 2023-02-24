@@ -36,6 +36,8 @@
                 padding: $padding-large;
                 align-items: center;
                 gap: 1rem;
+                backdrop-filter: blur(0.5rem);
+                -webkit-backdrop-filter: blur(0.5rem);
             }
         }
     }
