@@ -1,8 +1,8 @@
-import { MouseEventHandler, useState } from "react";
+import { MouseEventHandler, useEffect, useState } from "react";
 import "./header.scss";
 import Hamburger from "../../components/hamburger/hamburger";
 import anime from "animejs/lib/anime.es.js";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   navOpen: boolean;
@@ -16,7 +16,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
   function animateOverlay() {
     if (!navOpen) {
       anime({
-        targets: "header .overlay",
+        targets: ".header .overlay",
         translateX: [
           { value: -1000, duration: 0 },
           { value: 0, duration: 500 },
@@ -24,7 +24,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
         easing: "easeInOutSine",
       });
       anime({
-        targets: "header .overlay nav ul li",
+        targets: ".header .overlay nav ul li",
         translateX: [
           { value: -1000, duration: 0 },
           { value: 100, duration: 500 },
@@ -46,20 +46,25 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
     scrollFunction();
   };
   function scrollFunction() {
-    if (window.scrollY > 5) {
+    if (window.scrollY > 100) {
       setHeaderBackground("header background");
     } else {
       setHeaderBackground("header");
     }
   }
 
+  useEffect(() => {
+    if (navOpen) setHeaderBackground("header background");
+    else setHeaderBackground("header");
+  }, [navOpen]);
+
   const noReload = (e: any) => {
     e.preventDefault();
-    navigate('fragor/onboarding');
+    navigate("fragor/onboarding");
     animateOverlay();
     setNavOpen(false);
     setNavClass("nav-icon");
-  }
+  };
 
   return (
     <header className={headerBackground}>
@@ -76,10 +81,12 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
             <a href="/">HEM</a>
           </li>
           <li>
-            <a href="/personer">VÅRA STUDENTER</a>
+            <a href="/personer">VÅRA STUDERANDE</a>
           </li>
           <li>
-            <a onClick={noReload} href="/fragor/onboarding">TILL TESTET</a>
+            <a onClick={noReload} href="/fragor/onboarding">
+              TILL TESTET
+            </a>
           </li>
           <li>
             <a href="/utbildningar">VÅRA UTBILDNINGAR</a>
@@ -96,10 +103,12 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
               <a href="/">HEM</a>
             </li>
             <li>
-              <a href="/personer">VÅRA STUDENTER</a>
+              <a href="/personer">VÅRA STUDERANDE</a>
             </li>
             <li>
-              <a onClick={noReload} href="/fragor/onboarding">TILL TESTET</a>
+              <a onClick={noReload} href="/fragor/onboarding">
+                TILL TESTET
+              </a>
             </li>
             <li>
               <a href="/utbildningar">VÅRA UTBILDNINGAR</a>

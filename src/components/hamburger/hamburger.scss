@@ -2,15 +2,15 @@
 @import "../../scss/layout.scss";
 
 .burger-icon {
-  z-index: 5;
-  position: fixed;
-  left: 1.5rem;
-  top: 1.5rem;
-
+  z-index: 6;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
   .nav-icon {
-    width: 60px;
-    height: 45px;
-
+    width: 45px;
+    height: 20%;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
@@ -25,8 +25,8 @@
   .nav-icon span {
     display: block;
     position: absolute;
-    height: 0.4rem;
-    width: 80%;
+    height: 3px;
+    width: 75%;
     background: #eeeeee;
     opacity: 1;
     border-radius: 10px;
@@ -48,15 +48,15 @@
 
   .nav-icon span:nth-child(2),
   .nav-icon span:nth-child(3) {
-    top: 18px;
+    top: 14px;
   }
 
   .nav-icon span:nth-child(4) {
-    top: 36px;
+    top: 28px;
   }
 
   .nav-icon.open span:nth-child(1) {
-    top: 18px;
+    top: 14px;
     width: 0%;
     left: 50%;
   }

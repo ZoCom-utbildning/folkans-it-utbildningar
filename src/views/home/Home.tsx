@@ -18,6 +18,7 @@ type Props = {
   interviewData: JSX.Element[];
   handlers: ReturnType<typeof useSwipeable>;
   questions: Array<Question>;
+  setActivePersona: (activePersona: number) => void;
 };
 function Home({
   activePersona,
@@ -25,8 +26,8 @@ function Home({
   handlers,
   interviewData,
   questions,
+  setActivePersona,
 }: Props) {
-
   return (
     <div className="home-wrapper">
       <section className="hero-content">
@@ -39,9 +40,7 @@ function Home({
                 .typeString("Så du är nyfiken på att jobba inom IT-branschen?")
                 .pauseFor(2000)
                 .deleteAll()
-                .typeString(
-                  "Ta testet för att se vad som passar dig bäst!"
-                )
+                .typeString("Ta testet för att se vad som passar dig bäst!")
 
                 .start();
             }}
@@ -62,7 +61,7 @@ function Home({
           <section className="text-content">
             <h2 className="title-h2">Vad är det som testas?</h2>
             <p className="home-main__content__text">
-              Vi har haft en dialog med våra studenter och utbildningsledare på
+              Vi har haft en dialog med våra studerande och utbildningsledare på
               våra utbildningar samt företrädare för IT-branschen. Resultatet av
               denna dialog har mynnat ut i detta test. Syftet med testet är att
               fungera som en slags digital studie- och yrkesvägledare för att du
@@ -82,6 +81,7 @@ function Home({
       <section className="home-personas-wrapper">
         <div {...handlers}>
           <FormComponent
+            setActivePersona={setActivePersona}
             questions={questions}
             interviewData={interviewData}
             buttonElements={buttonElements}
