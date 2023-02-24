@@ -27,24 +27,34 @@
             line-height: 120%;
         }
 
-        .start_button {
-            @include formButton;
-            align-self: center;
-            margin: $margin-large;
-            height: 2.5rem;
-            font-size: $baseline;
-            box-shadow: none;
-            padding: $padding;
-            width: 12rem;
-
-            &:focus {
-                transform: scale(1.1);
-                border-color: rgb(90, 90, 182);
-            }
-        }
 
         .onboarding_text {
             margin: 0 1.5rem 0 1.5rem;
+        }
+
+        .button_container {
+
+            @include flex($direction: column, $align: center);
+            margin-top: $margin;
+            width: 100%;
+
+            .start_button,
+            .result_button {
+                @include formButton;
+                align-self: center;
+                margin: $margin-large;
+                margin-top: $margin-small*1.5;
+                height: 2.5rem;
+                font-size: $baseline;
+                box-shadow: none;
+                padding: $padding;
+                width: 12rem;
+
+                &:focus {
+                    transform: scale(1.1);
+                    border-color: $purple;
+                }
+            }
         }
     }
 }
@@ -65,11 +75,20 @@
         width: 100%;
         z-index: 3;
 
+        h2 {
+            margin-top: $margin;
+        }
+
         .results_points {
             @include flex($direction: column, $align: space-evenly);
             margin-top: 0;
-            width: 60%;
+            width: 75%;
             height: 100%;
+
+            .button_container {
+
+                @include flex($direction: row, $justify: center);
+            }
 
             p {
                 line-height: 120%;
@@ -80,11 +99,13 @@
 
                 &:hover {
                     transform: scale(1.1);
-                    border-color: rgb(90, 90, 182);
+                    border-color: $purple;
                 }
             }
         }
+
     }
+
 }
 
 @media screen and (min-width: 1100px) {

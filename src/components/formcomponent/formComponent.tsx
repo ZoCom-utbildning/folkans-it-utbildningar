@@ -67,7 +67,7 @@ function FormComponent({
           setQuestionId(newQuestionId);
         } else {
           setLastPage(true);
-          navigate('/fragor/result');
+          navigate('/fragor/resultat');
         }
         fadeOut.play();
       },
@@ -140,8 +140,11 @@ function FormComponent({
     if (questionId < questions.length && buttonCheck) {
       if (playFade === false) {
         fadeFunction(questionId + 1);
+
+        if (questionId + 1 < questions.length || questions.length === 0) {
+          navigate(`/fragor/${questionId + 1}`);
+        }
       }
-      navigate(`/fragor/${questionId + 1}`);
     }
 
     if (buttonCheck == false) {
@@ -154,9 +157,8 @@ function FormComponent({
     if (questionId > 1) {
       if (playFade === false) {
         fadeFunction(questionId - 1);
+        navigate(`/fragor/${questionId - 1}`);
       }
-
-      navigate(`/fragor/${questionId - 1}`);
     }
   };
 
@@ -165,7 +167,8 @@ function FormComponent({
     if (questions.length > 0) {
 
       if (playFade === false) {
-
+        localStorage.removeItem("resultsArray");
+        setLastPage(false);
         fadeFunction(questionId + 1);
         navigate(`/fragor/${questionId + 1}`);
 
@@ -178,7 +181,7 @@ function FormComponent({
       <section className="card_content">
         {window.location.href.includes("fragor") && firstPage ? (
           <>
-            <OnboardingComponent startTest={startTest} />
+            <OnboardingComponent startTest={startTest} questions={questions} setLastPage={setLastPage} setQuestionId={setQuestionId}/>
           </>
         ) : window.location.href.includes("fragor") &&
           !firstPage &&
@@ -194,9 +197,9 @@ function FormComponent({
               firstQuestion={firstQuestion}
             />
           </>
-        ) : window.location.href.includes("fragor") && lastPage ? (
+        ) : window.location.href.includes("fragor") && lastPage ?  (
           <>
-            <ResultsComponent />
+            <ResultsComponent setQuestionId={setQuestionId}/>
           </>
         ) : window.location.href.includes("") ? (
           <section className="persona-card-content">
