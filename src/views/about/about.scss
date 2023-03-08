@@ -18,7 +18,11 @@
         padding: $padding-large;
 
         h1 {
-            font-size: calc($baseline * 2);
+            font-size: calc($baseline * 2.5);
+        }
+
+        .ingress {
+            font-size: 1.2rem;
         }
 
         .about-section {
@@ -32,7 +36,7 @@
                 flex-wrap: wrap;
                 width: 100%;
                 border: $borderStyle;
-                margin: $margin;
+                margin: $margin-small 0;
                 padding: $padding-large;
                 align-items: center;
                 gap: 1rem;

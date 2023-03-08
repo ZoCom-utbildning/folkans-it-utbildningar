@@ -54,7 +54,7 @@ $sidePad: 70px;
 $numOfEls: 5;
 $elMrg: 1%;
 
-$initAT: 1s;
+$initAT: .5s;
 $initDelayStep: 0.1s;
 $fullInitAT: calc($initAT + $initDelayStep * ($numOfEls - 1));
 $moveAT: 0.6s;

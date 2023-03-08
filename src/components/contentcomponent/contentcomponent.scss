@@ -35,7 +35,7 @@
         margin: 5rem 0 1.2rem 0;
 
         .quiz_nav {
-            @include flex($justify: space-evenly, $direction: row, $align: center);
+            @include flex($justify: space-between, $direction: row, $align: center);
             margin: 0;
             background-color: rgb(29, 32, 37, 90%);
             height: 3rem;
@@ -154,7 +154,7 @@
         position: relative;
         max-height: 30rem;
 
-        .radio_component>p {
+        .radio_component > p {
             font-size: 1rem;
             line-height: 130%;
             width: 90%;
@@ -162,6 +162,7 @@
         }
 
         .radio_component {
+            padding: .5rem;
             input[type="radio"] {
                 @include hexagonButton;
                 opacity: 1;

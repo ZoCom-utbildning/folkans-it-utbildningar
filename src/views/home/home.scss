@@ -7,7 +7,7 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
   @include maxSize;
 
   .hero-content {
-    @include flex($direction: column, $justify: space-evenly, $align: center);
+    @include flex($direction: column, $justify: space-between, $align: center);
     padding: calc($padding * 3) 0;
     min-height: 70vh;
     height: 70vh;
@@ -26,6 +26,17 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       font-weight: 500;
       z-index: 2;
       height: 180px;
+    }
+
+    &__footer {
+      border: none;
+      background: none;
+      display: flex;
+      gap: 2rem;
+
+      img {
+        height: 3rem;
+      }
     }
   }
 

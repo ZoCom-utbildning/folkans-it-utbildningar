@@ -47,7 +47,6 @@ const Education = () => {
             <main>
                 <h1>{course.name}</h1>
                 <p className="ingress">{course.description}</p>
-                <button className="applyButton" onClick={() => openNewTab(course.externalLink)}>Ansök nu</button>
                 {educationInfo}
                 <button className="applyButton" onClick={() => openNewTab(course.externalLink)}>Ansök nu</button>
             </main>
