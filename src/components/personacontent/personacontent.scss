@@ -89,7 +89,7 @@
         @include formButton;
         padding: $padding $padding;
 
-        transition: 0.5s;
+        transition: 0.25s;
 
         &:hover {
           transform: scale(1.1);
@@ -151,7 +151,7 @@
           padding: $padding $padding;
           margin-bottom: $margin-large;
           position: static;
-          transition: 0.5s;
+          transition: 0.25s;
 
           &:hover {
             transform: scale(1.1);

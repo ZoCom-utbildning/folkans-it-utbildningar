@@ -56,7 +56,6 @@ const Personas = ({
         setPreview(false);
         setBackgroundClass("");
       }, 1350);
-      console.log(interviewData);
     }
   };
 

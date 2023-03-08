@@ -20,7 +20,7 @@
         .applyButton {
             @include formButton;
             padding: $padding $padding-large*2;
-            margin: $margin-large auto;
+            margin: $margin-large 0;
 
             &:last-of-type {
                 margin-top: $margin-large;

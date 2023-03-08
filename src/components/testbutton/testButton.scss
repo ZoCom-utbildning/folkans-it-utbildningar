@@ -12,13 +12,13 @@
 
 @media (min-width: $breakpointDesktop) {
   .homeButton {
-    transition: 0.5s;
+    transition: 0.25s;
     max-width: 100%;
     margin-top: $margin;
     font-size: 1.6rem;
 
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       border-color: $purple;
     }
   }

@@ -1,5 +1,5 @@
 import "./footer.scss";
-import folkuniversitetet from "../../assets/logos/FUlogo-white.png";
+import folkuniversitetet from "../../assets/logos/fulogogbg.png";
 import zocom from "../../assets/logos/zocom-white.png";
 
 function Footer() {
