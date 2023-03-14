@@ -8,7 +8,8 @@ function About() {
         <div className="aboutView">
             <main>
                 <h1>Folkuniversitetet hjärta ZoCom</h1>
-                <p className='ingress'>På uppdrag från Folkuniversitetet och ZoCom har den här webbsidan designats och byggts av Emil Arvidsson, Monica Björk, Ricky Johansson och William Löfroth, som studerar till frontendutvecklare, med stöd från Vilhelm Stahl som studerar till IT-projektledare.</p>
+                <p className='ingress'>Folkuniversitet och ZoCom bedriver tillsammans it-utbildningar inom yrkeshögskola.
+                Den här webbsidan har designats och byggts av Emil Arvidsson, Monica Björk, Ricky Johansson och William Löfroth, som studerar till frontendutvecklare på en av dessa utbildningar, med stöd från Vilhelm Stahl som studerar till IT-projektledare.</p>
                 <p>Denna sida är skapad under vår LIA period och för närmare kontakt så hittar ni oss här:</p>
                 <section className='about-section'>
                     <section>

@@ -57,10 +57,6 @@ function Home({
           <p>Mer info om testet</p>
           <img src={arrowDown} alt="" className="arrowDown" />
         </section>
-            <footer className="hero-content__footer">
-              <img src={folkuniversitetet} alt="folkuniversitetet" />
-              <img src={zocom} alt="zocom" />
-            </footer>
         <Blob xPos={4} yPos={2} radius={4} opacity={0.3} />
       </section>
       <main className="home-main">
