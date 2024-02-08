@@ -4,54 +4,54 @@
 @import "../../scss/global";
 
 .aboutView {
-    @include maxSize;
-    @include flex($justify: none, $align: none, $direction: column);
-    @include lines;
-    background-color: $dark;
-    overflow-x: hidden;
+  @include maxSizeCalc;
+  @include flex($justify: none, $align: none, $direction: column);
+  @include lines;
+  background-color: $dark;
+  overflow-x: hidden;
 
-    &* {
-        position: relative;
+  &* {
+    position: relative;
+  }
+
+  main {
+    padding: $padding-large;
+
+    h1 {
+      font-size: calc($baseline * 2.5);
     }
 
-    main {
+    .ingress {
+      font-size: 1.2rem;
+    }
+
+    .about-section {
+      @include flex($justify: center, $direction: row);
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+
+      section {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        border: $borderStyle;
+        margin: $margin-small 0;
         padding: $padding-large;
-
-        h1 {
-            font-size: calc($baseline * 2.5);
-        }
-
-        .ingress {
-            font-size: 1.2rem;
-        }
-
-        .about-section {
-            @include flex($justify: center, $direction: row);
-            flex-wrap: wrap;
-            margin: 0;
-            padding: 0;
-
-            section {
-                display: flex;
-                flex-wrap: wrap;
-                width: 100%;
-                border: $borderStyle;
-                margin: $margin-small 0;
-                padding: $padding-large;
-                align-items: center;
-                gap: 1rem;
-                backdrop-filter: blur(0.5rem);
-                -webkit-backdrop-filter: blur(0.5rem);
-            }
-        }
+        align-items: center;
+        gap: 1rem;
+        backdrop-filter: blur(0.5rem);
+        -webkit-backdrop-filter: blur(0.5rem);
+      }
     }
+  }
 }
 
 @media screen and (min-width: $breakpointDesktop) {
-    .aboutView {
-        main {
-            max-width: 50rem;
-            margin: calc($margin * 8) auto 0;
-        }
+  .aboutView {
+    main {
+      max-width: 50rem;
+      margin: calc($margin * 8) auto 0;
     }
+  }
 }
