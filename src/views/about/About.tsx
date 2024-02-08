@@ -12,10 +12,6 @@ function About() {
             yrkeshögskola. Den här webbsidan har designats och byggts av oss
             studenter, som studerar dessa utbildningar.
           </p>
-          <p>
-            Denna sida är skapad under vår LIA period och för närmare kontakt så
-            hittar ni oss här:
-          </p>
         </main>
       </div>
       <Footer />

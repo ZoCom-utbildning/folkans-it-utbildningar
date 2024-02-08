@@ -12,6 +12,7 @@ type Props = {
 };
 const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
   const [headerBackground, setHeaderBackground] = useState<string>("header");
+  const [activeLink, setActiveLink] = useState<string>("/");
   const navigate = useNavigate();
   function animateOverlay() {
     if (!navOpen) {
@@ -58,9 +59,10 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
     else setHeaderBackground("header");
   }, [navOpen]);
 
-  const noReload = (e: any) => {
+  const noReload = (e: any, link: string) => {
     e.preventDefault();
-    navigate("fragor/onboarding");
+    setActiveLink(link);
+    navigate(link);
     animateOverlay();
     setNavOpen(false);
     setNavClass("nav-icon");
@@ -78,21 +80,49 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
       <nav>
         <ul>
           <li>
-            <a href="/">HEM</a>
+            <a
+              className={activeLink === "/" ? "active" : ""}
+              onClick={(e) => noReload(e, "/")}
+              href="/"
+            >
+              HEM
+            </a>
           </li>
           <li>
-            <a href="/personer">VÅRA STUDERANDE</a>
+            <a
+              className={activeLink === "/personer" ? "active" : ""}
+              onClick={(e) => noReload(e, "/personer")}
+              href="/personer"
+            >
+              VÅRA STUDERANDE
+            </a>
           </li>
           <li>
-            <a onClick={noReload} href="/fragor/onboarding">
+            <a
+              className={activeLink === "/fragor/onboarding" ? "active" : ""}
+              onClick={(e) => noReload(e, "/fragor/onboarding")}
+              href="/fragor/onboarding"
+            >
               TILL TESTET
             </a>
           </li>
           <li>
-            <a href="/utbildningar">VÅRA UTBILDNINGAR</a>
+            <a
+              className={activeLink === "/utbildningar" ? "active" : ""}
+              onClick={(e) => noReload(e, "/utbildningar")}
+              href="/utbildningar"
+            >
+              VÅRA UTBILDNINGAR
+            </a>
           </li>
           <li>
-            <a href="/om">OM OSS</a>
+            <a
+              className={activeLink === "/om" ? "active" : ""}
+              onClick={(e) => noReload(e, "/om")}
+              href="/om"
+            >
+              OM OSS
+            </a>
           </li>
         </ul>
       </nav>
@@ -100,21 +130,49 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
         <nav>
           <ul>
             <li>
-              <a href="/">HEM</a>
+              <a
+                className={activeLink === "/" ? "active" : ""}
+                onClick={(e) => noReload(e, "/")}
+                href="/"
+              >
+                HEM
+              </a>
             </li>
             <li>
-              <a href="/personer">VÅRA STUDERANDE</a>
+              <a
+                className={activeLink === "/personer" ? "active" : ""}
+                onClick={(e) => noReload(e, "/personer")}
+                href="/personer"
+              >
+                VÅRA STUDERANDE
+              </a>
             </li>
             <li>
-              <a onClick={noReload} href="/fragor/onboarding">
+              <a
+                className={activeLink === "/fragor/onboarding" ? "active" : ""}
+                onClick={(e) => noReload(e, "/fragor/onboarding")}
+                href="/fragor/onboarding"
+              >
                 TILL TESTET
               </a>
             </li>
             <li>
-              <a href="/utbildningar">VÅRA UTBILDNINGAR</a>
+              <a
+                className={activeLink === "/utbildningar" ? "active" : ""}
+                onClick={(e) => noReload(e, "/utbildningar")}
+                href="/utbildningar"
+              >
+                VÅRA UTBILDNINGAR
+              </a>
             </li>
             <li>
-              <a href="/om">OM OSS</a>
+              <a
+                className={activeLink === "/om" ? "active" : ""}
+                onClick={(e) => noReload(e, "/om")}
+                href="/om"
+              >
+                OM OSS
+              </a>
             </li>
           </ul>
         </nav>
