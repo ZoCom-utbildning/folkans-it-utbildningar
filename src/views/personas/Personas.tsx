@@ -7,7 +7,7 @@ import { useSwipeable } from "react-swipeable";
 import Footer from "../../components/footer/Footer";
 import { Persona, Question } from "../../models/types";
 
-type Props = {
+type PersonasProps = {
   activePersona: number;
   buttonElements: JSX.Element;
   handlers: ReturnType<typeof useSwipeable>;
@@ -28,7 +28,7 @@ const Personas = ({
   data,
   scrollClass,
   isMobile,
-}: Props) => {
+}: PersonasProps) => {
   const [contClass, setContClass] = useState("cont s--inactive");
   const [activeEl, setActiveEl] = useState<HTMLDivElement | null>(null);
   const [preview, setPreview] = useState(true);
@@ -45,18 +45,17 @@ const Personas = ({
   const handleElClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    if (contClass.includes("s__el-active")) return;
-    else if (!isMobile) {
-      const el: HTMLDivElement = event.currentTarget;
-      setContClass("cont s__el-active");
-      toggleClass(el, "s--active");
-      setActiveEl(el);
-      console.log(data);
-      setTimeout(() => {
-        setPreview(false);
-        setBackgroundClass("");
-      }, 1350);
-    }
+    if (contClass.includes("s__el-active") || isMobile) return;
+
+    const el: HTMLDivElement = event.currentTarget;
+    setContClass("cont s__el-active");
+    toggleClass(el, "s--active");
+    setActiveEl(el);
+
+    setTimeout(() => {
+      setPreview(false);
+      setBackgroundClass("");
+    }, 1350);
   };
 
   const toggleClass = (el: HTMLDivElement, className: string) => {
@@ -122,16 +121,14 @@ const Personas = ({
           </section>
         </div>
       ) : (
-        <section className="home-personas-wrapper">
-          <div {...handlers}>
-            <FormComponent
-              setActivePersona={setActivePersona}
-              questions={questions}
-              interviewData={interviewData}
-              buttonElements={buttonElements}
-              activePersona={activePersona}
-            />
-          </div>
+        <section className="home-personas-wrapper" {...handlers}>
+          <FormComponent
+            setActivePersona={setActivePersona}
+            questions={questions}
+            interviewData={interviewData}
+            buttonElements={buttonElements}
+            activePersona={activePersona}
+          />
         </section>
       )}
       <Footer />

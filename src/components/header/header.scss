@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   transition: all 0.1s ease-in-out;
-  
+
   nav {
     ul {
       display: none;
@@ -110,6 +110,11 @@
             &:hover {
               transform: scale(1.2);
             }
+          }
+
+          .active {
+            transform: scale(1.2);
+            color: #fff;
           }
         }
       }
