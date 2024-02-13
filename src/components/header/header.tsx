@@ -1,8 +1,8 @@
-import { MouseEventHandler, useEffect, useState } from "react";
-import "./header.scss";
-import Hamburger from "../../components/hamburger/hamburger";
-import anime from "animejs/lib/anime.es.js";
-import { useNavigate } from "react-router-dom";
+import { MouseEventHandler, useEffect, useState } from 'react';
+import './header.scss';
+import Hamburger from '../../components/hamburger/hamburger';
+import anime from 'animejs/lib/anime.es.js';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   navOpen: boolean;
@@ -11,21 +11,21 @@ type Props = {
   setNavClass: (navClass: string) => void;
 };
 const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
-  const [headerBackground, setHeaderBackground] = useState<string>("header");
-  const [activeLink, setActiveLink] = useState<string>("/");
+  const [headerBackground, setHeaderBackground] = useState<string>('header');
+  const [activeLink, setActiveLink] = useState<string>('/');
   const navigate = useNavigate();
   function animateOverlay() {
     if (!navOpen) {
       anime({
-        targets: ".header .overlay",
+        targets: '.header .overlay',
         translateX: [
           { value: -1000, duration: 0 },
           { value: 0, duration: 500 },
         ],
-        easing: "easeInOutSine",
+        easing: 'easeInOutSine',
       });
       anime({
-        targets: ".header .overlay nav ul li",
+        targets: '.header .overlay nav ul li',
         translateX: [
           { value: -1000, duration: 0 },
           { value: 100, duration: 500 },
@@ -34,12 +34,12 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
       });
     } else {
       anime({
-        targets: "header .overlay",
+        targets: 'header .overlay',
         translateX: [
           { value: 0, duration: 0 },
           { value: -1000, duration: 500 },
         ],
-        easing: "easeInOutSine",
+        easing: 'easeInOutSine',
       });
     }
   }
@@ -47,16 +47,18 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
     scrollFunction();
   };
   function scrollFunction() {
-    if (window.scrollY > 100) {
-      setHeaderBackground("header background");
+    if (navOpen) {
+      setHeaderBackground('header background');
+    } else if (window.scrollY > 100) {
+      setHeaderBackground('header background');
     } else {
-      setHeaderBackground("header");
+      setHeaderBackground('header');
     }
   }
 
   useEffect(() => {
-    if (navOpen) setHeaderBackground("header background");
-    else setHeaderBackground("header");
+    if (navOpen) setHeaderBackground('header background');
+    else setHeaderBackground('header');
   }, [navOpen]);
 
   const noReload = (e: any, link: string) => {
@@ -65,7 +67,7 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
     navigate(link);
     animateOverlay();
     setNavOpen(false);
-    setNavClass("nav-icon");
+    setNavClass('nav-icon');
   };
 
   return (
@@ -81,95 +83,95 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
         <ul>
           <li>
             <a
-              className={activeLink === "/" ? "active" : ""}
-              onClick={(e) => noReload(e, "/")}
-              href="/"
+              className={activeLink === '/' ? 'active' : ''}
+              onClick={(e) => noReload(e, '/')}
+              href='/'
             >
               HEM
             </a>
           </li>
           <li>
             <a
-              className={activeLink === "/personer" ? "active" : ""}
-              onClick={(e) => noReload(e, "/personer")}
-              href="/personer"
+              className={activeLink === '/personer' ? 'active' : ''}
+              onClick={(e) => noReload(e, '/personer')}
+              href='/personer'
             >
               VÅRA STUDERANDE
             </a>
           </li>
           <li>
             <a
-              className={activeLink === "/fragor/onboarding" ? "active" : ""}
-              onClick={(e) => noReload(e, "/fragor/onboarding")}
-              href="/fragor/onboarding"
+              className={activeLink === '/fragor/onboarding' ? 'active' : ''}
+              onClick={(e) => noReload(e, '/fragor/onboarding')}
+              href='/fragor/onboarding'
             >
               TILL TESTET
             </a>
           </li>
           <li>
             <a
-              className={activeLink === "/utbildningar" ? "active" : ""}
-              onClick={(e) => noReload(e, "/utbildningar")}
-              href="/utbildningar"
+              className={activeLink === '/utbildningar' ? 'active' : ''}
+              onClick={(e) => noReload(e, '/utbildningar')}
+              href='/utbildningar'
             >
               VÅRA UTBILDNINGAR
             </a>
           </li>
           <li>
             <a
-              className={activeLink === "/om" ? "active" : ""}
-              onClick={(e) => noReload(e, "/om")}
-              href="/om"
+              className={activeLink === '/om' ? 'active' : ''}
+              onClick={(e) => noReload(e, '/om')}
+              href='/om'
             >
               OM OSS
             </a>
           </li>
         </ul>
       </nav>
-      <div className="overlay">
+      <div className='overlay'>
         <nav>
           <ul>
             <li>
               <a
-                className={activeLink === "/" ? "active" : ""}
-                onClick={(e) => noReload(e, "/")}
-                href="/"
+                className={activeLink === '/' ? 'active' : ''}
+                onClick={(e) => noReload(e, '/')}
+                href='/'
               >
                 HEM
               </a>
             </li>
             <li>
               <a
-                className={activeLink === "/personer" ? "active" : ""}
-                onClick={(e) => noReload(e, "/personer")}
-                href="/personer"
+                className={activeLink === '/personer' ? 'active' : ''}
+                onClick={(e) => noReload(e, '/personer')}
+                href='/personer'
               >
                 VÅRA STUDERANDE
               </a>
             </li>
             <li>
               <a
-                className={activeLink === "/fragor/onboarding" ? "active" : ""}
-                onClick={(e) => noReload(e, "/fragor/onboarding")}
-                href="/fragor/onboarding"
+                className={activeLink === '/fragor/onboarding' ? 'active' : ''}
+                onClick={(e) => noReload(e, '/fragor/onboarding')}
+                href='/fragor/onboarding'
               >
                 TILL TESTET
               </a>
             </li>
             <li>
               <a
-                className={activeLink === "/utbildningar" ? "active" : ""}
-                onClick={(e) => noReload(e, "/utbildningar")}
-                href="/utbildningar"
+                className={activeLink === '/utbildningar' ? 'active' : ''}
+                onClick={(e) => noReload(e, '/utbildningar')}
+                href='/utbildningar'
               >
                 VÅRA UTBILDNINGAR
               </a>
             </li>
             <li>
               <a
-                className={activeLink === "/om" ? "active" : ""}
-                onClick={(e) => noReload(e, "/om")}
-                href="/om"
+                className={activeLink === '/om' ? 'active' : ''}
+                onClick={(e) => noReload(e, '/om')}
+                href='/om'
               >
                 OM OSS
               </a>
