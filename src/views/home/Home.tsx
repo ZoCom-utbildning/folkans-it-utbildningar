@@ -37,10 +37,12 @@ function Home({
           Så du är nyfiken på att jobba inom IT-branschen? Ta testet för att se
           vad som passar dig bäst!
         </h1>
-        <TestButton buttonText={"TILL TESTET"} />
-        <section className="arrow-container" onClick={scrollToTest}>
-          <p>Mer info om testet</p>
-          <img src={arrowDown} alt="Arrow down" className="arrowDown" />
+        <section className="hero-buttons__wrapper">
+          <TestButton buttonText={"TILL TESTET"} />
+          <section className="arrow-container" onClick={scrollToTest}>
+            <p>Mer info om testet</p>
+            <img src={arrowDown} alt="Arrow down" className="arrowDown" />
+          </section>
         </section>
       </section>
       <main className="home-main">
@@ -61,7 +63,7 @@ function Home({
             <TestButton buttonText={"Ta Testet"} />
           </section>
           <section className="img-with-text">
-            <img src={vscodecomputer} alt="VS Code Computer" />
+            <img className="text-img" src={vscodecomputer} alt="VS Code Computer" />
           </section>
         </div>
       </main>

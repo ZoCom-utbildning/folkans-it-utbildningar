@@ -41,10 +41,12 @@ $stripes-background-size: 12.73px 12.73px;
 $margin: $baseline;
 $margin-small: calc($baseline / 2);
 $margin-large: calc($baseline * 2);
+$margin-huge: calc($baseline * 3);
 
 $padding: $baseline;
 $padding-small: calc($baseline / 2);
 $padding-large: calc($baseline * 2);
+$padding-huge: calc($baseline * 3);
 
 $shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
 

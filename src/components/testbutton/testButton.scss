@@ -4,10 +4,7 @@
 
 .homeButton {
   @include formButton;
-  padding: $padding calc($padding * 7);
-  font-size: 1.2rem;
   margin-bottom: $margin-large;
-  z-index: 2;
 }
 
 @media (min-width: $breakpointDesktop) {

@@ -62,26 +62,20 @@ li {
 
 @mixin formButton {
   @include flex;
-  z-index: 3;
-  border-radius: $borderRadius;
-  padding: calc($padding / 2) $padding;
-  margin: 0 auto;
-  border: 1px solid $light;
-  box-shadow: 0 0.5rem 2rem 0 $dark;
-  background: $darkTransparent;
+  @include ibmNormal;
+  color: $primaryTextColor;
+  background-color: transparent;
   backdrop-filter: blur(1rem);
   -webkit-backdrop-filter: blur(1rem);
+  z-index: 3;
+  padding: $padding calc($padding * 2);
+  margin: 0 auto;
+  border: 2px solid $light;
+  border-radius: $borderRadius;
+  box-shadow: 0 0.5rem 2rem 0 $dark;
   transition: transform-scale(1.1) ease-in-out 100ms;
   transition-duration: 0.25s;
   cursor: pointer;
-  font-size: calc($baseline * 1.6);
-  font-weight: 523;
-  font-family: "Maven Pro";
-  font-style: normal;
-  line-height: 110%;
-  letter-spacing: 0.04em;
-  color: $primaryTextColor;
-  background-color: transparent;
 
   &:hover {
     transform: scale(1.1);
