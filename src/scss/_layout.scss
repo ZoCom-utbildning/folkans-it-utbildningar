@@ -1,4 +1,4 @@
-@import "./variables";
+@import './variables';
 
 .viewWrapper {
   display: flex;
@@ -49,26 +49,26 @@
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: calc(100% - 2.2rem);
     height: 100%;
     top: 0;
     left: 1rem;
-    border-left: 0.1rem solid $borderColor;
-    border-right: 0.1rem solid $borderColor;
+    // border-left: 0.1rem solid $borderColor;
+    // border-right: 0.1rem solid $borderColor;
     z-index: $z-index;
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     width: 100%;
     height: calc(100% - 2.2rem);
     top: 1rem;
     left: 0;
-    border-top: 0.1rem solid $borderColor;
-    border-bottom: 0.1rem solid $borderColor;
+    // border-top: 0.1rem solid $borderColor;
+    // border-bottom: 0.1rem solid $borderColor;
     z-index: $z-index;
   }
 }
