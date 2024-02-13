@@ -84,7 +84,8 @@
       @include flex($justify: center, $align: center);
       width: 100%;
       height: 100%;
-
+      margin-top: auto;
+      flex: 0;
       .personasButton {
         @include formButton;
         padding: $padding $padding;
@@ -136,15 +137,30 @@
         .arrow-wrapper {
           z-index: 5;
           width: 50%;
-          padding-bottom: 3rem;
+          padding-bottom: 1rem;
+          
 
           display: flex;
           justify-content: space-between;
+          
           img {
             z-index: 7;
-
+            width: calc($baseline);
+            transition: .3s;
             cursor: pointer;
+            
           }
+
+          .right-arrow:hover{
+            transform:translate(calc($baseline/2),0);
+            transition: .5s;
+          }
+
+          .left-arrow:hover{
+            transform:translate( - calc($baseline/2),0);
+            transition: .5s;
+          }
+          
         }
         .personasButton {
           @include formButton;
