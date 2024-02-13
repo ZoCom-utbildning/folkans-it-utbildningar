@@ -1,6 +1,6 @@
 @import "../../scss/variables.scss";
 @import "../../scss/layout.scss";
-
+@import "../../scss/global.scss";
 .header {
   padding-bottom: 1rem;
   z-index: 4;
@@ -71,6 +71,7 @@
 
 @media screen and (min-width: calc($breakpointDesktop*1.2)) {
   .header {
+    @include robotoMedium;
     position: fixed;
     transition: 0.4s;
     width: 100%;
