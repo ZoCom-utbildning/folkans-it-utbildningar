@@ -75,10 +75,6 @@ li {
   transition-duration: 0.25s;
   cursor: pointer;
   font-size: calc($baseline * 1.6);
-  font-weight: 523;
-  font-family: "Maven Pro";
-  font-style: normal;
-  line-height: 110%;
   letter-spacing: 0.04em;
   color: $primaryTextColor;
   background-color: transparent;
@@ -159,4 +155,18 @@ li {
     bottom: 1rem;
     opacity: 0.6;
   }
+}
+
+
+@media screen and (min-width: $breakpointDesktop) {
+  h1,h2{
+    @include ibmMedium;
+  }
+  button {
+    @include robotoMedium ;
+  }
+  p{
+    @include robotoNormal;
+  }
+  
 }

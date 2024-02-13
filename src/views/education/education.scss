@@ -35,10 +35,15 @@
 }
 
 @media screen and (min-width: $breakpointDesktop) {
+   
     .educationView {
         main {
             max-width: 50rem;
-            margin: calc($margin * 8) auto 0;
+            margin: calc($margin * 15) auto 0;
+           p{
+            margin: calc($baseline/1.2) 0 ; 
+           }
         }
+        
     }
 }
