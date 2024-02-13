@@ -5,7 +5,7 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
 
 .home-wrapper {
   @include maxSize;
-
+ 
   .hero-content {
     @include flex($direction: column, $justify: space-between, $align: center);
     padding: calc($padding * 3) 0;
@@ -119,6 +119,7 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
 
 @media screen and (min-width: $breakpointDesktop) {
   .home-wrapper {
+
     .home-main {
       background-color: $dark;
       padding: $padding;

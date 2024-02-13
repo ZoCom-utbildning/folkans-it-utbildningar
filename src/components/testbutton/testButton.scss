@@ -12,6 +12,7 @@
 
 @media (min-width: $breakpointDesktop) {
   .homeButton {
+    @include robotoMedium;
     transition: 0.25s;
     max-width: 100%;
     margin-top: $margin;

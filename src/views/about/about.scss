@@ -52,6 +52,9 @@
     main {
       max-width: 50rem;
       margin: calc($margin * 8) auto 0;
+      p{
+        margin: calc($baseline/1.2) 0 ; 
+       }
     }
   }
 }
