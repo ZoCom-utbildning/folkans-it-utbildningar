@@ -87,8 +87,6 @@
 
       .personasButton {
         @include formButton;
-        padding: $padding $padding;
-
         transition: 0.25s;
 
         &:hover {
