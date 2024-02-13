@@ -50,7 +50,9 @@
         main {
             max-width: 50rem;
             margin: $margin*8 auto 0;
-
+            p{
+                margin: calc($baseline/1.2) 0 ; 
+               }
             .coursesWrapper {
                 margin: 0 calc($margin * -3);
                 padding: $padding;
