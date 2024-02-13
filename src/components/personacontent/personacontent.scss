@@ -6,55 +6,55 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 65vh;
+  // min-height: 65vh;
   .arrow-wrapper {
     display: none;
   }
 
-  .persona-card-content {
-    padding: $margin;
+  // .persona-card-content {
+  //   padding: $margin;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-between;
 
-    .personas-main {
-      .personas-card {
-        .personas-card-header {
-          .personas-card-title {
-            margin: 0;
-          }
-        }
+  //   .personas-main {
+  //     .personas-card {
+  //       .personas-card-header {
+  //         .personas-card-title {
+  //           margin: 0;
+  //         }
+  //       }
 
-        .personas-card-text-container {
-          .personas-card-ingress {
-            hyphens: auto;
-            font-weight: 600;
-            margin-bottom: $margin-large;
-          }
+  //       .personas-card-text-container {
+  //         .personas-card-ingress {
+  //           hyphens: auto;
+  //           font-weight: 600;
+  //           margin-bottom: $margin-large;
+  //         }
 
-          .question-title {
-            font-weight: 600;
-            font-size: calc($baseline * 1.5);
-          }
+  //         .question-title {
+  //           font-weight: 600;
+  //           font-size: calc($baseline * 1.5);
+  //         }
 
-          .card-text-container {
-            span {
-              font-weight: 600;
-            }
+  //         .card-text-container {
+  //           span {
+  //             font-weight: 600;
+  //           }
 
-            .personas-card-text {
-              margin-bottom: $margin;
-            }
+  //           .personas-card-text {
+  //             margin-bottom: $margin;
+  //           }
 
-            &:nth-last-child {
-              margin-bottom: 0;
-            }
-          }
-        }
-      }
-    }
-  }
+  //           &:nth-last-child {
+  //             margin-bottom: 0;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   .persona-content {
     @include flex($align: flex-start, $direction: column);
