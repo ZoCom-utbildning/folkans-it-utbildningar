@@ -10,6 +10,8 @@
 
   .card_content {
     background-color: $dark;
+    position: relative;
+    z-index: 2;
 
     .image_section {
       height: 100%;
