@@ -1,6 +1,6 @@
-@import "../../scss/variables.scss";
-@import "../../scss/layout.scss";
-@import "../../scss/global.scss";
+@import '../../scss/variables.scss';
+@import '../../scss/layout.scss';
+@import '../../scss/global.scss';
 
 .persona-card-content {
   display: flex;
@@ -103,7 +103,6 @@
   .galleryButtons {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
     padding: $margin-large $margin-large 1.2rem $margin-large;
     margin-bottom: 0rem;
     z-index: 3;
@@ -138,29 +137,26 @@
           z-index: 5;
           width: 50%;
           padding-bottom: 1rem;
-          
 
           display: flex;
           justify-content: space-between;
-          
+
           img {
             z-index: 7;
             width: calc($baseline);
-            transition: .3s;
+            transition: 0.3s;
             cursor: pointer;
-            
           }
 
-          .right-arrow:hover{
-            transform:translate(calc($baseline/2),0);
-            transition: .5s;
+          .right-arrow:hover {
+            transform: translate(calc($baseline/2), 0);
+            transition: 0.5s;
           }
 
-          .left-arrow:hover{
-            transform:translate( - calc($baseline/2),0);
-            transition: .5s;
+          .left-arrow:hover {
+            transform: translate(-calc($baseline/2), 0);
+            transition: 0.5s;
           }
-          
         }
         .personasButton {
           @include formButton;
