@@ -25,22 +25,30 @@ $scrollHover: #5e6265;
 
 $gradient: linear-gradient(360deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%),
   linear-gradient(137.33deg, #2573b5 0%, rgba(37, 115, 181, 0) 96.25%), #25b567;
-$gradientLight: linear-gradient(360deg,
+$gradientLight: linear-gradient(
+    360deg,
     rgba(255, 255, 255, 0.3) 0%,
-    rgba(0, 0, 0, 0) 100%),
+    rgba(0, 0, 0, 0) 100%
+  ),
   linear-gradient(137.33deg, #064f4f 0%, rgba(37, 115, 181, 0) 96.25%), #9a9a9a;
-$gradientGray: radial-gradient(circle,
-    #3d3d3d,
-    #353537,
-    #2d2e31,
-    #25272b,
-    #1d2025);
+$gradientGray: radial-gradient(
+  circle,
+  #3d3d3d,
+  #353537,
+  #2d2e31,
+  #25272b,
+  #1d2025
+);
 
 $stripes-background-size: 12.73px 12.73px;
 
 $margin: $baseline;
 $margin-small: calc($baseline / 2);
 $margin-large: calc($baseline * 2);
+
+$gap-small: calc($baseline / 2);
+$gap-medium: calc($baseline / 1.2);
+$gap-large: calc($baseline * 2);
 
 $padding: $baseline;
 $padding-small: calc($baseline / 2);
@@ -54,7 +62,7 @@ $sidePad: 70px;
 $numOfEls: 5;
 $elMrg: 1%;
 
-$initAT: .5s;
+$initAT: 0.5s;
 $initDelayStep: 0.1s;
 $fullInitAT: calc($initAT + $initDelayStep * ($numOfEls - 1));
 $moveAT: 0.6s;

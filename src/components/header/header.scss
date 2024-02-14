@@ -6,10 +6,12 @@
   z-index: 4;
   height: 10vh;
   width: 100%;
+  background-color: $dark;
 
-  position: fixed;
-  top: 0;
-  left: 0;
+  // Hamdi: old code, used to make the navbar opacity zero in homeview. When changed, the navbar in mobile view have a dark background instead.
+  // position: fixed;
+  // top: 0;
+  // left: 0;
   transition: all 0.1s ease-in-out;
 
   nav {
