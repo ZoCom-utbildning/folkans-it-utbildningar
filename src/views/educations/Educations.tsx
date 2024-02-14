@@ -1,11 +1,11 @@
-import Footer from "../../components/footer/Footer";
-import "./educations.scss";
-import { useEffect, useState } from "react";
-import { db } from "../../services/firebase";
-import { collection, getDocs } from "firebase/firestore";
-import { useNavigate } from "react-router";
-import anime from "animejs";
-import { EducationInfo } from "../../models/types";
+import Footer from '../../components/footer/Footer';
+import './educations.scss';
+import { useEffect, useState } from 'react';
+import { db } from '../../services/firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import { useNavigate } from 'react-router';
+import anime from 'animejs';
+import { EducationInfo } from '../../models/types';
 
 function Educations() {
   const [courses, setCourses] = useState<EducationInfo[]>([]);
@@ -14,14 +14,14 @@ function Educations() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, "educations"));
+        const querySnapshot = await getDocs(collection(db, 'educations'));
         const tempCourses: EducationInfo[] = [];
         querySnapshot.forEach((doc) => {
           tempCourses.push(doc.data() as EducationInfo);
         });
         setCourses(tempCourses);
       } catch (error) {
-        console.error("Error fetching courses:", error);
+        console.error('Error fetching courses:', error);
       }
     };
     fetchData();
@@ -36,14 +36,14 @@ function Educations() {
     (course: EducationInfo, index: number) => {
       return (
         <section
-          className="course"
+          className='course'
           id={course.id}
           key={index}
           onClick={() => navigateTo(`/utbildningar/${course.id}`)}
         >
           <h3>{course.name}</h3>
           <p>{course.location}</p>
-          <p className="right">Läs mer</p>
+          <p className='right'>Läs mer</p>
         </section>
       );
     }
@@ -51,19 +51,19 @@ function Educations() {
 
   useEffect(() => {
     anime({
-      targets: ".coursesWrapper .course",
+      targets: '.course',
       keyframes: [{ backgroundPositionX: 0 }, { backgroundPositionX: 100 }],
-      direction: "alternate",
-      loop: true,
+      direction: 'alternate',
+      loop: false,
       delay: anime.stagger(2000, { start: 500 }),
       endDelay: anime.stagger(300, { start: 300 }),
       duration: 5000,
-      easing: "easeInOutQuad",
+      easing: 'easeInOutQuad',
     });
   }, [displayCourses]);
 
   return (
-    <div className="educationsView">
+    <div className='educationsView'>
       <main>
         <h1>Våra utbildningar</h1>
         <p>
@@ -86,7 +86,7 @@ function Educations() {
           utbildningsledaren i god tid innan utbildningen börjar så att
           anpassningarna kan planeras och bli rätt från början.
         </p>
-        <section className="coursesWrapper">{displayCourses}</section>
+        <section className='coursesWrapper'>{displayCourses}</section>
       </main>
       <Footer />
     </div>
