@@ -49,7 +49,10 @@ const Education = () => {
   return (
     <div className="educationView">
       <main>
-        <span className="educationView-back__button">
+        <span
+          className="educationView-back__button"
+          onClick={() => navigate("/utbildningar")}
+        >
           <img src={BackIcon} alt="" />
           <p>Tillbaka till utbildningar</p>
         </span>
