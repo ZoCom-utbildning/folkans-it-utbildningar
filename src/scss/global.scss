@@ -1,8 +1,8 @@
-@import 'variables';
-@import 'layout';
-@import 'typography';
+@import "variables";
+@import "layout";
+@import "typography";
 
-$bg-image: url('../assets/photos/manComputer.webp');
+$bg-image: url("../assets/photos/manComputer.webp");
 
 * {
   box-sizing: border-box;
@@ -39,7 +39,7 @@ body::-webkit-scrollbar-thumb:hover {
 .App {
   @include maxSize;
   overflow-wrap: break-word;
-  hyphenate-character: '-';
+  hyphenate-character: "-";
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -55,7 +55,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 li {
-  list-style: outside '\2B22';
+  list-style: outside "\2B22";
   padding-left: $padding-small;
   margin-left: $margin;
 }
@@ -80,7 +80,7 @@ li {
   background-color: transparent;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) !important;
     border-color: $purple;
   }
 }
