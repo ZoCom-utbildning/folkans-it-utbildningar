@@ -131,7 +131,7 @@ const Personas = ({
           />
         </section>
       )}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

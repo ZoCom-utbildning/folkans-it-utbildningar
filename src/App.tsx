@@ -7,6 +7,7 @@ import Header from "./components/header/header";
 import Educations from "./views/educations/Educations";
 import Education from "./views/education/Education";
 import { useState, useEffect } from "react";
+import "./App.scss";
 import { Route, Routes } from "react-router-dom";
 
 import "./scss/global.scss";
@@ -19,6 +20,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { Question, Persona } from "./models/types";
 import TestButton from "./components/testbutton/testButton";
 import { TransitionWrapper } from "./components/transitionWrapper/transitionWrapper";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -210,56 +212,59 @@ function App() {
         navClass={navClass}
         setNavClass={setNavClass}
       />
-      <TransitionWrapper>
-        <Routes>
-          <Route path="/om" element={<About />} />
-          <Route path="/utbildningar" element={<Educations />} />
-          <Route path="/utbildningar/:educationId" element={<Education />} />
-          <Route path="/*" element={<Error />} />
-          <Route
-            path="/fragor/:pageId"
-            element={
-              <Form
-                setActivePersona={setActivePersona}
-                interviewData={interviewData}
-                activePersona={activePersona}
-                buttonElements={buttonElements}
-                questions={questions}
-              />
-            }
-          />
-          <Route
-            path="/"
-            element={
-              <Home
-                setActivePersona={setActivePersona}
-                questions={questions}
-                data={data}
-                interviewData={interviewData}
-                handlers={handlers}
-                activePersona={activePersona}
-                buttonElements={buttonElements}
-              />
-            }
-          />
-          <Route
-            path="/personer"
-            element={
-              <Personas
-                setActivePersona={setActivePersona}
-                isMobile={isMobile}
-                questions={questions}
-                scrollClass={scrollClass}
-                data={data}
-                interviewData={interviewData}
-                handlers={handlers}
-                activePersona={activePersona}
-                buttonElements={buttonElements}
-              />
-            }
-          />
-        </Routes>
-      </TransitionWrapper>
+      <main>
+        <TransitionWrapper>
+          <Routes>
+            <Route path="/om" element={<About />} />
+            <Route path="/utbildningar" element={<Educations />} />
+            <Route path="/utbildningar/:educationId" element={<Education />} />
+            <Route path="/*" element={<Error />} />
+            <Route
+              path="/fragor/:pageId"
+              element={
+                <Form
+                  setActivePersona={setActivePersona}
+                  interviewData={interviewData}
+                  activePersona={activePersona}
+                  buttonElements={buttonElements}
+                  questions={questions}
+                />
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <Home
+                  setActivePersona={setActivePersona}
+                  questions={questions}
+                  data={data}
+                  interviewData={interviewData}
+                  handlers={handlers}
+                  activePersona={activePersona}
+                  buttonElements={buttonElements}
+                />
+              }
+            />
+            <Route
+              path="/personer"
+              element={
+                <Personas
+                  setActivePersona={setActivePersona}
+                  isMobile={isMobile}
+                  questions={questions}
+                  scrollClass={scrollClass}
+                  data={data}
+                  interviewData={interviewData}
+                  handlers={handlers}
+                  activePersona={activePersona}
+                  buttonElements={buttonElements}
+                />
+              }
+            />
+          </Routes>
+        </TransitionWrapper>
+      </main>
+      <Footer />
     </div>
   );
 }
