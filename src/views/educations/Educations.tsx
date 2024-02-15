@@ -41,9 +41,11 @@ function Educations() {
           key={index}
           onClick={() => navigateTo(`/utbildningar/${course.id}`)}
         >
-          <h3>{course.name}</h3>
-          <p>{course.location}</p>
+          <h3 className="course-title">{course.name}</h3>
+          <section className="course-info">
+          <p className="course-location-text">{course.location}</p>
           <p className="right">Läs mer</p>
+          </section>
         </section>
       );
     }
@@ -65,21 +67,21 @@ function Educations() {
   return (
     <div className="educationsView">
       <main>
-        <h1>Våra utbildningar</h1>
-        <p>
+        <h1 className="educations-view-title">Våra utbildningar</h1>
+        <p className="educations-view-text">
           Samtliga utbildningar är 400 YH-poäng, vilket i praktiken innebär 2
           års studier. Utbildningarna startar i augusti/september och examen
           sker i juni lite mindre än två år senare. Alla utbildningar är
           dessutom studiemedelsberättigade, vilket gör att du har samma rätt
           till studiemedel från CSN som på en traditionell högskoleutbildning.
         </p>
-        <p>
+        <p className="educations-view-text">
           Om du inte är behörig till den utbildning du vill gå, går det jättebra
           att kontakta utbildningsledaren. Vi har särskilda förberedande kurser,
           så kallade ”BFU:er” som inte bara gör dig behörig, utan dessutom
           garanterar dig en plats på utbildningen om du blir godkänd på den.
         </p>
-        <p>
+        <p className="educations-view-text">
           Om du har behov av särskilt stöd av något slag för att klara av dina
           studier kan du kontakta utbildningsledaren så kan ni lägga upp en plan
           som blir bra för just dig. Kom bara ihåg att ta kontakt med
