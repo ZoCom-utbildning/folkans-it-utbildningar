@@ -87,7 +87,7 @@ const Education = () => {
           </section>
         </article>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

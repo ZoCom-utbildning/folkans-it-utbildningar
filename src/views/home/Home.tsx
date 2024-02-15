@@ -74,7 +74,7 @@ function Home({
           activePersona={activePersona}
         />
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
