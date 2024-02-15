@@ -4,7 +4,6 @@
 @import "../../scss/global";
 
 .educationsView {
-    @include maxSize;
     @include flex($justify: none, $align: none, $direction: column);
     overflow-x: hidden;
     background-color: $dark;
@@ -16,8 +15,18 @@
     main {
         padding: $padding-large;
 
+        .educations-view-title {
+            @include ibmLargeBold;
+            margin-bottom: $margin;
+        }
+
+        .educations-view-text {
+            @include robotoNormal;
+            margin-bottom: $margin;
+        }
+
         .coursesWrapper {
-            margin-top: $margin;
+            margin-top: $margin-large;
             position: relative;
             display: grid;
             grid-template-columns: repeat(1, 1fr);
@@ -44,6 +53,7 @@
                 .course-info {
                     display: flex;
                     justify-content: space-between;
+                    margin-top: $margin-small;
 
                     .course-location-text {
                         @include robotoNormal;
@@ -68,10 +78,9 @@
 
 @media screen and (min-width: $breakpointDesktop) {
     .educationsView {
+        border-radius: $borderRadius;
+        margin: $margin-large 0;
         main {
-            p{
-                margin: calc($baseline/1.2) 0 ; 
-               }
             .coursesWrapper {
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(3, 1fr);
@@ -80,6 +89,7 @@
                 .course {
                     padding: $padding;
                 }
+
             }
         }
     }

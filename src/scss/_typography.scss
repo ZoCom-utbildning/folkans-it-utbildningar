@@ -32,6 +32,15 @@ $baseFontSize: 16px;
   @include render;
 }
 
+@mixin ibmLargeBold {
+  font-family: "IBM Plex Sans";
+  font-size: $baseFontSize * 2;
+  line-height: 100%;
+  letter-spacing: 1px;
+  font-weight: 700;
+  @include render;
+}
+
 @mixin ibmLarge {
   font-family: "IBM Plex Sans";
   font-size: $baseFontSize * 2;
