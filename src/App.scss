@@ -2,6 +2,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr 3fr 1fr;
+  row-gap: 2vh;
   grid-template-areas:
     "header header header"
     ". main ."
