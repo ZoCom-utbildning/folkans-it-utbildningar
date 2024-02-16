@@ -1,13 +1,14 @@
-import "./home.scss";
-import arrowDown from "../../assets/icons/arrowDown.svg";
-import vscodecomputer from "../../assets/photos/vscodecomputer.webp";
-import FormComponent from "../../components/formcomponent/formComponent";
-import TestButton from "../../components/testbutton/testButton";
-import { Persona, Question } from "../../models/types";
+import './home.scss';
+import Typewriter from 'typewriter-effect';
+import arrowDown from '../../assets/icons/arrowDown.svg';
+import vscodecomputer from '../../assets/photos/vscodecomputer.webp';
+import FormComponent from '../../components/formcomponent/formComponent';
+import TestButton from '../../components/testbutton/testButton';
+import { Persona, Question } from '../../models/types';
 
-import { useSwipeable } from "react-swipeable";
+import { useSwipeable } from 'react-swipeable';
 
-import Footer from "../../components/footer/Footer";
+import Footer from '../../components/footer/Footer';
 
 type HomeProps = {
   activePersona: number;
@@ -27,27 +28,36 @@ function Home({
   setActivePersona,
 }: HomeProps) {
   const scrollToTest = () => {
-    window.scrollTo({ top: 780, behavior: "smooth" });
+    window.scrollTo({ top: 780, behavior: 'smooth' });
   };
 
   return (
-    <div className="home-wrapper">
-      <section className="hero-content">
-        <h1 className="title-h1">
-          Så du är nyfiken på att jobba inom IT-branschen? Ta testet för att se
-          vad som passar dig bäst!
+    <div className='home-wrapper'>
+      <section className='hero-content'>
+        <h1 className='title-h1'>
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter
+                .changeDelay(50)
+                .changeDeleteSpeed(50)
+                .typeString(
+                  'Så du är nyfiken på att jobba inom IT-branschen? Ta testet för att se vad som passar dig bäst!'
+                )
+                .start();
+            }}
+          />
         </h1>
-        <TestButton buttonText={"TILL TESTET"} />
-        <section className="arrow-container" onClick={scrollToTest}>
+        <TestButton buttonText={'TILL TESTET'} />
+        <section className='arrow-container' onClick={scrollToTest}>
           <p>Mer info om testet</p>
-          <img src={arrowDown} alt="Arrow down" className="arrowDown" />
+          <img src={arrowDown} alt='Arrow down' className='arrowDown' />
         </section>
       </section>
-      <main className="home-main">
-        <div className="home-main__content">
-          <section className="text-content">
-            <h2 className="title-h2">Vad är det som testas?</h2>
-            <p className="home-main__content__text">
+      <main className='home-main'>
+        <div className='home-main__content'>
+          <section className='text-content'>
+            <h2 className='title-h2'>Vad är det som testas?</h2>
+            <p className='home-main__content__text'>
               Vi har haft en dialog med våra studerande och utbildningsledare på
               våra utbildningar samt företrädare för IT-branschen. Resultatet av
               denna dialog har mynnat ut i detta test. Syftet med testet är att
@@ -58,14 +68,14 @@ function Home({
               detta test som en mer lättsmält väg för dig till att veta vad som
               är rätt för just dig.
             </p>
-            <TestButton buttonText={"Ta Testet"} />
+            <TestButton buttonText={'Ta Testet'} />
           </section>
-          <section className="img-with-text">
-            <img src={vscodecomputer} alt="VS Code Computer" />
+          <section className='img-with-text'>
+            <img src={vscodecomputer} alt='VS Code Computer' />
           </section>
         </div>
       </main>
-      <section className="home-personas-wrapper" {...handlers}>
+      <section className='home-personas-wrapper' {...handlers}>
         <FormComponent
           setActivePersona={setActivePersona}
           questions={questions}
