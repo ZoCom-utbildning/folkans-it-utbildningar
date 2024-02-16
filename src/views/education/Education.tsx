@@ -54,16 +54,16 @@ const Education = () => {
           onClick={() => navigate("/utbildningar")}
         >
           <img src={BackIcon} alt="" />
-          <p>Tillbaka till utbildningar</p>
+          <p className="back__button-text">Tillbaka till utbildningar</p>
         </span>
         <article className="educationView-main__content">
           <section className="main__content-course">
-            <h1>{course.name}</h1>
+            <h1 className="main__education-title">{course.name}</h1>
             <p className="ingress">{course.description}</p>
 
             {educationInfo && (
               <section key={educationInfo.id}>
-                <h2>{educationInfo.title}</h2>
+                <h2 className="main__education-sub-title">{educationInfo.title}</h2>
                 {educationInfo.content.map((paragraph, index) => (
                   <p key={index}>{paragraph}</p>
                 ))}
