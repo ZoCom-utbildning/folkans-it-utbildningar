@@ -61,13 +61,15 @@ const Header = ({ setNavClass, navClass, setNavOpen, navOpen }: Props) => {
     else setHeaderBackground('header');
   }, [navOpen]);
 
+    
   const noReload = (e: any, link: string) => {
-    e.preventDefault();
-    setActiveLink(link);
-    navigate(link);
-    animateOverlay();
-    setNavOpen(false);
-    setNavClass('nav-icon');
+      e.preventDefault();
+      setActiveLink(link);
+      navigate(link);
+      animateOverlay();
+      setNavOpen(false);
+      setNavClass('nav-icon');
+
   };
 
   return (
