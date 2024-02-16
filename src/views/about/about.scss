@@ -5,56 +5,28 @@
 
 .aboutView {
   @include maxSizeCalc;
-  @include flex($justify: none, $align: none, $direction: column);
-  @include lines;
   background-color: $dark;
   overflow-x: hidden;
-
-  &* {
-    position: relative;
-  }
+  padding: $padding-small;
 
   main {
     padding: $padding-large;
 
-    h1 {
-      font-size: calc($baseline * 2.5);
+    .about-title {
+      @include ibmLargeBold;
+      margin-bottom: $margin-large;
     }
 
-    .ingress {
-      font-size: 1.2rem;
-    }
-
-    .about-section {
-      @include flex($justify: center, $direction: row);
-      flex-wrap: wrap;
-      margin: 0;
-      padding: 0;
-
-      section {
-        display: flex;
-        flex-wrap: wrap;
-        width: 100%;
-        border: $borderStyle;
-        margin: $margin-small 0;
-        padding: $padding-large;
-        align-items: center;
-        gap: 1rem;
-        backdrop-filter: blur(0.5rem);
-        -webkit-backdrop-filter: blur(0.5rem);
-      }
+    .about-text {
+      @include robotoNormal;
+      margin-bottom: $margin;
     }
   }
 }
 
 @media screen and (min-width: $breakpointDesktop) {
   .aboutView {
-    main {
-      max-width: 50rem;
-      margin: calc($margin * 8) auto 0;
-      p{
-        margin: calc($baseline/1.2) 0 ; 
-       }
-    }
+    margin: $margin-large 0;
+    border-radius: $borderRadius;
   }
 }
