@@ -1,12 +1,12 @@
-@import "../../scss/variables.scss";
-@import "../../scss/layout.scss";
-@import "../../scss/global.scss";
+@import '../../scss/variables.scss';
+@import '../../scss/layout.scss';
+@import '../../scss/global.scss';
 .header {
   padding-bottom: 1rem;
   z-index: 4;
   height: 10vh;
   width: 100%;
-  background-color: $dark;
+  // background-color: $dark;
 
   // Hamdi: old code, used to make the navbar opacity zero in homeview. When changed, the navbar in mobile view have a dark background instead.
   // position: fixed;

@@ -5,61 +5,44 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
 
 .home-wrapper {
   @include maxSize;
+  @include flex($direction: column);
+  gap: 2.5rem;
+  margin-bottom: 2rem;
 
   .hero-content {
     @include flex($direction: column, $justify: space-between, $align: center);
     padding: calc($padding * 3) 0;
-    min-height: 70vh;
     height: 70vh;
-    width: 100%;
+
+    .title-h1 {
+      @include ibmLarge;
+      color: $primaryTextColor;
+      margin: auto;
+      text-align: center;
+    }
 
     .arrow-container {
       @include flex($display: none, $direction: column);
-      cursor: pointer;
-      z-index: 2;
-    }
-
-    .title-h1 {
-      color: $primaryTextColor;
-      @include ibmLarge;
-      margin: auto $margin;
-      z-index: 2;
-      height: 180px;
-
-    }
-
-    &__footer {
-      border: none;
-      background: none;
-      display: flex;
-      gap: 2rem;
-
-      img {
-        height: 3rem;
-      }
     }
   }
 
   .home-main {
     background-color: #1d2025;
-    padding: $padding;
-    margin: $margin;
-    border-radius: $borderRadius;
     z-index: 2;
+    border-radius: $borderRadius;
+    width: 100%;
 
     .home-main__content {
-      background-color: #1d2025;
-      padding: $padding;
-      position: relative;
+      padding: $padding-large;
 
       .text-content {
         .title-h2 {
           @include ibmMedium;
+          margin-top: $margin-large;
+          margin: $margin-large 0 $margin 0;
         }
 
         p {
-          margin-top: $margin;
-          position: relative;
           @include robotoNormal;
         }
 
@@ -70,38 +53,64 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
       }
 
       .img-with-text {
-        display: none;
+        img {
+          width: 100%;
+          border-radius: $borderRadius;
+        }
       }
     }
   }
 }
 
 .home-wrapper {
-  width: 100%;
-
   .home-personas-wrapper {
-    @include flex($justify: space-between, $direction: column, $wrap: nowrap);
-
     .form_wrapper {
-
-      margin: 1rem;
-
-      border-radius: 8px;
       min-height: 100%;
+      border-radius: $borderRadius;
+
+      .persona-content {
+        min-height: 20vh;
+
+        p {
+          @include robotoNormal;
+        }
+      }
     }
   }
 }
 
+@media screen and (min-width: 600px) and (max-width: 1260px) {
+}
+
 @media screen and (min-width: $breakpointDesktop) {
   .home-wrapper {
-    .home-main {
-      background-color: $dark;
-      padding: $padding;
-      flex: 1;
+    .hero-content {
+      @include flex($justify: space-around, $direction: column, $wrap: nowrap);
+      min-height: 100vh;
+      padding-top: calc($padding-large * 3);
 
+      .title-h1 {
+        width: 80%;
+        height: 7rem;
+        font-size: 3.5rem;
+        margin-top: 0rem;
+        margin-bottom: calc($margin * 3);
+        font-weight: 500;
+        text-align: start;
+      }
+
+      .arrow-container {
+        @include flex($justify: none, $align: center, $direction: column);
+        cursor: pointer;
+
+        .arrowDown {
+          animation: float 2s ease-in-out infinite;
+        }
+      }
+    }
+    .home-main {
       .home-main__content {
         @include flex($justify: none, $align: none);
-        padding: $padding-large;
         margin: $margin;
 
         .text-content {
@@ -109,9 +118,13 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
           width: 50%;
           margin: $margin;
 
+          .title-h2 {
+            @include ibmLarge;
+          }
+
           p {
             margin-top: $margin;
-            width: 100%;
+            line-height: 180%;
           }
         }
 
@@ -119,14 +132,10 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
           @include flex($justify: none, $align: none, $direction: column);
           width: 50%;
           height: 100%;
-          max-width: 50%;
           margin: $margin;
 
           img {
-            aspect-ratio: 1/1;
             height: 450px;
-            width: 100%;
-            border-radius: $borderRadius;
             object-fit: cover;
             image-resolution: from-image;
           }
@@ -134,51 +143,31 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
       }
     }
 
-    .hero-content {
-      @include flex($justify: space-around, $direction: column, $wrap: nowrap);
-      min-height: 100vh;
-      padding-top: calc($padding-large * 3);
-
-      .arrow-container {
-        @include flex($justify: none, $align: center, $direction: column);
-
-        .arrowDown {
-          animation: float 2s ease-in-out infinite;
-        }
-      }
-
-      .title-h1 {
-        width: 50%;
-        height: 7rem;
-        font-size: 3.5rem;
-        margin-top: 0rem;
-        margin-left: 0rem;
-        margin-bottom: calc($margin * 3);
-        font-weight: 500;
-      }
-    }
-
     .home-personas-wrapper {
-      @include flex($justify: space-between, $direction: column, $wrap: nowrap);
-      width: 100%;
-      height: 115vh;
-      display: flex;
-      background-attachment: fixed;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #9f9f9f;
-      background-blend-mode: multiply;
-      background-size: cover;
-      background-image: linear-gradient(
-          360deg,
-          rgba(18, 123, 0, 0.713) 0%,
-          rgba(0, 255, 51, 0.397) 100%
-        ),
-        linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%),
-        $bg-imageWoman;
+      height: 100;
 
       .form_wrapper {
-        border: none;
+        display: block;
+        height: 580px;
+
+        .card_content {
+          width: 100%;
+          height: 100%;
+
+          .persona-card-content {
+            .persona-content {
+              gap: 2rem;
+
+              .persona-title {
+                @include ibmLarge;
+              }
+
+              p {
+                line-height: 180%;
+              }
+            }
+          }
+        }
       }
 
       .galleryButtons {
