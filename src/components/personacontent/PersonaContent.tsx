@@ -15,10 +15,11 @@ function PersonaContent({
   setActivePersona,
 }: Props) {
   const navigate = useNavigate();
-  function navToPersonas(e: any) {
+
+  function navToPersonas(e: any,persona:string) {
     e.preventDefault();
     window.scrollTo(0, 0);
-    navigate("/personer");
+    navigate("/personer?persona="+ persona);
   }
 
   const personas: PersonaText[] = [
@@ -85,7 +86,7 @@ function PersonaContent({
                   <div className="personas-button-container">
                     <button
                       className="personasButton"
-                      onClick={(e) => navToPersonas(e)}
+                      onClick={(e) => navToPersonas(e,persona.personaTitle)}
                     >
                       Läs hela intervjun här
                     </button>

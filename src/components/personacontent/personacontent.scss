@@ -154,7 +154,7 @@
           }
 
           .left-arrow:hover {
-            transform: translate(-calc($baseline/2), 0);
+            transform: translate(- calc($baseline/2), 0);
             transition: 0.5s;
           }
         }
