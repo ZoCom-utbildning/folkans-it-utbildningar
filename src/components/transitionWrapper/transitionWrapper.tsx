@@ -24,7 +24,7 @@ export const TransitionWrapper: React.FC<TransitionWrapperProps> = ({ children }
     
       //Html elements' animation with staggering effect   
     timeLine.add({
-        targets: 'p,.coursesWrapper,h1,h2', 
+        targets: 'p:not(.personas-card-text,.ingress),.coursesWrapper,h1,h2:not(.question-title,.personas-card-title)', 
         opacity: [0, 1],
         translateX: [200, 0],
         duration: 1500,

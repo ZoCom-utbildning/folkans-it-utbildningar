@@ -6,6 +6,7 @@
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
+  row-gap: 2vh;
   grid-template-areas:
     "header"
     "main"
