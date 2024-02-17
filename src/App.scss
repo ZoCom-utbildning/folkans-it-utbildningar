@@ -1,15 +1,15 @@
-@import url('./scss/_variables.scss');
-@import './scss/layout.scss';
-@import './scss/global.scss';
+@import url("./scss/_variables.scss");
+@import "./scss/layout.scss";
+@import "./scss/global.scss";
 
 .App {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr;
   grid-template-areas:
-    'header'
-    'main'
-    'footer';
+    "header"
+    "main"
+    "footer";
 
   main {
     grid-area: main;
@@ -24,13 +24,14 @@
   }
 }
 
-@media screen and (min-width: $breakpointDesktop) {
+@media screen and (min-width: 1400px) {
   .App {
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 1fr 3fr 1fr;
+    row-gap: 2vh;
     grid-template-areas:
-      'header header header'
-      '. main .'
-      'footer footer footer';
+      "header header header"
+      ". main ."
+      "footer footer footer";
   }
 }
