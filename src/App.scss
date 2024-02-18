@@ -2,30 +2,9 @@
 @import "./scss/layout.scss";
 @import "./scss/global.scss";
 
-.App {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-    "header"
-    "main"
-    "footer";
-
-  main {
-    grid-area: main;
-  }
-
-  .header {
-    grid-area: header;
-  }
-
-  .footer {
-    grid-area: footer;
-  }
-}
-
 @media screen and (min-width: 1400px) {
   .App {
+    display: grid;
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 1fr 3fr 1fr;
     row-gap: 2vh;
@@ -33,5 +12,17 @@
       "header header header"
       ". main ."
       "footer footer footer";
+
+    main {
+      grid-area: main;
+    }
+
+    .header {
+      grid-area: header;
+    }
+
+    .footer {
+      grid-area: footer;
+    }
   }
 }
