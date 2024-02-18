@@ -5,7 +5,6 @@
 
 .educationView {
   @include flex($justify: none, $align: none, $direction: column);
-
   overflow-x: hidden;
   background-color: $dark;
 
@@ -17,6 +16,16 @@
     padding: $padding-large;
     position: relative;
 
+    .main__education-title {
+      @include ibmLargeBold;
+      margin-bottom: $margin;
+    }
+    
+    .main__education-sub-title {
+      @include ibmMedium;
+      margin-bottom: $margin;
+    }
+
     .applyButton {
       @include formButton;
       padding: $padding $padding-large * 2;
@@ -25,11 +34,6 @@
       &:last-of-type {
         margin-top: $margin-large;
       }
-    }
-
-    .line {
-      margin: auto -1.5rem;
-      border-bottom: 0.1rem solid $borderColor;
     }
   }
   &-back__button {
@@ -44,11 +48,13 @@
 
 @media screen and (min-width: $breakpointDesktop) {
   .educationView {
+    border-radius: $borderRadius;
+    margin: $margin-large 0;
     main {
       max-width: 50rem;
-      margin: calc($margin * 15) auto 0;
       p {
-        margin: calc($baseline/1.2) 0;
+        @include robotoNormal;
+        margin-bottom: $margin;
       }
     }
   }
@@ -60,22 +66,26 @@
       max-width: 50rem;
 
       p {
-        margin: calc($baseline/1.2) 0;
+        @include robotoNormal;
+        margin-bottom: $margin;
       }
     }
     &-back__button {
       @include flexRow;
+      align-items: center;
       gap: $gap-small;
+      margin-bottom: $margin;
 
-      p {
+      .back__button-text {
         @include ibmNormal;
+        text-align: bottom;
+        margin: 0;
       }
     }
     &-main__content {
       border: solid 1px rgba(255, 255, 255, 0.1);
       border-radius: 8px;
-
-      padding: $padding $padding-large;
+      padding: $padding;
     }
 
     &-button__container {
