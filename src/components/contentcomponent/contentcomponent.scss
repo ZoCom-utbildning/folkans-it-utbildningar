@@ -6,6 +6,7 @@
   @include flex($direction: column, $align: space-between);
   position: relative;
   height: 100%;
+  color: $primaryTextColor;
 
   .radio_wrapper {
     .radio_component.margin {
@@ -19,10 +20,11 @@
     margin-bottom: $margin-small;
 
     h3 {
+      @include ibmNormal;
+      font-size: 1.4rem;
       height: 100%;
       width: 85%;
       margin: 0;
-      font-size: 1.4rem;
     }
   }
 
@@ -83,8 +85,8 @@
   user-select: none;
 
   p {
+    @include robotoNormal;
     margin: 0px 5px 0px 15px;
-    font-size: 0.875rem;
     text-align: start;
     user-select: text;
   }
