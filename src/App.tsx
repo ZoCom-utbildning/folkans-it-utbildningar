@@ -98,7 +98,7 @@ function App() {
         easing: "easeInOutQuad",
       });
       if (activePersona === 0) {
-        setActivePersona(4);
+        setActivePersona(5);
       } else {
         setActivePersona(activePersona - 1);
       }
@@ -116,7 +116,7 @@ function App() {
         easing: "easeInOutQuad",
       });
 
-      if (activePersona === 4) {
+      if (activePersona === 5) {
         setActivePersona(0);
       } else {
         setActivePersona(activePersona + 1);
