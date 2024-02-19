@@ -124,6 +124,10 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
             margin-top: $margin;
             line-height: 180%;
           }
+
+          .home-main__content__link {
+            text-decoration: underline;
+          }
         }
 
         .img-with-text {

@@ -68,6 +68,10 @@ function Home({
               detta test som en mer lättsmält väg för dig till att veta vad som
               är rätt för just dig.
             </p>
+            <p className='home-main__content__text'>
+              Testet riktar sig till dig som är intresserad av våra programmeringsutbildningar. 
+              Om du vill veta mer om vår utbildning inom nätverkssäkerhet, <a className='home-main__content__link' href='/utbildningar/Specialist-inom-nätverkssäkerhet-Göteborg'>klicka här!</a>
+            </p>
             <TestButton buttonText={'Ta Testet'} />
           </section>
           <section className='img-with-text'>
