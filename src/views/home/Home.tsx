@@ -1,6 +1,6 @@
 import './home.scss';
 import Typewriter from 'typewriter-effect';
-import arrowDown from '../../assets/icons/arrowDown.svg';
+import arrow from '../../assets/icons/arrow.svg';
 import vscodecomputer from '../../assets/photos/vscodecomputer.webp';
 import FormComponent from '../../components/formcomponent/formComponent';
 import TestButton from '../../components/testbutton/testButton';
@@ -50,7 +50,7 @@ function Home({
         <TestButton buttonText={'TILL TESTET'} />
         <section className='arrow-container' onClick={scrollToTest}>
           <p>Mer info om testet</p>
-          <img src={arrowDown} alt='Arrow down' className='arrowDown' />
+          <img src={arrow} alt='Arrow down' className='arrowDown' />
         </section>
       </section>
       <main className='home-main'>

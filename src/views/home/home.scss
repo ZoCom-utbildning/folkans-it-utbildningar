@@ -99,8 +99,8 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       .arrow-container {
         @include flex($justify: none, $align: center, $direction: column);
         cursor: pointer;
-
         .arrowDown {
+          width: $homeArrowSize;
           animation: float 2s ease-in-out infinite;
         }
       }

@@ -1,8 +1,7 @@
 import "./personacontent.scss";
 import { useNavigate } from "react-router-dom";
 import { PersonaText } from "../../models/types";
-import arrowRight from "../../assets/icons/arrowRight.svg";
-import arrowLeft from "../../assets/icons/arrowLeft.svg";
+import arrow from "../../assets/icons/arrow.svg";
 
 type Props = {
   activePersona: number;
@@ -93,13 +92,13 @@ function PersonaContent({
                     <section className="arrow-wrapper">
                       <img
                         className="left-arrow"
-                        src={arrowLeft}
+                        src={arrow}
                         alt=""
                         onClick={decreaseActivePersona}
                       />
                       <img
                         className="right-arrow"
-                        src={arrowRight}
+                        src={arrow}
                         alt=""
                         onClick={increaseActivePersona}
                       />
