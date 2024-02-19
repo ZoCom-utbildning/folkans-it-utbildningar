@@ -13,7 +13,7 @@ import OnboardingComponent from "../onboardingcomponent/onboardingComponent";
 import "./formComponent.scss";
 import anime, { AnimeInstance } from "animejs";
 import { Question } from "../../models/types";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   activePersona: number;
@@ -68,7 +68,7 @@ function FormComponent({
           setQuestionId(newQuestionId);
         } else {
           setLastPage(true);
-          navigate('/fragor/resultat');
+          navigate("/fragor/resultat");
         }
         fadeOut.play();
       },
@@ -118,6 +118,12 @@ function FormComponent({
     ) {
       setFormImage(personasImage5);
       setAltImage("personasImage5");
+    } else if (
+      !window.location.href.includes("fragor") &&
+      activePersona === 5
+    ) {
+      setFormImage(personasImage6);
+      setAltImage("personasImage6");
     }
 
     if (questionId === 0) {
@@ -154,7 +160,6 @@ function FormComponent({
   };
 
   const decreaseQuestion = () => {
-
     if (questionId > 1) {
       if (playFade === false) {
         fadeFunction(questionId - 1);
@@ -164,15 +169,12 @@ function FormComponent({
   };
 
   const startTest = () => {
-
     if (questions.length > 0) {
-
       if (playFade === false) {
         localStorage.removeItem("resultsArray");
         setLastPage(false);
         fadeFunction(questionId + 1);
         navigate(`/fragor/${questionId + 1}`);
-
       }
     }
   };
@@ -182,7 +184,12 @@ function FormComponent({
       <section className="card_content">
         {window.location.href.includes("fragor") && firstPage ? (
           <>
-            <OnboardingComponent startTest={startTest} questions={questions} setLastPage={setLastPage} setQuestionId={setQuestionId}/>
+            <OnboardingComponent
+              startTest={startTest}
+              questions={questions}
+              setLastPage={setLastPage}
+              setQuestionId={setQuestionId}
+            />
           </>
         ) : window.location.href.includes("fragor") &&
           !firstPage &&
@@ -198,9 +205,9 @@ function FormComponent({
               firstQuestion={firstQuestion}
             />
           </>
-        ) : window.location.href.includes("fragor") && lastPage ?  (
+        ) : window.location.href.includes("fragor") && lastPage ? (
           <>
-            <ResultsComponent setQuestionId={setQuestionId}/>
+            <ResultsComponent setQuestionId={setQuestionId} />
           </>
         ) : window.location.href.includes("") ? (
           <section className="persona-card-content">
