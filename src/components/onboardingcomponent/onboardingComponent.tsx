@@ -37,6 +37,7 @@ const OnboardingComponent = ({ startTest, questions, setLastPage, setQuestionId 
                 <p className='onboarding_text'> Det finns inget rätt eller fel, utan svara med det svarsalternativ som känns mest rätt för dig. </p>
                 <p className='onboarding_text'> När du svarat på frågorna kommer du att få ett resultat, där fem utbildningar rangordnas efter hur du svarat på frågorna. </p>
                 <p className='onboarding_text'> Detta är så klart bara en rekommendation, men det är samtidigt vår kvalificerade gissning för vilken utbildning vi tror är mest rätt för just dig. </p>
+                <p className='onboarding_text'> Observera att testet endast inkluderar våra programmeringsutbildningar. Är du intresserad av vår utbildning inom nätverkssäkerhet, <a className='onboarding_text__link' href='/utbildningar/Specialist-inom-nätverkssäkerhet-Göteborg'>läs mer här!</a> </p>
 
                 <section className="button_container">
                     <button className={'start_button'} onClick={() => startTest()}>
