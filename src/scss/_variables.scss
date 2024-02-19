@@ -23,6 +23,9 @@ $scrollTrack: #292b2d;
 $scrollThumb: #4b4e51;
 $scrollHover: #5e6265;
 
+$homeArrowSize : calc($baseline * 5);
+$leftRightArrowSize:  calc($baseline * 3);
+
 $gradient: linear-gradient(360deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 100%),
   linear-gradient(137.33deg, #2573b5 0%, rgba(37, 115, 181, 0) 96.25%), #25b567;
 $gradientLight: linear-gradient(

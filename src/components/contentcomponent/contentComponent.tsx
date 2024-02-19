@@ -1,5 +1,4 @@
-import arrowLeft from "../../assets/icons/arrowLeft.svg";
-import arrowRight from "../../assets/icons/arrowRight.svg";
+import arrow from "../../assets/icons/arrow.svg";
 import { useEffect, useState } from "react";
 import "./contentcomponent.scss";
 import { auth, db } from "../../services/firebase";
@@ -210,8 +209,8 @@ function ContentComponent({
       <div className="nav_container">
         <nav className="quiz_nav">
           <img
-            className={`hidden_${firstQuestion ? "true" : "false"}`}
-            src={arrowLeft}
+            className={`left-arrow hidden_${firstQuestion ? "true" : "false"}`}
+            src={arrow}
             alt=""
             onClick={() => decreaseQuestion()}
           />
@@ -220,8 +219,8 @@ function ContentComponent({
             {questionId} / {questions.length - 1}{" "}
           </p>
           <img
-            className={`transparent_${buttonCheck ? "false" : "true"}`}
-            src={arrowRight}
+            className={` right-arrow transparent_${buttonCheck ? "false" : "true"}`}
+            src={arrow}
             alt=""
             onClick={() => increaseQuestion(buttonCheck, shakeAnimation)}
           />

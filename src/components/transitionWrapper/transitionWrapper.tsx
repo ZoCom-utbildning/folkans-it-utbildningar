@@ -13,10 +13,12 @@ export const TransitionWrapper: React.FC<TransitionWrapperProps> = ({ children }
         easing: 'easeOutExpo',autoplay:true, loop:false,
     });
     
+    //exclude animation on test quiz
+    if(location.pathname.includes("/fragor") && location.pathname !== "/fragor/onboarding") return ; 
     
     //transition wrapper animation 
     timeLine.add( {
-        targets: '.page-transition-element',
+        targets: '.page-transition-element', 
         opacity: [0, 1],
         translateX: [500, 0],
         duration: 500,
