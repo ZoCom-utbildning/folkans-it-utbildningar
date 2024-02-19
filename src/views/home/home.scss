@@ -1,7 +1,7 @@
-$bg-imageWoman: url('../../assets/photos/womanComputer.webp');
-@import url('../../scss/_variables.scss');
-@import '../../scss/layout.scss';
-@import '../../scss/global.scss';
+$bg-imageWoman: url("../../assets/photos/womanComputer.webp");
+@import url("../../scss/_variables.scss");
+@import "../../scss/layout.scss";
+@import "../../scss/global.scss";
 
 .home-wrapper {
   @include maxSize;
@@ -19,6 +19,7 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
       color: $primaryTextColor;
       margin: auto;
       text-align: center;
+      padding: $padding;
     }
 
     .arrow-container {
@@ -30,7 +31,6 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
     background-color: #1d2025;
     z-index: 2;
     border-radius: $borderRadius;
-    width: 100%;
 
     .home-main__content {
       padding: $padding-large;
@@ -79,10 +79,7 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
   }
 }
 
-@media screen and (min-width: 600px) and (max-width: 1260px) {
-}
-
-@media screen and (min-width: $breakpointDesktop) {
+@media screen and (min-width: 1000px) {
   .home-wrapper {
     .hero-content {
       @include flex($justify: space-around, $direction: column, $wrap: nowrap);
@@ -109,6 +106,7 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
       }
     }
     .home-main {
+      margin: 0 2.5% 0 2.5%;
       .home-main__content {
         @include flex($justify: none, $align: none);
         margin: $margin;
@@ -145,7 +143,7 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
 
     .home-personas-wrapper {
       height: 100;
-
+      margin: 0 2.5% 0 2.5%;
       .form_wrapper {
         display: block;
         height: 580px;
@@ -174,6 +172,12 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
         display: none;
       }
     }
+  }
+}
+
+@media screen and (min-width: 820px) {
+  .home-personas-wrapper .galleryButtons {
+    display: none;
   }
 }
 
