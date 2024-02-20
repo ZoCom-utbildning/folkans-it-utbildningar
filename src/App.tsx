@@ -36,10 +36,8 @@ function App() {
   function checkMediaQuery() {
     if (window.innerWidth > 820) {
       setIsMobile(false);
-      console.log("isMobile: ", isMobile);
     } else {
       setIsMobile(true);
-      console.log("isMobile: ", isMobile);
     }
   }
   window.addEventListener("resize", checkMediaQuery);
@@ -215,7 +213,7 @@ function App() {
       <main>
         <TransitionWrapper>
           <Routes>
-          <Route
+            <Route
               path="/fragor/:pageId"
               element={
                 <Form
@@ -231,7 +229,7 @@ function App() {
             <Route path="/utbildningar" element={<Educations />} />
             <Route path="/utbildningar/:educationId" element={<Education />} />
             <Route path="/*" element={<Error />} />
-        
+
             <Route
               path="/"
               element={
