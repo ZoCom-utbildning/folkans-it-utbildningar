@@ -1,4 +1,4 @@
-@import "variables";
+@import 'variables';
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap');
 
 :root {
@@ -16,8 +16,16 @@ $baseFontSize: 16px;
   -webkit-font-smoothing: antialiased;
 }
 
+@mixin robotoLarge {
+  font-family: 'Roboto';
+  font-size: $baseFontSize * 2;
+  line-height: 140%;
+  font-weight: 500;
+  @include render;
+}
+
 @mixin robotoMedium {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: $baseFontSize * 1.25;
   line-height: 140%;
   font-weight: 500;
@@ -25,7 +33,7 @@ $baseFontSize: 16px;
 }
 
 @mixin robotoNormal {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: $baseFontSize;
   line-height: 140%;
   font-weight: 400;
@@ -33,7 +41,7 @@ $baseFontSize: 16px;
 }
 
 @mixin ibmLargeBold {
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   font-size: $baseFontSize * 2;
   line-height: 100%;
   letter-spacing: 1px;
@@ -42,7 +50,7 @@ $baseFontSize: 16px;
 }
 
 @mixin ibmLarge {
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   font-size: $baseFontSize * 2;
   line-height: 100%;
   letter-spacing: 1px;
@@ -51,7 +59,7 @@ $baseFontSize: 16px;
 }
 
 @mixin ibmMedium {
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   font-size: $baseFontSize * 1.5;
   line-height: 100%;
   letter-spacing: 1px;
@@ -60,7 +68,7 @@ $baseFontSize: 16px;
 }
 
 @mixin ibmMediumSemiBold {
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   font-size: $baseFontSize * 1.5;
   line-height: 100%;
   letter-spacing: 1px;
@@ -69,7 +77,7 @@ $baseFontSize: 16px;
 }
 
 @mixin ibmNormalBold {
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   font-size: $baseFontSize;
   line-height: 100%;
   letter-spacing: 1px;
@@ -78,11 +86,10 @@ $baseFontSize: 16px;
 }
 
 @mixin ibmNormal {
-  font-family: "IBM Plex Sans";
+  font-family: 'IBM Plex Sans';
   font-size: $baseFontSize;
   line-height: 100%;
   letter-spacing: 1px;
   font-weight: 500;
   @include render;
 }
-

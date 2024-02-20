@@ -5,9 +5,11 @@
 .results_wrapper {
   @include flex($direction: column);
   width: 100%;
+  color: $primaryTextColor;
 
   h2 {
     padding: 0 5%;
+    @include ibmMedium;
   }
 
   .results_section {
@@ -33,8 +35,7 @@
         span,
         .apply-link,
         .read-more-button {
-          font-size: 0.875rem;
-          font-family: 'Roboto Mono';
+          @include robotoNormal;
         }
 
         span,
@@ -61,7 +62,7 @@
 
           span {
             position: relative;
-            color: rgb(221, 221, 221, 50%);
+            color: $gray;
             font-size: 0.75rem;
 
             .notToggled {
@@ -105,25 +106,25 @@
         border-top: none;
 
         p {
-          font-size: 0.875rem;
-          line-height: 140%;
+          @include robotoNormal;
           padding-left: $padding-small;
           padding-right: 1px;
           text-align: start;
         }
 
         .toggleTextTitle {
+          @include ibmNormalBold;
           padding-left: $padding-small;
-          font-weight: 600;
           padding-bottom: 0;
           align-self: flex-start;
         }
 
         .apply-link {
+          @include robotoNormal;
           align-self: flex-end;
           margin: $margin;
           color: $primaryTextColor;
-          border-bottom: 2px solid rgb(90, 90, 182);
+          border-bottom: 2px solid $lightBlue;
         }
       }
     }
@@ -255,7 +256,7 @@
 
             &:hover {
               cursor: pointer;
-              color: rgb(90, 90, 182);
+              color: $lightBlue;
               font-size: 1rem;
             }
           }

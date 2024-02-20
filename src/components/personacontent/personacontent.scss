@@ -19,36 +19,32 @@
     justify-content: space-between;
 
     .personas-main {
+      color: $primaryTextColor;
       .personas-card {
         .personas-card-header {
           .personas-card-title {
-            margin: 0;
+            @include ibmLarge;
           }
         }
 
         .personas-card-text-container {
-          .personas-card-ingress {
+          .ingress {
+            @include robotoMedium;
+            font-weight: 400;
             hyphens: auto;
-            font-weight: 600;
             margin-bottom: $margin-large;
+            margin-top: $margin;
           }
 
           .question-title {
-            font-weight: 600;
-            font-size: calc($baseline * 1.5);
+            @include ibmMedium;
+            margin-top: 2rem;
           }
 
           .card-text-container {
-            span {
-              font-weight: 600;
-            }
-
             .personas-card-text {
-              margin-bottom: $margin;
-            }
-
-            &:nth-last-child {
-              margin-bottom: 0;
+              @include robotoNormal;
+              margin: $margin 0;
             }
           }
         }
@@ -140,9 +136,6 @@
 
           display: flex;
           justify-content: space-between;
-
-          
-
         }
         .personasButton {
           @include formButton;
