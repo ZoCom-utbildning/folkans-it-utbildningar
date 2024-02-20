@@ -1,7 +1,7 @@
-$bg-imageWoman: url("../../assets/photos/womanComputer.webp");
-@import url("../../scss/_variables.scss");
-@import "../../scss/layout.scss";
-@import "../../scss/global.scss";
+$bg-imageWoman: url('../../assets/photos/womanComputer.webp');
+@import url('../../scss/_variables.scss');
+@import '../../scss/layout.scss';
+@import '../../scss/global.scss';
 
 .home-wrapper {
   @include maxSize;
@@ -16,9 +16,10 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
 
     .title-h1 {
       @include ibmLarge;
+      width: 80vw;
       color: $primaryTextColor;
       margin: auto;
-      text-align: center;
+      text-align: left;
       padding: $padding;
     }
 
@@ -87,13 +88,13 @@ $bg-imageWoman: url("../../assets/photos/womanComputer.webp");
       padding-top: calc($padding-large * 3);
 
       .title-h1 {
-        width: 80%;
+        width: 60vw;
         height: 7rem;
         font-size: 3.5rem;
         margin-top: 0rem;
         margin-bottom: calc($margin * 3);
         font-weight: 500;
-        text-align: start;
+        text-align: left;
       }
 
       .arrow-container {
