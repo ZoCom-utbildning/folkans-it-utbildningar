@@ -36,6 +36,31 @@ body::-webkit-scrollbar-thumb:hover {
   background: $scrollHover;
 }
 
+.right-arrow,
+.left-arrow {
+  cursor: pointer;
+}
+
+.right-arrow {
+  width: $leftRightArrowSize;
+  transform: rotateZ(-90deg);
+}
+
+.right-arrow:hover {
+  transform: translate(calc($baseline/2), 0) rotateZ(-90deg);
+  transition: 0.5s;
+}
+
+.left-arrow {
+  width: $leftRightArrowSize;
+  transform: rotateZ(90deg);
+}
+
+.left-arrow:hover {
+  transform: translate(- calc($baseline/2), 0) rotateZ(90deg);
+  transition: 0.5s;
+}
+
 .App {
   @include maxSize;
   overflow-wrap: break-word;
@@ -46,11 +71,9 @@ body::-webkit-scrollbar-thumb:hover {
   background-color: $gray;
   background-blend-mode: multiply;
   background-size: cover;
-  background-image: linear-gradient(
-      360deg,
+  background-image: linear-gradient(360deg,
       rgba(18, 123, 0, 0.713) 0%,
-      rgba(0, 255, 51, 0.397) 100%
-    ),
+      rgba(0, 255, 51, 0.397) 100%),
     linear-gradient(136.33deg, #0763aeb6 20%, rgb(6, 84, 33) 96.25%), $bg-image; //Bör flyttas, syns i bakgrunden för views beroende på height.
 }
 
@@ -96,16 +119,14 @@ li {
 }
 
 @mixin stripes($stripes-background-size: $stripes-background-size) {
-  background-image: linear-gradient(
-    45deg,
-    rgb(221, 221, 221, 50%) 5.56%,
-    $dark 5.56%,
-    $dark 50%,
-    rgb(221, 221, 221, 50%) 50%,
-    rgb(221, 221, 221, 50%) 55.56%,
-    $dark 55.56%,
-    $dark 100%
-  );
+  background-image: linear-gradient(45deg,
+      rgb(221, 221, 221, 50%) 5.56%,
+      $dark 5.56%,
+      $dark 50%,
+      rgb(221, 221, 221, 50%) 50%,
+      rgb(221, 221, 221, 50%) 55.56%,
+      $dark 55.56%,
+      $dark 100%);
   background-size: $stripes-background-size;
 }
 
@@ -123,13 +144,16 @@ li {
 }
 
 @media screen and (min-width: $breakpointDesktop) {
+
   h1,
   h2 {
     @include ibmMedium;
   }
+
   button {
     @include robotoMedium;
   }
+
   p {
     @include robotoNormal;
   }

@@ -1,6 +1,6 @@
 import './home.scss';
 import Typewriter from 'typewriter-effect';
-import arrowDown from '../../assets/icons/arrowDown.svg';
+import arrow from '../../assets/icons/arrow.svg';
 import vscodecomputer from '../../assets/photos/vscodecomputer.webp';
 import FormComponent from '../../components/formcomponent/formComponent';
 import TestButton from '../../components/testbutton/testButton';
@@ -50,7 +50,7 @@ function Home({
         <TestButton buttonText={'TILL TESTET'} />
         <section className='arrow-container' onClick={scrollToTest}>
           <p>Mer info om testet</p>
-          <img src={arrowDown} alt='Arrow down' className='arrowDown' />
+          <img src={arrow} alt='Arrow down' className='arrowDown' />
         </section>
       </section>
       <main className='home-main'>
@@ -67,6 +67,10 @@ function Home({
               att vara verksam inom IT-branschen, och vill därför erbjuda dig
               detta test som en mer lättsmält väg för dig till att veta vad som
               är rätt för just dig.
+            </p>
+            <p className='home-main__content__text'>
+              Testet riktar sig till dig som är intresserad av våra programmeringsutbildningar. 
+              Om du vill veta mer om vår utbildning inom nätverkssäkerhet, <a className='home-main__content__link' href='/utbildningar/Specialist-inom-nätverkssäkerhet-Göteborg'>klicka här!</a>
             </p>
             <TestButton buttonText={'Ta Testet'} />
           </section>

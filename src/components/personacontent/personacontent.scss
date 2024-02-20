@@ -136,23 +136,6 @@
 
           display: flex;
           justify-content: space-between;
-
-          img {
-            z-index: 7;
-            width: calc($baseline);
-            transition: 0.3s;
-            cursor: pointer;
-          }
-
-          .right-arrow:hover {
-            transform: translate(calc($baseline/2), 0);
-            transition: 0.5s;
-          }
-
-          .left-arrow:hover {
-            transform: translate(-calc($baseline/2), 0);
-            transition: 0.5s;
-          }
         }
         .personasButton {
           @include formButton;

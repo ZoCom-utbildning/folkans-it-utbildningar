@@ -29,6 +29,10 @@
 
         .onboarding_text {
             margin: 0 1rem;
+
+            &__link {
+                text-decoration: underline;
+            }
         }
 
         .button_container {

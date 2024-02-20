@@ -1,8 +1,7 @@
 import "./personacontent.scss";
 import { useNavigate } from "react-router-dom";
 import { PersonaText } from "../../models/types";
-import arrowRight from "../../assets/icons/arrowRight.svg";
-import arrowLeft from "../../assets/icons/arrowLeft.svg";
+import arrow from "../../assets/icons/arrow.svg";
 
 type Props = {
   activePersona: number;
@@ -16,10 +15,10 @@ function PersonaContent({
 }: Props) {
   const navigate = useNavigate();
 
-  function navToPersonas(e: any,persona:string) {
+  function navToPersonas(e: any, persona: string) {
     e.preventDefault();
     window.scrollTo(0, 0);
-    navigate("/personer?persona="+ persona);
+    navigate("/personer?persona=" + persona);
   }
 
   const personas: PersonaText[] = [
@@ -53,10 +52,16 @@ function PersonaContent({
       personaIngress:
         "Emilija är karriärväxlaren som bytte katedern mot skolbänken och sadlade om från en karriär som SO-lärare på grundskolan till att nu vara helt inställd på programmering.",
     },
+    {
+      id: 5,
+      personaTitle: "Rsmus, 32",
+      personaIngress:
+        "Rasmus har varit intresserad av teknik hela livet, men kom inte på att det kunde vara något att faktiskt arbeta med förrän han blev uppsagd i samband med en omorganisation.",
+    },
   ];
 
   function increaseActivePersona() {
-    if (activePersona < 4) setActivePersona(activePersona + 1);
+    if (activePersona < 5) setActivePersona(activePersona + 1);
     else {
       setActivePersona(0);
     }
@@ -65,7 +70,7 @@ function PersonaContent({
   function decreaseActivePersona() {
     if (activePersona > 0) setActivePersona(activePersona - 1);
     else {
-      setActivePersona(4);
+      setActivePersona(5);
     }
   }
 
@@ -86,20 +91,20 @@ function PersonaContent({
                   <div className="personas-button-container">
                     <button
                       className="personasButton"
-                      onClick={(e) => navToPersonas(e,persona.personaTitle)}
+                      onClick={(e) => navToPersonas(e, persona.personaTitle)}
                     >
                       Läs hela intervjun här
                     </button>
                     <section className="arrow-wrapper">
                       <img
                         className="left-arrow"
-                        src={arrowLeft}
+                        src={arrow}
                         alt=""
                         onClick={decreaseActivePersona}
                       />
                       <img
                         className="right-arrow"
-                        src={arrowRight}
+                        src={arrow}
                         alt=""
                         onClick={increaseActivePersona}
                       />

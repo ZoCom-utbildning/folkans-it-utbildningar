@@ -100,8 +100,8 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
       .arrow-container {
         @include flex($justify: none, $align: center, $direction: column);
         cursor: pointer;
-
         .arrowDown {
+          width: $homeArrowSize;
           animation: float 2s ease-in-out infinite;
         }
       }
@@ -124,6 +124,10 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
           p {
             margin-top: $margin;
             line-height: 180%;
+          }
+
+          .home-main__content__link {
+            text-decoration: underline;
           }
         }
 

@@ -98,7 +98,7 @@ function App() {
         easing: "easeInOutQuad",
       });
       if (activePersona === 0) {
-        setActivePersona(4);
+        setActivePersona(5);
       } else {
         setActivePersona(activePersona - 1);
       }
@@ -116,7 +116,7 @@ function App() {
         easing: "easeInOutQuad",
       });
 
-      if (activePersona === 4) {
+      if (activePersona === 5) {
         setActivePersona(0);
       } else {
         setActivePersona(activePersona + 1);
@@ -215,11 +215,7 @@ function App() {
       <main>
         <TransitionWrapper>
           <Routes>
-            <Route path="/om" element={<About />} />
-            <Route path="/utbildningar" element={<Educations />} />
-            <Route path="/utbildningar/:educationId" element={<Education />} />
-            <Route path="/*" element={<Error />} />
-            <Route
+          <Route
               path="/fragor/:pageId"
               element={
                 <Form
@@ -231,6 +227,11 @@ function App() {
                 />
               }
             />
+            <Route path="/om" element={<About />} />
+            <Route path="/utbildningar" element={<Educations />} />
+            <Route path="/utbildningar/:educationId" element={<Education />} />
+            <Route path="/*" element={<Error />} />
+        
             <Route
               path="/"
               element={
