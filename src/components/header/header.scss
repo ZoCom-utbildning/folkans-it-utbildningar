@@ -9,11 +9,6 @@
   background-color: $dark;
   position: sticky;
   top: 0;
-
-  // Hamdi: old code, used to make the navbar opacity zero in homeview. When changed, the navbar in mobile view have a dark background instead.
-  // position: fixed;
-  // top: 0;
-  // left: 0;
   transition: all 0.1s ease-in-out;
 
   nav {
@@ -29,8 +24,7 @@
     width: 100vw;
     position: fixed;
     z-index: 5;
-    transform: translateX(-1000px);
-
+    transition: transform 0.5s ease;
     ul {
       @include flex($direction: column);
       align-items: flex-start;
@@ -51,6 +45,13 @@
         }
       }
     }
+  }
+  .overlayHidden {
+    transform: translateX(-1000px) !important;
+  }
+
+  .overlayVisible {
+    transform: translateX(0px) !important;
   }
 }
 
@@ -76,7 +77,6 @@
 @media screen and (min-width: calc($breakpointDesktop*1.2)) {
   .header {
     @include robotoMedium;
-    // position: fixed;
     position: sticky;
     transition: 0.4s;
     width: 100%;
