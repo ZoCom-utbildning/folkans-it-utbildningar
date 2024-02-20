@@ -113,10 +113,12 @@
         }
 
         .toggleTextTitle {
-          @include ibmNormalBold;
+          @include ibmNormal;
+          font-size: 1.2rem;
           padding-left: $padding-small;
           padding-bottom: 0;
           align-self: flex-start;
+          margin: $margin 0;
         }
 
         .apply-link {

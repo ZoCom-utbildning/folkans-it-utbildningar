@@ -36,6 +36,12 @@ $bg-imageWoman: url('../../assets/photos/womanComputer.webp');
     .home-main__content {
       padding: $padding-large;
 
+      .home-main__content__link {
+        @include robotoNormal;
+        color: $lightBlue;
+        text-decoration: none;
+      }
+
       .text-content {
         .title-h2 {
           @include ibmMedium;

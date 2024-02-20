@@ -43,6 +43,7 @@
       width: 85%;
 
       p {
+        @include robotoNormal;
         padding: 0;
       }
 
