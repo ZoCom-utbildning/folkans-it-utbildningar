@@ -4,7 +4,7 @@
 @import "../../scss/global";
 
 .educationView {
-  @include flex($justify: none, $align: none, $direction: column);
+  @include flex($justify: none, $align: center, $direction: column);
   overflow-x: hidden;
   background-color: $dark;
 
@@ -20,7 +20,7 @@
       @include ibmLargeBold;
       margin-bottom: $margin;
     }
-    
+
     .main__education-sub-title {
       @include ibmMedium;
       margin-bottom: $margin;
