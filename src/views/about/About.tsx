@@ -1,4 +1,6 @@
 import "./about.scss";
+import ZoComLogo from "../../assets/logos/zocom-white.png"
+import FolkUniversitetetLogo from "../../assets/logos/fulogogbg.png"
 
 function About() {
   return (
@@ -15,6 +17,23 @@ function About() {
            <p className="about-text">
             Utöver alla duktiga utvecklare som varit inblandade, har även arbetet stöttats upp av blivande IT-projektledare från Campus Varberg.
           </p>
+          <p className="about-text">Nyfiken på att läsa mer om ZoCom och Folkuniversitetet? <br /> Ni hittar oss här:</p>
+          <section className="about-logo-container">
+            <a 
+            className="about-logo-container__link"
+            href="https://www.zocom.com/utbildning" 
+            target="_blank"
+            >
+              <img className="link-logo" src={ZoComLogo} alt="Logotyp ZoCom AB" />
+            </a>
+            <a
+            className="about-logo-container__link"         
+            href="https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/"
+            target="_blank"
+            >
+              <img className="link-logo"  src={FolkUniversitetetLogo} alt="Logotyp Folkuniversitetet" />
+            </a>
+          </section>
         </main>
       </div>
     </>
