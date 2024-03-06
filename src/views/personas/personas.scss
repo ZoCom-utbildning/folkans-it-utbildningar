@@ -1,6 +1,8 @@
-@import url("../../scss/_variables.scss");
-@import "../../scss/layout.scss";
-$bg-images: url("../../assets/photos/personas/*.webp");
+@import url('../../scss/_variables.scss');
+@import '../../scss/layout.scss';
+@import '../../scss/typography.scss';
+
+$bg-images: url('../../assets/photos/personas/*.webp');
 
 .personasView-container {
   @include lines;
@@ -20,7 +22,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
       padding: 2.5rem;
 
       .el {
-        padding: $padding;
+        padding: $padding-small;
         border: 1px solid gray;
         border-bottom: none;
 
@@ -51,7 +53,6 @@ $bg-images: url("../../assets/photos/personas/*.webp");
     .personas-main {
       display: flex;
       flex-direction: column;
-
       text-align: center;
       margin: $margin-large;
       content-visibility: auto;
@@ -82,9 +83,13 @@ $bg-images: url("../../assets/photos/personas/*.webp");
           color: $light;
           font-size: calc($baseline * 1.5);
           text-align: center;
+          h2 {
+            @include ibmLarge;
+          }
         }
 
         .personas-card-text {
+          @include robotoNormal;
           color: $light;
           font-size: calc($baseline * 1.2);
           text-align: left;
@@ -100,7 +105,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
     @include lines;
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     background-color: $dark;
     margin-top: 0;
     justify-content: flex-start;
@@ -115,7 +120,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
       .cont {
         position: relative;
         overflow: hidden;
-        height: 100vh;
+        height: 90vh;
         padding: $vertPad $sidePad;
 
         .el {
@@ -123,7 +128,6 @@ $bg-images: url("../../assets/photos/personas/*.webp");
 
           .el__preview-cont {
             width: 100%;
-
             justify-content: center;
 
             .el__heading {
@@ -193,12 +197,11 @@ $bg-images: url("../../assets/photos/personas/*.webp");
           will-change: transform;
 
           &:before {
-            content: "";
+            content: '';
             position: absolute;
             left: 0;
-            top: -5%;
             width: 100%;
-            height: 225%;
+            height: 100%;
 
             transition: transform $initAT;
             transform: translate3d(0, 0, 0) scale(1);
@@ -214,7 +217,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
 
           &:after {
             $opacityAT: 0.5s;
-            content: "";
+            content: '';
             z-index: 5;
             position: absolute;
             left: 0;
@@ -324,27 +327,23 @@ $bg-images: url("../../assets/photos/personas/*.webp");
 
             .el__inner {
               transition-delay: $initDelayStep * $i;
+              border-radius: $borderRadius;
 
               .el__bg {
                 &:before {
                   transition-delay: 0.1s * $i;
                   z-index: 2;
-                  background-position: center;
+                  background-position: top;
                   background-repeat: no-repeat;
                   background-color: #ffffff;
                   background-blend-mode: multiply;
                   background-size: cover;
                   background-image: linear-gradient(
                       360deg,
-                      rgba(7, 48, 0, 0.713) 0%,
-                      rgba(0, 255, 51, 0.397) 100%
+                      $dark 0%,
+                      $dark 100%
                     ),
-                    linear-gradient(
-                      136.33deg,
-                      #003159 20%,
-                      rgb(6, 84, 33) 96.25%
-                    ),
-                    url("../../assets/photos/personas/Persona#{$i + 1}.webp");
+                    url("../../assets/photos/personas/Persona#{$i + 1}kopia.jpg");
                 }
               }
 
@@ -352,22 +351,18 @@ $bg-images: url("../../assets/photos/personas/*.webp");
                 &:before {
                   transition-delay: 0.1s * $i;
                   z-index: 2;
-                  background-position: center;
+                  background-position: top;
                   background-repeat: no-repeat;
                   background-color: #ffffff;
                   background-blend-mode: multiply;
                   background-size: cover;
-                  background-image: linear-gradient(
-                      360deg,
-                      rgba(18, 123, 0, 0.713) 0%,
-                      rgba(0, 255, 51, 0.397) 100%
-                    ),
-                    linear-gradient(
-                      136.33deg,
-                      rgba(7, 99, 174, 0.7137254902) 20%,
-                      rgb(6, 84, 33) 96.25%
-                    ),
-                    url("../../assets/photos/personas/Persona#{$i + 1}.webp");
+                  background-image: 
+                  linear-gradient(
+                    360deg,
+                    $dark 0%,
+                    $light 100%
+                  ),
+                    url("../../assets/photos/personas/Persona#{$i + 1}kopia.jpg");
                 }
               }
 
@@ -398,7 +393,7 @@ $bg-images: url("../../assets/photos/personas/*.webp");
 
                   &:before,
                   &:after {
-                    content: "";
+                    content: '';
                     z-index: 8;
                     position: absolute;
                     left: 0%;

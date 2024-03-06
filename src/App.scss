@@ -1,0 +1,28 @@
+@import url("./scss/_variables.scss");
+@import "./scss/layout.scss";
+@import "./scss/global.scss";
+
+@media screen and (min-width: 1400px) {
+  .App {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr 3fr 1fr;
+    row-gap: 2vh;
+    grid-template-areas:
+      "header header header"
+      ". main ."
+      "footer footer footer";
+
+    main {
+      grid-area: main;
+    }
+
+    .header {
+      grid-area: header;
+    }
+
+    .footer {
+      grid-area: footer;
+    }
+  }
+}

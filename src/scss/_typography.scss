@@ -1,62 +1,95 @@
-@import "variables";
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Maven+Pro:wght@523&display=swap");
+@import 'variables';
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap');
 
 :root {
-  font-family: "Roboto Mono";
-  font-style: normal;
+  color: $primaryTextColor;
+}
+
+$baseFontSize: 16px;
+
+@mixin render {
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+}
+
+@mixin robotoLarge {
+  font-family: 'Roboto';
+  font-size: $baseFontSize * 2;
+  line-height: 140%;
+  font-weight: 500;
+  @include render;
+}
+
+@mixin robotoMedium {
+  font-family: 'Roboto';
+  font-size: $baseFontSize * 1.25;
+  line-height: 140%;
+  font-weight: 500;
+  @include render;
+}
+
+@mixin robotoNormal {
+  font-family: 'Roboto';
+  font-size: $baseFontSize;
+  line-height: 140%;
   font-weight: 400;
-  font-size: $baseline;
-  color: $primaryTextColor;
+  @include render;
 }
 
-p,
-input,
-textarea,
-button {
-  font-family: "Roboto Mono";
-  font-size: $baseline;
-  line-height: 180%;
-  padding: $padding-small 0;
-
-  &.ingress {
-    font-size: calc($baseline * 1.2);
-  }
+@mixin ibmLargeBold {
+  font-family: 'IBM Plex Sans';
+  font-size: $baseFontSize * 2;
+  line-height: 100%;
+  letter-spacing: 1px;
+  font-weight: 700;
+  @include render;
 }
 
-a {
-  font-family: "Maven Pro";
-  font-style: normal;
-  font-weight: 523;
-  line-height: 110%;
-  letter-spacing: 0.04em;
-  color: $primaryTextColor;
+@mixin ibmLarge {
+  font-family: 'IBM Plex Sans';
+  font-size: $baseFontSize * 2;
+  line-height: 100%;
+  letter-spacing: 1px;
+  font-weight: 500;
+  @include render;
 }
 
-h1 {
-  font-size: calc($baseline * 2.5);
-  font-weight: 900;
-  padding: $padding-small 0;
-  margin: $margin-large 0 $margin-small 0;
+@mixin ibmMedium {
+  font-family: 'IBM Plex Sans';
+  font-size: $baseFontSize * 1.5;
+  line-height: 100%;
+  letter-spacing: 1px;
+  font-weight: 700;
+  @include render;
 }
 
-h2 {
-  font-size: calc($baseline * 2.2);
-  font-weight: 600;
-  margin: $margin-large 0 $margin-small 0;
+@mixin ibmMediumSemiBold {
+  font-family: 'IBM Plex Sans';
+  font-size: $baseFontSize * 1.5;
+  line-height: 100%;
+  letter-spacing: 1px;
+  font-weight: 500;
+  @include render;
 }
 
-h3 {
-  font-size: calc($baseline * 1.6);
-  font-weight: 523;
+@mixin ibmNormalBold {
+  font-family: 'IBM Plex Sans';
+  font-size: $baseFontSize;
+  line-height: 100%;
+  letter-spacing: 1px;
+  font-weight: 700;
+  @include render;
 }
 
-h1,
-h2,
-h3 {
-  font-family: "Maven Pro";
-  font-style: normal;
-  line-height: 110%;
-  letter-spacing: 0.04em;
-  color: $primaryTextColor;
+@mixin ibmNormal {
+  font-family: 'IBM Plex Sans';
+  font-size: $baseFontSize;
+  line-height: 100%;
+  letter-spacing: 1px;
+  font-weight: 500;
+  @include render;
 }

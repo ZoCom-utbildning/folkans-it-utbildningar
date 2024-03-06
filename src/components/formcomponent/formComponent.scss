@@ -1,6 +1,6 @@
-@import "../../scss/variables.scss";
-@import "../../scss/layout.scss";
-@import "../../scss/global.scss";
+@import '../../scss/variables.scss';
+@import '../../scss/layout.scss';
+@import '../../scss/global.scss';
 
 .scroll {
   overflow-y: scroll;
@@ -15,8 +15,9 @@
   background-color: rgba(41, 39, 39, 0.356);
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  position: fixed;
+  justify-content: center;
+  gap: 1rem;
+  // position: fixed;
   bottom: 0;
   margin: 0;
   padding: calc($padding * 3);
@@ -24,22 +25,14 @@
   z-index: 3;
 
   .gallery-btn {
-    @include hexagonButton;
+    @include mobile-navButton;
     appearance: none;
     position: relative;
     z-index: 3;
   }
 
-  input[type="radio"]:checked {
-    background-color: $purple;
-
-    &::before {
-      border-bottom: 6px solid $purple;
-    }
-
-    &::after {
-      border-top: 6px solid $purple;
-    }
+  input[type='radio']:checked {
+    background-color: $lightBlue;
   }
 }
 

@@ -2,7 +2,7 @@ import FormComponent from "../../components/formcomponent/formComponent";
 import "./form.scss";
 import { Question } from "../../models/types";
 
-type Props = {
+type FormProps = {
   activePersona: number;
   setActivePersona: (activePersona: number) => void;
   buttonElements: JSX.Element;
@@ -16,7 +16,7 @@ function Form({
   questions,
   interviewData,
   setActivePersona,
-}: Props) {
+}: FormProps) {
   return (
     <div className="desktop_wrapper">
       <>

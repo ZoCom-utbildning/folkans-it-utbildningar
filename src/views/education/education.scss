@@ -4,41 +4,92 @@
 @import "../../scss/global";
 
 .educationView {
-    @include maxSize;
-    @include flex($justify: none, $align: none, $direction: column);
-    @include lines;
-    overflow-x: hidden;
-    background-color: $dark;
+  @include flex($justify: none, $align: center, $direction: column);
+  overflow-x: hidden;
+  background-color: $dark;
 
-    &* {
-        position: relative;
+  &* {
+    position: relative;
+  }
+
+  main {
+    padding: $padding-large;
+    position: relative;
+
+    .main__education-title {
+      @include ibmLargeBold;
+      margin-bottom: $margin;
     }
 
-    main {
-        padding: $padding-large;
-
-        .applyButton {
-            @include formButton;
-            padding: $padding $padding-large*2;
-            margin: $margin-large 0;
-
-            &:last-of-type {
-                margin-top: $margin-large;
-            }
-        }
-
-        .line {
-            margin: auto -1.5rem;
-            border-bottom: .1rem solid $borderColor;
-        }
+    .main__education-sub-title {
+      @include ibmMedium;
+      margin-bottom: $margin;
     }
+
+    .applyButton {
+      @include formButton;
+      padding: $padding $padding-large * 2;
+      margin: $margin-large 0;
+
+      &:last-of-type {
+        margin-top: $margin-large;
+      }
+    }
+  }
+  &-back__button {
+    display: none;
+  }
+
+  &-button__container {
+    @include flexRow;
+    gap: $gap-large;
+  }
 }
 
 @media screen and (min-width: $breakpointDesktop) {
-    .educationView {
-        main {
-            max-width: 50rem;
-            margin: calc($margin * 8) auto 0;
-        }
+  .educationView {
+    margin: $margin-large 0;
+    main {
+      p {
+        @include robotoNormal;
+        margin-bottom: $margin;
+      }
     }
+  }
+}
+
+@media screen and (max-width: $breakpointDesktop) {
+  .educationView {
+    main {
+      p {
+        @include robotoNormal;
+        margin-bottom: $margin;
+      }
+    }
+    &-back__button {
+      @include flexRow;
+      align-items: center;
+      gap: $gap-small;
+      margin-bottom: $margin;
+
+      .back__button-text {
+        @include ibmNormal;
+        text-align: bottom;
+        margin: 0;
+      }
+    }
+    &-main__content {
+      border: solid 1px rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: $padding;
+    }
+
+    &-button__container {
+      @include flexCenter;
+    }
+
+    .applyButton-back__mobile {
+      display: none !important;
+    }
+  }
 }

@@ -10,11 +10,13 @@ footer {
     position: relative;
 
     #folkanImg {
-        max-height: $baseline*3.5;
+        height: 4vh;
+        max-height: 10vw;
     }
 
     #zocomImg {
-        max-height: $baseline*2;
+        height: 4vh;
+        max-height: 10vw;
     }
 
     img {

@@ -2,20 +2,16 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, signInAnonymously } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCALz8JyB23-wPHQMyW7vek34Y_DWJLU0k",
-  authDomain: "folkan2023.firebaseapp.com",
-  databaseURL: "https://folkan2023-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "folkan2023",
-  storageBucket: "folkan2023.appspot.com",
-  messagingSenderId: "999632374510",
-  appId: "1:999632374510:web:3ad4e4a37045bd451441ff",
-  measurementId: "G-SM5YGKEEB8"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_DATABASE_URL,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID,
+  measurementId: import.meta.env.VITE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase

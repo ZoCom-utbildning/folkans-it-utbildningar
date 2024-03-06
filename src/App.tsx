@@ -7,6 +7,7 @@ import Header from "./components/header/header";
 import Educations from "./views/educations/Educations";
 import Education from "./views/education/Education";
 import { useState, useEffect } from "react";
+import "./App.scss";
 import { Route, Routes } from "react-router-dom";
 
 import "./scss/global.scss";
@@ -18,6 +19,8 @@ import { db } from "./services/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { Question, Persona } from "./models/types";
 import TestButton from "./components/testbutton/testButton";
+import { TransitionWrapper } from "./components/transitionWrapper/transitionWrapper";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [navOpen, setNavOpen] = useState<boolean>(false);
@@ -33,10 +36,8 @@ function App() {
   function checkMediaQuery() {
     if (window.innerWidth > 820) {
       setIsMobile(false);
-      console.log("isMobile: ", isMobile);
     } else {
       setIsMobile(true);
-      console.log("isMobile: ", isMobile);
     }
   }
   window.addEventListener("resize", checkMediaQuery);
@@ -95,7 +96,7 @@ function App() {
         easing: "easeInOutQuad",
       });
       if (activePersona === 0) {
-        setActivePersona(4);
+        setActivePersona(5);
       } else {
         setActivePersona(activePersona - 1);
       }
@@ -113,7 +114,7 @@ function App() {
         easing: "easeInOutQuad",
       });
 
-      if (activePersona === 4) {
+      if (activePersona === 5) {
         setActivePersona(0);
       } else {
         setActivePersona(activePersona + 1);
@@ -209,54 +210,60 @@ function App() {
         navClass={navClass}
         setNavClass={setNavClass}
       />
-      <Routes>
-        <Route path="/om" element={<About />} />
-        <Route path="/utbildningar" element={<Educations />} />
-        <Route path="/utbildningar/:educationId" element={<Education />} />
-        <Route path="/*" element={<Error />} />
-        <Route
-          path="/fragor/:pageId"
-          element={
-            <Form
-              setActivePersona={setActivePersona}
-              interviewData={interviewData}
-              activePersona={activePersona}
-              buttonElements={buttonElements}
-              questions={questions}
+      <main>
+        <TransitionWrapper>
+          <Routes>
+            <Route
+              path="/fragor/:pageId"
+              element={
+                <Form
+                  setActivePersona={setActivePersona}
+                  interviewData={interviewData}
+                  activePersona={activePersona}
+                  buttonElements={buttonElements}
+                  questions={questions}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/"
-          element={
-            <Home
-              setActivePersona={setActivePersona}
-              questions={questions}
-              data={data}
-              interviewData={interviewData}
-              handlers={handlers}
-              activePersona={activePersona}
-              buttonElements={buttonElements}
+            <Route path="/om" element={<About />} />
+            <Route path="/utbildningar" element={<Educations />} />
+            <Route path="/utbildningar/:educationId" element={<Education />} />
+            <Route path="/*" element={<Error />} />
+
+            <Route
+              path="/"
+              element={
+                <Home
+                  setActivePersona={setActivePersona}
+                  questions={questions}
+                  data={data}
+                  interviewData={interviewData}
+                  handlers={handlers}
+                  activePersona={activePersona}
+                  buttonElements={buttonElements}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path="/personer"
-          element={
-            <Personas
-              setActivePersona={setActivePersona}
-              isMobile={isMobile}
-              questions={questions}
-              scrollClass={scrollClass}
-              data={data}
-              interviewData={interviewData}
-              handlers={handlers}
-              activePersona={activePersona}
-              buttonElements={buttonElements}
+            <Route
+              path="/personer"
+              element={
+                <Personas
+                  setActivePersona={setActivePersona}
+                  isMobile={isMobile}
+                  questions={questions}
+                  scrollClass={scrollClass}
+                  data={data}
+                  interviewData={interviewData}
+                  handlers={handlers}
+                  activePersona={activePersona}
+                  buttonElements={buttonElements}
+                />
+              }
             />
-          }
-        />
-      </Routes>
+          </Routes>
+        </TransitionWrapper>
+      </main>
+      <Footer />
     </div>
   );
 }

@@ -4,9 +4,7 @@
 @import "../../scss/global";
 
 .educationsView {
-    @include maxSize;
     @include flex($justify: none, $align: none, $direction: column);
-    @include lines;
     overflow-x: hidden;
     background-color: $dark;
 
@@ -17,24 +15,57 @@
     main {
         padding: $padding-large;
 
+        .educations-view-title {
+            @include ibmLargeBold;
+            margin-bottom: $margin;
+        }
+
+        .educations-view-text {
+            @include robotoNormal;
+            margin-bottom: $margin;
+        }
+
         .coursesWrapper {
-            margin: 0;
+            margin-top: $margin-large;
             position: relative;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(6, 1fr);
 
             .course {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
                 margin: $margin-small 0;
-                padding: $padding-small;
+                padding: $padding;
                 border: 1px solid $borderColor;
+                border-radius: $borderRadius;
                 background-color: $dark;
                 cursor: pointer;
                 background: linear-gradient(-45deg, $dark, $dark, $lightBlue, $dark, $dark);
                 background-size: 300% 200%;
                 background-position-y: 50%;
 
-                .right {
-                    text-align: right;
-                    font-style: italic;
+                .course-title {
+                    @include ibmMediumSemiBold;
                 }
+
+                .course-info {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: $margin-small;
+
+                    .course-location-text {
+                        @include robotoNormal;
+                    }
+    
+                    .right {
+                        @include robotoNormal;
+                        text-align: right;
+                        font-style: italic;
+                    }
+                }
+
 
                 &:hover,
                 &:active {
@@ -47,18 +78,17 @@
 
 @media screen and (min-width: $breakpointDesktop) {
     .educationsView {
+        margin: $margin-large 0;
         main {
-            max-width: 50rem;
-            margin: $margin*8 auto 0;
-
             .coursesWrapper {
-                margin: 0 calc($margin * -3);
-                padding: $padding;
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 8px 16px;
 
                 .course {
-                    margin: $margin;
                     padding: $padding;
                 }
+
             }
         }
     }
