@@ -10,7 +10,7 @@ import { EducationInfo } from "../../models/types";
 function Educations() {
   const [courses, setCourses] = useState<EducationInfo[]>([]);
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,13 +19,24 @@ function Educations() {
         querySnapshot.forEach((doc) => {
           tempCourses.push(doc.data() as EducationInfo);
         });
-        setCourses(tempCourses);
+
+        const activeCourses = filterCourses(tempCourses)
+        //Set activeCourses here to get the filtered courses
+        //change back to tempCourses if it's not longer needed :)
+        setCourses(activeCourses);
       } catch (error) {
         console.error("Error fetching courses:", error);
       }
     };
     fetchData();
   }, []);
+
+  //filter the courses that are not currently active
+  //change them back if courses gets remade
+  const filterCourses = (courses: EducationInfo[]) => {
+    const filteredCourses = courses.filter(course => course.id !== "frontendutvecklare-distans" && course.id !== "javascriptutvecklare-distans")
+    return filteredCourses
+  }
 
   function navigateTo(link: string) {
     window.scrollTo(0, 0);
