@@ -80,9 +80,10 @@
     .educationsView {
         margin: $margin-large 0;
         main {
+            //in case of adding back the 2 courses change rows to 3 again.
             .coursesWrapper {
                 grid-template-columns: repeat(2, 1fr);
-                grid-template-rows: repeat(3, 1fr);
+                grid-template-rows: repeat(2, 1fr);
                 gap: 8px 16px;
 
                 .course {
