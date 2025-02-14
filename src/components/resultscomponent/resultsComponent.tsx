@@ -59,61 +59,91 @@ const ResultsComponent = ({ setQuestionId }: Props) => {
     intLink: 'frontendutvecklare-karlstad',
   });
 
-  // FRONTEND DISTANCE POINTS/INFO
-  const frontend_distans: string[] = loadResults.map(
+  // SPECIALIST-NETWORK POINTS/INFO
+  const specialist: string[] = loadResults.map(
     (result: ResultsType, index: number) => {
-      return result.points[1];
+      return result.points[0];
     }
   );
 
-  const frontend_distans_filter: string[] = frontend_distans.filter(
+  const specialistFilter: string[] | undefined = specialist.filter(
     (obj: string | undefined) => obj !== undefined
   );
-  const frontend_distans_points: string = frontend_distans_filter.reduce(
+  const specialistPoints: string = specialistFilter.reduce(
     (a: string, b: string) => `${Number(a) + Number(b)}`
   );
 
   courseScore.push({
-    course: 'Frontendutvecklare',
-    points: frontend_distans_points,
+    course: 'Specialist inom nätverkssäkerhet',
+    points: specialistPoints,
     links: {
-      course: 'FE Distans',
-      link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/frontendutvecklare-distans/',
+      course: 'Specialist-inom-nätverkssäkerhet',
+      link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/specialist-inom-natverkssakerhet-goteborg/?_t_tags=language%3asv&_t_hit.id=Folkuniversitetet_Web_Models_Pages_YHArrangementPage%2f_0dcfd798-f9b3-41e3-8e69-a08ba0615c01_sv&_t_hit.pos=4&bpid=63963',
     },
-    studyAt: 'Distans',
-    eduTextTitle: 'Frontendutvecklare Distans',
+    studyAt: 'Göteborg',
+    eduTextTitle: 'Specialist inom nätverkssäkerhet',
     eduText:
-      'En frontendutvecklare skapar det som användaren ser på webben. Med hjälp av HTML, CSS & JavaScript förverkligar en frontendare den design och funktionalitet som webbsidan ska ha.',
-    intLink: 'frontendutvecklare-distans',
+      'IT-säkerhet har sett till vad som händer i omvärlden snabbt seglat upp till att bli en av de absolut viktigaste kompetenserna på arbetsmarknaden. Inte bara inom IT-branschen, utan generellt, då i princip alla organisationer idag är beroende av IT på något sätt. Utbildningen fokuserar på nätverkssidan av säkerhet, med särskilt fokus på att designa och bygga säkra datanätverk.',
+    intLink: 'Specialist-inom-nätverkssäkerhet-Göteborg',
   });
 
-  // JAVASCRIPT DISTANCE POINTS/INFO
-  const javascript_distans: string[] = loadResults.map(
-    (result: ResultsType, index: number) => {
-      return result.points[2];
-    }
-  );
+  //code is left in here in case anyone would want to add it back in the future.
 
-  const javascript_distans_filter: string[] = javascript_distans.filter(
-    (obj: string | undefined) => obj !== undefined
-  );
-  const javascript_distans_points: string = javascript_distans_filter.reduce(
-    (a: string, b: string) => `${Number(a) + Number(b)}`
-  );
+  // // FRONTEND DISTANCE POINTS/INFO
+  // const frontend_distans: string[] = loadResults.map(
+  //   (result: ResultsType, index: number) => {
+  //     return result.points[1];
+  //   }
+  // );
 
-  courseScore.push({
-    course: 'JavaScriptutvecklare',
-    points: javascript_distans_points,
-    links: {
-      course: 'JS distans',
-      link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/javascriptutvecklare-distans/',
-    },
-    studyAt: 'Distans',
-    eduTextTitle: 'JavaScriptutvecklare Distans',
-    eduText:
-      'Det moderna och mångsidiga programmeringsspråket JavaScript står i fokus för denna utbildning. En JavaScriptutvecklare arbetar med både det som användaren ser (frontend) och det som ligger bakom, på serversidan (backend) och blir på det sättet mycket bred i sin kompetens.',
-    intLink: 'javascriptutvecklare-distans',
-  });
+  // const frontend_distans_filter: string[] = frontend_distans.filter(
+  //   (obj: string | undefined) => obj !== undefined
+  // );
+  // const frontend_distans_points: string = frontend_distans_filter.reduce(
+  //   (a: string, b: string) => `${Number(a) + Number(b)}`
+  // );
+
+  // courseScore.push({
+  //   course: 'Frontendutvecklare',
+  //   points: frontend_distans_points,
+  //   links: {
+  //     course: 'FE Distans',
+  //     link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/frontendutvecklare-distans/',
+  //   },
+  //   studyAt: 'Distans',
+  //   eduTextTitle: 'Frontendutvecklare Distans',
+  //   eduText:
+  //     'En frontendutvecklare skapar det som användaren ser på webben. Med hjälp av HTML, CSS & JavaScript förverkligar en frontendare den design och funktionalitet som webbsidan ska ha.',
+  //   intLink: 'frontendutvecklare-distans',
+  // });
+
+  // // JAVASCRIPT DISTANCE POINTS/INFO
+  // const javascript_distans: string[] = loadResults.map(
+  //   (result: ResultsType, index: number) => {
+  //     return result.points[2];
+  //   }
+  // );
+
+  // const javascript_distans_filter: string[] = javascript_distans.filter(
+  //   (obj: string | undefined) => obj !== undefined
+  // );
+  // const javascript_distans_points: string = javascript_distans_filter.reduce(
+  //   (a: string, b: string) => `${Number(a) + Number(b)}`
+  // );
+
+  // courseScore.push({
+  //   course: 'JavaScriptutvecklare',
+  //   points: javascript_distans_points,
+  //   links: {
+  //     course: 'JS distans',
+  //     link: 'https://www.folkuniversitetet.se/vara-skolor/yh-utbildningar/alla-yh-utbildningar/it-data/javascriptutvecklare-distans/',
+  //   },
+  //   studyAt: 'Distans',
+  //   eduTextTitle: 'JavaScriptutvecklare Distans',
+  //   eduText:
+  //     'Det moderna och mångsidiga programmeringsspråket JavaScript står i fokus för denna utbildning. En JavaScriptutvecklare arbetar med både det som användaren ser (frontend) och det som ligger bakom, på serversidan (backend) och blir på det sättet mycket bred i sin kompetens.',
+  //   intLink: 'javascriptutvecklare-distans',
+  // });
 
   // MOBIL APP POINTS/INFO
   const mobil_app: string[] = loadResults.map(
@@ -179,6 +209,9 @@ const ResultsComponent = ({ setQuestionId }: Props) => {
     setQuestionId(0);
     navigate('/fragor/onboarding');
   };
+
+  console.log(courseScoreSorted);
+  
 
   return (
     <div className='results_wrapper'>
